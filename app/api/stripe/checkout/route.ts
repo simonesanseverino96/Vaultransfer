@@ -56,8 +56,8 @@ export async function POST(req: NextRequest) {
     })
 
     return NextResponse.json({ url: session.url })
-  } catch (err) {
-    console.error('Stripe checkout error:', err)
-    return NextResponse.json({ error: 'Errore nel checkout' }, { status: 500 })
-  }
+  } catch (err: any) {
+  console.error('Stripe checkout error:', err)
+  return NextResponse.json({ error: err.message || 'Errore nel checkout' }, { status: 500 })
+}
 }
