@@ -13,7 +13,7 @@ export default function Footer() {
         <p className="text-xs text-muted font-body text-center">
           File eliminati automaticamente alla scadenza · Nessun tracciamento · Server in Europa
         </p>
-        <p className="text-xs text-muted font-body">© 2024 VaultTransfer</p>
+        <p className="text-xs text-muted font-body">© 2026 VaultTransfer</p>
       </div>
     </footer>
   )
