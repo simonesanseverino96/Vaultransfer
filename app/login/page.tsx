@@ -20,7 +20,7 @@ export default function LoginPage() {
     if (hash && hash.includes('access_token')) {
       supabase.auth.getSession().then(({ data }) => {
         if (data.session) {
-          window.location.href = '/dashboard'
+          window.location.replace('/dashboard')
         }
       })
     }
@@ -28,7 +28,7 @@ export default function LoginPage() {
     // Ascolta cambio stato auth
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
       if (event === 'SIGNED_IN' && session) {
-        window.location.href = '/dashboard'
+        window.location.replace('/dashboard')
       }
     })
 
