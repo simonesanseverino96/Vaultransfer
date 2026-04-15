@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import './globals.css'
 
 const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://vaultransfer.it'
@@ -32,22 +33,16 @@ export const metadata: Metadata = {
       { url: '/icon-192x192.png', sizes: '192x192', type: 'image/png' },
       { url: '/icon-512x512.png', sizes: '512x512', type: 'image/png' },
     ],
-    apple: [
-      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
-    ],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-image-preview': 'large',
-    },
+    googleBot: { index: true, follow: true, 'max-image-preview': 'large' },
   },
   openGraph: {
     title: 'VaultTransfer — Invia file in modo sicuro e gratuito',
-    description: 'Trasferisci file fino a 2GB gratis. Link cifrati, scadenza automatica, protezione password. Nessun account richiesto.',
+    description: 'Trasferisci file fino a 2GB gratis. Link cifrati, scadenza automatica, protezione password.',
     type: 'website',
     url: baseUrl,
     siteName: 'VaultTransfer',
@@ -58,15 +53,24 @@ export const metadata: Metadata = {
     title: 'VaultTransfer — Invia file in modo sicuro e gratuito',
     description: 'Trasferisci file fino a 2GB gratis. Link cifrati, scadenza automatica, protezione password.',
   },
-  alternates: {
-    canonical: baseUrl,
-  },
+  alternates: { canonical: baseUrl },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const adsenseId = process.env.NEXT_PUBLIC_ADSENSE_ID
   return (
     <html lang="it">
-      <body>{children}</body>
+      <body>
+        {adsenseId && (
+          <Script
+            async
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseId}`}
+            crossOrigin="anonymous"
+            strategy="afterInteractive"
+          />
+        )}
+        {children}
+      </body>
     </html>
   )
 }
