@@ -18,8 +18,8 @@ export const PLANS: Record<PlanType, PlanConfig> = {
   free: {
     name: 'Free',
     price: 0,
-    maxFileSizeMB: 2048,        // 2GB
-    maxTotalSizeMB: 2048,       // 2GB totali per trasferimento
+    maxFileSizeMB: 5120,        // 5GB
+    maxTotalSizeMB: 5120,       // 5GB totali per trasferimento
     maxDaysExpiry: 7,
     maxDownloads: 5,
     hasAds: true,
