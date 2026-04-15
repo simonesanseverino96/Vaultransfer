@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { createBrowserClient } from '@supabase/ssr'
 
 const plans = [
   {
@@ -69,21 +70,41 @@ const plans = [
 export default function PricingPage() {
   const router = useRouter()
   const [loading, setLoading] = useState<string | null>(null)
+  const [error, setError] = useState<string | null>(null)
+
+  const supabase = createBrowserClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  )
 
   const handleCta = async (planId: string) => {
     if (planId === 'free') { router.push('/'); return }
     setLoading(planId)
+    setError(null)
+
     try {
+      const { data: { session } } = await supabase.auth.getSession()
+      if (!session) {
+        router.push('/login?redirect=/prezzi')
+        return
+      }
+
       const res = await fetch('/api/stripe/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ plan: planId }),
+        body: JSON.stringify({ plan: planId, accessToken: session.access_token }),
       })
       const data = await res.json()
-      if (res.status === 401) { router.push('/login?redirect=/prezzi'); return }
+
+      if (!res.ok) {
+        if (data.requiresLogin) { router.push('/login?redirect=/prezzi'); return }
+        setError(data.error || 'Errore nel checkout')
+        return
+      }
+
       if (data.url) window.location.href = data.url
     } catch {
-      alert('Errore nel checkout, riprova.')
+      setError('Errore di connessione, riprova.')
     } finally {
       setLoading(null)
     }
@@ -91,13 +112,11 @@ export default function PricingPage() {
 
   return (
     <main className="min-h-screen relative overflow-hidden">
-      {/* Background orbs */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
         <div className="orb absolute w-[600px] h-[600px] rounded-full opacity-[0.05]"
           style={{ background: 'radial-gradient(circle, #00e5a0, transparent)', top: '-200px', right: '-100px' }} />
       </div>
 
-      {/* Header */}
       <header className="relative z-10 border-b border-white/5">
         <div className="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between">
           <a href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
@@ -115,7 +134,6 @@ export default function PricingPage() {
       </header>
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 pt-16 pb-20">
-        {/* Hero */}
         <div className="text-center mb-14">
           <p className="text-xs text-muted uppercase tracking-widest font-body mb-3">Prezzi trasparenti</p>
           <h1 className="font-display text-4xl md:text-5xl font-800 text-paper mb-4">
@@ -126,7 +144,12 @@ export default function PricingPage() {
           </p>
         </div>
 
-        {/* Plans grid */}
+        {error && (
+          <div className="max-w-md mx-auto mb-8 p-4 bg-red-500/10 border border-red-500/20 rounded-xl text-sm text-red-400 font-body text-center">
+            {error}
+          </div>
+        )}
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {plans.map((plan) => (
             <div
@@ -141,7 +164,6 @@ export default function PricingPage() {
                 </div>
               )}
 
-              {/* Plan header */}
               <div className="mb-6">
                 <p className="text-xs text-muted uppercase tracking-widest font-body mb-2">{plan.name}</p>
                 <div className="flex items-end gap-1 mb-2">
@@ -153,7 +175,6 @@ export default function PricingPage() {
                 <p className="text-sm text-muted font-body">{plan.description}</p>
               </div>
 
-              {/* Features */}
               <ul className="space-y-3 flex-1 mb-8">
                 {plan.features.map((f, i) => (
                   <li key={i} className="flex items-center gap-3 text-sm font-body">
@@ -167,7 +188,6 @@ export default function PricingPage() {
                 ))}
               </ul>
 
-              {/* CTA */}
               <button
                 onClick={() => handleCta(plan.ctaAction)}
                 disabled={loading === plan.id}
@@ -193,7 +213,6 @@ export default function PricingPage() {
           ))}
         </div>
 
-        {/* FAQ */}
         <div className="mt-16 max-w-2xl mx-auto">
           <h2 className="font-display text-2xl font-700 text-paper text-center mb-8">Domande frequenti</h2>
           <div className="space-y-4">
