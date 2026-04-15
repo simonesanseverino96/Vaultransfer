@@ -1,14 +1,7 @@
 'use client'
 
-import { useState } from 'react'
-import { createClient } from '@supabase/supabase-js'
-
+import { useState, useEffect } from 'react'
 import { createBrowserClient } from '@supabase/ssr'
-
-const supabase = createBrowserClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-)
 
 export default function LoginPage() {
   const [email, setEmail] = useState('')
@@ -16,17 +9,43 @@ export default function LoginPage() {
   const [sent, setSent] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
+  const supabase = createBrowserClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  )
+
+  useEffect(() => {
+    // Gestisce il token nell'hash URL (flusso implicito)
+    const hash = window.location.hash
+    if (hash && hash.includes('access_token')) {
+      supabase.auth.getSession().then(({ data }) => {
+        if (data.session) {
+          window.location.href = '/dashboard'
+        }
+      })
+    }
+
+    // Ascolta cambio stato auth
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      if (event === 'SIGNED_IN' && session) {
+        window.location.href = '/dashboard'
+      }
+    })
+
+    return () => subscription.unsubscribe()
+  }, [])
+
   const handleLogin = async () => {
     if (!email) return
     setLoading(true)
     setError(null)
     const { error } = await supabase.auth.signInWithOtp({
-    email,
-    options: {
-      emailRedirectTo: `${window.location.origin}/auth/callback`,
-      shouldCreateUser: true,
-  },
-})
+      email,
+      options: {
+        emailRedirectTo: `${window.location.origin}/login`,
+        shouldCreateUser: true,
+      },
+    })
     if (error) {
       setError(error.message)
     } else {
@@ -38,7 +57,6 @@ export default function LoginPage() {
   return (
     <main className="min-h-screen flex items-center justify-center px-6">
       <div className="w-full max-w-sm">
-        {/* Logo */}
         <a href="/" className="flex items-center gap-3 justify-center mb-10 hover:opacity-80 transition-opacity">
           <div className="w-8 h-8 rounded-lg bg-accent flex items-center justify-center">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -60,7 +78,7 @@ export default function LoginPage() {
               <h2 className="font-display text-xl font-700 text-paper mb-2">Controlla la tua email!</h2>
               <p className="text-sm text-muted font-body">
                 Abbiamo inviato un link magico a <span className="text-paper">{email}</span>.<br/>
-                Clicca il link per accedere.
+                Clicca il link per accedere — verrai reindirizzato automaticamente.
               </p>
             </div>
           ) : (
@@ -69,7 +87,6 @@ export default function LoginPage() {
               <p className="text-sm text-muted font-body mb-6">
                 Ti inviamo un link magico via email — nessuna password da ricordare.
               </p>
-
               <label className="text-xs text-muted uppercase tracking-widest font-body mb-2 block">Email</label>
               <input
                 type="email"
@@ -80,11 +97,7 @@ export default function LoginPage() {
                 autoFocus
                 className="w-full bg-surface-2 border border-white/5 rounded-xl px-4 py-3 text-paper placeholder-muted font-body focus:outline-none focus:border-accent/50 transition-colors mb-4"
               />
-
-              {error && (
-                <p className="text-red-400 text-xs mb-4 font-body">{error}</p>
-              )}
-
+              {error && <p className="text-red-400 text-xs mb-4 font-body">{error}</p>}
               <button
                 onClick={handleLogin}
                 disabled={loading || !email}
@@ -92,14 +105,12 @@ export default function LoginPage() {
               >
                 {loading ? 'Invio in corso...' : 'Invia link magico →'}
               </button>
-
               <p className="text-center text-xs text-muted font-body mt-4">
                 Nessun account? Verrà creato automaticamente.
               </p>
             </>
           )}
         </div>
-
         <p className="text-center text-xs text-muted font-body mt-6">
           <a href="/" className="hover:text-paper transition-colors">← Torna alla home</a>
         </p>
