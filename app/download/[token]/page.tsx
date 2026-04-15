@@ -2,8 +2,8 @@ import { Metadata } from 'next'
 import DownloadClient from '@/components/DownloadClient'
 
 export const metadata: Metadata = {
-  title: 'Scarica i tuoi file — FileDrop',
-  description: 'Scarica i file condivisi in modo sicuro con FileDrop.',
+  title: 'Scarica i tuoi file — VaultTransfer',
+  description: 'Scarica i file condivisi in modo sicuro con VaultTransfer.',
 }
 
 export default async function DownloadPage({ params }: { params: Promise<{ token: string }> }) {
@@ -27,7 +27,7 @@ export default async function DownloadPage({ params }: { params: Promise<{ token
                 <path d="M8 2v8M5 7l3 3 3-3M3 12h10" stroke="#0a0a0f" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </div>
-            <span className="font-display text-xl font-700 tracking-tight text-paper">FileDrop</span>
+            <span className="font-display text-xl font-700 tracking-tight text-paper">Vaultransfer</span>
           </a>
           <div className="flex items-center gap-2 text-xs text-muted font-body">
             <span className="w-2 h-2 rounded-full bg-accent inline-block animate-pulse" />
