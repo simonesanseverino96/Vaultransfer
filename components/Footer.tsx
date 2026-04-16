@@ -10,10 +10,20 @@ export default function Footer() {
           </div>
           <span className="font-display text-sm font-600 text-paper">VaultTransfer</span>
         </div>
+
         <p className="text-xs text-muted font-body text-center">
           File eliminati automaticamente alla scadenza · Nessun tracciamento · Server in Europa
         </p>
-        <p className="text-xs text-muted font-body">© 2026 VaultTransfer</p>
+
+        <div className="flex items-center gap-4">
+          <a href="/privacy" className="text-xs text-muted hover:text-paper font-body transition-colors">
+            Privacy Policy
+          </a>
+          <a href="/terms" className="text-xs text-muted hover:text-paper font-body transition-colors">
+            Termini di Servizio
+          </a>
+          <p className="text-xs text-muted font-body">© 2026 VaultTransfer</p>
+        </div>
       </div>
     </footer>
   )
