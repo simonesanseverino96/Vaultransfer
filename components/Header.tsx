@@ -51,7 +51,6 @@ export default function Header() {
   return (
     <header className="relative z-10 border-b border-white/5">
       <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-        {/* Logo */}
         <a href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
           <div className="w-8 h-8 rounded-lg bg-accent flex items-center justify-center">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -61,7 +60,6 @@ export default function Header() {
           <span className="font-display text-xl font-700 tracking-tight text-paper">VaultTransfer</span>
         </a>
 
-        {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-6">
           <a href="/prezzi" className="text-sm text-muted hover:text-paper font-body transition-colors">Prezzi</a>
 
@@ -76,54 +74,62 @@ export default function Header() {
               </span>
 
               <Menu as="div" className="relative">
-                <MenuButton className="flex items-center gap-2 px-3 py-1.5 bg-surface border border-white/10 rounded-xl text-sm font-body text-paper hover:border-accent/30 transition-colors">
-                  <div className="w-5 h-5 rounded-full bg-accent flex items-center justify-center text-ink text-xs font-700">
-                    {user.email[0].toUpperCase()}
-                  </div>
-                  <span className="max-w-[120px] truncate text-xs">{user.email}</span>
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <polyline points="6 9 12 15 18 9"/>
-                  </svg>
-                </MenuButton>
-
-                <MenuItems className="absolute right-0 top-full mt-2 w-48 bg-surface border border-white/10 rounded-xl shadow-xl overflow-hidden z-50 outline-none">
-                  <MenuItem>
-                    <a href="/dashboard" className="flex items-center gap-3 px-4 py-3 text-sm font-body text-paper hover:bg-white/5 transition-colors w-full">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
-                        <rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+                {({ open }) => (
+                  <>
+                    <MenuButton className="flex items-center gap-2 px-3 py-1.5 bg-surface border border-white/10 rounded-xl text-sm font-body text-paper hover:border-accent/30 transition-colors">
+                      <div className="w-5 h-5 rounded-full bg-accent flex items-center justify-center text-ink text-xs font-700">
+                        {user.email[0].toUpperCase()}
+                      </div>
+                      <span className="max-w-[120px] truncate text-xs">{user.email}</span>
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+                        style={{ transform: open ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}>
+                        <polyline points="6 9 12 15 18 9"/>
                       </svg>
-                      Dashboard
-                    </a>
-                  </MenuItem>
+                    </MenuButton>
 
-                  {user.plan === 'free' && (
-                    <MenuItem>
-                      <a href="/prezzi" className="flex items-center gap-3 px-4 py-3 text-sm font-body text-accent hover:bg-accent/5 transition-colors w-full">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-                        </svg>
-                        Passa a Pro
-                      </a>
-                    </MenuItem>
-                  )}
-
-                  <div className="border-t border-white/5" />
-
-                  <MenuItem>
-                    <button
-                      onClick={handleLogout}
-                      className="flex items-center gap-3 px-4 py-3 text-sm font-body text-muted hover:text-paper hover:bg-white/5 transition-colors w-full text-left"
+                    <MenuItems
+                      anchor="bottom end"
+                      className="w-48 bg-surface border border-white/10 rounded-xl shadow-xl overflow-hidden z-50 outline-none mt-2"
                     >
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
-                        <polyline points="16 17 21 12 16 7"/>
-                        <line x1="21" y1="12" x2="9" y2="12"/>
-                      </svg>
-                      Esci
-                    </button>
-                  </MenuItem>
-                </MenuItems>
+                      <MenuItem>
+                        <a href="/dashboard" className="flex items-center gap-3 px-4 py-3 text-sm font-body text-paper data-[focus]:bg-white/5 transition-colors w-full">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+                            <rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+                          </svg>
+                          Dashboard
+                        </a>
+                      </MenuItem>
+
+                      {user.plan === 'free' && (
+                        <MenuItem>
+                          <a href="/prezzi" className="flex items-center gap-3 px-4 py-3 text-sm font-body text-accent data-[focus]:bg-accent/5 transition-colors w-full">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                            </svg>
+                            Passa a Pro
+                          </a>
+                        </MenuItem>
+                      )}
+
+                      <div className="border-t border-white/5" />
+
+                      <MenuItem>
+                        <button
+                          onClick={handleLogout}
+                          className="flex items-center gap-3 px-4 py-3 text-sm font-body text-muted data-[focus]:text-paper data-[focus]:bg-white/5 transition-colors w-full text-left"
+                        >
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                            <polyline points="16 17 21 12 16 7"/>
+                            <line x1="21" y1="12" x2="9" y2="12"/>
+                          </svg>
+                          Esci
+                        </button>
+                      </MenuItem>
+                    </MenuItems>
+                  </>
+                )}
               </Menu>
             </div>
           ) : (
@@ -136,7 +142,6 @@ export default function Header() {
           )}
         </nav>
 
-        {/* Mobile hamburger */}
         <button className="md:hidden text-muted hover:text-paper" onClick={() => setMobileOpen(v => !v)}>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             {mobileOpen
@@ -147,7 +152,6 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Mobile menu */}
       {mobileOpen && (
         <div className="md:hidden border-t border-white/5 bg-surface px-6 py-4 space-y-3">
           <a href="/prezzi" className="block text-sm text-muted hover:text-paper font-body py-2">Prezzi</a>
