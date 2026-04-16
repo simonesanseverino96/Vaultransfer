@@ -2,13 +2,13 @@ import { Metadata } from 'next'
 import DownloadClient from '@/components/DownloadClient'
 
 export const metadata: Metadata = {
-  title: 'Scarica i tuoi file — VaultTransfer',
-  description: 'Scarica i file condivisi in modo sicuro con VaultTransfer.',
+  title: 'Scarica i tuoi file — FileDrop',
+  description: 'Scarica i file condivisi in modo sicuro con FileDrop.',
 }
 
 export default async function DownloadPage({ params }: { params: Promise<{ token: string }> }) {
   const { token } = await params
-    return (
+  return (
     <main className="min-h-screen relative overflow-hidden">
       {/* Background orbs */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
@@ -27,7 +27,7 @@ export default async function DownloadPage({ params }: { params: Promise<{ token
                 <path d="M8 2v8M5 7l3 3 3-3M3 12h10" stroke="#0a0a0f" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </div>
-            <span className="font-display text-xl font-700 tracking-tight text-paper">Vaultransfer</span>
+            <span className="font-display text-xl font-700 tracking-tight text-paper">FileDrop</span>
           </a>
           <div className="flex items-center gap-2 text-xs text-muted font-body">
             <span className="w-2 h-2 rounded-full bg-accent inline-block animate-pulse" />
@@ -37,7 +37,7 @@ export default async function DownloadPage({ params }: { params: Promise<{ token
       </header>
 
       <div className="relative z-10 max-w-lg mx-auto px-6 pt-16 pb-20">
-        <DownloadClient token={ token } />
+      <DownloadClient token={token} />
       </div>
     </main>
   )

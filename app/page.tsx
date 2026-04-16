@@ -1,12 +1,10 @@
 import UploadSection from '@/components/UploadSection'
 import Features from '@/components/Features'
 import Footer from '@/components/Footer'
-import Header from '@/components/Header'
 
 export default function Home() {
   return (
     <main className="min-h-screen relative overflow-hidden">
-      {/* Background orbs */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
         <div className="orb absolute w-[600px] h-[600px] rounded-full opacity-[0.06]"
           style={{ background: 'radial-gradient(circle, #00e5a0, transparent)', top: '-200px', right: '-100px' }} />
@@ -16,9 +14,6 @@ export default function Home() {
           style={{ background: 'radial-gradient(circle, #00b37e, transparent)', top: '40%', left: '40%' }} />
       </div>
 
-      <Header />
-
-      {/* Hero */}
       <section className="relative z-10 max-w-5xl mx-auto px-6 pt-20 pb-12 text-center">
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent/20 bg-accent/5 text-accent text-xs mb-8 font-body">
           <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">

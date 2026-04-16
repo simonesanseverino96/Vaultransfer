@@ -105,22 +105,6 @@ export default function DashboardPage() {
 
   return (
     <main className="min-h-screen">
-      <header className="border-b border-white/5">
-        <div className="max-w-4xl mx-auto px-6 py-5 flex items-center justify-between">
-          <a href="/" className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-accent flex items-center justify-center">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path d="M8 2v8M5 7l3 3 3-3M3 12h10" stroke="#0a0a0f" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </div>
-            <span className="font-display text-xl font-700 text-paper">VaultTransfer</span>
-          </a>
-          <button onClick={handleLogout} className="text-sm text-muted hover:text-paper font-body transition-colors">
-            Esci
-          </button>
-        </div>
-      </header>
-
       <div className="max-w-4xl mx-auto px-6 py-10 space-y-8">
         {/* Piano attuale */}
         <div className="bg-surface border border-white/5 rounded-2xl p-6">

@@ -20,7 +20,7 @@ export default function LoginPage() {
     if (hash && hash.includes('access_token')) {
       supabase.auth.getSession().then(({ data }) => {
         if (data.session) {
-          window.location.replace('/dashboard')
+          window.location.href = '/dashboard'
         }
       })
     }
@@ -28,7 +28,7 @@ export default function LoginPage() {
     // Ascolta cambio stato auth
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
       if (event === 'SIGNED_IN' && session) {
-        window.location.replace('/dashboard')
+        window.location.href = '/dashboard'
       }
     })
 
@@ -42,7 +42,7 @@ export default function LoginPage() {
     const { error } = await supabase.auth.signInWithOtp({
       email,
       options: {
-        emailRedirectTo: `${process.env.NEXT_PUBLIC_APP_URL}/login`,
+        emailRedirectTo: `${window.location.origin}/login`,
         shouldCreateUser: true,
       },
     })
@@ -57,16 +57,7 @@ export default function LoginPage() {
   return (
     <main className="min-h-screen flex items-center justify-center px-6">
       <div className="w-full max-w-sm">
-        <a href="/" className="flex items-center gap-3 justify-center mb-10 hover:opacity-80 transition-opacity">
-          <div className="w-8 h-8 rounded-lg bg-accent flex items-center justify-center">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M8 2v8M5 7l3 3 3-3M3 12h10" stroke="#0a0a0f" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </div>
-          <span className="font-display text-xl font-700 tracking-tight text-paper">VaultTransfer</span>
-        </a>
-
-        <div className="bg-surface border border-white/5 rounded-2xl p-8">
+<div className="bg-surface border border-white/5 rounded-2xl p-8">
           {sent ? (
             <div className="text-center">
               <div className="w-14 h-14 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center mx-auto mb-5">

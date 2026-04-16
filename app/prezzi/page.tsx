@@ -67,15 +67,15 @@ const plans = [
   },
 ]
 
-const supabase = createBrowserClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-)
-
 export default function PricingPage() {
   const router = useRouter()
   const [loading, setLoading] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
+
+  const supabase = createBrowserClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  )
 
   const handleCta = async (planId: string) => {
     if (planId === 'free') { router.push('/'); return }
@@ -116,22 +116,6 @@ export default function PricingPage() {
         <div className="orb absolute w-[600px] h-[600px] rounded-full opacity-[0.05]"
           style={{ background: 'radial-gradient(circle, #00e5a0, transparent)', top: '-200px', right: '-100px' }} />
       </div>
-
-      <header className="relative z-10 border-b border-white/5">
-        <div className="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between">
-          <a href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-            <div className="w-8 h-8 rounded-lg bg-accent flex items-center justify-center">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path d="M8 2v8M5 7l3 3 3-3M3 12h10" stroke="#0a0a0f" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </div>
-            <span className="font-display text-xl font-700 tracking-tight text-paper">VaultTransfer</span>
-          </a>
-          <a href="/login" className="text-sm text-muted hover:text-paper font-body transition-colors">
-            Accedi →
-          </a>
-        </div>
-      </header>
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 pt-16 pb-20">
         <div className="text-center mb-14">
