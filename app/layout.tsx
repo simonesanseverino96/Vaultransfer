@@ -55,6 +55,10 @@ export const metadata: Metadata = {
     description: 'Trasferisci file fino a 5GB gratis. Link cifrati, scadenza automatica, protezione password.',
   },
   alternates: { canonical: baseUrl },
+
+  verification: {
+  google: 'ca-pub-8077677731284462',
+},
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
