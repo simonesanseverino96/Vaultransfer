@@ -104,21 +104,23 @@ export default function UploadSection() {
 
     try {
       const transferId = uuidv4()
-      const uploadedFiles = []
 
-      for (const { file, id } of files) {
-        const fileId = uuidv4()
-        const storagePath = `transfers/${transferId}/${fileId}_${file.name}`
+      // Caricamento parallelo di tutti i file contemporaneamente
+      const uploadedFiles = await Promise.all(
+        files.map(async ({ file, id }) => {
+          const fileId = uuidv4()
+          const storagePath = `transfers/${transferId}/${fileId}_${file.name}`
 
-        setFiles(prev => prev.map(f => f.id === id ? { ...f, status: 'uploading' } : f))
+          setFiles(prev => prev.map(f => f.id === id ? { ...f, status: 'uploading' } : f))
 
-        await uploadFileWithProgress(file, storagePath, id)
+          await uploadFileWithProgress(file, storagePath, id)
 
-        uploadedFiles.push({
-          id: fileId, filename: file.name, size: file.size,
-          mimeType: file.type || 'application/octet-stream', storagePath,
+          return {
+            id: fileId, filename: file.name, size: file.size,
+            mimeType: file.type || 'application/octet-stream', storagePath,
+          }
         })
-      }
+      )
 
       const res = await fetch('/api/upload', {
         method: 'POST',
@@ -166,7 +168,7 @@ export default function UploadSection() {
               {isDragActive ? 'Rilascia i file qui' : 'Trascina i file qui'}
             </p>
             <p className="text-muted text-sm font-body">
-              oppure <span>sfoglia</span> dal tuo dispositivo · max 5GB · 20 file
+              oppure <span className="text-accent underline underline-offset-2">sfoglia</span> dal tuo dispositivo · max 2GB · 20 file
             </p>
           </div>
         </div>

@@ -19,7 +19,7 @@ export default function Home() {
           <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
             <path d="M6 1l1.12 2.27L10 3.77l-2 1.95.47 2.75L6 7.27l-2.47 1.2.47-2.75-2-1.95 2.88-.5L6 1z"/>
           </svg>
-          Nessun account richiesto · Gratis fino a 5GB
+          Nessun account richiesto · Gratis fino a 2GB
         </div>
 
         <h1 className="font-display text-5xl md:text-7xl font-800 leading-none tracking-tight mb-6">

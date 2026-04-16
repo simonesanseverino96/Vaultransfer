@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     default: 'VaultTransfer — Invia file in modo sicuro e gratuito',
     template: '%s | VaultTransfer',
   },
-  description: 'Trasferisci file fino a 5GB gratis. Link cifrati con scadenza automatica, protezione password e limite di download. Nessun account richiesto. GDPR compliant.',
+  description: 'Trasferisci file fino a 2GB gratis. Link cifrati con scadenza automatica, protezione password e limite di download. Nessun account richiesto. GDPR compliant.',
   keywords: [
     'trasferimento file sicuro',
     'inviare file gratis',
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'VaultTransfer — Invia file in modo sicuro e gratuito',
-    description: 'Trasferisci file fino a 5GB gratis. Link cifrati, scadenza automatica, protezione password.',
+    description: 'Trasferisci file fino a 2GB gratis. Link cifrati, scadenza automatica, protezione password.',
     type: 'website',
     url: baseUrl,
     siteName: 'VaultTransfer',
@@ -52,13 +52,9 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'VaultTransfer — Invia file in modo sicuro e gratuito',
-    description: 'Trasferisci file fino a 5GB gratis. Link cifrati, scadenza automatica, protezione password.',
+    description: 'Trasferisci file fino a 2GB gratis. Link cifrati, scadenza automatica, protezione password.',
   },
   alternates: { canonical: baseUrl },
-
-  verification: {
-  google: 'ca-pub-8077677731284462',
-},
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
