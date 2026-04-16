@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
-import Header from '@/components/Header'
+import HeaderWrapper from '@/components/HeaderWrapper'
 import './globals.css'
 
 const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://vaultransfer.com'
@@ -70,7 +70,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             strategy="afterInteractive"
           />
         )}
-        <Header />
+        <HeaderWrapper />
         {children}
       </body>
     </html>
