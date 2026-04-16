@@ -50,12 +50,15 @@ export default function ApiKeysSection() {
   }
 
   const revokeKey = async (id: string) => {
-    await fetch('/api/keys', {
-      method: 'DELETE',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ id }),
-    })
-    fetchKeys()
+    if (!confirm('Sei sicuro di voler revocare questa API key?')) return
+    try {
+      const res = await fetch('/api/keys', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id }),
+      })
+      if (res.ok) fetchKeys()
+    } catch {}
   }
 
   const copyKey = async () => {
