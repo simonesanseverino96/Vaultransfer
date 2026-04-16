@@ -1,6 +1,7 @@
 'use client'
 
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState } from 'react'
+import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/react'
 import { createBrowserClient } from '@supabase/ssr'
 
 interface UserInfo {
@@ -11,9 +12,8 @@ interface UserInfo {
 
 export default function Header() {
   const [user, setUser] = useState<UserInfo | null>(null)
-  const [menuOpen, setMenuOpen] = useState(false)
   const [ready, setReady] = useState(false)
-  const menuRef = useRef<HTMLDivElement>(null)
+  const [mobileOpen, setMobileOpen] = useState(false)
 
   const supabase = createBrowserClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -38,33 +38,20 @@ export default function Header() {
 
   useEffect(() => {
     fetchUser()
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(() => {
-      fetchUser()
-    })
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(() => fetchUser())
     return () => subscription.unsubscribe()
-  }, [])
-
-  // Chiudi menu cliccando fuori
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
-        setMenuOpen(false)
-      }
-    }
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
 
   const handleLogout = async () => {
     await supabase.auth.signOut()
     setUser(null)
-    setMenuOpen(false)
     window.location.href = '/'
   }
 
   return (
     <header className="relative z-10 border-b border-white/5">
       <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+        {/* Logo */}
         <a href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
           <div className="w-8 h-8 rounded-lg bg-accent flex items-center justify-center">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -74,6 +61,7 @@ export default function Header() {
           <span className="font-display text-xl font-700 tracking-tight text-paper">VaultTransfer</span>
         </a>
 
+        {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-6">
           <a href="/prezzi" className="text-sm text-muted hover:text-paper font-body transition-colors">Prezzi</a>
 
@@ -87,53 +75,45 @@ export default function Header() {
                 {user.plan === 'free' ? 'Free' : user.plan === 'pro' ? '⭐ Pro' : '🏢 Business'}
               </span>
 
-              <div ref={menuRef} style={{ position: 'relative' }}>
-                <button
-                  onClick={() => setMenuOpen(v => !v)}
-                  style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '6px 12px', background: '#12121a', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px', cursor: 'pointer', color: '#f4f1eb' }}
-                >
-                  <div style={{ width: '20px', height: '20px', borderRadius: '50%', background: '#00e5a0', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#0a0a0f', fontSize: '11px', fontWeight: 700 }}>
+              <Menu as="div" className="relative">
+                <MenuButton className="flex items-center gap-2 px-3 py-1.5 bg-surface border border-white/10 rounded-xl text-sm font-body text-paper hover:border-accent/30 transition-colors">
+                  <div className="w-5 h-5 rounded-full bg-accent flex items-center justify-center text-ink text-xs font-700">
                     {user.email[0].toUpperCase()}
                   </div>
-                  <span style={{ fontSize: '12px', maxWidth: '120px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{user.email}</span>
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ transform: menuOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}>
+                  <span className="max-w-[120px] truncate text-xs">{user.email}</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <polyline points="6 9 12 15 18 9"/>
                   </svg>
-                </button>
+                </MenuButton>
 
-                {menuOpen && (
-                  <div style={{ position: 'absolute', right: 0, top: 'calc(100% + 8px)', width: '192px', background: '#12121a', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px', overflow: 'hidden', zIndex: 9999, boxShadow: '0 8px 32px rgba(0,0,0,0.4)' }}>
-                    <a
-                      href="/dashboard"
-                      style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '12px 16px', fontSize: '14px', color: '#f4f1eb', textDecoration: 'none' }}
-                      onMouseEnter={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.05)')}
-                      onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
-                    >
+                <MenuItems className="absolute right-0 top-full mt-2 w-48 bg-surface border border-white/10 rounded-xl shadow-xl overflow-hidden z-50 outline-none">
+                  <MenuItem>
+                    <a href="/dashboard" className="flex items-center gap-3 px-4 py-3 text-sm font-body text-paper hover:bg-white/5 transition-colors w-full">
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
                         <rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
                       </svg>
                       Dashboard
                     </a>
-                    {user.plan === 'free' && (
-                      <a
-                        href="/prezzi"
-                        style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '12px 16px', fontSize: '14px', color: '#00e5a0', textDecoration: 'none' }}
-                        onMouseEnter={e => (e.currentTarget.style.background = 'rgba(0,229,160,0.05)')}
-                        onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
-                      >
+                  </MenuItem>
+
+                  {user.plan === 'free' && (
+                    <MenuItem>
+                      <a href="/prezzi" className="flex items-center gap-3 px-4 py-3 text-sm font-body text-accent hover:bg-accent/5 transition-colors w-full">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                           <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
                         </svg>
                         Passa a Pro
                       </a>
-                    )}
-                    <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }} />
+                    </MenuItem>
+                  )}
+
+                  <div className="border-t border-white/5" />
+
+                  <MenuItem>
                     <button
                       onClick={handleLogout}
-                      style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '12px 16px', fontSize: '14px', color: '#6b7280', background: 'none', border: 'none', cursor: 'pointer', width: '100%', textAlign: 'left' }}
-                      onMouseEnter={e => { (e.currentTarget.style.background = 'rgba(255,255,255,0.05)'); (e.currentTarget.style.color = '#f4f1eb') }}
-                      onMouseLeave={e => { (e.currentTarget.style.background = 'transparent'); (e.currentTarget.style.color = '#6b7280') }}
+                      className="flex items-center gap-3 px-4 py-3 text-sm font-body text-muted hover:text-paper hover:bg-white/5 transition-colors w-full text-left"
                     >
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
@@ -142,9 +122,9 @@ export default function Header() {
                       </svg>
                       Esci
                     </button>
-                  </div>
-                )}
-              </div>
+                  </MenuItem>
+                </MenuItems>
+              </Menu>
             </div>
           ) : (
             <div className="flex items-center gap-3">
@@ -156,10 +136,10 @@ export default function Header() {
           )}
         </nav>
 
-        {/* Mobile */}
-        <button className="md:hidden text-muted hover:text-paper" onClick={() => setMenuOpen(v => !v)}>
+        {/* Mobile hamburger */}
+        <button className="md:hidden text-muted hover:text-paper" onClick={() => setMobileOpen(v => !v)}>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            {menuOpen
+            {mobileOpen
               ? <><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></>
               : <><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></>
             }
@@ -167,7 +147,8 @@ export default function Header() {
         </button>
       </div>
 
-      {menuOpen && (
+      {/* Mobile menu */}
+      {mobileOpen && (
         <div className="md:hidden border-t border-white/5 bg-surface px-6 py-4 space-y-3">
           <a href="/prezzi" className="block text-sm text-muted hover:text-paper font-body py-2">Prezzi</a>
           {user ? (
