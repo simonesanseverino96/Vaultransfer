@@ -3,8 +3,19 @@ import bcrypt from 'bcryptjs'
 import { addDays } from 'date-fns'
 import { supabaseAdmin } from '@/lib/supabase'
 import { UploadConfig } from '@/types'
+import { uploadRatelimit } from '@/lib/ratelimit'
 
 export async function POST(req: NextRequest) {
+  const ip = req.headers.get('x-forwarded-for')?.split(',')[0] ?? 'anonymous'
+  const { success, limit, remaining } = await uploadRatelimit.limit(ip)
+
+  if (!success) {
+    return NextResponse.json(
+      { error: 'Troppi upload. Riprova tra qualche minuto.' },
+      { status: 429, headers: { 'X-RateLimit-Limit': limit.toString(), 'X-RateLimit-Remaining': remaining.toString() } }
+    )
+  }
+
   try {
     const { transferId, files, config, totalSize } = await req.json() as {
       transferId: string
