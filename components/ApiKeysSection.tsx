@@ -1,6 +1,12 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { createBrowserClient } from '@supabase/ssr'
+
+const supabase = createBrowserClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+)
 
 interface ApiKey {
   id: string
@@ -52,13 +58,19 @@ export default function ApiKeysSection() {
   const revokeKey = async (id: string) => {
     if (!confirm('Sei sicuro di voler revocare questa API key?')) return
     try {
+      const { data: { session } } = await supabase.auth.getSession()
+      if (!session) return
+
       const res = await fetch('/api/keys', {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ id }),
+        body: JSON.stringify({ id, accessToken: session.access_token }),
       })
       if (res.ok) fetchKeys()
-    } catch {}
+      else alert('Errore durante la revoca. Riprova.')
+    } catch {
+      alert('Errore di connessione.')
+    }
   }
 
   const copyKey = async () => {

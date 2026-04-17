@@ -80,13 +80,22 @@ export async function POST(req: NextRequest) {
 
 // DELETE — revoca API key
 export async function DELETE(req: NextRequest) {
-  const user = await getUser()
-  if (!user) return NextResponse.json({ error: 'Non autenticato' }, { status: 401 })
+  const { id, accessToken } = await req.json()
+  if (!id) return NextResponse.json({ error: 'ID mancante' }, { status: 400 })
 
-  const { id } = await req.json()
   const supabase = supabaseAdmin()
 
-  await supabase.from('api_keys').update({ is_active: false }).eq('id', id).eq('user_id', user.id)
+  // Verifica utente tramite access token passato dal client
+  const { data: { user }, error: authError } = await supabase.auth.getUser(accessToken)
+  if (authError || !user) return NextResponse.json({ error: 'Non autenticato' }, { status: 401 })
+
+  const { error } = await supabase
+    .from('api_keys')
+    .update({ is_active: false })
+    .eq('id', id)
+    .eq('user_id', user.id)
+
+  if (error) return NextResponse.json({ error: 'Errore revoca' }, { status: 500 })
 
   return NextResponse.json({ success: true })
 }
