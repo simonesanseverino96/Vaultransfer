@@ -49,15 +49,12 @@ export default function DashboardPage() {
       .eq('id', user.id)
       .single()
 
-    const { data: transfersData } = await supabase
-      .from('transfers')
-      .select('*')
-      .eq('user_id', user.id)
-      .order('created_at', { ascending: false })
-      .limit(20)
+    // Carica trasferimenti via API server-side (bypassa RLS)
+    const transfersRes = await fetch('/api/auth/transfers', { cache: 'no-store' })
+    const transfersJson = await transfersRes.json()
 
     setProfile(profileData)
-    setTransfers(transfersData || [])
+    setTransfers(transfersJson.transfers || [])
     setLoading(false)
   }
 
