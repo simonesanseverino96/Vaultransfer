@@ -6,14 +6,8 @@ import { formatBytes } from '@/lib/utils'
 import { UploadConfig } from '@/types'
 import UploadSuccess from './UploadSuccess'
 import { supabase } from '@/lib/supabase'
-import { createBrowserClient } from '@supabase/ssr'
 import { isBlockedFile, getBlockedReason } from '@/lib/blocklist'
 import { v4 as uuidv4 } from 'uuid'
-
-const authClient = createBrowserClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-)
 
 const MAX_SIZE = 2 * 1024 * 1024 * 1024
 const MAX_FILES = 20
@@ -137,8 +131,12 @@ export default function UploadSection() {
       )
 
       // Passa il token se l'utente è loggato
-      const { data: { session } } = await authClient.auth.getSession()
-      const accessToken = session?.access_token ?? null
+      let accessToken: string | null = null
+      try {
+        const tokenRes = await fetch('/api/auth/token', { cache: 'no-store' })
+        const tokenData = await tokenRes.json()
+        accessToken = tokenData.token ?? null
+      } catch {}
 
       const res = await fetch('/api/upload', {
         method: 'POST',
