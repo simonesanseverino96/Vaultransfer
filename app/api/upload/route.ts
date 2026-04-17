@@ -4,6 +4,7 @@ import { addDays } from 'date-fns'
 import { supabaseAdmin } from '@/lib/supabase'
 import { UploadConfig } from '@/types'
 import { uploadRatelimit } from '@/lib/ratelimit'
+import { sendUploadConfirmation } from '@/lib/email'
 
 export async function POST(req: NextRequest) {
   const ip = req.headers.get('x-forwarded-for')?.split(',')[0] ?? 'anonymous'
@@ -75,6 +76,23 @@ export async function POST(req: NextRequest) {
       console.error('Files insert error:', filesError)
       await supabase.from('transfers').delete().eq('id', transferId)
       return NextResponse.json({ error: 'Errore nel salvataggio dei file' }, { status: 500 })
+    }
+
+    // Invia email di conferma se l'utente ha fornito l'email
+    if (config.senderEmail?.trim()) {
+      try {
+        await sendUploadConfirmation({
+          senderEmail: config.senderEmail,
+          fileCount: files.length,
+          totalSize,
+          expiresAt,
+          token: transferId,
+          hasPassword: !!config.password?.trim(),
+        })
+      } catch (emailErr) {
+        console.error('Email error:', emailErr)
+        // Non bloccare l'upload se l'email fallisce
+      }
     }
 
     return NextResponse.json({ token: transferId, expiresAt }, { status: 201 })

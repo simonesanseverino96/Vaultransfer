@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import bcrypt from 'bcryptjs'
 import { supabaseAdmin } from '@/lib/supabase'
+import { sendDownloadNotification } from '@/lib/email'
 
 export async function POST(req: NextRequest, { params }: { params: Promise<{ token: string }> }) {
   try {
@@ -58,13 +59,30 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ tok
       return NextResponse.json({ error: 'Errore generazione link download' }, { status: 500 })
     }
 
-    // Increment download count (only once per full transfer download, not per file)
-    // We increment only when fileId is the first file or when explicitly requested
+    // Increment download count only on first file
     if (fileId === transfer.transfer_files[0]?.id) {
+      const newCount = transfer.download_count + 1
       await supabase
         .from('transfers')
-        .update({ download_count: transfer.download_count + 1 })
+        .update({ download_count: newCount })
         .eq('id', transfer.id)
+
+      // Invia notifica email al mittente se ha fornito l'email
+      if (transfer.sender_email) {
+        try {
+          await sendDownloadNotification({
+            senderEmail: transfer.sender_email,
+            filename: transfer.transfer_files.length === 1
+              ? transfer.transfer_files[0].filename
+              : `${transfer.transfer_files.length} file`,
+            downloadCount: newCount,
+            maxDownloads: transfer.max_downloads,
+            token: transfer.token,
+          })
+        } catch (emailErr) {
+          console.error('Email notification error:', emailErr)
+        }
+      }
     }
 
     return NextResponse.json({ url: signed.signedUrl, filename: file.filename })
