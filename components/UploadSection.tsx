@@ -7,12 +7,7 @@ import { UploadConfig } from '@/types'
 import UploadSuccess from './UploadSuccess'
 import { supabase } from '@/lib/supabase'
 import { isBlockedFile, getBlockedReason } from '@/lib/blocklist'
-import { createBrowserClient } from '@supabase/ssr'
 
-const supabase = createBrowserClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-)
 import { v4 as uuidv4 } from 'uuid'
 
 const MAX_SIZE = 2 * 1024 * 1024 * 1024
