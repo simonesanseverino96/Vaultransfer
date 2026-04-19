@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/react'
 import { createBrowserClient } from '@supabase/ssr'
+import TranslateWidget from './TranslateWidget'
 
 interface UserInfo {
   email: string
@@ -62,6 +63,8 @@ export default function Header() {
 
         <nav className="hidden md:flex items-center gap-6">
           <a href="/prezzi" className="text-sm text-muted hover:text-paper font-body transition-colors">Prezzi</a>
+
+          <TranslateWidget />
 
           {!ready ? (
             <div className="w-20 h-8 bg-white/5 rounded-xl animate-pulse" />
