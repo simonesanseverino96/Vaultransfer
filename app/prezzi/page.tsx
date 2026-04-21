@@ -174,11 +174,10 @@ export default function PricingPage() {
           <span className={`text-sm transition-colors ${isAnnual ? 'text-white' : 'text-white/40'}`}>
             Annuale
           </span>
-          {isAnnual && (
-            <span className="bg-emerald-500/20 text-emerald-400 text-xs font-semibold px-2.5 py-1 rounded-full border border-emerald-500/20">
-              Risparmia fino a €{(14.99 * 12 - 120).toFixed(0)}/anno
-            </span>
-          )}
+          <span className={`text-xs font-semibold px-2.5 py-1 rounded-full border transition-opacity ${isAnnual ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/20 opacity-100' : 'opacity-0 pointer-events-none bg-emerald-500/20 text-emerald-400 border-emerald-500/20'}`}>
+            Risparmia fino a €{(14.99 * 12 - 120).toFixed(0)}/anno
+          </span>
+          
         </div>
 
         {error && (

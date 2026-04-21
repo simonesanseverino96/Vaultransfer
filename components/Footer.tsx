@@ -10,11 +10,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-1">
             <div className="flex items-center gap-2 mb-3">
-              <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center">
-                <svg viewBox="0 0 16 16" fill="none" stroke="white" strokeWidth="1.5" className="w-4 h-4">
-                  <path d="M8 2v5M5 5h6M4 10c0 2.2 1.8 4 4 4s4-1.8 4-4" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </div>
+              <img src="/favicon.svg" alt="VaultTransfer" className="w-7 h-7" />
               <span className="font-bold text-white text-base tracking-tight">VaultTransfer</span>
             </div>
             <p className="text-xs text-white/40 leading-relaxed">
