@@ -92,13 +92,13 @@ export default function FAQPage() {
         {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 text-xs text-white/50 mb-6">
-            <span className="w-1.5 h-1.5 rounded-full bg-violet-400 inline-block" />
+            <span className="w-1.5 h-1.5 rounded-full bg-green-400 inline-block" />
             Domande frequenti
           </div>
           <h1 className="text-4xl font-bold tracking-tight mb-4">Tutto quello che<br/>vuoi sapere</h1>
           <p className="text-white/40 text-lg">
             Non trovi risposta?{' '}
-            <a href="mailto:support@vaultransfer.com" className="text-violet-400 hover:text-violet-300 transition-colors underline underline-offset-2">
+            <a href="mailto:support@vaultransfer.com" className="text-green-400 hover:text-green-300 transition-colors underline underline-offset-2">
               Scrivici
             </a>
           </p>
@@ -155,7 +155,7 @@ export default function FAQPage() {
           <p className="text-white/60 mb-4 text-sm">Pronto a iniziare?</p>
           <Link
             href="/prezzi"
-            className="inline-flex items-center gap-2 bg-violet-600 hover:bg-violet-500 text-white text-sm font-medium px-6 py-2.5 rounded-lg transition-colors"
+            className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-500 text-white text-sm font-medium px-6 py-2.5 rounded-lg transition-colors"
           >
             Vedi i piani
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-4 h-4">
