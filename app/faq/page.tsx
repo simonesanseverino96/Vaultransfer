@@ -69,7 +69,7 @@ const faqs = [
       },
       {
         q: 'Quali formati di file sono supportati?',
-        a: 'Supportiamo la maggior parte dei formati: documenti, immagini, video, archivi ZIP, file di progetto, ecc. Per motivi di sicurezza sono bloccati i file eseguibili (.exe, .bat, .sh, .msi, .dmg) e altri formati potenzialmente dannosi. Tutti i file caricati vengono scansionati automaticamente.',
+        a: 'Supportiamo la maggior parte dei formati: documenti, immagini, video, archivi ZIP, file di progetto, ecc. Per motivi di sicurezza sono bloccati file eseguibili (.exe, .msi, .bat, .sh), script (.ps1, .vbs, .js), macro Office (.docm, .xlsm, .pptm), pacchetti app (.apk, .ipa, .deb) e altri formati potenzialmente dannosi.',
       },
       {
         q: 'Il servizio funziona su tutti i dispositivi?',
