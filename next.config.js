@@ -7,6 +7,16 @@ const nextConfig = {
   turbopack: {
     root: __dirname,
   },
+
+  async redirects() {
+    return [
+      {
+        source: '/prezzi',
+        destination: '/pricing',
+        permanent: true, // 301
+      },
+    ]
+  },
   async headers() {
     return [
       {
