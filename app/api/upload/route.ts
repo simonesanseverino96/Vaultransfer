@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
 
   if (!success) {
     return NextResponse.json(
-      { error: 'Troppi upload. Riprova tra qualche minuto.' },
+      { error: 'Too many uploads. Please try again in a few minutes.' },
       { status: 429, headers: { 'X-RateLimit-Limit': limit.toString(), 'X-RateLimit-Remaining': remaining.toString() } }
     )
   }
@@ -33,6 +33,9 @@ export async function POST(req: NextRequest) {
       accessToken?: string
     }
 
+    // Leggi la lingua dell'utente dal cookie
+    const locale = req.cookies.get('NEXT_LOCALE')?.value ?? 'en'
+
     // Recupera l'utente loggato se presente
     let userId: string | null = null
     if (accessToken) {
@@ -41,13 +44,12 @@ export async function POST(req: NextRequest) {
     }
 
     if (!files || files.length === 0) {
-      return NextResponse.json({ error: 'Nessun file ricevuto' }, { status: 400 })
+      return NextResponse.json({ error: 'No files received' }, { status: 400 })
     }
 
-    // Blocca file pericolosi lato server
     const blockedFile = files.find((f: any) => isBlockedFile(f.filename))
     if (blockedFile) {
-      return NextResponse.json({ error: `File non consentito: ${blockedFile.filename}` }, { status: 400 })
+      return NextResponse.json({ error: `File not allowed: ${blockedFile.filename}` }, { status: 400 })
     }
 
     const supabase = supabaseAdmin()
@@ -58,7 +60,6 @@ export async function POST(req: NextRequest) {
       passwordHash = await bcrypt.hash(config.password, 12)
     }
 
-    // Salva il trasferimento nel DB
     const { error: transferError } = await supabase.from('transfers').insert({
       id: transferId,
       token: transferId,
@@ -74,10 +75,9 @@ export async function POST(req: NextRequest) {
 
     if (transferError) {
       console.error('Transfer insert error:', transferError)
-      return NextResponse.json({ error: 'Errore nel database' }, { status: 500 })
+      return NextResponse.json({ error: 'Database error' }, { status: 500 })
     }
 
-    // Salva i metadati dei file
     const fileRecords = files.map(f => ({
       id: f.id,
       transfer_id: transferId,
@@ -91,10 +91,9 @@ export async function POST(req: NextRequest) {
     if (filesError) {
       console.error('Files insert error:', filesError)
       await supabase.from('transfers').delete().eq('id', transferId)
-      return NextResponse.json({ error: 'Errore nel salvataggio dei file' }, { status: 500 })
+      return NextResponse.json({ error: 'Error saving files' }, { status: 500 })
     }
 
-    // Invia email di conferma se l'utente ha fornito l'email
     if (config.senderEmail?.trim()) {
       try {
         await sendUploadConfirmation({
@@ -104,16 +103,16 @@ export async function POST(req: NextRequest) {
           expiresAt,
           token: transferId,
           hasPassword: !!config.password?.trim(),
+          locale, // ← passa la lingua
         })
       } catch (emailErr) {
         console.error('Email error:', emailErr)
-        // Non bloccare l'upload se l'email fallisce
       }
     }
 
     return NextResponse.json({ token: transferId, expiresAt }, { status: 201 })
   } catch (err) {
     console.error('Upload error:', err)
-    return NextResponse.json({ error: 'Errore interno del server' }, { status: 500 })
+    return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
   }
 }

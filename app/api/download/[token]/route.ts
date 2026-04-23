@@ -9,9 +9,11 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ tok
     const body = await req.json()
     const { password, fileId } = body
 
+    // Leggi la lingua dell'utente dal cookie
+    const locale = req.cookies.get('NEXT_LOCALE')?.value ?? 'en'
+
     const supabase = supabaseAdmin()
 
-    // Fetch transfer + files
     const { data: transfer, error } = await supabase
       .from('transfers')
       .select('*, transfer_files(*)')
@@ -19,47 +21,41 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ tok
       .single()
 
     if (error || !transfer) {
-      return NextResponse.json({ error: 'Trasferimento non trovato' }, { status: 404 })
+      return NextResponse.json({ error: 'Transfer not found' }, { status: 404 })
     }
 
-    // Check expiry
     if (new Date(transfer.expires_at) < new Date()) {
-      return NextResponse.json({ error: 'Trasferimento scaduto' }, { status: 410 })
+      return NextResponse.json({ error: 'Transfer expired' }, { status: 410 })
     }
 
-    // Check download limit
     if (transfer.max_downloads !== null && transfer.download_count >= transfer.max_downloads) {
-      return NextResponse.json({ error: 'Limite di download raggiunto' }, { status: 410 })
+      return NextResponse.json({ error: 'Download limit reached' }, { status: 410 })
     }
 
-    // Check password
     if (transfer.password_hash) {
       if (!password) {
-        return NextResponse.json({ error: 'Password richiesta', requiresPassword: true }, { status: 401 })
+        return NextResponse.json({ error: 'Password required', requiresPassword: true }, { status: 401 })
       }
       const valid = await bcrypt.compare(password, transfer.password_hash)
       if (!valid) {
-        return NextResponse.json({ error: 'Password errata', requiresPassword: true }, { status: 401 })
+        return NextResponse.json({ error: 'Wrong password', requiresPassword: true }, { status: 401 })
       }
     }
 
-    // Find the requested file
     const file = transfer.transfer_files.find((f: any) => f.id === fileId)
     if (!file) {
-      return NextResponse.json({ error: 'File non trovato' }, { status: 404 })
+      return NextResponse.json({ error: 'File not found' }, { status: 404 })
     }
 
-    // Generate signed URL (valid 60 seconds)
     const { data: signed, error: signError } = await supabase.storage
       .from('filedrop')
       .createSignedUrl(file.storage_path, 60)
 
     if (signError || !signed) {
       console.error('Signed URL error:', signError)
-      return NextResponse.json({ error: 'Errore generazione link download' }, { status: 500 })
+      return NextResponse.json({ error: 'Error generating download link' }, { status: 500 })
     }
 
-    // Increment download count only on first file
     if (fileId === transfer.transfer_files[0]?.id) {
       const newCount = transfer.download_count + 1
       await supabase
@@ -67,17 +63,17 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ tok
         .update({ download_count: newCount })
         .eq('id', transfer.id)
 
-      // Invia notifica email al mittente se ha fornito l'email
       if (transfer.sender_email) {
         try {
           await sendDownloadNotification({
             senderEmail: transfer.sender_email,
             filename: transfer.transfer_files.length === 1
               ? transfer.transfer_files[0].filename
-              : `${transfer.transfer_files.length} file`,
+              : `${transfer.transfer_files.length} files`,
             downloadCount: newCount,
             maxDownloads: transfer.max_downloads,
             token: transfer.token,
+            locale, // ← passa la lingua
           })
         } catch (emailErr) {
           console.error('Email notification error:', emailErr)
@@ -88,6 +84,6 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ tok
     return NextResponse.json({ url: signed.signedUrl, filename: file.filename })
   } catch (err) {
     console.error('Download error:', err)
-    return NextResponse.json({ error: 'Errore interno del server' }, { status: 500 })
+    return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
   }
 }

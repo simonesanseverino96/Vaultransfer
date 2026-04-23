@@ -53,7 +53,21 @@ export const metadata: Metadata = {
     title: 'VaultTransfer — Send files securely and for free',
     description: 'Transfer files up to 2GB for free. Encrypted links, automatic expiry, password protection.',
   },
-  alternates: { canonical: baseUrl },
+  alternates: {
+  canonical: baseUrl,
+  languages: {
+    'en': baseUrl,
+    'it': `${baseUrl}?lang=it`,
+    'de': `${baseUrl}?lang=de`,
+    'fr': `${baseUrl}?lang=fr`,
+    'es': `${baseUrl}?lang=es`,
+    'pt': `${baseUrl}?lang=pt`,
+    'ja': `${baseUrl}?lang=ja`,
+    'zh': `${baseUrl}?lang=zh`,
+    'ar': `${baseUrl}?lang=ar`,
+    'x-default': baseUrl,
+  },
+},
 }
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
