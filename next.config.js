@@ -15,6 +15,7 @@ const nextConfig = {
         destination: '/pricing',
         permanent: true, // 301
       },
+
     ]
   },
   async headers() {
