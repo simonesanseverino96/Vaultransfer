@@ -19,6 +19,13 @@ const LANGUAGES = [
   { code: 'ar', deepl: 'AR', name: 'Arabo' },
 ]
 
+// Termini da NON tradurre mai
+const PROTECTED_TERMS = [
+  'Dashboard', 'Pro', 'Business', 'Free', 'VaultTransfer',
+  'GDPR', 'TLS', 'HTTPS', 'API', 'Stripe', 'Supabase', 'Vercel',
+  'AdSense', 'Cloudflare', 'DSA', 'CSAM',
+]
+
 function loadEnv() {
   const envPath = path.join(ROOT, '.env.local')
   if (!fs.existsSync(envPath)) { console.error('❌ .env.local non trovato'); process.exit(1) }
@@ -52,24 +59,32 @@ async function fetchWithRetry(url, options, retries = 5) {
   throw new Error('Troppi tentativi falliti (429)')
 }
 
-// Sostituisce {variabile} con placeholder __V0__, __V1__, ecc.
-// Restituisce il testo modificato e la mappa per ripristinare
 function encodePlaceholders(text) {
   const vars = []
-  const encoded = text.replace(/\{(\w+)\}/g, (match) => {
-    const idx = vars.length
+  let encoded = text
+
+  // Prima proteggi i termini fissi (case-sensitive, parola intera)
+  for (const term of PROTECTED_TERMS) {
+    const regex = new RegExp(`(?<![\\w])${term}(?![\\w])`, 'g')
+    encoded = encoded.replace(regex, () => {
+      vars.push(term)
+      return `__V${vars.length - 1}__`
+    })
+  }
+
+  // Poi proteggi le variabili {nome}
+  encoded = encoded.replace(/\{(\w+)\}/g, (match) => {
     vars.push(match)
-    return `__V${idx}__`
+    return `__V${vars.length - 1}__`
   })
+
   return { encoded, vars }
 }
 
-// Ripristina i placeholder originali
 function decodePlaceholders(text, vars) {
   return text.replace(/__V(\d+)__/g, (_, idx) => vars[parseInt(idx)] ?? `__V${idx}__`)
 }
 
-// Estrai tutte le stringhe dall'oggetto JSON
 function extractStrings(obj, keyPath = '', result = []) {
   if (Array.isArray(obj)) return result
   if (typeof obj === 'string') {
@@ -84,12 +99,10 @@ function extractStrings(obj, keyPath = '', result = []) {
   return result
 }
 
-// Traduce in batch da 50
 async function translateBatch(strings, targetLang, apiKey) {
   const BATCH_SIZE = 50
   const results = []
 
-  // Prepara i testi con placeholder
   const prepared = strings.map(s => {
     const { encoded, vars } = encodePlaceholders(s.value)
     return { path: s.path, encoded, vars }
@@ -110,7 +123,6 @@ async function translateBatch(strings, targetLang, apiKey) {
         source_lang: 'EN',
         target_lang: targetLang,
         preserve_formatting: true,
-        // Nessun tag_handling — usiamo placeholder semplici
       }),
     })
 
@@ -132,7 +144,6 @@ async function translateBatch(strings, targetLang, apiKey) {
   return results
 }
 
-// Ricostruisci oggetto JSON con le traduzioni
 function rebuildObject(original, translations) {
   const map = {}
   for (const { path, translated } of translations) map[path] = translated
@@ -165,6 +176,7 @@ async function main() {
   const usage = await usageRes.json()
   console.log(`\n📊 DeepL: ${usage.character_count.toLocaleString()} / ${usage.character_limit.toLocaleString()} caratteri usati`)
   console.log(`   Rimanenti: ${(usage.character_limit - usage.character_count).toLocaleString()} caratteri`)
+  console.log(`   Termini protetti: ${PROTECTED_TERMS.join(', ')}\n`)
 
   const strings = extractStrings(enJson)
   console.log(`   Stringhe da tradurre: ${strings.length}\n`)

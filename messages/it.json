@@ -7,15 +7,15 @@
     "pricing": "Prezzi",
     "login": "Accedi",
     "register": "Iscriviti gratuitamente",
-    "dashboard": "Cruscotto",
+    "dashboard": "Dashboard",
     "upgradeToPro": "Aggiornamento a Pro",
     "logout": "Disconnettersi",
-    "planFree": "Gratuito",
+    "planFree": "Free",
     "planPro": "⭐ Pro",
-    "planBusiness": "🏢 Affari"
+    "planBusiness": "🏢 Business"
   },
   "footer": {
-    "tagline": "Trasferimento di file veloce e sicuro. Conformità al GDPR, server europei.",
+    "tagline": "Trasferimento di file veloce e sicuro. server europei conformi a GDPR.",
     "sections": {
       "product": "Prodotto",
       "legal": "Legale",
@@ -24,20 +24,20 @@
     "links": {
       "pricing": "Prezzi",
       "faq": "FAQ",
-      "dashboard": "Cruscotto",
+      "dashboard": "Dashboard",
       "privacy": "Informativa sulla privacy",
       "terms": "Termini di servizio"
     },
     "copyright": "© {year} VaultTransfer. Tutti i diritti riservati.",
-    "badge": "🇪🇺 Server europei - Conformi al GDPR - TLS 1.3"
+    "badge": "🇪🇺 Server europei - GDPR Compliant - TLS 1.3"
   },
   "home": {
-    "badge": "Non è necessario un account - Gratis fino a 2 GB",
+    "badge": "Nessun account richiesto - Free fino a 2GB",
     "headline": "Condividere i file",
     "headlineAccent": "senza compromessi.",
     "description": "Link criptati con scadenza automatica, protezione con password, limiti di download. I vostri file viaggiano al sicuro e scompaiono quando lo decidete voi.",
     "securityTagline": "La sicurezza per il design",
-    "featuresHeadline": "Costruito per chi non vuole compromessi"
+    "featuresHeadline": "Costruito per coloro che non vogliono compromessi"
   },
   "upload": {
     "dropzone": {
@@ -87,7 +87,7 @@
     "copy": "Copia",
     "copied": "✓ Copiato",
     "badges": {
-      "https": "HTTPS crittografato",
+      "https": "HTTPS criptato",
       "expiry": "Scade nel {expiry}",
       "password": "È richiesta la password",
       "maxDownloads": "Max {count} download"
@@ -120,13 +120,39 @@
     "totalSize": "Dimensione totale",
     "expiresIn": "⏱ Scade nel {expiry}",
     "downloadCount": "📥 {count}/{max} download",
-    "scarica": "Scaricare"
+    "scarica": "Scarica"
+  },
+  "adBanner": {
+    "label": "Pubblicità",
+    "removePro": "Aggiornamento a Pro per rimuovere gli annunci"
+  },
+  "apiKeys": {
+    "title": "chiavi",
+    "subtitle": "Utilizzate le chiavi API per integrare VaultTransfer nel vostro codice",
+    "warning": "⚠️ Copiate subito questa chiave: non sarà più visibile!",
+    "copied": "✓ Copiato",
+    "copy": "Copia",
+    "saved": "Ho salvato la chiave, chiudere →",
+    "placeholder": "Nome della chiave (ad es. Produzione)",
+    "create": "+ Chiave di creazione",
+    "creating": "...",
+    "neverUsed": "Mai usato",
+    "lastUsed": "Utilizzato su {date}",
+    "revoke": "Revocare",
+    "noKeys": "Non ci sono ancora chiavi API. Createne una!",
+    "revokeConfirm": "Siete sicuri di voler revocare questa chiave API?",
+    "sessionExpired": "Sessione scaduta. Effettuare nuovamente il login.",
+    "revokeError": "Errore durante la revoca. Riprovare.",
+    "connectionError": "Errore di connessione.",
+    "docsTitle": "Documentazione rapida",
+    "docsUpload": "POST /api/v1/upload - Crea trasferimento",
+    "docsTransfers": "GET /api/v1/transfers - Elenco dei trasferimenti"
   },
   "features": {
     "items": {
       "encrypted": {
         "title": "Crittografato in transito",
-        "desc": "Tutti i trasferimenti avvengono tramite HTTPS con TLS 1.3. I vostri file non vengono mai letti."
+        "desc": "Tutti i trasferimenti viaggiano su HTTPS con TLS 1.3. I vostri file non vengono mai letti."
       },
       "expiry": {
         "title": "Scadenza automatica",
@@ -145,7 +171,7 @@
         "desc": "Nessuna registrazione. Nessuna e-mail richiesta. Caricamento anonimo e istantaneo."
       },
       "gdpr": {
-        "title": "Conformità al GDPR",
+        "title": "GDPR Conforme",
         "desc": "Nessun tracciamento. Nessuna profilazione. I dati rimangono in Europa."
       }
     }
@@ -194,10 +220,10 @@
     "perMonth": "/mese",
     "billedAnnually": "€{amount} fatturati annualmente",
     "saveWithAnnual": "Risparmiare €{amount}/anno con il piano annuale",
-    "free": "Gratuito",
+    "free": "Free",
     "plans": {
       "free": {
-        "name": "Gratuito",
+        "name": "Free",
         "cta": "Iniziare gratuitamente"
       },
       "pro": {
@@ -206,7 +232,7 @@
         "cta": "Aggiornamento a Pro"
       },
       "business": {
-        "name": "Affari",
+        "name": "Business",
         "cta": "Aggiornamento a Business"
       }
     },
@@ -252,7 +278,7 @@
     },
     "items": {
       "whatIs": {
-        "q": "Che cos'è VaultTransfer?",
+        "q": "Che cos'è il VaultTransfer?",
         "a": "VaultTransfer è un servizio di trasferimento sicuro di file. È possibile inviare file di grandi dimensioni a chiunque tramite un link protetto, senza che il destinatario abbia bisogno di un account."
       },
       "register": {
@@ -261,11 +287,11 @@
       },
       "expiry": {
         "q": "Per quanto tempo sono disponibili i miei file?",
-        "a": "Con il piano Free, i link scadono dopo 7 giorni. Con il piano Pro dopo 30 giorni. Con Business è possibile impostare date di scadenza personalizzate o conservare i file a tempo indeterminato."
+        "a": "Con il piano Free, i link scadono dopo 7 giorni. Con Pro dopo 30 giorni. Con Business è possibile impostare date di scadenza personalizzate o conservare i file a tempo indeterminato."
       },
       "safe": {
         "q": "I miei file sono al sicuro?",
-        "a": "Sì. Tutti i trasferimenti avvengono tramite HTTPS con TLS 1.3. I file vengono eliminati automaticamente alla scadenza del link. I server sono in Europa e siamo pienamente conformi al GDPR."
+        "a": "Sì. Tutti i trasferimenti viaggiano su HTTPS con TLS 1.3. I file vengono cancellati automaticamente alla scadenza del link. I server sono in Europa e siamo pienamente conformi al GDPR."
       },
       "whoCanSee": {
         "q": "Chi può vedere i miei file?",
@@ -273,7 +299,7 @@
       },
       "scanned": {
         "q": "I file vengono analizzati o scansionati?",
-        "a": "Eseguiamo una scansione antivirus automatica per proteggere i destinatari, ma non analizziamo il contenuto dei file a fini commerciali o pubblicitari."
+        "a": "Eseguiamo una scansione antivirus automatica per proteggere i destinatari, ma non analizziamo il contenuto dei file per scopi commerciali o pubblicitari."
       },
       "payment": {
         "q": "Quali metodi di pagamento accettate?",
@@ -285,7 +311,7 @@
       },
       "annualDiscount": {
         "q": "Come funziona lo sconto annuale?",
-        "a": "Scegliendo la fatturazione annuale si ottiene un prezzo fisso di 45 euro/anno per il piano Pro e di 120 euro/anno per il piano Business, con un notevole risparmio rispetto alla fatturazione mensile. Il pagamento avviene in un'unica soluzione anticipata e il piano è attivo per 12 mesi."
+        "a": "Scegliendo la fatturazione annuale si ottiene un prezzo fisso di 45 €/anno per il piano Pro e di 120 €/anno per il piano Business, con un notevole risparmio rispetto alla fatturazione mensile. Il pagamento avviene in un'unica soluzione anticipata e il piano è attivo per 12 mesi."
       },
       "refund": {
         "q": "Posso richiedere un rimborso?",
@@ -293,7 +319,7 @@
       },
       "maxSize": {
         "q": "Qual è la dimensione massima del file?",
-        "a": "Piano gratuito: 2 GB per file. Piano Pro: 50 GB per file. Piano Business: 200 GB per file. Non ci sono limiti al numero di file che si possono inviare."
+        "a": "piano Free: 2 GB per file. piano Pro: 50 GB per file. piano Business: 200 GB per file. Non ci sono limiti al numero di file che si possono inviare."
       },
       "formats": {
         "q": "Quali sono i formati di file supportati?",
@@ -301,7 +327,7 @@
       },
       "devices": {
         "q": "Il servizio funziona su tutti i dispositivi?",
-        "a": "Sì. VaultTransfer funziona su qualsiasi dispositivo dotato di un browser moderno: PC, Mac, smartphone e tablet Android e iOS. Non è richiesta alcuna applicazione."
+        "a": "Sì. VaultTransfer funziona su qualsiasi dispositivo con un browser moderno: PC, Mac, smartphone e tablet Android e iOS. Non è richiesta alcuna applicazione."
       }
     }
   },
@@ -319,7 +345,7 @@
   },
   "metadata": {
     "titleDefault": "VaultTransfer - Inviare file in modo sicuro e gratuito",
-    "description": "Trasferimento gratuito di file fino a 2 GB. Link crittografati con scadenza automatica, protezione con password e limiti di download. Nessun account richiesto. Conforme al GDPR.",
+    "description": "Trasferimento gratuito di file fino a 2 GB. Link crittografati con scadenza automatica, protezione con password e limiti di download. Nessun account richiesto. conforme a GDPR.",
     "keywords": [
       "secure file transfer",
       "send files free",
@@ -335,7 +361,7 @@
   },
   "dashboard": {
     "currentPlan": "Piano attuale",
-    "free": "Gratuito",
+    "free": "Free",
     "perMonth": "€/mese",
     "upgradePro": "Aggiornamento a Pro →",
     "upgradeProPrice": "Aggiornamento a Pro - €4,99/mese →",
@@ -350,41 +376,15 @@
     "yes": "Sì",
     "no": "No",
     "days": "{count} giorni",
-    "wantMore": "Volete più spazio di archiviazione e accesso alle API?",
+    "wantMore": "Volete più spazio di archiviazione e accesso API?",
     "transfers": "I vostri trasferimenti",
     "newTransfer": "+ Nuovo",
-    "transfersProOnly": "La cronologia dei trasferimenti è disponibile nel piano Pro.",
+    "transfersProOnly": "Lo storico dei trasferimenti è disponibile nel piano Pro.",
     "noTransfers": "Non ci sono ancora trasferimenti. Inizia a condividere!",
     "uploadFirst": "Caricare il primo file →",
     "expired": "Scaduto",
     "copyLink": "Copiare il link",
     "transferDate": "Trasferimento di {date}",
     "transferMeta": "{size} - {downloads} download - scadenza in {expiry}"
-  },
-  "adBanner": {
-    "label": "Pubblicità",
-    "removePro": "Aggiornamento a Pro per rimuovere gli annunci"
-  },
-  "apiKeys": {
-    "title": "Chiavi API",
-    "subtitle": "Utilizzare le chiavi API per integrare VaultTransfer nel proprio codice",
-    "warning": "⚠️ Copiate subito questa chiave: non sarà più visibile!",
-    "copied": "✓ Copiato",
-    "copy": "Copia",
-    "saved": "Ho salvato la chiave, chiudere →",
-    "placeholder": "Nome della chiave (ad es. Produzione)",
-    "create": "+ Chiave di creazione",
-    "creating": "...",
-    "neverUsed": "Mai usato",
-    "lastUsed": "Utilizzato su {date}",
-    "revoke": "Revocare",
-    "noKeys": "Non ci sono ancora chiavi API. Createne una!",
-    "revokeConfirm": "È sicuro di voler revocare questa chiave API?",
-    "sessionExpired": "Sessione scaduta. Effettuare nuovamente il login.",
-    "revokeError": "Errore durante la revoca. Riprovare.",
-    "connectionError": "Errore di connessione.",
-    "docsTitle": "Documentazione rapida",
-    "docsUpload": "POST /api/v1/upload - Crea trasferimento",
-    "docsTransfers": "GET /api/v1/transfers - Elenco dei trasferimenti"
   }
 }

@@ -1,21 +1,21 @@
 {
   "common": {
-    "appName": "金库转移",
+    "appName": "VaultTransfer",
     "secureConnection": "安全连接"
   },
   "header": {
     "pricing": "定价",
     "login": "登录",
     "register": "免费注册",
-    "dashboard": "仪表板",
-    "upgradeToPro": "升级至专业版",
+    "dashboard": "Dashboard",
+    "upgradeToPro": "升级到 Pro",
     "logout": "退出登录",
-    "planFree": "免费",
-    "planPro": "⭐ 专业",
-    "planBusiness": "🏢 商业"
+    "planFree": "Free",
+    "planPro": "⭐ Pro",
+    "planBusiness": "🏢 Business"
   },
   "footer": {
-    "tagline": "快速安全的文件传输。符合 GDPR 标准，欧洲服务器。",
+    "tagline": "快速安全的文件传输。符合GDPR标准，欧洲服务器。",
     "sections": {
       "product": "产品",
       "legal": "法律",
@@ -24,15 +24,15 @@
     "links": {
       "pricing": "定价",
       "faq": "常见问题",
-      "dashboard": "仪表板",
+      "dashboard": "Dashboard",
       "privacy": "隐私政策",
       "terms": "服务条款"
     },
-    "copyright": "© {year} VaultTransfer。保留所有权利。",
-    "badge": "🇪🇺 欧洲服务器 - 符合 GDPR - TLS 1.3"
+    "copyright": "© __v1__ __v0__。保留所有权利。",
+    "badge": "🇪🇺 欧洲服务器 - GDPR 符合标准 - TLS 1.3"
   },
   "home": {
-    "badge": "无需帐户 - 最高免费 2GB",
+    "badge": "无需帐户 - Free 最多 2GB",
     "headline": "共享文件",
     "headlineAccent": "毫不妥协。",
     "description": "加密链接自动失效、密码保护、下载限制。您的文件安全传输，并在您决定时消失。",
@@ -87,7 +87,7 @@
     "copy": "复制",
     "copied": "复制的",
     "badges": {
-      "https": "HTTPS 加密",
+      "https": "HTTPS加密",
       "expiry": "有效期至{expiry}__年",
       "password": "需要密码",
       "maxDownloads": "最大{count}下载量"
@@ -122,11 +122,37 @@
     "downloadCount": "📥 {count}/{max} 下载",
     "scarica": "下载"
   },
+  "adBanner": {
+    "label": "广告",
+    "removePro": "升级至 Pro 以去除广告"
+  },
+  "apiKeys": {
+    "title": "API钥匙",
+    "subtitle": "使用 API 键将 VaultTransfer 集成到代码中",
+    "warning": "⚠️ 现在就复制这个密钥--以后就看不到了！",
+    "copied": "复制的",
+    "copy": "复制",
+    "saved": "我保存了密钥，关闭 →",
+    "placeholder": "密钥名称（如生产）",
+    "create": "+ 创建密钥",
+    "creating": "...",
+    "neverUsed": "从未使用过",
+    "lastUsed": "在{date}上使用",
+    "revoke": "撤销",
+    "noKeys": "还没有 API 密钥。创建一个！",
+    "revokeConfirm": "您确定要撤销这个 API 密钥吗？",
+    "sessionExpired": "会话已过期。请重新登录。",
+    "revokeError": "撤销过程中出错。请重试。",
+    "connectionError": "连接错误。",
+    "docsTitle": "快速文档",
+    "docsUpload": "POST /api/v1/upload - 创建传输",
+    "docsTransfers": "GET /api/v1/transfers - 列出传输内容"
+  },
   "features": {
     "items": {
       "encrypted": {
         "title": "传输中加密",
-        "desc": "所有传输均通过 HTTPS 和 TLS 1.3 进行。您的文件永远不会被读取。"
+        "desc": "所有传输都通过 HTTPS 和 TLS 1.3 进行。您的文件永远不会被读取。"
       },
       "expiry": {
         "title": "自动失效",
@@ -145,7 +171,7 @@
         "desc": "无需注册。无需电子邮件。匿名即时上传。"
       },
       "gdpr": {
-        "title": "符合 GDPR",
+        "title": "GDPR符合规定",
         "desc": "无跟踪。无特征分析。数据留在欧洲。"
       }
     }
@@ -194,20 +220,20 @@
     "perMonth": "/每月",
     "billedAnnually": "_{amount}_欧元，每年结算",
     "saveWithAnnual": "年度计划每年可节省_{amount}_欧元",
-    "free": "免费",
+    "free": "Free",
     "plans": {
       "free": {
-        "name": "免费",
+        "name": "Free",
         "cta": "免费开始"
       },
       "pro": {
-        "name": "专业",
+        "name": "Pro",
         "badge": "最受欢迎",
-        "cta": "升级至专业版"
+        "cta": "升级到 Pro"
       },
       "business": {
-        "name": "商业",
-        "cta": "升级至商务"
+        "name": "Business",
+        "cta": "升级到 Business"
       }
     },
     "features": {
@@ -229,7 +255,7 @@
     "error": "网络错误。请重试。",
     "trust": {
       "refund": "14 天退款",
-      "stripe": "通过 Stripe 安全支付",
+      "stripe": "通过 Stripe 安全付款",
       "cancel": "随时取消",
       "faq": "有问题？阅读常见问题 →"
     }
@@ -253,7 +279,7 @@
     "items": {
       "whatIs": {
         "q": "什么是VaultTransfer？",
-        "a": "VaultTransfer是一种安全的文件传输服务。您可以通过受保护的链接向任何人发送大文件，收件人无需账户。"
+        "a": "VaultTransfer是一种安全的文件传输服务。您可以通过受保护的链接向任何人发送大文件，而收件人无需账户。"
       },
       "register": {
         "q": "我需要注册才能使用吗？",
@@ -261,11 +287,11 @@
       },
       "expiry": {
         "q": "我的文件可使用多长时间？",
-        "a": "免费计划的链接在 7 天后失效。专业版 30 天后失效。使用商务版，您可以设置自定义过期日期或无限期保留文件。"
+        "a": "使用 Free 计划，链接 7 天后失效。使用 Pro 计划，链接在 30 天后失效。使用 Business 可以设置自定义过期日期或无限期保留文件。"
       },
       "safe": {
         "q": "我的文件安全吗？",
-        "a": "是的。所有传输都通过 HTTPS 和 TLS 1.3 进行。链接过期后，文件将自动删除。服务器位于欧洲，完全符合 GDPR 要求。"
+        "a": "是。所有传输都通过 HTTPS 和 TLS 1.3 进行。链接过期后，文件将自动删除。服务器位于欧洲，我们完全符合GDPR标准。"
       },
       "whoCanSee": {
         "q": "谁可以查看我的文件？",
@@ -277,7 +303,7 @@
       },
       "payment": {
         "q": "你们接受哪些付款方式？",
-        "a": "我们通过 Stripe 接受所有主要信用卡和借记卡（维萨卡、万事达卡、美国运通卡）。付款是安全的，我们不会存储卡数据。"
+        "a": "我们通过 Stripe 接受所有主要信用卡和借记卡（维萨卡、万事达卡、美国运通卡）。付款是安全的，我们不存储卡数据。"
       },
       "changePlan": {
         "q": "我可以随时更改计划吗？",
@@ -285,7 +311,7 @@
       },
       "annualDiscount": {
         "q": "年度折扣如何计算？",
-        "a": "选择按年计费，专业计划的固定价格为 45 欧元/年，商业计划的固定价格为 120 欧元/年，比按月计费节省很多。付款方式为一次性预付，计划有效期为 12 个月。"
+        "a": "选择按年计费，Pro__ 计划的固定价格为 45 欧元/年，Business__ 计划的固定价格为 120 欧元/年，与按月计费相比可节省大量费用。付款方式为一次性预付，计划有效期为 12 个月。"
       },
       "refund": {
         "q": "我可以申请退款吗？",
@@ -293,7 +319,7 @@
       },
       "maxSize": {
         "q": "最大文件大小是多少？",
-        "a": "免费计划：每个文件 2 GB。专业计划：每个文件 50 GB。商业计划：每个文件 200 GB。发送文件数量不受限制。"
+        "a": "Free计划：每个文件 2 GB。Pro计划：每个文件 50 GB。Business计划：每个文件 200 GB。您可以发送的文件数量没有限制。"
       },
       "formats": {
         "q": "支持哪些文件格式？",
@@ -301,12 +327,12 @@
       },
       "devices": {
         "q": "服务是否适用于所有设备？",
-        "a": "是的。VaultTransfer适用于任何带有现代浏览器的设备：PC、Mac、安卓和iOS智能手机、平板电脑。无需应用程序。"
+        "a": "是的。VaultTransfer可在任何装有现代浏览器的设备上运行：PC、Mac、Android 和 iOS 智能手机、平板电脑。无需应用程序。"
       }
     }
   },
   "notFound": {
-    "title": "页面未找到",
+    "title": "未找到页面",
     "description": "您要查找的页面不存在或已被移动。也许您要找的下载链接已经过期？",
     "backHome": "返回首页 →",
     "seePlans": "查看计划",
@@ -319,7 +345,7 @@
   },
   "metadata": {
     "titleDefault": "VaultTransfer - 安全免费地发送文件",
-    "description": "免费传输高达 2GB 的文件。加密链接自动失效、密码保护和下载限制。无需账户。符合 GDPR 标准。",
+    "description": "免费传输高达 2GB 的文件。加密链接自动失效、密码保护和下载限制。无需账户。符合GDPR标准。",
     "keywords": [
       "secure file transfer",
       "send files free",
@@ -335,11 +361,11 @@
   },
   "dashboard": {
     "currentPlan": "当前计划",
-    "free": "免费",
+    "free": "Free",
     "perMonth": "欧元/月",
-    "upgradePro": "升级到专业版 →",
-    "upgradeProPrice": "升级至专业版 - 每月 4.99 欧元 →",
-    "upgradeBusiness": "升级到商务 →",
+    "upgradePro": "升级到Pro →",
+    "upgradeProPrice": "升级至 Pro - €4.99/month →",
+    "upgradeBusiness": "升级到Business →",
     "manageSubscription": "管理订阅",
     "loading": "正在加载...",
     "maxUpload": "最大上传",
@@ -350,41 +376,15 @@
     "yes": "是",
     "no": "没有",
     "days": "{count}天",
-    "wantMore": "想要更多存储空间和 API 访问权限？",
+    "wantMore": "想要更多存储空间和API访问权限？",
     "transfers": "您的转账",
     "newTransfer": "+ 新",
-    "transfersProOnly": "专业计划可提供转账历史记录。",
+    "transfersProOnly": "转账历史记录可从Pro计划中获取。",
     "noTransfers": "还没有转让。开始分享",
     "uploadFirst": "上传您的第一个文件 →",
     "expired": "已过期",
     "copyLink": "复制链接",
     "transferDate": "转让{date}_",
     "transferMeta": "{size} - {downloads} 下载 - {expiry} 过期"
-  },
-  "adBanner": {
-    "label": "广告",
-    "removePro": "升级至专业版，删除广告"
-  },
-  "apiKeys": {
-    "title": "应用程序接口密钥",
-    "subtitle": "使用API密钥将VaultTransfer集成到您的代码中",
-    "warning": "⚠️ 现在就复制这个密钥--以后就看不到了！",
-    "copied": "复制的",
-    "copy": "复制",
-    "saved": "我保存了密钥，关闭 →",
-    "placeholder": "密钥名称（如生产）",
-    "create": "+ 创建密钥",
-    "creating": "...",
-    "neverUsed": "从未使用过",
-    "lastUsed": "在{date}上使用",
-    "revoke": "撤销",
-    "noKeys": "尚无 API 密钥。创建一个！",
-    "revokeConfirm": "您确定要撤销此 API 密钥吗？",
-    "sessionExpired": "会话已过期。请重新登录。",
-    "revokeError": "撤销过程中出错。请重试。",
-    "connectionError": "连接错误。",
-    "docsTitle": "快速文档",
-    "docsUpload": "POST /api/v1/upload - 创建传输",
-    "docsTransfers": "GET /api/v1/transfers - 列出传输内容"
   }
 }

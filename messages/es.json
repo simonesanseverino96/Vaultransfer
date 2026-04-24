@@ -1,21 +1,21 @@
 {
   "common": {
-    "appName": "BóvedaTransferencia",
+    "appName": "VaultTransfer",
     "secureConnection": "Conexión segura"
   },
   "header": {
     "pricing": "Precios",
     "login": "Conectarse",
     "register": "Regístrate gratis",
-    "dashboard": "Cuadro de mandos",
+    "dashboard": "Dashboard",
     "upgradeToPro": "Actualizar a Pro",
     "logout": "Cerrar sesión",
-    "planFree": "Gratis",
+    "planFree": "Free",
     "planPro": "⭐ Pro",
-    "planBusiness": "🏢 Negocios"
+    "planBusiness": "🏢 Business"
   },
   "footer": {
-    "tagline": "Transferencia de archivos rápida y segura. Servidores europeos que cumplen la GDPR.",
+    "tagline": "Transferencia de archivos rápida y segura. servidores europeos conformes con la directiva GDPR.",
     "sections": {
       "product": "Producto",
       "legal": "Legal",
@@ -24,15 +24,15 @@
     "links": {
       "pricing": "Precios",
       "faq": "PREGUNTAS FRECUENTES",
-      "dashboard": "Cuadro de mandos",
+      "dashboard": "Dashboard",
       "privacy": "Política de privacidad",
       "terms": "Condiciones de uso"
     },
     "copyright": "© {year} VaultTransfer. Todos los derechos reservados.",
-    "badge": "🇪🇺 Servidores europeos - Conformidad con GDPR - TLS 1.3"
+    "badge": "🇪🇺 Servidores europeos - GDPR Conforme - TLS 1.3"
   },
   "home": {
-    "badge": "Sin cuenta - Gratis hasta 2 GB",
+    "badge": "Sin necesidad de cuenta - Free hasta 2GB",
     "headline": "Compartir archivos",
     "headlineAccent": "sin compromiso.",
     "description": "Enlaces cifrados con caducidad automática, protección por contraseña y límites de descarga. Tus archivos viajan seguros y desaparecen cuando tú decides.",
@@ -87,7 +87,7 @@
     "copy": "Copia",
     "copied": "✓ Copiado",
     "badges": {
-      "https": "Cifrado HTTPS",
+      "https": "HTTPS encriptado",
       "expiry": "Expira en {expiry}",
       "password": "Contraseña obligatoria",
       "maxDownloads": "Max {count} descargas"
@@ -122,11 +122,37 @@
     "downloadCount": "📥 {count}/{max} descargas",
     "scarica": "Descargar"
   },
+  "adBanner": {
+    "label": "Publicidad",
+    "removePro": "Actualiza a Pro para eliminar los anuncios"
+  },
+  "apiKeys": {
+    "title": "API Teclas",
+    "subtitle": "Utilice las teclas API para integrar VaultTransfer en su código",
+    "warning": "⚠️ Copia esta clave ahora - ¡no volverá a ser visible!",
+    "copied": "✓ Copiado",
+    "copy": "Copia",
+    "saved": "He guardado la llave, cerrar →",
+    "placeholder": "Nombre de la clave (por ejemplo, Producción)",
+    "create": "+ Crear clave",
+    "creating": "...",
+    "neverUsed": "Nunca utilizado",
+    "lastUsed": "Utilizado en {date}",
+    "revoke": "Revocar",
+    "noKeys": "Aún no hay llaves API. Crea una",
+    "revokeConfirm": "¿Seguro que quiere revocar esta clave API?",
+    "sessionExpired": "Sesión expirada. Por favor, conéctese de nuevo.",
+    "revokeError": "Error durante la revocación. Por favor, inténtelo de nuevo.",
+    "connectionError": "Error de conexión.",
+    "docsTitle": "Documentación rápida",
+    "docsUpload": "POST /api/v1/upload - Crear transferencia",
+    "docsTransfers": "GET /api/v1/transfers - Lista de transferencias"
+  },
   "features": {
     "items": {
       "encrypted": {
         "title": "Cifrado en tránsito",
-        "desc": "Todas las transferencias viajan a través de HTTPS con TLS 1.3. Tus archivos nunca son leídos."
+        "desc": "Todas las transferencias viajan sobre HTTPS con TLS 1.3. Tus archivos nunca se leen."
       },
       "expiry": {
         "title": "Expiración automática",
@@ -145,7 +171,7 @@
         "desc": "Sin registro. No se requiere correo electrónico. Carga anónima e instantánea."
       },
       "gdpr": {
-        "title": "Conformidad con el GDPR",
+        "title": "cumple",
         "desc": "Sin seguimiento. Sin elaboración de perfiles. Los datos permanecen en Europa."
       }
     }
@@ -156,7 +182,7 @@
     "reasonLabel": "Motivo del informe *",
     "reasonPlaceholder": "Seleccione un motivo...",
     "reasons": {
-      "csam": "Material sobre abuso sexual infantil (CSAM)",
+      "csam": "Material de abuso sexual infantil (CSAM)",
       "malware": "Malware o virus",
       "copyright": "Violación de los derechos de autor",
       "illegal": "Contenido ilegal",
@@ -181,7 +207,7 @@
     "backHome": "← Volver a la página de inicio",
     "checkEmail": {
       "title": "Comprueba tu correo electrónico",
-      "message": "Hemos enviado un enlace mágico a {email}. Haz clic en el enlace para iniciar sesión - serás redirigido automáticamente."
+      "message": "Hemos enviado un enlace mágico a {email}. Haz clic en el enlace para iniciar sesión: serás redirigido automáticamente."
     }
   },
   "pricing": {
@@ -194,10 +220,10 @@
     "perMonth": "/mes",
     "billedAnnually": "€{amount} facturado anualmente",
     "saveWithAnnual": "Ahorre _{amount}/año con el plan anual",
-    "free": "Gratis",
+    "free": "Free",
     "plans": {
       "free": {
-        "name": "Gratis",
+        "name": "Free",
         "cta": "Empezar gratis"
       },
       "pro": {
@@ -206,7 +232,7 @@
         "cta": "Actualizar a Pro"
       },
       "business": {
-        "name": "Empresas",
+        "name": "Business",
         "cta": "Actualizar a Business"
       }
     },
@@ -261,11 +287,11 @@
       },
       "expiry": {
         "q": "¿Durante cuánto tiempo están disponibles mis archivos?",
-        "a": "Con el plan Free, los enlaces caducan a los 7 días. En el plan Pro, a los 30 días. Con Business puedes establecer fechas de caducidad personalizadas o conservar los archivos indefinidamente."
+        "a": "Con el plan Free, los enlaces caducan a los 7 días. Con Pro después de 30 días. Con Business puede establecer fechas de caducidad personalizadas o conservar los archivos indefinidamente."
       },
       "safe": {
         "q": "¿Están seguros mis archivos?",
-        "a": "Sí. Todas las transferencias viajan a través de HTTPS con TLS 1.3. Los archivos se eliminan automáticamente cuando caduca el enlace. Los servidores están en Europa y cumplimos totalmente con la GDPR."
+        "a": "Sí. Todas las transferencias viajan por HTTPS con TLS 1.3. Los archivos se eliminan automáticamente cuando caduca el enlace. Los servidores están en Europa y cumplimos con la normativa GDPR."
       },
       "whoCanSee": {
         "q": "¿Quién puede ver mis archivos?",
@@ -281,11 +307,11 @@
       },
       "changePlan": {
         "q": "¿Puedo cambiar de plan en cualquier momento?",
-        "a": "Sí, puede cambiar de categoría en cualquier momento. Para las ampliaciones, la diferencia de precio se calcula proporcionalmente para el periodo restante. Para las reducciones, el plan actual permanece activo hasta el final del periodo pagado."
+        "a": "Sí, puede cambiar de categoría en cualquier momento. En el caso de las ampliaciones, la diferencia de precio se calcula proporcionalmente para el periodo restante. Para las reducciones, el plan actual permanece activo hasta el final del periodo pagado."
       },
       "annualDiscount": {
         "q": "¿Cómo funciona el descuento anual?",
-        "a": "Al elegir la facturación anual se obtiene un precio fijo de 45 euros/año para el plan Pro y de 120 euros/año para el plan Business, con un importante ahorro en comparación con el pago mensual. El pago se realiza de una sola vez y el plan está activo durante 12 meses."
+        "a": "Al elegir la facturación anual obtendrá un precio fijo de 45 euros/año para el plan Pro y de 120 euros/año para el plan Business, con un importante ahorro en comparación con la mensualidad. El pago se realiza de una sola vez y el plan está activo durante 12 meses."
       },
       "refund": {
         "q": "¿Puedo solicitar el reembolso?",
@@ -293,7 +319,7 @@
       },
       "maxSize": {
         "q": "¿Cuál es el tamaño máximo de archivo?",
-        "a": "Plan gratuito: 2 GB por archivo. Plan Pro: 50 GB por archivo. Plan Business: 200 GB por archivo. No hay límites en el número de archivos que puedes enviar."
+        "a": "plan Free: 2 GB por archivo. plan Pro: 50 GB por fichero. plan Business: 200 GB por archivo. No hay límites en el número de archivos que puedes enviar."
       },
       "formats": {
         "q": "¿Qué formatos de archivo son compatibles?",
@@ -318,8 +344,8 @@
     "decline": "Declive"
   },
   "metadata": {
-    "titleDefault": "VaultTransfer - Envía archivos de forma segura y gratuita",
-    "description": "Transfiere gratis archivos de hasta 2 GB. Enlaces cifrados con caducidad automática, protección por contraseña y límites de descarga. No requiere cuenta. Cumple la normativa GDPR.",
+    "titleDefault": "VaultTransfer - Envíe archivos de forma segura y gratuita",
+    "description": "Transfiere gratis archivos de hasta 2 GB. Enlaces cifrados con caducidad automática, protección por contraseña y límites de descarga. No requiere cuenta. compatible con GDPR.",
     "keywords": [
       "secure file transfer",
       "send files free",
@@ -335,7 +361,7 @@
   },
   "dashboard": {
     "currentPlan": "Plan actual",
-    "free": "Gratis",
+    "free": "Free",
     "perMonth": "€/mes",
     "upgradePro": "Actualizar a Pro →",
     "upgradeProPrice": "Actualizar a Pro - 4,99 €/mes →",
@@ -350,7 +376,7 @@
     "yes": "Sí",
     "no": "No",
     "days": "{count} días",
-    "wantMore": "¿Quieres más almacenamiento y acceso a la API?",
+    "wantMore": "¿Quieres más almacenamiento y acceso API?",
     "transfers": "Sus traslados",
     "newTransfer": "+ Nuevo",
     "transfersProOnly": "El historial de transferencias está disponible en el plan Pro.",
@@ -360,31 +386,5 @@
     "copyLink": "Copiar enlace",
     "transferDate": "Transferencia de {date}",
     "transferMeta": "{size} - {downloads} descargas - caduca en {expiry}"
-  },
-  "adBanner": {
-    "label": "Publicidad",
-    "removePro": "Actualizar a Pro para eliminar los anuncios"
-  },
-  "apiKeys": {
-    "title": "Claves API",
-    "subtitle": "Utiliza claves API para integrar VaultTransfer en tu código",
-    "warning": "⚠️ Copia esta clave ahora - ¡no volverá a ser visible!",
-    "copied": "✓ Copiado",
-    "copy": "Copia",
-    "saved": "He guardado la llave, cerrar →",
-    "placeholder": "Nombre de la clave (por ejemplo, Producción)",
-    "create": "+ Crear clave",
-    "creating": "...",
-    "neverUsed": "Nunca utilizado",
-    "lastUsed": "Utilizado en {date}",
-    "revoke": "Revocar",
-    "noKeys": "Aún no hay claves API. Cree una",
-    "revokeConfirm": "¿Está seguro de que desea revocar esta clave API?",
-    "sessionExpired": "Sesión expirada. Por favor, conéctese de nuevo.",
-    "revokeError": "Error durante la revocación. Por favor, inténtelo de nuevo.",
-    "connectionError": "Error de conexión.",
-    "docsTitle": "Documentación rápida",
-    "docsUpload": "POST /api/v1/upload - Crear transferencia",
-    "docsTransfers": "GET /api/v1/transfers - Lista de transferencias"
   }
 }

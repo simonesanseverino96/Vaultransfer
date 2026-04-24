@@ -7,15 +7,15 @@
     "pricing": "Tarification",
     "login": "Se connecter",
     "register": "S'inscrire gratuitement",
-    "dashboard": "Tableau de bord",
-    "upgradeToPro": "Passer à la version Pro",
+    "dashboard": "Dashboard",
+    "upgradeToPro": "Mise à jour vers Pro",
     "logout": "Déconnexion",
-    "planFree": "Gratuit",
+    "planFree": "Free",
     "planPro": "⭐ Pro",
-    "planBusiness": "🏢 Entreprises"
+    "planBusiness": "🏢 Business"
   },
   "footer": {
-    "tagline": "Transfert de fichiers rapide et sécurisé. Serveurs européens conformes à la GDPR.",
+    "tagline": "Transfert de fichiers rapide et sécurisé. serveurs européens conformes à la norme GDPR.",
     "sections": {
       "product": "Produit",
       "legal": "Juridique",
@@ -24,15 +24,15 @@
     "links": {
       "pricing": "Tarification",
       "faq": "FAQ",
-      "dashboard": "Tableau de bord",
+      "dashboard": "Dashboard",
       "privacy": "Politique de confidentialité",
       "terms": "Conditions d'utilisation"
     },
     "copyright": "© {year} VaultTransfer. Tous droits réservés.",
-    "badge": "🇪🇺 Serveurs européens - Conformité GDPR - TLS 1.3"
+    "badge": "🇪🇺 Serveurs européens - GDPR Compliant - TLS 1.3"
   },
   "home": {
-    "badge": "Pas de compte requis - Gratuit jusqu'à 2GB",
+    "badge": "Pas de compte requis - Free jusqu'à 2GB",
     "headline": "Partager des fichiers",
     "headlineAccent": "sans compromis.",
     "description": "Liens cryptés avec expiration automatique, protection par mot de passe, limites de téléchargement. Vos fichiers voyagent en toute sécurité - et disparaissent quand vous le décidez.",
@@ -87,7 +87,7 @@
     "copy": "Copie",
     "copied": "✓ Copié",
     "badges": {
-      "https": "Cryptage HTTPS",
+      "https": "HTTPS crypté",
       "expiry": "Expire en {expiry}",
       "password": "Mot de passe requis",
       "maxDownloads": "Max {count} téléchargements"
@@ -122,11 +122,37 @@
     "downloadCount": "📥 {count}/{max} téléchargements",
     "scarica": "Télécharger"
   },
+  "adBanner": {
+    "label": "Publicité",
+    "removePro": "Passez à Pro pour supprimer les publicités"
+  },
+  "apiKeys": {
+    "title": "clés API",
+    "subtitle": "Utilisez les clés API pour intégrer les VaultTransfer dans votre code",
+    "warning": "⚠️ Copiez cette clé maintenant - elle ne sera plus visible !",
+    "copied": "✓ Copié",
+    "copy": "Copie",
+    "saved": "J'ai enregistré la clé, fermer →",
+    "placeholder": "Nom de la clé (par exemple Production)",
+    "create": "+ Créer une clé",
+    "creating": "...",
+    "neverUsed": "Jamais utilisé",
+    "lastUsed": "Utilisé sur {date}",
+    "revoke": "Révoquer",
+    "noKeys": "Il n'y a pas encore de clés API. Créez-en une !",
+    "revokeConfirm": "Êtes-vous sûr de vouloir révoquer cette clé API ?",
+    "sessionExpired": "La session a expiré. Veuillez vous reconnecter.",
+    "revokeError": "Erreur lors de la révocation. Veuillez réessayer.",
+    "connectionError": "Erreur de connexion.",
+    "docsTitle": "Documentation rapide",
+    "docsUpload": "POST /api/v1/upload - Créer un transfert",
+    "docsTransfers": "GET /api/v1/transferts - Liste des transferts"
+  },
   "features": {
     "items": {
       "encrypted": {
         "title": "Cryptage en transit",
-        "desc": "Tous les transferts sont effectués via HTTPS avec TLS 1.3. Vos fichiers ne sont jamais lus."
+        "desc": "Tous les transferts se font sur HTTPS avec TLS 1.3. Vos fichiers ne sont jamais lus."
       },
       "expiry": {
         "title": "Expiration automatique",
@@ -145,7 +171,7 @@
         "desc": "Pas d'inscription. Pas d'e-mail requis. Téléchargement anonyme et instantané."
       },
       "gdpr": {
-        "title": "Conforme au GDPR",
+        "title": "conformité",
         "desc": "Pas de suivi. Pas de profilage. Les données restent en Europe."
       }
     }
@@ -156,7 +182,7 @@
     "reasonLabel": "Motif du rapport *",
     "reasonPlaceholder": "Sélectionnez une raison...",
     "reasons": {
-      "csam": "Matériel pédopornographique (CSAM)",
+      "csam": "Matériel relatif aux abus sexuels sur enfants (CSAM)",
       "malware": "Malware ou virus",
       "copyright": "Violation des droits d'auteur",
       "illegal": "Contenu illégal",
@@ -190,24 +216,24 @@
     "subtitle": "Commencez gratuitement et mettez à niveau quand vous le souhaitez.",
     "monthly": "Mensuel",
     "annual": "Annuel",
-    "saveBadge": "Économisez jusqu'à €{amount}/an",
+    "saveBadge": "Economisez jusqu'à €{amount}/an",
     "perMonth": "/mois",
     "billedAnnually": "€{amount} facturé annuellement",
     "saveWithAnnual": "Economisez €{amount}/an avec le plan annuel",
-    "free": "Gratuit",
+    "free": "Free",
     "plans": {
       "free": {
-        "name": "Gratuit",
+        "name": "Free",
         "cta": "Commencez gratuitement"
       },
       "pro": {
         "name": "Pro",
         "badge": "Les plus populaires",
-        "cta": "Passer à la version Pro"
+        "cta": "Mise à jour vers Pro"
       },
       "business": {
-        "name": "Entreprises",
-        "cta": "Mise à niveau vers Business"
+        "name": "Business",
+        "cta": "Mise à jour vers Business"
       }
     },
     "features": {
@@ -261,11 +287,11 @@
       },
       "expiry": {
         "q": "Pendant combien de temps mes fichiers sont-ils disponibles ?",
-        "a": "Avec le plan gratuit, les liens expirent après 7 jours. Avec le plan Pro, ils expirent au bout de 30 jours. Avec Business, vous pouvez définir des dates d'expiration personnalisées ou conserver les fichiers indéfiniment."
+        "a": "Avec le plan Free, les liens expirent après 7 jours. Avec Pro, ils expirent après 30 jours. Avec Business, vous pouvez définir des dates d'expiration personnalisées ou conserver les fichiers indéfiniment."
       },
       "safe": {
         "q": "Mes fichiers sont-ils en sécurité ?",
-        "a": "Oui. Tous les transferts se font via HTTPS avec TLS 1.3. Les fichiers sont automatiquement supprimés lorsque le lien expire. Les serveurs sont situés en Europe et nous sommes entièrement conformes au GDPR."
+        "a": "Oui. Tous les transferts passent par HTTPS avec TLS 1.3. Les fichiers sont automatiquement supprimés à l'expiration du lien. Les serveurs sont situés en Europe et nous sommes entièrement compatibles avec GDPR."
       },
       "whoCanSee": {
         "q": "Qui peut consulter mes fichiers ?",
@@ -281,7 +307,7 @@
       },
       "changePlan": {
         "q": "Puis-je changer de plan à tout moment ?",
-        "a": "Oui, vous pouvez passer à un niveau supérieur ou inférieur à tout moment. Pour les upgrades, la différence de prix est calculée proportionnellement pour la période restante. Pour les rétrogradations, le plan actuel reste actif jusqu'à la fin de la période payée."
+        "a": "Oui, vous pouvez passer à un niveau supérieur ou inférieur à tout moment. Pour les upgrades, la différence de prix est calculée proportionnellement pour la période restante. Pour les déclassements, le plan actuel reste actif jusqu'à la fin de la période payée."
       },
       "annualDiscount": {
         "q": "Comment fonctionne la réduction annuelle ?",
@@ -293,7 +319,7 @@
       },
       "maxSize": {
         "q": "Quelle est la taille maximale des fichiers ?",
-        "a": "Plan gratuit : 2 Go par fichier. Plan Pro : 50 Go par fichier. Plan Business : 200 Go par fichier. Il n'y a pas de limite au nombre de fichiers que vous pouvez envoyer."
+        "a": "plan Free : 2 GB par fichier. plan Pro : 50 Go par fichier. plan Business : 200 Go par fichier. Il n'y a pas de limite au nombre de fichiers que vous pouvez envoyer."
       },
       "formats": {
         "q": "Quels sont les formats de fichiers pris en charge ?",
@@ -319,7 +345,7 @@
   },
   "metadata": {
     "titleDefault": "VaultTransfer - Envoyer des fichiers gratuitement et en toute sécurité",
-    "description": "Transférez gratuitement des fichiers jusqu'à 2 Go. Liens cryptés avec expiration automatique, protection par mot de passe et limites de téléchargement. Aucun compte n'est nécessaire. Conforme au GDPR.",
+    "description": "Transférez gratuitement des fichiers jusqu'à 2 Go. Liens cryptés avec expiration automatique, protection par mot de passe et limites de téléchargement. Aucun compte n'est nécessaire. conforme à la norme GDPR.",
     "keywords": [
       "secure file transfer",
       "send files free",
@@ -335,10 +361,10 @@
   },
   "dashboard": {
     "currentPlan": "Plan actuel",
-    "free": "Gratuit",
+    "free": "Free",
     "perMonth": "€/mois",
-    "upgradePro": "Passer à la version Pro →",
-    "upgradeProPrice": "Passez à la version Pro - €4.99/mois →",
+    "upgradePro": "Mise à niveau vers Pro →",
+    "upgradeProPrice": "Passer à Pro - €4.99/mois →",
     "upgradeBusiness": "Mise à niveau vers Business →",
     "manageSubscription": "Gérer l'abonnement",
     "loading": "Chargement...",
@@ -350,41 +376,15 @@
     "yes": "Oui",
     "no": "Non",
     "days": "v0__ jours",
-    "wantMore": "Vous voulez plus d'espace de stockage et d'accès à l'API ?",
+    "wantMore": "Vous voulez plus d'espace de stockage et un accès API ?",
     "transfers": "Vos transferts",
     "newTransfer": "+ Nouveau",
-    "transfersProOnly": "L'historique des transferts est disponible à partir du plan Pro.",
-    "noTransfers": "Pas encore de transferts. Commencez à partager !",
+    "transfersProOnly": "L'historique des transferts est disponible dans le plan Pro.",
+    "noTransfers": "Aucun transfert n'a encore été effectué. Commencez à partager !",
     "uploadFirst": "Téléchargez votre premier fichier →",
     "expired": "Expiré",
     "copyLink": "Copier le lien",
     "transferDate": "Transfert de {date}",
     "transferMeta": "téléchargements {size} - {downloads} - expire en {expiry}"
-  },
-  "adBanner": {
-    "label": "Publicité",
-    "removePro": "Passez à la version Pro pour supprimer les publicités"
-  },
-  "apiKeys": {
-    "title": "Clés API",
-    "subtitle": "Utilisez les clés d'API pour intégrer VaultTransfer dans votre code",
-    "warning": "⚠️ Copiez cette clé maintenant - elle ne sera plus visible !",
-    "copied": "✓ Copié",
-    "copy": "Copie",
-    "saved": "J'ai enregistré la clé, fermer →",
-    "placeholder": "Nom de la clé (par exemple Production)",
-    "create": "+ Créer une clé",
-    "creating": "...",
-    "neverUsed": "Jamais utilisé",
-    "lastUsed": "Utilisé sur {date}",
-    "revoke": "Révoquer",
-    "noKeys": "Il n'y a pas encore de clés API. Créez-en une !",
-    "revokeConfirm": "Êtes-vous sûr de vouloir révoquer cette clé API ?",
-    "sessionExpired": "La session a expiré. Veuillez vous reconnecter.",
-    "revokeError": "Erreur lors de la révocation. Veuillez réessayer.",
-    "connectionError": "Erreur de connexion.",
-    "docsTitle": "Documentation rapide",
-    "docsUpload": "POST /api/v1/upload - Créer un transfert",
-    "docsTransfers": "GET /api/v1/transferts - Liste des transferts"
   }
 }

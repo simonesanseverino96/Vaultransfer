@@ -20,6 +20,13 @@ const LANGUAGES = [
     { code: 'ar', deepl: 'AR', name: 'Arabo' },
 ]
 
+// Termini da NON tradurre mai
+const PROTECTED_TERMS = [
+    'Dashboard', 'Pro', 'Business', 'Free', 'VaultTransfer',
+    'GDPR', 'TLS', 'HTTPS', 'API', 'Stripe', 'Supabase', 'Vercel',
+    'AdSense', 'Cloudflare', 'DSA', 'CSAM',
+]
+
 function loadEnv() {
     const envPath = path.join(ROOT, '.env.local')
     const lines = fs.readFileSync(envPath, 'utf-8').split(/\r?\n/)
@@ -52,7 +59,32 @@ async function fetchWithRetry(url, options, retries = 5) {
     throw new Error('Troppi tentativi falliti (429)')
 }
 
-// Trova le chiavi presenti in source ma non in target (ricorsivo)
+function encodePlaceholders(text) {
+    const vars = []
+    let encoded = text
+
+    // Prima proteggi i termini fissi (case-sensitive, parola intera)
+    for (const term of PROTECTED_TERMS) {
+        const regex = new RegExp(`(?<![\\w])${term}(?![\\w])`, 'g')
+        encoded = encoded.replace(regex, () => {
+            vars.push(term)
+            return `__V${vars.length - 1}__`
+        })
+    }
+
+    // Poi proteggi le variabili {nome}
+    encoded = encoded.replace(/\{(\w+)\}/g, (match) => {
+        vars.push(match)
+        return `__V${vars.length - 1}__`
+    })
+
+    return { encoded, vars }
+}
+
+function decodePlaceholders(text, vars) {
+    return text.replace(/__V(\d+)__/g, (_, idx) => vars[parseInt(idx)] ?? `__V${idx}__`)
+}
+
 function findMissingKeys(source, target, keyPath = '') {
     const missing = {}
     for (const [key, value] of Object.entries(source)) {
@@ -69,7 +101,6 @@ function findMissingKeys(source, target, keyPath = '') {
     return missing
 }
 
-// Estrai stringhe piatte da oggetto
 function extractStrings(obj, keyPath = '', result = []) {
     if (Array.isArray(obj)) return result
     if (typeof obj === 'string') {
@@ -84,19 +115,6 @@ function extractStrings(obj, keyPath = '', result = []) {
     return result
 }
 
-function encodePlaceholders(text) {
-    const vars = []
-    const encoded = text.replace(/\{(\w+)\}/g, (match) => {
-        vars.push(match)
-        return `__V${vars.length - 1}__`
-    })
-    return { encoded, vars }
-}
-
-function decodePlaceholders(text, vars) {
-    return text.replace(/__V(\d+)__/g, (_, idx) => vars[parseInt(idx)] ?? `__V${idx}__`)
-}
-
 async function translateBatch(strings, targetLang, apiKey) {
     const BATCH_SIZE = 50
     const results = []
@@ -107,6 +125,7 @@ async function translateBatch(strings, targetLang, apiKey) {
 
     for (let i = 0; i < prepared.length; i += BATCH_SIZE) {
         const chunk = prepared.slice(i, i + BATCH_SIZE)
+        console.log(`  📤 Batch ${Math.floor(i / BATCH_SIZE) + 1}/${Math.ceil(prepared.length / BATCH_SIZE)} (${chunk.length} stringhe)`)
         const res = await fetchWithRetry(`${BASE_URL}/v2/translate`, {
             method: 'POST',
             headers: {
@@ -139,7 +158,6 @@ async function translateBatch(strings, targetLang, apiKey) {
     return results
 }
 
-// Merga le traduzioni nell'oggetto target
 function mergeTranslations(target, missingObj, translations) {
     const map = {}
     for (const { path, translated } of translations) map[path] = translated
@@ -171,7 +189,8 @@ async function main() {
         headers: { 'Authorization': `DeepL-Auth-Key ${apiKey}` },
     })
     const usage = await usageRes.json()
-    console.log(`\n📊 DeepL: ${usage.character_count.toLocaleString()} / ${usage.character_limit.toLocaleString()} caratteri usati\n`)
+    console.log(`\n📊 DeepL: ${usage.character_count.toLocaleString()} / ${usage.character_limit.toLocaleString()} caratteri usati`)
+    console.log(`   Termini protetti: ${PROTECTED_TERMS.join(', ')}\n`)
 
     for (const lang of LANGUAGES) {
         const outputPath = path.join(messagesDir, `${lang.code}.json`)

@@ -1,21 +1,21 @@
 {
   "common": {
-    "appName": "ボールトランスファー",
+    "appName": "VaultTransfer",
     "secureConnection": "安全な接続"
   },
   "header": {
     "pricing": "価格",
     "login": "ログイン",
     "register": "無料会員登録",
-    "dashboard": "ダッシュボード",
-    "upgradeToPro": "プロへのアップグレード",
+    "dashboard": "Dashboard",
+    "upgradeToPro": "V0__へのアップグレード",
     "logout": "ログアウト",
-    "planFree": "無料",
-    "planPro": "プロ",
-    "planBusiness": "ビジネス"
+    "planFree": "Free",
+    "planPro": "⭐ Pro",
+    "planBusiness": "🏢 Business"
   },
   "footer": {
-    "tagline": "高速で安全なファイル転送。GDPR準拠、ヨーロッパのサーバー。",
+    "tagline": "高速で安全なファイル転送。V0__準拠、ヨーロッパのサーバー。",
     "sections": {
       "product": "製品",
       "legal": "リーガル",
@@ -24,15 +24,15 @@
     "links": {
       "pricing": "価格",
       "faq": "よくあるご質問",
-      "dashboard": "ダッシュボード",
+      "dashboard": "Dashboard",
       "privacy": "プライバシーポリシー",
       "terms": "利用規約"
     },
-    "copyright": "© {year} VaultTransfer.無断複写・転載を禁じます。",
-    "badge": "🇪🇺 欧州サーバー - GDPR対応 - TLS 1.3"
+    "copyright": "© __v1__ __v0__.無断複写・転載を禁じます。",
+    "badge": "🇪🇺 欧州サーバー - GDPR 準拠 - TLS 1.3"
   },
   "home": {
-    "badge": "アカウント不要 - 2GBまで無料",
+    "badge": "アカウント不要 - Free 2GBまで",
     "headline": "ファイルを共有する",
     "headlineAccent": "妥協することなく。",
     "description": "自動期限切れの暗号化リンク、パスワード保護、ダウンロード制限。あなたのファイルは安全に移動し、あなたが決めたときに消えます。",
@@ -87,7 +87,7 @@
     "copy": "コピー",
     "copied": "コピー",
     "badges": {
-      "https": "HTTPS暗号化",
+      "https": "V0__暗号化",
       "expiry": "期限は{expiry}まで",
       "password": "パスワードが必要",
       "maxDownloads": "マックス{count}ダウンロード"
@@ -110,11 +110,11 @@
     "errorTitle": "転送が見つかりません",
     "errorDesc": "リンクが間違っているか、転送が存在しない可能性があります。",
     "backHome": "ホームへ戻る",
-    "protectedTitle": "プロテクト・トランスファー",
+    "protectedTitle": "プロテクトトランスファー",
     "protectedDesc": "ファイルにアクセスするためのパスワードを入力する",
     "passwordLabel": "パスワード",
-    "passwordError": "パスワードが間違っています。",
-    "passwordVerifyError": "パスワードの検証エラー",
+    "passwordError": "パスワードが違います。",
+    "passwordVerifyError": "パスワード検証エラー",
     "accessFiles": "アクセス・ファイル",
     "readyLabel": "移籍準備完了",
     "totalSize": "合計サイズ",
@@ -122,11 +122,37 @@
     "downloadCount": "V0__/_V1__ダウンロード数",
     "scarica": "ダウンロード"
   },
+  "adBanner": {
+    "label": "広告",
+    "removePro": "広告を削除するにはProにアップグレードしてください。"
+  },
+  "apiKeys": {
+    "title": "V0__キー",
+    "subtitle": "V1__キーを使ってVaultTransferをコードに統合する",
+    "warning": "⚠️ 今すぐこのキーをコピーしてください！",
+    "copied": "コピー",
+    "copy": "コピー",
+    "saved": "キーを保存し、閉じる",
+    "placeholder": "キー名（例：Production）",
+    "create": "+ キー作成",
+    "creating": "...",
+    "neverUsed": "未使用",
+    "lastUsed": "V0__で使用",
+    "revoke": "取り消す",
+    "noKeys": "V0__キーはまだありません。作成してください！",
+    "revokeConfirm": "本当にこのAPIキーを失効させたいのですか？",
+    "sessionExpired": "セッションの有効期限が切れました。再度ログインしてください。",
+    "revokeError": "失効中にエラーが発生しました。再試行してください。",
+    "connectionError": "接続エラー。",
+    "docsTitle": "クイック・ドキュメント",
+    "docsUpload": "POST /api/v1/upload - 転送の作成",
+    "docsTransfers": "GET /api/v1/transfers - リスト転送"
+  },
   "features": {
     "items": {
       "encrypted": {
         "title": "輸送中の暗号化",
-        "desc": "すべての転送はTLS 1.3のHTTPSで行われます。あなたのファイルが読み取られることはありません。"
+        "desc": "すべての転送はTLS 1.3でHTTPSで行われます。あなたのファイルが読まれることはありません。"
       },
       "expiry": {
         "title": "自動期限切れ",
@@ -145,7 +171,7 @@
         "desc": "登録不要。Eメール不要。匿名の即時アップロード。"
       },
       "gdpr": {
-        "title": "GDPR対応",
+        "title": "V0__ 準拠",
         "desc": "追跡なし。プロファイリングなし。データはヨーロッパに保存されます。"
       }
     }
@@ -156,7 +182,7 @@
     "reasonLabel": "報告の理由",
     "reasonPlaceholder": "理由を選ぶ",
     "reasons": {
-      "csam": "児童性的虐待資料（CSAM）",
+      "csam": "児童性的虐待資料 (CSAM)",
       "malware": "マルウェアまたはウイルス",
       "copyright": "著作権違反",
       "illegal": "違法コンテンツ",
@@ -194,20 +220,20 @@
     "perMonth": "/月",
     "billedAnnually": "年間請求額",
     "saveWithAnnual": "年間プランで年間{amount}ユーロを節約",
-    "free": "無料",
+    "free": "Free",
     "plans": {
       "free": {
-        "name": "無料",
+        "name": "Free",
         "cta": "無料で始める"
       },
       "pro": {
-        "name": "プロ",
+        "name": "Pro",
         "badge": "一番人気",
-        "cta": "プロへのアップグレード"
+        "cta": "V0__へのアップグレード"
       },
       "business": {
-        "name": "ビジネス",
-        "cta": "ビジネスへのアップグレード"
+        "name": "Business",
+        "cta": "V0__へのアップグレード"
       }
     },
     "features": {
@@ -229,7 +255,7 @@
     "error": "ネットワークエラーです。もう一度お試しください。",
     "trust": {
       "refund": "14日間の返金",
-      "stripe": "Stripeによる安全な支払い",
+      "stripe": "V0__による安全な支払い",
       "cancel": "いつでもキャンセル",
       "faq": "ご質問は？よくある質問を読む"
     }
@@ -252,8 +278,8 @@
     },
     "items": {
       "whatIs": {
-        "q": "VaultTransferとは何ですか？",
-        "a": "VaultTransferは安全なファイル転送サービスです。保護されたリンクを介して、受信者がアカウントを必要とせずに、誰にでも大容量のファイルを送信することができます。"
+        "q": "V0__とは？",
+        "a": "V0__は安全なファイル転送サービスです。保護されたリンクを介して、受信者がアカウントを必要とせずに、誰にでも大容量ファイルを送信できます。"
       },
       "register": {
         "q": "利用するには会員登録が必要ですか？",
@@ -261,23 +287,23 @@
       },
       "expiry": {
         "q": "ファイルはいつまで利用できますか？",
-        "a": "無料プランの場合、リンクの有効期限は7日間です。Proでは30日間です。Businessでは、カスタム有効期限を設定したり、無期限にファイルを保持することができます。"
+        "a": "V2__プランでは、リンクの有効期限は7日間です。V0__では30日間です。V1__では、カスタム有効期限を設定したり、無期限にファイルを保持することができます。"
       },
       "safe": {
         "q": "私のファイルは安全ですか？",
-        "a": "はい。すべての転送はTLS 1.3のHTTPSで行われます。リンクの有効期限が切れると、ファイルは自動的に削除されます。サーバーはヨーロッパにあり、GDPRに完全に準拠しています。"
+        "a": "はい。すべての転送はTLS 1.3を使ってHTTPS上で行われます。リンクの有効期限が切れると、ファイルは自動的に削除されます。サーバーはヨーロッパにあり、GDPRに完全に準拠しています。"
       },
       "whoCanSee": {
         "q": "誰が私のファイルを見ることができますか？",
         "a": "リンクを持っている人だけがファイルにアクセスできます。さらに保護するためにパスワードを追加することができます（有料プランで利用可能）。当社のスタッフがコンテンツにアクセスすることはありません。"
       },
       "scanned": {
-        "q": "ファイルの分析やスキャンは行われていますか？",
+        "q": "ファイルの解析やスキャンは行われていますか？",
         "a": "受信者を保護するために自動ウイルス対策スキャンを行いますが、商業目的や広告目的でファイルの内容を分析することはありません。"
       },
       "payment": {
         "q": "どのような支払い方法がありますか？",
-        "a": "Stripe経由で主要なクレジットカードおよびデビットカード（Visa、Mastercard、American Express）をご利用いただけます。お支払いは安全で、カード情報は保存されません。"
+        "a": "クレジットカード、デビットカード（Visa、Mastercard、American Express）をご利用いただけます。お支払いは安全で、カード情報は保存されません。"
       },
       "changePlan": {
         "q": "プランはいつでも変更できますか？",
@@ -285,7 +311,7 @@
       },
       "annualDiscount": {
         "q": "年間割引の仕組みは？",
-        "a": "年間課金を選択することで、Proプランは年間45ユーロ、Businessプランは年間120ユーロの固定価格となり、月払いに比べて大幅なコスト削減が可能です。お支払いは一括前払いで、プランは12ヶ月間有効です。"
+        "a": "年間課金を選択すると、Proプランは年間45ユーロ、Businessプランは年間120ユーロの固定価格となり、月払いに比べて大幅に節約できます。お支払いは一括前払いで、プランは12ヶ月間有効です。"
       },
       "refund": {
         "q": "返金を要求できますか？",
@@ -293,7 +319,7 @@
       },
       "maxSize": {
         "q": "最大ファイルサイズは？",
-        "a": "無料プラン：1ファイルあたり2GBプロプラン：50GB/ファイルビジネスプラン：1ファイルあたり200GB送信できるファイル数に制限はありません。"
+        "a": "V2__プラン：1ファイルあたり2GB。V0__プラン：50GB/ファイルV1__プラン：1ファイルあたり200 GB。送信できるファイル数に制限はありません。"
       },
       "formats": {
         "q": "どのようなファイル形式に対応していますか？",
@@ -301,7 +327,7 @@
       },
       "devices": {
         "q": "サービスはすべてのデバイスで動作しますか？",
-        "a": "はい。VaultTransferは、最新のブラウザを搭載したあらゆるデバイスで動作します：PC、Mac、Android、iOSのスマートフォン、タブレット。アプリは必要ありません。"
+        "a": "はい。V0__は最新のブラウザを搭載したあらゆるデバイスで動作します：PC、Mac、AndroidおよびiOSスマートフォン、タブレット。アプリは必要ありません。"
       }
     }
   },
@@ -313,13 +339,13 @@
     "help": "お困りですか？"
   },
   "cookie": {
-    "message": "お客様の利便性を向上させ、適切な広告を表示するためにクッキーを使用しています。承諾しますか？",
+    "message": "お客様の利便性を向上させ、適切な広告を表示するためにクッキーを使用しています。同意しますか？",
     "accept": "受け入れる",
     "decline": "減少"
   },
   "metadata": {
-    "titleDefault": "VaultTransfer - 無料で安全にファイルを送信",
-    "description": "2GBまでのファイルを無料で転送。自動期限切れ、パスワード保護、ダウンロード制限付きの暗号化リンク。アカウント不要。GDPR対応。",
+    "titleDefault": "V0__ - 安全かつ無料でファイルを送信",
+    "description": "2GBまでのファイルを無料で転送。自動期限切れ、パスワード保護、ダウンロード制限付きの暗号化リンク。アカウント不要。V0__ 準拠。",
     "keywords": [
       "secure file transfer",
       "send files free",
@@ -335,11 +361,11 @@
   },
   "dashboard": {
     "currentPlan": "現在の計画",
-    "free": "無料",
+    "free": "Free",
     "perMonth": "ユーロ／月",
-    "upgradePro": "プロへのアップグレード",
-    "upgradeProPrice": "Proへのアップグレード - 4.99ユーロ/月 → Proへのアップグレード - 4.99ユーロ/月",
-    "upgradeBusiness": "ビジネスへのアップグレード",
+    "upgradePro": "V0__にアップグレードする",
+    "upgradeProPrice": "V0__へのアップグレード - 月額4.99ユーロ → 月額4.99ユーロ",
+    "upgradeBusiness": "V0__にアップグレードする",
     "manageSubscription": "サブスクリプションの管理",
     "loading": "読み込み中...",
     "maxUpload": "最大アップロード",
@@ -353,38 +379,12 @@
     "wantMore": "より多くのストレージとAPIアクセスが必要ですか？",
     "transfers": "あなたの移動",
     "newTransfer": "+ 新着情報",
-    "transfersProOnly": "移籍履歴はプロプランから利用可能。",
+    "transfersProOnly": "移籍履歴はProプランから入手可能。",
     "noTransfers": "移籍はまだない。共有開始",
     "uploadFirst": "最初のファイルをアップロードする",
     "expired": "期限切れ",
     "copyLink": "リンクをコピーする",
     "transferDate": "V0__の移籍",
     "transferMeta": "V0__ - {downloads} ダウンロード - {expiry} で期限切れ"
-  },
-  "adBanner": {
-    "label": "広告",
-    "removePro": "広告を削除するにはProにアップグレードする"
-  },
-  "apiKeys": {
-    "title": "APIキー",
-    "subtitle": "APIキーを使ってVaultTransferをコードに統合する",
-    "warning": "⚠️ 今すぐこのキーをコピーしてください！",
-    "copied": "コピー",
-    "copy": "コピー",
-    "saved": "キーを保存し、閉じる",
-    "placeholder": "キー名（例：Production）",
-    "create": "+ キー作成",
-    "creating": "...",
-    "neverUsed": "未使用",
-    "lastUsed": "V0__で使用",
-    "revoke": "取り消す",
-    "noKeys": "APIキーはまだありません。作成してください！",
-    "revokeConfirm": "本当にこのAPIキーを取り消しますか？",
-    "sessionExpired": "セッションの有効期限が切れました。再度ログインしてください。",
-    "revokeError": "失効中にエラーが発生しました。再試行してください。",
-    "connectionError": "接続エラー。",
-    "docsTitle": "クイック・ドキュメント",
-    "docsUpload": "POST /api/v1/upload - 転送の作成",
-    "docsTransfers": "GET /api/v1/transfers - リスト転送"
   }
 }
