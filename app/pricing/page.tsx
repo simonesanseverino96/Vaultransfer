@@ -117,7 +117,7 @@ export default function PricingPage() {
       })
       const data = await response.json()
       if (data.url) window.location.href = data.url
-      else setError(data.error || t('error'))
+      else setError(data.error ? t(`errors.${data.error}`) : t('error'))
     } catch {
       setError(t('error'))
     } finally {

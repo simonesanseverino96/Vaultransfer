@@ -6,7 +6,7 @@ import { getStripeCustomerPortalUrl } from '@/lib/stripe'
 export async function POST(req: NextRequest) {
   try {
     const user = await getServerSession()
-    if (!user) return NextResponse.json({ error: 'Non autenticato' }, { status: 401 })
+    if (!user) return NextResponse.json({ error: 'ERR_UNAUTHORIZED' }, { status: 401 })
 
     const supabase = supabaseAdmin()
     const { data: profile } = await supabase
@@ -16,13 +16,13 @@ export async function POST(req: NextRequest) {
       .single()
 
     if (!profile?.stripe_customer_id) {
-      return NextResponse.json({ error: 'Nessun abbonamento attivo' }, { status: 400 })
+      return NextResponse.json({ error: 'ERR_NO_SUBSCRIPTION' }, { status: 400 })
     }
 
     const url = await getStripeCustomerPortalUrl(profile.stripe_customer_id)
     return NextResponse.json({ url })
   } catch (err) {
     console.error('Portal error:', err)
-    return NextResponse.json({ error: 'Errore' }, { status: 500 })
+    return NextResponse.json({ error: 'ERR_GENERAL' }, { status: 500 })
   }
 }

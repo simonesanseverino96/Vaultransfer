@@ -12,7 +12,7 @@ export async function POST(req: NextRequest) {
     event = stripe.webhooks.constructEvent(body, sig, process.env.STRIPE_WEBHOOK_SECRET!)
   } catch (err) {
     console.error('Webhook signature error:', err)
-    return NextResponse.json({ error: 'Invalid signature' }, { status: 400 })
+    return NextResponse.json({ error: 'ERR_INVALID_SIGNATURE' }, { status: 400 })
   }
 
   const supabase = supabaseAdmin()

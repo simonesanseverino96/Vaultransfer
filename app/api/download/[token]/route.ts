@@ -10,7 +10,7 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ tok
 
   if (!success) {
     return NextResponse.json(
-      { error: 'Too many requests. Please try again later.' },
+      { error: 'ERR_TOO_MANY_REQUESTS' },
       { status: 429, headers: { 'X-RateLimit-Limit': limit.toString(), 'X-RateLimit-Remaining': remaining.toString() } }
     )
   }
@@ -32,30 +32,30 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ tok
       .single()
 
     if (error || !transfer) {
-      return NextResponse.json({ error: 'Transfer not found' }, { status: 404 })
+      return NextResponse.json({ error: 'ERR_TRANSFER_NOT_FOUND' }, { status: 404 })
     }
 
     if (new Date(transfer.expires_at) < new Date()) {
-      return NextResponse.json({ error: 'Transfer expired' }, { status: 410 })
+      return NextResponse.json({ error: 'ERR_TRANSFER_EXPIRED' }, { status: 410 })
     }
 
     if (transfer.max_downloads !== null && transfer.download_count >= transfer.max_downloads) {
-      return NextResponse.json({ error: 'Download limit reached' }, { status: 410 })
+      return NextResponse.json({ error: 'ERR_DOWNLOAD_LIMIT' }, { status: 410 })
     }
 
     if (transfer.password_hash) {
       if (!password) {
-        return NextResponse.json({ error: 'Password required', requiresPassword: true }, { status: 401 })
+        return NextResponse.json({ error: 'ERR_PASSWORD_REQUIRED', requiresPassword: true }, { status: 401 })
       }
       const valid = await bcrypt.compare(password, transfer.password_hash)
       if (!valid) {
-        return NextResponse.json({ error: 'Wrong password', requiresPassword: true }, { status: 401 })
+        return NextResponse.json({ error: 'ERR_WRONG_PASSWORD', requiresPassword: true }, { status: 401 })
       }
     }
 
     const file = transfer.transfer_files.find((f: any) => f.id === fileId)
     if (!file) {
-      return NextResponse.json({ error: 'File not found' }, { status: 404 })
+      return NextResponse.json({ error: 'ERR_FILE_NOT_FOUND' }, { status: 404 })
     }
 
     const { data: signed, error: signError } = await supabase.storage
@@ -64,7 +64,7 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ tok
 
     if (signError || !signed) {
       console.error('Signed URL error:', signError)
-      return NextResponse.json({ error: 'Error generating download link' }, { status: 500 })
+      return NextResponse.json({ error: 'ERR_GENERATING_LINK' }, { status: 500 })
     }
 
     if (fileId === transfer.transfer_files[0]?.id) {
@@ -95,6 +95,6 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ tok
     return NextResponse.json({ url: signed.signedUrl, filename: file.filename })
   } catch (err) {
     console.error('Download error:', err)
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
+    return NextResponse.json({ error: 'ERR_INTERNAL' }, { status: 500 })
   }
 }

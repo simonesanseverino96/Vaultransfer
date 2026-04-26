@@ -5,7 +5,7 @@ export async function POST(req: NextRequest) {
 
   const validLocales = ['en', 'de', 'fr', 'es', 'pt', 'it', 'ja', 'zh', 'ar']
   if (!validLocales.includes(locale)) {
-    return NextResponse.json({ error: 'Invalid locale' }, { status: 400 })
+    return NextResponse.json({ error: 'ERR_INVALID_LOCALE' }, { status: 400 })
   }
 
   const res = NextResponse.json({ ok: true })

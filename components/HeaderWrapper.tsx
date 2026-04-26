@@ -1,10 +1,11 @@
 'use client'
 
 import dynamic from 'next/dynamic'
+import { useTranslations } from 'next-intl'
 
-const Header = dynamic(() => import('./Header'), { 
-  ssr: false,
-  loading: () => (
+function HeaderSkeleton() {
+  const t = useTranslations('header')
+  return (
     <header className="relative z-10 border-b border-white/5">
       <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
         <a href="/" className="flex items-center gap-3">
@@ -16,11 +17,16 @@ const Header = dynamic(() => import('./Header'), {
           <span className="font-display text-xl font-700 tracking-tight text-paper">VaultTransfer</span>
         </a>
         <nav className="flex items-center gap-6">
-          <a href="/prezzi" className="text-sm text-muted font-body">Prezzi</a>
+          <a href="/pricing" className="text-sm text-muted font-body">{t('pricing')}</a>
         </nav>
       </div>
     </header>
   )
+}
+
+const Header = dynamic(() => import('./Header'), { 
+  ssr: false,
+  loading: HeaderSkeleton
 })
 
 export default function HeaderWrapper() {

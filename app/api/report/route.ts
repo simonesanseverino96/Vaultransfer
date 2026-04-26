@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+const resend = new Resend(process.env.RESEND_API_KEY || 're_dummy_key')
 
 const REASON_LABELS: Record<string, string> = {
   csam: '🚨 MATERIALE CHE SFRUTTA MINORI (CSAM)',
@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
     const { token, reason, email } = await req.json()
 
     if (!token || !reason) {
-      return NextResponse.json({ error: 'Dati mancanti' }, { status: 400 })
+      return NextResponse.json({ error: 'ERR_MISSING_DATA' }, { status: 400 })
     }
 
     const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://vaultransfer.com'
@@ -59,6 +59,6 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ success: true })
   } catch (err) {
     console.error('Report error:', err)
-    return NextResponse.json({ error: 'Errore invio segnalazione' }, { status: 500 })
+    return NextResponse.json({ error: 'ERR_REPORT_FAILED' }, { status: 500 })
   }
 }

@@ -85,7 +85,7 @@ export default function ApiKeysSection() {
         fetchKeys()
       } else {
         const data = await res.json()
-        alert(data.error || t('revokeError'))
+        alert(data.error ? t(`errors.${data.error}`) : t('revokeError'))
       }
     } catch {
       alert(t('connectionError'))

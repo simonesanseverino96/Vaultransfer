@@ -41,7 +41,7 @@ async function verifyApiKey(req: NextRequest) {
 export async function POST(req: NextRequest) {
   const userId = await verifyApiKey(req)
   if (!userId) {
-    return NextResponse.json({ error: 'API key non valida o mancante' }, { status: 401 })
+    return NextResponse.json({ error: 'ERR_UNAUTHORIZED' }, { status: 401 })
   }
 
   try {
@@ -49,7 +49,7 @@ export async function POST(req: NextRequest) {
     const { files, expiry = '7', maxDownloads, password, message } = body
 
     if (!files || !Array.isArray(files) || files.length === 0) {
-      return NextResponse.json({ error: 'Parametro "files" richiesto' }, { status: 400 })
+      return NextResponse.json({ error: 'ERR_MISSING_FILES' }, { status: 400 })
     }
 
     const supabase = supabaseAdmin()
@@ -94,6 +94,6 @@ export async function POST(req: NextRequest) {
       expiresAt,
     }, { status: 201 })
   } catch (err) {
-    return NextResponse.json({ error: 'Errore interno' }, { status: 500 })
+    return NextResponse.json({ error: 'ERR_INTERNAL' }, { status: 500 })
   }
 }

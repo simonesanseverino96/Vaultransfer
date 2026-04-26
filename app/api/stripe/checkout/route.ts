@@ -8,12 +8,12 @@ export async function POST(req: NextRequest) {
     const { plan, accessToken } = await req.json() as { plan: PlanType; accessToken: string }
 
     if (!accessToken) {
-      return NextResponse.json({ error: 'Non autenticato', requiresLogin: true }, { status: 401 })
+      return NextResponse.json({ error: 'ERR_UNAUTHORIZED', requiresLogin: true }, { status: 401 })
     }
 
     const planConfig = PLANS[plan]
     if (!planConfig.stripePriceId) {
-      return NextResponse.json({ error: 'Piano non valido' }, { status: 400 })
+      return NextResponse.json({ error: 'ERR_INVALID_PLAN' }, { status: 400 })
     }
 
     // Verifica il token con Supabase
@@ -21,7 +21,7 @@ export async function POST(req: NextRequest) {
     const { data: { user }, error: authError } = await supabase.auth.getUser(accessToken)
 
     if (authError || !user) {
-      return NextResponse.json({ error: 'Token non valido', requiresLogin: true }, { status: 401 })
+      return NextResponse.json({ error: 'ERR_INVALID_TOKEN', requiresLogin: true }, { status: 401 })
     }
 
     const { data: profile } = await supabase

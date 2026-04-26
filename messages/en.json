@@ -218,6 +218,11 @@
     "checkEmail": {
       "title": "Check your email!",
       "message": "We sent a magic link to {email}. Click the link to log in — you'll be redirected automatically."
+    },
+    "errors": {
+      "rate_limit": "Too many requests. Please try again later.",
+      "invalid_credentials": "Invalid email address.",
+      "default": "An error occurred during login. Please try again."
     }
   },
 

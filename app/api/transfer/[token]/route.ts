@@ -13,17 +13,17 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ toke
       .single()
 
     if (error || !transfer) {
-      return NextResponse.json({ error: 'Trasferimento non trovato' }, { status: 404 })
+      return NextResponse.json({ error: 'ERR_TRANSFER_NOT_FOUND' }, { status: 404 })
     }
 
     // Check expiry
     if (new Date(transfer.expires_at) < new Date()) {
-      return NextResponse.json({ error: 'Trasferimento scaduto' }, { status: 410 })
+      return NextResponse.json({ error: 'ERR_TRANSFER_EXPIRED' }, { status: 410 })
     }
 
     // Check download limit
     if (transfer.max_downloads !== null && transfer.download_count >= transfer.max_downloads) {
-      return NextResponse.json({ error: 'Limite download raggiunto' }, { status: 410 })
+      return NextResponse.json({ error: 'ERR_DOWNLOAD_LIMIT' }, { status: 410 })
     }
 
     return NextResponse.json({
@@ -44,6 +44,6 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ toke
     })
   } catch (err) {
     console.error('Transfer info error:', err)
-    return NextResponse.json({ error: 'Errore interno' }, { status: 500 })
+    return NextResponse.json({ error: 'ERR_INTERNAL' }, { status: 500 })
   }
 }

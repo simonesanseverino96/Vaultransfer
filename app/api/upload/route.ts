@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
 
   if (!success) {
     return NextResponse.json(
-      { error: 'Too many uploads. Please try again in a few minutes.' },
+      { error: 'ERR_TOO_MANY_REQUESTS' },
       { status: 429, headers: { 'X-RateLimit-Limit': limit.toString(), 'X-RateLimit-Remaining': remaining.toString() } }
     )
   }
@@ -44,12 +44,12 @@ export async function POST(req: NextRequest) {
     }
 
     if (!files || files.length === 0) {
-      return NextResponse.json({ error: 'No files received' }, { status: 400 })
+      return NextResponse.json({ error: 'ERR_NO_FILES_PROVIDED' }, { status: 400 })
     }
 
     const blockedFile = files.find((f: any) => isBlockedFile(f.filename))
     if (blockedFile) {
-      return NextResponse.json({ error: `File not allowed: ${blockedFile.filename}` }, { status: 400 })
+      return NextResponse.json({ error: 'ERR_FILE_NOT_ALLOWED', filename: blockedFile.filename }, { status: 400 })
     }
 
     const supabase = supabaseAdmin()
@@ -75,7 +75,7 @@ export async function POST(req: NextRequest) {
 
     if (transferError) {
       console.error('Transfer insert error:', transferError)
-      return NextResponse.json({ error: 'Database error' }, { status: 500 })
+      return NextResponse.json({ error: 'ERR_DATABASE' }, { status: 500 })
     }
 
     const fileRecords = files.map(f => ({
@@ -91,7 +91,7 @@ export async function POST(req: NextRequest) {
     if (filesError) {
       console.error('Files insert error:', filesError)
       await supabase.from('transfers').delete().eq('id', transferId)
-      return NextResponse.json({ error: 'Error saving files' }, { status: 500 })
+      return NextResponse.json({ error: 'ERR_SAVING_FILES' }, { status: 500 })
     }
 
     if (config.senderEmail?.trim()) {
@@ -113,6 +113,6 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ token: transferId, expiresAt }, { status: 201 })
   } catch (err) {
     console.error('Upload error:', err)
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
+    return NextResponse.json({ error: 'ERR_INTERNAL' }, { status: 500 })
   }
 }

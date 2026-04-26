@@ -37,7 +37,12 @@ export default function LoginPage() {
         shouldCreateUser: true,
       },
     })
-    if (error) setError(error.message)
+    if (error) {
+      const msg = error.message.toLowerCase()
+      if (msg.includes('rate limit')) setError(t('errors.rate_limit'))
+      else if (msg.includes('credentials') || msg.includes('valid')) setError(t('errors.invalid_credentials'))
+      else setError(t('errors.default'))
+    }
     else setSent(true)
     setLoading(false)
   }

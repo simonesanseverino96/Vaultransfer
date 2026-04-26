@@ -119,7 +119,7 @@ export default function UploadSection() {
 
       if (!initRes.ok) {
         const initData = await initRes.json();
-        throw new Error(initData.error || t('error.upload'));
+        throw new Error(initData.error ? t(`errors.${initData.error}`) : t('error.upload'));
       }
 
       const { transferId, files: signedFiles } = await initRes.json();
@@ -128,7 +128,7 @@ export default function UploadSection() {
       const uploadedFiles = await Promise.all(
         files.map(async ({ file, id }) => {
           const signedFile = signedFiles.find((sf: any) => sf.clientFileId === id);
-          if (!signedFile) throw new Error('Signed URL non trovato');
+          if (!signedFile) throw new Error(t('errors.ERR_SIGNED_URL_NOT_FOUND', { defaultValue: 'Signed URL non trovato' }));
 
           setFiles(prev => prev.map(f => f.id === id ? { ...f, status: 'uploading' } : f))
           await uploadFileWithProgress(file, signedFile.signedUrl, id)
@@ -158,7 +158,7 @@ export default function UploadSection() {
 
       if (!res.ok) {
         const data = await res.json()
-        throw new Error(data.error || t('error.transfer'))
+        throw new Error(data.error ? t(`errors.${data.error}`) : t('error.transfer'))
       }
 
       const data = await res.json()

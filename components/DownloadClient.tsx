@@ -40,7 +40,7 @@ export default function DownloadClient({ token }: { token: string }) {
 
       if (!res.ok) {
         if (res.status === 410) { setStatus('expired'); return }
-        setError(data.error || t('errorDesc'))
+        setError(data.error ? t(`errors.${data.error}`) : t('errorDesc'))
         setStatus('error')
         return
       }
@@ -69,7 +69,7 @@ export default function DownloadClient({ token }: { token: string }) {
       return
     }
     if (!res.ok) {
-      setPasswordError(data.error || t('passwordVerifyError'))
+      setPasswordError(data.error ? t(`errors.${data.error}`) : t('passwordVerifyError'))
       return
     }
 
@@ -90,7 +90,7 @@ export default function DownloadClient({ token }: { token: string }) {
 
       if (!res.ok) {
         if (data.requiresPassword) { setStatus('needs-password'); return }
-        setError(data.error || t('downloading'))
+        setError(data.error ? t(`errors.${data.error}`) : t('downloading'))
         return
       }
 

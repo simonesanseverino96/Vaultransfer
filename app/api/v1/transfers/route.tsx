@@ -36,7 +36,7 @@ async function verifyApiKey(req: NextRequest) {
 export async function GET(req: NextRequest) {
   const userId = await verifyApiKey(req)
   if (!userId) {
-    return NextResponse.json({ error: 'API key non valida o mancante' }, { status: 401 })
+    return NextResponse.json({ error: 'ERR_UNAUTHORIZED' }, { status: 401 })
   }
 
   const supabase = supabaseAdmin()

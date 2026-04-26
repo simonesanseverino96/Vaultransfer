@@ -18,12 +18,12 @@ async function getUserFromRequest(req: NextRequest) {
 // GET — lista API keys
 export async function GET(req: NextRequest) {
   const user = await getUserFromRequest(req)
-  if (!user) return NextResponse.json({ error: 'Non autenticato' }, { status: 401 })
+  if (!user) return NextResponse.json({ error: 'ERR_UNAUTHORIZED' }, { status: 401 })
 
   const supabase = supabaseAdmin()
   const { data: profile } = await supabase.from('profiles').select('plan').eq('id', user.id).single()
   if (profile?.plan !== 'business') {
-    return NextResponse.json({ error: 'Solo piano Business' }, { status: 403 })
+    return NextResponse.json({ error: 'ERR_FORBIDDEN_PLAN' }, { status: 403 })
   }
 
   const { data: keys } = await supabase
@@ -39,12 +39,12 @@ export async function GET(req: NextRequest) {
 // POST — crea API key
 export async function POST(req: NextRequest) {
   const user = await getUserFromRequest(req)
-  if (!user) return NextResponse.json({ error: 'Non autenticato' }, { status: 401 })
+  if (!user) return NextResponse.json({ error: 'ERR_UNAUTHORIZED' }, { status: 401 })
 
   const supabase = supabaseAdmin()
   const { data: profile } = await supabase.from('profiles').select('plan').eq('id', user.id).single()
   if (profile?.plan !== 'business') {
-    return NextResponse.json({ error: 'Solo piano Business' }, { status: 403 })
+    return NextResponse.json({ error: 'ERR_FORBIDDEN_PLAN' }, { status: 403 })
   }
 
   const { name } = await req.json()
@@ -62,18 +62,18 @@ export async function POST(req: NextRequest) {
     key_prefix: keyPrefix,
   })
 
-  if (error) return NextResponse.json({ error: 'Errore creazione' }, { status: 500 })
+  if (error) return NextResponse.json({ error: 'ERR_CREATION_FAILED' }, { status: 500 })
   return NextResponse.json({ key: rawKey, prefix: keyPrefix }, { status: 201 })
 }
 
 // DELETE — revoca API key
 export async function DELETE(req: NextRequest) {
   const { id, accessToken } = await req.json()
-  if (!id) return NextResponse.json({ error: 'ID mancante' }, { status: 400 })
+  if (!id) return NextResponse.json({ error: 'ERR_MISSING_ID' }, { status: 400 })
 
   const supabase = supabaseAdmin()
   const { data: { user }, error: authError } = await supabase.auth.getUser(accessToken)
-  if (authError || !user) return NextResponse.json({ error: 'Non autenticato' }, { status: 401 })
+  if (authError || !user) return NextResponse.json({ error: 'ERR_UNAUTHORIZED' }, { status: 401 })
 
   const { error } = await supabase
     .from('api_keys')
@@ -81,6 +81,6 @@ export async function DELETE(req: NextRequest) {
     .eq('id', id)
     .eq('user_id', user.id)
 
-  if (error) return NextResponse.json({ error: 'Errore revoca' }, { status: 500 })
+  if (error) return NextResponse.json({ error: 'ERR_REVOKE_FAILED' }, { status: 500 })
   return NextResponse.json({ success: true })
 }

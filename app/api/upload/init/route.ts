@@ -10,7 +10,7 @@ export async function POST(req: NextRequest) {
 
   if (!success) {
     return NextResponse.json(
-      { error: 'Too many uploads. Please try again in a few minutes.' },
+      { error: 'ERR_TOO_MANY_REQUESTS' },
       { status: 429, headers: { 'X-RateLimit-Limit': limit.toString(), 'X-RateLimit-Remaining': remaining.toString() } }
     )
   }
@@ -21,12 +21,12 @@ export async function POST(req: NextRequest) {
     }
 
     if (!files || files.length === 0) {
-      return NextResponse.json({ error: 'No files provided' }, { status: 400 })
+      return NextResponse.json({ error: 'ERR_NO_FILES_PROVIDED' }, { status: 400 })
     }
 
     const blockedFile = files.find((f: any) => isBlockedFile(f.filename))
     if (blockedFile) {
-      return NextResponse.json({ error: `File not allowed: ${blockedFile.filename}` }, { status: 400 })
+      return NextResponse.json({ error: 'ERR_FILE_NOT_ALLOWED', filename: blockedFile.filename }, { status: 400 })
     }
 
     const transferId = uuidv4()

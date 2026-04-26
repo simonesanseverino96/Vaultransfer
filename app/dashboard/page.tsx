@@ -69,7 +69,7 @@ export default function DashboardPage() {
       })
       const data = await res.json()
       if (data.url) window.location.href = data.url
-      else alert(data.error || 'Error during checkout')
+      else alert(data.error ? t(`errors.${data.error}`) : 'Error during checkout')
     } catch {
       alert('Connection error')
     } finally {

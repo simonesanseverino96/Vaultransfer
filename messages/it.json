@@ -208,6 +208,11 @@
     "checkEmail": {
       "title": "Controllate la vostra e-mail!",
       "message": "Abbiamo inviato un link magico a {email}. Cliccate sul link per accedere: sarete reindirizzati automaticamente."
+    },
+    "errors": {
+      "rate_limit": "Troppe richieste. Riprovare più tardi.",
+      "invalid_credentials": "Indirizzo email non valido.",
+      "default": "Si è verificato un errore durante l'accesso. Riprovare."
     }
   },
   "pricing": {
