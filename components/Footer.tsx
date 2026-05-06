@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
+import Image from 'next/image'
 
 export default function Footer() {
   const t = useTranslations('footer')
@@ -13,7 +14,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-1">
             <div className="flex items-center gap-2 mb-3">
-              <img src="/favicon.svg" alt="VaultTransfer" className="w-7 h-7" />
+              <Image src="/favicon.svg" alt="VaultTransfer" width={28} height={28} className="w-7 h-7" loading="lazy" />
               <span className="font-bold text-white text-base tracking-tight">VaultTransfer</span>
             </div>
             <p className="text-xs text-white/40 leading-relaxed">{t('tagline')}</p>

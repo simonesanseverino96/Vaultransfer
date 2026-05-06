@@ -1,12 +1,17 @@
 import { Metadata } from 'next'
-import { getTranslations } from 'next-intl/server'
+import { getTranslations, getLocale } from 'next-intl/server'
 import DownloadClient from '@/components/DownloadClient'
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('metadata')
+  const locale = await getLocale()
+  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://vaultransfer.com'
   return {
     title: 'Download — VaultTransfer',
     description: t('description'),
+    alternates: {
+      canonical: locale === 'en' ? `${baseUrl}/download/token` : `${baseUrl}/download/token?lang=${locale}`
+    }
   }
 }
 

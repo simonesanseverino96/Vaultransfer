@@ -1,5 +1,23 @@
-import { getLocale } from 'next-intl/server'
+import { Metadata } from 'next'
+import { getTranslations, getLocale } from 'next-intl/server'
 import { getPrivacyContent } from '@/lib/legal/privacy'
+
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations()
+  const locale = await getLocale()
+  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://vaultransfer.com'
+  const route = '/privacy'
+  
+  return {
+    title: t('footer.links.privacy'),
+    description: t('metadata.description'),
+    alternates: {
+      canonical: locale === 'en' ? `${baseUrl}${route}` : `${baseUrl}${route}?lang=${locale}`,
+    }
+  }
+}
+
+
 
 export default async function PrivacyPage() {
   const locale = await getLocale()

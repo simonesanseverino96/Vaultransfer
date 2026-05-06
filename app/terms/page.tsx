@@ -1,5 +1,23 @@
-import { getLocale } from 'next-intl/server'
+import { Metadata } from 'next'
+import { getTranslations, getLocale } from 'next-intl/server'
 import { getTermsContent } from '@/lib/legal/terms'
+
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations()
+  const locale = await getLocale()
+  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://vaultransfer.com'
+  const route = '/terms'
+  
+  return {
+    title: t('footer.links.terms'),
+    description: t('metadata.description'),
+    alternates: {
+      canonical: locale === 'en' ? `${baseUrl}${route}` : `${baseUrl}${route}?lang=${locale}`,
+    }
+  }
+}
+
+
 
 export default async function TermsPage() {
   const locale = await getLocale()

@@ -1,6 +1,22 @@
 import { useTranslations } from 'next-intl'
+import { getTranslations, getLocale } from 'next-intl/server'
+import { Metadata } from 'next'
 import UploadSection from '@/components/UploadSection'
 import Features from '@/components/Features'
+
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations('metadata')
+  const locale = await getLocale()
+  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://vaultransfer.com'
+  
+  return {
+    title: t('titleDefault'),
+    description: t('description'),
+    alternates: {
+      canonical: locale === 'en' ? baseUrl : `${baseUrl}?lang=${locale}`,
+    }
+  }
+}
 
 export default function Home() {
   const t = useTranslations('home')
