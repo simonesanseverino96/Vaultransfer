@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { NextIntlClientProvider } from 'next-intl'
 import { getLocale, getMessages } from 'next-intl/server'
-import Script from 'next/script'
 import HeaderWrapper from '@/components/HeaderWrapper'
 import CookieBanner from '@/components/CookieBanner'
 import './globals.css'
@@ -77,15 +76,16 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
   return (
     <html lang={locale}>
-      <body>
+      <head>
         {adsenseId && (
-          <Script
+          <script
             async
             src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseId}`}
             crossOrigin="anonymous"
-            strategy="afterInteractive"
-          />
+          ></script>
         )}
+      </head>
+      <body>
         <NextIntlClientProvider messages={messages}>
           <HeaderWrapper />
           {children}

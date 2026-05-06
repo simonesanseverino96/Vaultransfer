@@ -5,8 +5,7 @@ const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 
 // Client-side Supabase (limited permissions via RLS)
-export const supabase = createClient(supabaseUrl, supabaseAnonKey)
-
+// Utilizzare getBrowserClient() nei componenti lato client per evitare "Multiple GoTrueClient instances detected"
 // Singleton browser client — evita multiple istanze GoTrueClient
 let browserClientInstance: ReturnType<typeof _createBrowserClient> | null = null
 

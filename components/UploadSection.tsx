@@ -6,7 +6,6 @@ import { useTranslations } from 'next-intl'
 import { formatBytes } from '@/lib/utils'
 import { UploadConfig } from '@/types'
 import UploadSuccess from './UploadSuccess'
-import { supabase } from '@/lib/supabase'
 import { isBlockedFile, getBlockedReason } from '@/lib/blocklist'
 import { v4 as uuidv4 } from 'uuid'
 
