@@ -237,43 +237,91 @@ export async function sendDownloadNotification({
       <!DOCTYPE html>
       <html>
         <head><meta charset="utf-8"></head>
-        <body style="font-family: monospace; background: #0a0a0f; color: #f4f1eb; padding: 40px 20px; margin: 0;">
-          <div style="max-width: 480px; margin: 0 auto;">
-            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 32px;">
-              <div style="width: 32px; height: 32px; background: #00e5a0; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
-                <span style="color: #0a0a0f; font-size: 16px;">↓</span>
-              </div>
-              <span style="font-size: 18px; font-weight: 700; color: #f4f1eb;">VaultTransfer</span>
-            </div>
+        <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; background: #f3f4f6; padding: 40px 20px; margin: 0;">
+          <div style="max-width: 600px; margin: 0 auto; background: #ffffff; border: 1px solid #eaeaea; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #ffffff;">
+              <tr>
+                <td style="padding: 40px;">
+                  
+                  <!-- Header -->
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td>
+                        <table cellpadding="0" cellspacing="0" border="0">
+                          <tr>
+                            <td width="32" height="32" style="background-color: #09090b; border-radius: 8px; text-align: center; vertical-align: middle;">
+                              <span style="color: #00e5a0; font-size: 18px; font-weight: bold; font-family: monospace;">&darr;</span>
+                            </td>
+                            <td style="padding-left: 12px;">
+                              <span style="font-size: 20px; font-weight: 600; color: #09090b; letter-spacing: -0.02em;">VaultTransfer</span>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
 
-            <h1 style="font-size: 22px; font-weight: 700; margin: 0 0 8px 0; color: #f4f1eb;">
-              ${t.downloadTitle}
-            </h1>
-            <p style="color: #6b7280; margin: 0 0 24px 0; font-size: 14px; line-height: 1.6;">
-              ${t.downloadSubtitle}
-            </p>
+                  <!-- Title Area -->
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top: 32px;">
+                    <tr>
+                      <td>
+                        <h1 style="font-size: 24px; font-weight: 600; color: #09090b; margin: 0; letter-spacing: -0.02em;">${t.downloadTitle}</h1>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding-top: 8px;">
+                        <p style="font-size: 15px; color: #52525b; margin: 0; line-height: 1.6;">${t.downloadSubtitle}</p>
+                      </td>
+                    </tr>
+                  </table>
 
-            <div style="background: #12121a; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 20px; margin-bottom: 24px;">
-              <p style="margin: 0 0 8px 0; font-size: 13px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.1em;">${t.fileLabel}</p>
-              <p style="margin: 0 0 16px 0; font-size: 15px; color: #f4f1eb;">${filename}</p>
+                  <!-- Card Details -->
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top: 24px; background-color: #fafafa; border: 1px solid #eaeaea; border-radius: 8px;">
+                    <tr>
+                      <td style="padding: 24px;">
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                          <tr>
+                            <td width="50%" valign="top">
+                              <p style="margin: 0; font-size: 12px; font-weight: 600; color: #a1a1aa; text-transform: uppercase; letter-spacing: 0.05em;">${t.fileLabel}</p>
+                              <p style="margin: 0; padding-top: 4px; font-size: 15px; color: #09090b; font-weight: 500;">${filename}</p>
+                            </td>
+                            <td width="50%" valign="top">
+                              <p style="margin: 0; font-size: 12px; font-weight: 600; color: #a1a1aa; text-transform: uppercase; letter-spacing: 0.05em;">${t.downloadLabel}</p>
+                              <p style="margin: 0; padding-top: 4px; font-size: 15px; color: #00c78b; font-weight: 500;">
+                                ${downloadCount} ${maxDownloads ? `/ ${maxDownloads}` : ''}
+                                ${maxDownloads && downloadCount >= maxDownloads ? `<span style="color: #71717a; font-weight: 400; font-size: 13px;">${t.limitReached}</span>` : ''}
+                              </p>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
 
-              <p style="margin: 0 0 8px 0; font-size: 13px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.1em;">${t.downloadLabel}</p>
-              <p style="margin: 0; font-size: 15px; color: #00e5a0;">
-                ${downloadCount} ${maxDownloads ? `/ ${maxDownloads}` : ''}
-                ${maxDownloads && downloadCount >= maxDownloads ? t.limitReached : ''}
-              </p>
-            </div>
+                  <!-- CTA Button -->
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top: 32px;">
+                    <tr>
+                      <td>
+                        <a href="${appUrl}/download/${token}" style="display: inline-block; background-color: #09090b; color: #ffffff; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 500; font-size: 14px;">${t.viewTransfer}</a>
+                      </td>
+                    </tr>
+                  </table>
 
-            <a href="${appUrl}/download/${token}"
-               style="display: inline-block; background: #00e5a0; color: #0a0a0f; padding: 12px 24px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 14px; margin-bottom: 32px;">
-              ${t.viewTransfer}
-            </a>
+                  <!-- Footer -->
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top: 48px;">
+                    <tr>
+                      <td style="border-top: 1px solid #eaeaea; padding-top: 24px;">
+                        <p style="margin: 0; font-size: 13px; color: #71717a; line-height: 1.5;">${t.downloadFooter}</p>
+                        <p style="margin: 0; padding-top: 8px; font-size: 13px; color: #71717a;">
+                          <a href="https://vaultransfer.com/privacy" style="color: #71717a; text-decoration: underline;">Privacy Policy</a>
+                        </p>
+                      </td>
+                    </tr>
+                  </table>
 
-            <hr style="border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 0 0 24px 0;">
-            <p style="color: #6b7280; font-size: 12px; margin: 0;">
-              ${t.downloadFooter}<br>
-              <a href="${appUrl}" style="color: #00e5a0;">vaultransfer.com</a>
-            </p>
+                </td>
+              </tr>
+            </table>
           </div>
         </body>
       </html>
@@ -315,53 +363,110 @@ export async function sendUploadConfirmation({
       <!DOCTYPE html>
       <html>
         <head><meta charset="utf-8"></head>
-        <body style="font-family: monospace; background: #0a0a0f; color: #f4f1eb; padding: 40px 20px; margin: 0;">
-          <div style="max-width: 480px; margin: 0 auto;">
-            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 32px;">
-              <div style="width: 32px; height: 32px; background: #00e5a0; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
-                <span style="color: #0a0a0f; font-size: 16px;">↓</span>
-              </div>
-              <span style="font-size: 18px; font-weight: 700; color: #f4f1eb;">VaultTransfer</span>
-            </div>
+        <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; background: #f3f4f6; padding: 40px 20px; margin: 0;">
+          <div style="max-width: 600px; margin: 0 auto; background: #ffffff; border: 1px solid #eaeaea; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #ffffff;">
+              <tr>
+                <td style="padding: 40px;">
+                  
+                  <!-- Header -->
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td>
+                        <table cellpadding="0" cellspacing="0" border="0">
+                          <tr>
+                            <td width="32" height="32" style="background-color: #09090b; border-radius: 8px; text-align: center; vertical-align: middle;">
+                              <span style="color: #00e5a0; font-size: 18px; font-weight: bold; font-family: monospace;">&darr;</span>
+                            </td>
+                            <td style="padding-left: 12px;">
+                              <span style="font-size: 20px; font-weight: 600; color: #09090b; letter-spacing: -0.02em;">VaultTransfer</span>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
 
-            <h1 style="font-size: 22px; font-weight: 700; margin: 0 0 8px 0; color: #f4f1eb;">
-              ${t.uploadTitle}
-            </h1>
-            <p style="color: #6b7280; margin: 0 0 24px 0; font-size: 14px; line-height: 1.6;">
-              ${t.uploadSubtitle}
-            </p>
+                  <!-- Title Area -->
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top: 32px;">
+                    <tr>
+                      <td>
+                        <h1 style="font-size: 24px; font-weight: 600; color: #09090b; margin: 0; letter-spacing: -0.02em;">${t.uploadTitle}</h1>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding-top: 8px;">
+                        <p style="font-size: 15px; color: #52525b; margin: 0; line-height: 1.6;">${t.uploadSubtitle}</p>
+                      </td>
+                    </tr>
+                  </table>
 
-            <div style="background: #12121a; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 20px; margin-bottom: 16px;">
-              <p style="margin: 0 0 4px 0; font-size: 12px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.1em;">${t.linkLabel}</p>
-              <p style="margin: 0 0 16px 0; font-size: 13px; color: #00e5a0; word-break: break-all;">${downloadUrl}</p>
+                  <!-- Card Details -->
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top: 24px; background-color: #fafafa; border: 1px solid #eaeaea; border-radius: 8px;">
+                    <tr>
+                      <td style="padding: 24px;">
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                          <tr>
+                            <td>
+                              <p style="margin: 0; font-size: 12px; font-weight: 600; color: #a1a1aa; text-transform: uppercase; letter-spacing: 0.05em;">${t.linkLabel}</p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td style="padding-top: 4px;">
+                              <p style="margin: 0; font-size: 14px; color: #00c78b; word-break: break-all; font-weight: 500;">${downloadUrl}</p>
+                            </td>
+                          </tr>
+                        </table>
 
-              <div style="display: flex; gap: 24px;">
-                <div>
-                  <p style="margin: 0 0 4px 0; font-size: 12px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.1em;">${t.filesLabel}</p>
-                  <p style="margin: 0; font-size: 14px; color: #f4f1eb;">${fileCount} (${sizeMB} MB)</p>
-                </div>
-                <div>
-                  <p style="margin: 0 0 4px 0; font-size: 12px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.1em;">${t.expiresLabel}</p>
-                  <p style="margin: 0; font-size: 14px; color: #f4f1eb;">${expiryDate}</p>
-                </div>
-              </div>
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top: 20px;">
+                          <tr>
+                            <td width="50%" valign="top">
+                              <p style="margin: 0; font-size: 12px; font-weight: 600; color: #a1a1aa; text-transform: uppercase; letter-spacing: 0.05em;">${t.filesLabel}</p>
+                              <p style="margin: 0; padding-top: 4px; font-size: 15px; color: #09090b; font-weight: 500;">${fileCount} (${sizeMB} MB)</p>
+                            </td>
+                            <td width="50%" valign="top">
+                              <p style="margin: 0; font-size: 12px; font-weight: 600; color: #a1a1aa; text-transform: uppercase; letter-spacing: 0.05em;">${t.expiresLabel}</p>
+                              <p style="margin: 0; padding-top: 4px; font-size: 15px; color: #09090b; font-weight: 500;">${expiryDate}</p>
+                            </td>
+                          </tr>
+                        </table>
+                        
+                        ${hasPassword ? `
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top: 16px;">
+                          <tr>
+                            <td style="border-top: 1px solid #eaeaea; padding-top: 16px;">
+                              <p style="margin: 0; font-size: 13px; color: #52525b; font-weight: 500;">${t.passwordProtected}</p>
+                            </td>
+                          </tr>
+                        </table>` : ''}
+                      </td>
+                    </tr>
+                  </table>
 
-              ${hasPassword ? `
-              <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.05);">
-                <p style="margin: 0; font-size: 13px; color: #00e5a0;">${t.passwordProtected}</p>
-              </div>` : ''}
-            </div>
+                  <!-- CTA Button -->
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top: 32px;">
+                    <tr>
+                      <td>
+                        <a href="${downloadUrl}" style="display: inline-block; background-color: #09090b; color: #ffffff; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 500; font-size: 14px;">${t.openLink}</a>
+                      </td>
+                    </tr>
+                  </table>
 
-            <a href="${downloadUrl}"
-               style="display: inline-block; background: #00e5a0; color: #0a0a0f; padding: 12px 24px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 14px; margin-bottom: 32px;">
-              ${t.openLink}
-            </a>
+                  <!-- Footer -->
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top: 48px;">
+                    <tr>
+                      <td style="border-top: 1px solid #eaeaea; padding-top: 24px;">
+                        <p style="margin: 0; font-size: 13px; color: #71717a; line-height: 1.5;">${t.uploadFooter}</p>
+                        <p style="margin: 0; padding-top: 8px; font-size: 13px; color: #71717a;">
+                          <a href="https://vaultransfer.com/privacy" style="color: #71717a; text-decoration: underline;">Privacy Policy</a>
+                        </p>
+                      </td>
+                    </tr>
+                  </table>
 
-            <hr style="border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 0 0 24px 0;">
-            <p style="color: #6b7280; font-size: 12px; margin: 0;">
-              ${t.uploadFooter}<br>
-              <a href="${appUrl}" style="color: #00e5a0;">vaultransfer.com</a>
-            </p>
+                </td>
+              </tr>
+            </table>
           </div>
         </body>
       </html>
