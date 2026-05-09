@@ -249,8 +249,8 @@ export async function sendDownloadNotification({
                       <td>
                         <table cellpadding="0" cellspacing="0" border="0">
                           <tr>
-                            <td width="32" height="32" style="background-color: #09090b; border-radius: 8px; text-align: center; vertical-align: middle;">
-                              <span style="color: #00e5a0; font-size: 18px; font-weight: bold; font-family: monospace;">&darr;</span>
+                            <td width="32" height="32" style="border-radius: 8px; text-align: center; vertical-align: middle; overflow: hidden;">
+                              <img src="https://vaultransfer.com/icon-192x192.png" alt="VaultTransfer" width="32" height="32" style="display: block; border: 0; outline: none; text-decoration: none;" />
                             </td>
                             <td style="padding-left: 12px;">
                               <span style="font-size: 20px; font-weight: 600; color: #09090b; letter-spacing: -0.02em;">VaultTransfer</span>
@@ -375,8 +375,8 @@ export async function sendUploadConfirmation({
                       <td>
                         <table cellpadding="0" cellspacing="0" border="0">
                           <tr>
-                            <td width="32" height="32" style="background-color: #09090b; border-radius: 8px; text-align: center; vertical-align: middle;">
-                              <span style="color: #00e5a0; font-size: 18px; font-weight: bold; font-family: monospace;">&darr;</span>
+                            <td width="32" height="32" style="border-radius: 8px; text-align: center; vertical-align: middle; overflow: hidden;">
+                              <img src="https://vaultransfer.com/icon-192x192.png" alt="VaultTransfer" width="32" height="32" style="display: block; border: 0; outline: none; text-decoration: none;" />
                             </td>
                             <td style="padding-left: 12px;">
                               <span style="font-size: 20px; font-weight: 600; color: #09090b; letter-spacing: -0.02em;">VaultTransfer</span>
