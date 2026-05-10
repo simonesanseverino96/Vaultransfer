@@ -1,6 +1,8 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useTransition } from 'react'
+import { useLocale } from 'next-intl'
+import { usePathname, useRouter } from '@/i18n/routing'
 
 const LOCALES = [
   { code: 'en', label: 'English',    flag: '🇬🇧' },
@@ -16,24 +18,20 @@ const LOCALES = [
 
 export default function TranslateWidget() {
   const [open, setOpen] = useState(false)
-  const [current, setCurrent] = useState(() => {
-    if (typeof document === 'undefined') return 'en'
-    const match = document.cookie.match(/NEXT_LOCALE=([^;]+)/)
-    return match?.[1] ?? 'en'
-  })
+  const [isPending, startTransition] = useTransition()
+  
+  const current = useLocale()
+  const router = useRouter()
+  const pathname = usePathname()
 
-  const handleSelect = async (code: string) => {
+  const handleSelect = (code: string) => {
     setOpen(false)
     if (code === current) return
 
-    await fetch('/api/locale', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ locale: code }),
+    startTransition(() => {
+      // @ts-ignore - The pathname might need type casting depending on setup
+      router.replace(pathname, { locale: code })
     })
-
-    setCurrent(code)
-    window.location.reload()
   }
 
   const currentLocale = LOCALES.find(l => l.code === current) ?? LOCALES[0]
