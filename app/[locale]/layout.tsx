@@ -74,7 +74,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const adsenseId = process.env.NEXT_PUBLIC_ADSENSE_ID
 
   return (
-    <html lang={locale}>
+    <html lang={locale} data-scroll-behavior="smooth">
       <head>
         {adsenseId && (
           <script
