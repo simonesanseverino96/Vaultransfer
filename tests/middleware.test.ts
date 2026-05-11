@@ -1,10 +1,15 @@
 import { NextRequest } from 'next/server'
-import { middleware } from '../middleware'
+import middleware from '../proxy'
 
 const mockGetUser = jest.fn()
 const mockSelect = jest.fn()
 const mockEq = jest.fn()
 const mockSingle = jest.fn()
+
+jest.mock('next-intl/middleware', () => jest.fn(() => jest.fn((req) => ({ status: 200 }))));
+jest.mock('../i18n/routing', () => ({
+  routing: {}
+}))
 
 jest.mock('@supabase/ssr', () => ({
   createServerClient: jest.fn(() => ({
