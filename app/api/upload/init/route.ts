@@ -16,19 +16,43 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    const { files } = await req.json() as {
+    const { files, accessToken } = await req.json() as {
       files: Array<{ filename: string, size: number, mimeType: string }>
+      accessToken?: string
     }
 
     if (!files || files.length === 0) {
       return NextResponse.json({ error: 'ERR_NO_FILES_PROVIDED' }, { status: 400 })
     }
 
-    const totalSize = files.reduce((acc, file) => acc + file.size, 0)
     const MAX_UPLOAD_SIZE = 12.5 * 1024 * 1024 // 12.5 MB
+    const oversizedFile = files.find(f => f.size > MAX_UPLOAD_SIZE)
+    if (oversizedFile) {
+      return NextResponse.json({ error: 'ERR_FILE_TOO_LARGE', filename: oversizedFile.filename }, { status: 400 })
+    }
 
-    if (totalSize > MAX_UPLOAD_SIZE) {
-      return NextResponse.json({ error: 'Upload exceeds the maximum allowed size of 12.5 MB.' }, { status: 400 })
+    const supabase = supabaseAdmin()
+
+    if (!accessToken) {
+      const MAX_ANON_UPLOAD_SIZE = 5 * 1024 * 1024 // 5 MB
+      const oversizedAnonFile = files.find(f => f.size > MAX_ANON_UPLOAD_SIZE)
+      if (oversizedAnonFile) {
+        return NextResponse.json({ error: 'ERR_FILE_TOO_LARGE', filename: oversizedAnonFile.filename }, { status: 400 })
+      }
+
+      const todayMidnight = new Date()
+      todayMidnight.setUTCHours(0, 0, 0, 0)
+
+      const { count, error: countError } = await supabase
+        .from('transfers')
+        .select('*', { count: 'exact', head: true })
+        .is('user_id', null)
+        .gte('created_at', todayMidnight.toISOString())
+        .eq('ip', ip)
+
+      if (!countError && count !== null && count >= 3) {
+        return NextResponse.json({ error: 'ERR_ANONYMOUS_LIMIT_EXCEEDED' }, { status: 429 })
+      }
     }
 
     const blockedFile = files.find((f: any) => isBlockedFile(f.filename))
@@ -37,7 +61,6 @@ export async function POST(req: NextRequest) {
     }
 
     const transferId = uuidv4()
-    const supabase = supabaseAdmin()
 
     const signedFiles = await Promise.all(
       files.map(async (file) => {
