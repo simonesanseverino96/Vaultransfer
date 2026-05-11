@@ -115,7 +115,7 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ tok
 
     return NextResponse.json({ url: signed.signedUrl, filename: file.filename })
   } catch (err) {
-    console.error('Download error:', err)
+    console.error('[Download API] Error:', err)
     return NextResponse.json({ error: 'ERR_INTERNAL' }, { status: 500 })
   }
 }

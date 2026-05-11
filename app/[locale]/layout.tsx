@@ -5,6 +5,7 @@ import HeaderWrapper from '@/components/HeaderWrapper'
 import CookieBanner from '@/components/CookieBanner'
 import './globals.css'
 import Footer from '@/components/Footer'
+import ErrorBoundary from '@/components/ErrorBoundary'
 
 const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://vaultransfer.com'
 
@@ -87,7 +88,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <body>
         <NextIntlClientProvider messages={messages}>
           <HeaderWrapper />
-          {children}
+          <ErrorBoundary>
+            {children}
+          </ErrorBoundary>
           <CookieBanner />
           <Footer />
         </NextIntlClientProvider>
