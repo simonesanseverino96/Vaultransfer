@@ -8,6 +8,7 @@ import { PLANS, PlanType } from '@/lib/plans'
 import ApiKeysSection from '@/components/ApiKeysSection'
 import AnalyticsSection from '@/components/dashboard/AnalyticsSection'
 import { Link } from '@/i18n/routing'
+import ErrorBoundary from '@/components/ErrorBoundary'
 
 const supabase = getBrowserClient()
 
@@ -103,6 +104,7 @@ export default function DashboardPage() {
 
   return (
     <main className="min-h-screen">
+      <ErrorBoundary>
       <div className="max-w-4xl mx-auto px-6 py-10 space-y-8">
 
         {/* Piano attuale */}
@@ -235,6 +237,7 @@ export default function DashboardPage() {
         {plan === 'business' && <ApiKeysSection />}
 
       </div>
+      </ErrorBoundary>
     </main>
   )
 }

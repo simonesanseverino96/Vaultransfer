@@ -91,6 +91,10 @@ export default function DownloadClient({ token }: { token: string }) {
 
       if (!res.ok) {
         if (data.requiresPassword) { setStatus('needs-password'); return }
+        if (data.error === 'ERR_INTERNAL') {
+          setError('An unexpected error occurred. Please try again.')
+          return
+        }
         setError(data.error ? t(`errors.${data.error}`) : t('downloading'))
         return
       }
@@ -298,6 +302,15 @@ export default function DownloadClient({ token }: { token: string }) {
       <p className="text-center text-xs text-muted font-body mt-4">
         {t('secureDownload')}
       </p>
+
+      {error === 'An unexpected error occurred. Please try again.' && (
+        <div className="fixed bottom-4 left-1/2 -translate-x-1/2 bg-surface border border-red-500/20 px-6 py-3 rounded-full text-sm text-red-400 shadow-xl z-50 animate-fade-up flex items-center gap-2">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+          {error}
+        </div>
+      )}
 
       <ReportButton token={token} />
     </div>

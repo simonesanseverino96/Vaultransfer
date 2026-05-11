@@ -3,6 +3,7 @@ import { getTranslations, getLocale } from 'next-intl/server'
 import { Metadata } from 'next'
 import UploadSection from '@/components/UploadSection'
 import Features from '@/components/Features'
+import ErrorBoundary from '@/components/ErrorBoundary'
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('metadata')
@@ -49,7 +50,9 @@ export default function Home() {
           {t('description')}
         </p>
 
-        <UploadSection />
+        <ErrorBoundary>
+          <UploadSection />
+        </ErrorBoundary>
       </section>
 
       <Features />
