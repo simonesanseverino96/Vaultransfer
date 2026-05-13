@@ -14,6 +14,7 @@ jest.mock('@/lib/ratelimit', () => ({
 
 jest.mock('@/lib/email', () => ({
   sendUploadConfirmation: jest.fn(),
+  sendStorageWarning: jest.fn(),
 }))
 
 jest.mock('uuid', () => ({
@@ -143,6 +144,81 @@ describe('Upload API', () => {
     expect(res.status).toBe(400)
     const json = await res.json()
     expect(json.error).toBe('Upload exceeds the maximum allowed size of 12.5 MB.')
+  })
+
+  it('sends storage warning when storage reaches 80% threshold', async () => {
+    // 80% of 250MB is 200MB.
+    const currentStorage = 190 * 1024 * 1024
+    const newFileSize = 11 * 1024 * 1024 // 190 + 11 = 201MB (>= 200MB)
+
+    mockSupabase.insert.mockResolvedValue({ error: null })
+
+    const mockSelect = jest.fn().mockReturnValue({
+      eq: jest.fn().mockReturnValue({
+        single: jest.fn().mockResolvedValue({ data: { email: 'user@example.com' }, error: null })
+      })
+    })
+
+    const mockSelectStorage = jest.fn().mockReturnValue({
+      eq: jest.fn().mockResolvedValue({
+        data: [{ total_size: currentStorage }],
+        error: null
+      })
+    })
+
+    // Override the mock specifically for this test
+    mockSupabase.from = jest.fn().mockImplementation((table) => {
+      if (table === 'transfers') {
+        return {
+          insert: jest.fn().mockResolvedValue({ error: null }),
+          select: mockSelectStorage,
+          delete: jest.fn().mockReturnThis(),
+        }
+      } else if (table === 'transfer_files') {
+        return {
+          insert: jest.fn().mockResolvedValue({ error: null })
+        }
+      } else if (table === 'profiles') {
+        return {
+          select: mockSelect
+        }
+      }
+      return mockSupabase
+    })
+
+    const req = new NextRequest('http://localhost/api/upload', {
+      method: 'POST',
+      body: JSON.stringify({
+        transferId: '123',
+        files: [{ filename: 'test.zip', size: newFileSize, mimeType: 'application/zip', id: 'f1', storagePath: 'test.zip' }],
+        config: { expiry: '7', senderEmail: 'user@example.com' },
+        totalSize: newFileSize,
+        accessToken: 'fake-token' // Ensure we mock userId to trigger the check
+      }),
+    })
+
+    // Mock user retrieval
+    mockSupabase.auth = {
+      getUser: jest.fn().mockResolvedValue({ data: { user: { id: 'user-1' } } })
+    }
+
+    mockSupabase.storage.from = jest.fn().mockReturnValue({
+      list: jest.fn().mockResolvedValue({
+        data: [{ name: 'f1_test.zip', metadata: { size: newFileSize } }],
+        error: null
+      })
+    })
+
+    const { sendStorageWarning } = require('@/lib/email')
+
+    const res = await POST(req)
+    expect(res.status).toBe(201)
+
+    expect(sendStorageWarning).toHaveBeenCalledTimes(1)
+    expect(sendStorageWarning).toHaveBeenCalledWith(expect.objectContaining({
+      senderEmail: 'user@example.com',
+      currentStorage: currentStorage + newFileSize
+    }))
   })
 
   it('rejects upload when user storage would exceed 250 MB', async () => {

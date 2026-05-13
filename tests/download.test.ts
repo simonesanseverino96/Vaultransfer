@@ -1,6 +1,7 @@
 import { POST } from '@/app/api/download/[token]/route'
 import { NextRequest } from 'next/server'
 import { supabaseAdmin } from '@/lib/supabase'
+import { sendDownloadNotification, sendExpiryNotification } from '@/lib/email'
 import bcrypt from 'bcryptjs'
 
 jest.mock('@/lib/supabase', () => ({
@@ -9,6 +10,7 @@ jest.mock('@/lib/supabase', () => ({
 
 jest.mock('@/lib/email', () => ({
   sendDownloadNotification: jest.fn(),
+  sendExpiryNotification: jest.fn(),
 }))
 
 jest.mock('@/lib/ratelimit', () => ({
@@ -68,6 +70,132 @@ describe('Download API', () => {
     expect(res.status).toBe(410)
     const json = await res.json()
     expect(json.error).toBe('ERR_TRANSFER_EXPIRED')
+  })
+
+  it('sends expiry notification exactly once when expired link is accessed', async () => {
+    const pastDate = new Date()
+    pastDate.setDate(pastDate.getDate() - 1)
+
+    mockSupabase.single.mockResolvedValue({
+      data: {
+        id: '1',
+        expires_at: pastDate.toISOString(),
+        transfer_files: [{ id: 'file1', filename: 'test.txt' }],
+        expiry_notified: false,
+        sender_email: 'test@example.com',
+        token: '123'
+      },
+      error: null
+    })
+
+    mockSupabase.update = jest.fn().mockReturnValue({
+      eq: jest.fn().mockResolvedValue({ error: null })
+    })
+
+    const req = new NextRequest('http://localhost/api/download/123', {
+      method: 'POST',
+      body: JSON.stringify({ fileId: 'file1' }),
+    })
+
+    const res = await POST(req, { params: Promise.resolve({ token: '123' }) })
+    expect(res.status).toBe(410)
+
+    expect(sendExpiryNotification).toHaveBeenCalledTimes(1)
+    expect(sendExpiryNotification).toHaveBeenCalledWith(expect.objectContaining({
+      senderEmail: 'test@example.com'
+    }))
+    expect(mockSupabase.update).toHaveBeenCalledWith({ expiry_notified: true })
+  })
+
+  it('does not send expiry notification if already notified', async () => {
+    const pastDate = new Date()
+    pastDate.setDate(pastDate.getDate() - 1)
+
+    mockSupabase.single.mockResolvedValue({
+      data: {
+        id: '1',
+        expires_at: pastDate.toISOString(),
+        transfer_files: [{ id: 'file1', filename: 'test.txt' }],
+        expiry_notified: true,
+        sender_email: 'test@example.com',
+        token: '123'
+      },
+      error: null
+    })
+
+    const req = new NextRequest('http://localhost/api/download/123', {
+      method: 'POST',
+      body: JSON.stringify({ fileId: 'file1' }),
+    })
+
+    const res = await POST(req, { params: Promise.resolve({ token: '123' }) })
+    expect(res.status).toBe(410)
+
+    expect(sendExpiryNotification).not.toHaveBeenCalled()
+  })
+
+  it('sends download notification only on the first download', async () => {
+    const futureDate = new Date()
+    futureDate.setDate(futureDate.getDate() + 1)
+
+    mockSupabase.single.mockResolvedValue({
+      data: {
+        id: 'transfer-1',
+        token: '123',
+        expires_at: futureDate.toISOString(),
+        transfer_files: [{ id: 'file1', size: 10 * 1024 * 1024, storage_path: 'file1.zip', filename: 'file1.zip' }],
+        download_count: 0,
+        max_downloads: null,
+        sender_email: 'sender@example.com'
+      },
+      error: null
+    })
+
+    mockSupabase.storage.from = jest.fn().mockReturnValue({
+      createSignedUrl: jest.fn().mockResolvedValue({ data: { signedUrl: 'http://signed.url' }, error: null })
+    })
+
+    mockSupabase.update = jest.fn().mockReturnValue({ eq: jest.fn().mockReturnThis() })
+
+    const req = new NextRequest('http://localhost/api/download/123', {
+      method: 'POST',
+      body: JSON.stringify({ fileId: 'file1' }),
+    })
+
+    const res = await POST(req, { params: Promise.resolve({ token: '123' }) })
+    expect(res.status).toBe(200)
+
+    expect(sendDownloadNotification).toHaveBeenCalledTimes(1)
+
+    // Now simulate second download
+    jest.clearAllMocks()
+    mockSupabase.single.mockResolvedValue({
+      data: {
+        id: 'transfer-1',
+        token: '123',
+        expires_at: futureDate.toISOString(),
+        transfer_files: [{ id: 'file1', size: 10 * 1024 * 1024, storage_path: 'file1.zip', filename: 'file1.zip' }],
+        download_count: 1, // Already downloaded once
+        max_downloads: null,
+        sender_email: 'sender@example.com'
+      },
+      error: null
+    })
+
+    mockSupabase.storage.from = jest.fn().mockReturnValue({
+      createSignedUrl: jest.fn().mockResolvedValue({ data: { signedUrl: 'http://signed.url' }, error: null })
+    })
+
+    const req2 = new NextRequest('http://localhost/api/download/123', {
+      method: 'POST',
+      body: JSON.stringify({ fileId: 'file1' }),
+    })
+
+    const res2 = await POST(req2, { params: Promise.resolve({ token: '123' }) })
+    expect(res2.status).toBe(200)
+
+    // Notification should NOT be called again
+    expect(sendDownloadNotification).not.toHaveBeenCalled()
   })
 
   it('allows download within egress limit', async () => {

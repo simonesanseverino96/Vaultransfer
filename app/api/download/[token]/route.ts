@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import bcrypt from 'bcryptjs'
 import { supabaseAdmin } from '@/lib/supabase'
-import { sendDownloadNotification } from '@/lib/email'
+import { sendDownloadNotification, sendExpiryNotification } from '@/lib/email'
 import { downloadRatelimit } from '@/lib/ratelimit'
 
 export async function POST(req: NextRequest, { params }: { params: Promise<{ token: string }> }) {
@@ -36,6 +36,24 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ tok
     }
 
     if (new Date(transfer.expires_at) < new Date()) {
+      if (!transfer.expiry_notified && transfer.sender_email) {
+        try {
+          await sendExpiryNotification({
+            senderEmail: transfer.sender_email,
+            filename: transfer.transfer_files.length === 1
+              ? transfer.transfer_files[0].filename
+              : `${transfer.transfer_files.length} files`,
+            token: transfer.token,
+            locale,
+          })
+          await supabase
+            .from('transfers')
+            .update({ expiry_notified: true })
+            .eq('id', transfer.id)
+        } catch (emailErr) {
+          console.error('Expiry notification error:', emailErr)
+        }
+      }
       return NextResponse.json({ error: 'ERR_TRANSFER_EXPIRED' }, { status: 410 })
     }
 
@@ -88,7 +106,7 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ tok
       return NextResponse.json({ error: 'ERR_GENERATING_LINK' }, { status: 500 })
     }
 
-    if (fileId === transfer.transfer_files[0]?.id) {
+    if (fileId === transfer.transfer_files[0]?.id && transfer.download_count === 0) {
       const newCount = transfer.download_count + 1
       await supabase
         .from('transfers')

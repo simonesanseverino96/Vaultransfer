@@ -23,6 +23,12 @@ const emailTranslations: Record<string, {
   openLink: string
   uploadFooter: string
   dateLocale: string
+  expirySubject: string
+  expiryTitle: string
+  expirySubtitle: string
+  storageSubject: string
+  storageTitle: string
+  storageSubtitle: string
 }> = {
   en: {
     downloadSubject: 'Your file has been downloaded — VaultTransfer',
@@ -43,6 +49,12 @@ const emailTranslations: Record<string, {
     openLink: 'Open link →',
     uploadFooter: 'You received this email because you entered your address during upload.',
     dateLocale: 'en-US',
+    expirySubject: 'Your transfer has expired — VaultTransfer',
+    expiryTitle: 'Transfer expired ⏳',
+    expirySubtitle: 'Your transfer link has expired and files have been deleted.',
+    storageSubject: 'Storage limit warning — VaultTransfer',
+    storageTitle: 'Storage limit warning ⚠️',
+    storageSubtitle: 'You have used 80% of your total storage limit.',
   },
   it: {
     downloadSubject: 'Il tuo file è stato scaricato — VaultTransfer',
@@ -63,6 +75,12 @@ const emailTranslations: Record<string, {
     openLink: 'Apri il link →',
     uploadFooter: 'Hai ricevuto questa email perché hai inserito il tuo indirizzo durante l\'upload.',
     dateLocale: 'it-IT',
+    expirySubject: 'Your transfer has expired — VaultTransfer',
+    expiryTitle: 'Transfer expired ⏳',
+    expirySubtitle: 'Your transfer link has expired and files have been deleted.',
+    storageSubject: 'Storage limit warning — VaultTransfer',
+    storageTitle: 'Storage limit warning ⚠️',
+    storageSubtitle: 'You have used 80% of your total storage limit.',
   },
   de: {
     downloadSubject: 'Ihre Datei wurde heruntergeladen — VaultTransfer',
@@ -83,6 +101,12 @@ const emailTranslations: Record<string, {
     openLink: 'Link öffnen →',
     uploadFooter: 'Sie haben diese E-Mail erhalten, weil Sie Ihre Adresse beim Upload angegeben haben.',
     dateLocale: 'de-DE',
+    expirySubject: 'Your transfer has expired — VaultTransfer',
+    expiryTitle: 'Transfer expired ⏳',
+    expirySubtitle: 'Your transfer link has expired and files have been deleted.',
+    storageSubject: 'Storage limit warning — VaultTransfer',
+    storageTitle: 'Storage limit warning ⚠️',
+    storageSubtitle: 'You have used 80% of your total storage limit.',
   },
   fr: {
     downloadSubject: 'Votre fichier a été téléchargé — VaultTransfer',
@@ -103,6 +127,12 @@ const emailTranslations: Record<string, {
     openLink: 'Ouvrir le lien →',
     uploadFooter: 'Vous avez reçu cet e-mail car vous avez saisi votre adresse lors du téléchargement.',
     dateLocale: 'fr-FR',
+    expirySubject: 'Your transfer has expired — VaultTransfer',
+    expiryTitle: 'Transfer expired ⏳',
+    expirySubtitle: 'Your transfer link has expired and files have been deleted.',
+    storageSubject: 'Storage limit warning — VaultTransfer',
+    storageTitle: 'Storage limit warning ⚠️',
+    storageSubtitle: 'You have used 80% of your total storage limit.',
   },
   es: {
     downloadSubject: 'Tu archivo ha sido descargado — VaultTransfer',
@@ -123,6 +153,12 @@ const emailTranslations: Record<string, {
     openLink: 'Abrir enlace →',
     uploadFooter: 'Recibiste este correo porque ingresaste tu dirección durante la carga.',
     dateLocale: 'es-ES',
+    expirySubject: 'Your transfer has expired — VaultTransfer',
+    expiryTitle: 'Transfer expired ⏳',
+    expirySubtitle: 'Your transfer link has expired and files have been deleted.',
+    storageSubject: 'Storage limit warning — VaultTransfer',
+    storageTitle: 'Storage limit warning ⚠️',
+    storageSubtitle: 'You have used 80% of your total storage limit.',
   },
   pt: {
     downloadSubject: 'O seu ficheiro foi descarregado — VaultTransfer',
@@ -143,6 +179,12 @@ const emailTranslations: Record<string, {
     openLink: 'Abrir link →',
     uploadFooter: 'Recebeu este e-mail porque inseriu o seu endereço durante o envio.',
     dateLocale: 'pt-PT',
+    expirySubject: 'Your transfer has expired — VaultTransfer',
+    expiryTitle: 'Transfer expired ⏳',
+    expirySubtitle: 'Your transfer link has expired and files have been deleted.',
+    storageSubject: 'Storage limit warning — VaultTransfer',
+    storageTitle: 'Storage limit warning ⚠️',
+    storageSubtitle: 'You have used 80% of your total storage limit.',
   },
   ja: {
     downloadSubject: 'ファイルがダウンロードされました — VaultTransfer',
@@ -163,6 +205,12 @@ const emailTranslations: Record<string, {
     openLink: 'リンクを開く →',
     uploadFooter: 'アップロード時にメールアドレスを入力したため、このメールが届きました。',
     dateLocale: 'ja-JP',
+    expirySubject: 'Your transfer has expired — VaultTransfer',
+    expiryTitle: 'Transfer expired ⏳',
+    expirySubtitle: 'Your transfer link has expired and files have been deleted.',
+    storageSubject: 'Storage limit warning — VaultTransfer',
+    storageTitle: 'Storage limit warning ⚠️',
+    storageSubtitle: 'You have used 80% of your total storage limit.',
   },
   zh: {
     downloadSubject: '您的文件已被下载 — VaultTransfer',
@@ -183,6 +231,12 @@ const emailTranslations: Record<string, {
     openLink: '打开链接 →',
     uploadFooter: '您收到此邮件是因为您在上传时填写了电子邮件地址。',
     dateLocale: 'zh-CN',
+    expirySubject: 'Your transfer has expired — VaultTransfer',
+    expiryTitle: 'Transfer expired ⏳',
+    expirySubtitle: 'Your transfer link has expired and files have been deleted.',
+    storageSubject: 'Storage limit warning — VaultTransfer',
+    storageTitle: 'Storage limit warning ⚠️',
+    storageSubtitle: 'You have used 80% of your total storage limit.',
   },
   ar: {
     downloadSubject: 'تم تنزيل ملفك — VaultTransfer',
@@ -203,6 +257,12 @@ const emailTranslations: Record<string, {
     openLink: 'فتح الرابط →',
     uploadFooter: 'تلقيت هذا البريد الإلكتروني لأنك أدخلت عنوانك أثناء الرفع.',
     dateLocale: 'ar-SA',
+    expirySubject: 'Your transfer has expired — VaultTransfer',
+    expiryTitle: 'Transfer expired ⏳',
+    expirySubtitle: 'Your transfer link has expired and files have been deleted.',
+    storageSubject: 'Storage limit warning — VaultTransfer',
+    storageTitle: 'Storage limit warning ⚠️',
+    storageSubtitle: 'You have used 80% of your total storage limit.',
   },
 }
 
@@ -457,6 +517,203 @@ export async function sendUploadConfirmation({
                     <tr>
                       <td style="border-top: 1px solid #eaeaea; padding-top: 24px;">
                         <p style="margin: 0; font-size: 13px; color: #71717a; line-height: 1.5;">${t.uploadFooter}</p>
+                        <p style="margin: 0; padding-top: 8px; font-size: 13px; color: #71717a;">
+                          <a href="https://vaultransfer.com/privacy" style="color: #71717a; text-decoration: underline;">Privacy Policy</a>
+                        </p>
+                      </td>
+                    </tr>
+                  </table>
+
+                </td>
+              </tr>
+            </table>
+          </div>
+        </body>
+      </html>
+    `,
+  })
+}
+export async function sendExpiryNotification({
+  senderEmail,
+  filename,
+  token,
+  locale,
+}: {
+  senderEmail: string
+  filename: string
+  token: string
+  locale?: string
+}) {
+  const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://vaultransfer.com'
+  const t = getT(locale)
+
+  await resend.emails.send({
+    from: FROM,
+    to: senderEmail,
+    subject: t.expirySubject,
+    html: `
+      <!DOCTYPE html>
+      <html>
+        <head><meta charset="utf-8"></head>
+        <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; background: #f3f4f6; padding: 40px 20px; margin: 0;">
+          <div style="max-width: 600px; margin: 0 auto; background: #ffffff; border: 1px solid #eaeaea; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #ffffff;">
+              <tr>
+                <td style="padding: 40px;">
+
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td>
+                        <table cellpadding="0" cellspacing="0" border="0">
+                          <tr>
+                            <td width="32" height="32" style="border-radius: 8px; text-align: center; vertical-align: middle; overflow: hidden;">
+                              <img src="https://vaultransfer.com/icon-192x192.png" alt="VaultTransfer" width="32" height="32" style="display: block; border: 0; outline: none; text-decoration: none;" />
+                            </td>
+                            <td style="padding-left: 12px;">
+                              <span style="font-size: 20px; font-weight: 600; color: #09090b; letter-spacing: -0.02em;">VaultTransfer</span>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top: 32px;">
+                    <tr>
+                      <td>
+                        <h1 style="font-size: 24px; font-weight: 600; color: #09090b; margin: 0; letter-spacing: -0.02em;">${t.expiryTitle}</h1>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding-top: 8px;">
+                        <p style="font-size: 15px; color: #52525b; margin: 0; line-height: 1.6;">${t.expirySubtitle}</p>
+                      </td>
+                    </tr>
+                  </table>
+
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top: 24px; background-color: #fafafa; border: 1px solid #eaeaea; border-radius: 8px;">
+                    <tr>
+                      <td style="padding: 24px;">
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                          <tr>
+                            <td width="100%" valign="top">
+                              <p style="margin: 0; font-size: 12px; font-weight: 600; color: #a1a1aa; text-transform: uppercase; letter-spacing: 0.05em;">${t.fileLabel}</p>
+                              <p style="margin: 0; padding-top: 4px; font-size: 15px; color: #09090b; font-weight: 500;">${filename}</p>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top: 48px;">
+                    <tr>
+                      <td style="border-top: 1px solid #eaeaea; padding-top: 24px;">
+                        <p style="margin: 0; font-size: 13px; color: #71717a; line-height: 1.5;">${t.downloadFooter}</p>
+                        <p style="margin: 0; padding-top: 8px; font-size: 13px; color: #71717a;">
+                          <a href="https://vaultransfer.com/privacy" style="color: #71717a; text-decoration: underline;">Privacy Policy</a>
+                        </p>
+                      </td>
+                    </tr>
+                  </table>
+
+                </td>
+              </tr>
+            </table>
+          </div>
+        </body>
+      </html>
+    `,
+  })
+}
+
+export async function sendStorageWarning({
+  senderEmail,
+  currentStorage,
+  maxStorage,
+  locale,
+}: {
+  senderEmail: string
+  currentStorage: number
+  maxStorage: number
+  locale?: string
+}) {
+  const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://vaultransfer.com'
+  const t = getT(locale)
+  const currentMB = (currentStorage / (1024 * 1024)).toFixed(1)
+  const maxMB = (maxStorage / (1024 * 1024)).toFixed(1)
+
+  await resend.emails.send({
+    from: FROM,
+    to: senderEmail,
+    subject: t.storageSubject,
+    html: `
+      <!DOCTYPE html>
+      <html>
+        <head><meta charset="utf-8"></head>
+        <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; background: #f3f4f6; padding: 40px 20px; margin: 0;">
+          <div style="max-width: 600px; margin: 0 auto; background: #ffffff; border: 1px solid #eaeaea; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #ffffff;">
+              <tr>
+                <td style="padding: 40px;">
+
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td>
+                        <table cellpadding="0" cellspacing="0" border="0">
+                          <tr>
+                            <td width="32" height="32" style="border-radius: 8px; text-align: center; vertical-align: middle; overflow: hidden;">
+                              <img src="https://vaultransfer.com/icon-192x192.png" alt="VaultTransfer" width="32" height="32" style="display: block; border: 0; outline: none; text-decoration: none;" />
+                            </td>
+                            <td style="padding-left: 12px;">
+                              <span style="font-size: 20px; font-weight: 600; color: #09090b; letter-spacing: -0.02em;">VaultTransfer</span>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top: 32px;">
+                    <tr>
+                      <td>
+                        <h1 style="font-size: 24px; font-weight: 600; color: #09090b; margin: 0; letter-spacing: -0.02em;">${t.storageTitle}</h1>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding-top: 8px;">
+                        <p style="font-size: 15px; color: #52525b; margin: 0; line-height: 1.6;">${t.storageSubtitle}</p>
+                      </td>
+                    </tr>
+                  </table>
+
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top: 24px; background-color: #fafafa; border: 1px solid #eaeaea; border-radius: 8px;">
+                    <tr>
+                      <td style="padding: 24px;">
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                          <tr>
+                            <td width="100%" valign="top">
+                              <p style="margin: 0; font-size: 12px; font-weight: 600; color: #a1a1aa; text-transform: uppercase; letter-spacing: 0.05em;">Storage Used</p>
+                              <p style="margin: 0; padding-top: 4px; font-size: 15px; color: #09090b; font-weight: 500;">${currentMB} MB / ${maxMB} MB</p>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top: 32px;">
+                    <tr>
+                      <td>
+                        <a href="${appUrl}/dashboard" style="display: inline-block; background-color: #09090b; color: #ffffff; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 500; font-size: 14px;">Upgrade Plan</a>
+                      </td>
+                    </tr>
+                  </table>
+
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top: 48px;">
+                    <tr>
+                      <td style="border-top: 1px solid #eaeaea; padding-top: 24px;">
+                        <p style="margin: 0; font-size: 13px; color: #71717a; line-height: 1.5;">${t.downloadFooter}</p>
                         <p style="margin: 0; padding-top: 8px; font-size: 13px; color: #71717a;">
                           <a href="https://vaultransfer.com/privacy" style="color: #71717a; text-decoration: underline;">Privacy Policy</a>
                         </p>
