@@ -21,6 +21,7 @@ CREATE TABLE IF NOT EXISTS profiles (
 
 -- Aggiorna transfers per supportare utenti registrati
 ALTER TABLE transfers ADD COLUMN IF NOT EXISTS user_id UUID REFERENCES profiles(id) ON DELETE SET NULL;
+ALTER TABLE transfers ADD COLUMN IF NOT EXISTS expiry_notified BOOLEAN DEFAULT FALSE;
 
 -- Indice per recuperare trasferimenti per utente
 CREATE INDEX IF NOT EXISTS idx_transfers_user_id ON transfers(user_id);

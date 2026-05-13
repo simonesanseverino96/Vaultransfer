@@ -2,7 +2,7 @@ import { supabaseAdmin } from '@/lib/supabase'
 import bcrypt from 'bcryptjs'
 import { addDays } from 'date-fns'
 import { isBlockedFile } from '@/lib/blocklist'
-import { sendUploadConfirmation } from '@/lib/email'
+import { sendUploadConfirmation, sendStorageWarning } from '@/lib/email'
 import { v4 as uuidv4 } from 'uuid'
 
 export interface UploadFile {
@@ -178,6 +178,40 @@ export async function finalizeTransfer(options: FinalizeTransferOptions) {
       })
     } catch (emailErr) {
       console.error('Email error:', emailErr)
+    }
+  }
+
+  if (userId) {
+    try {
+      const { data: userTransfers } = await supabase
+        .from('transfers')
+        .select('total_size')
+        .eq('user_id', userId)
+
+      // Recalculate storage including the new transfer size (totalSize is from the current transfer)
+      const currentStorage = (userTransfers || []).reduce((acc, t) => acc + (t.total_size || 0), 0) + totalSize
+      const MAX_USER_STORAGE = 250 * 1024 * 1024 // 250 MB
+
+      if (currentStorage >= 0.8 * MAX_USER_STORAGE) {
+        let emailToNotify = senderEmail
+        if (!emailToNotify) {
+          const { data: profile } = await supabase.from('profiles').select('email').eq('id', userId).single()
+          if (profile?.email) {
+            emailToNotify = profile.email
+          }
+        }
+
+        if (emailToNotify) {
+          await sendStorageWarning({
+            senderEmail: emailToNotify,
+            currentStorage,
+            maxStorage: MAX_USER_STORAGE,
+            locale,
+          })
+        }
+      }
+    } catch (storageWarningErr) {
+      console.error('Storage warning error:', storageWarningErr)
     }
   }
 

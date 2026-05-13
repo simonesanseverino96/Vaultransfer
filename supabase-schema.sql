@@ -13,7 +13,8 @@ CREATE TABLE IF NOT EXISTS transfers (
   download_count INT NOT NULL DEFAULT 0,
   message       TEXT,
   sender_email  TEXT,
-  total_size    BIGINT NOT NULL DEFAULT 0
+  total_size    BIGINT NOT NULL DEFAULT 0,
+  expiry_notified BOOLEAN NOT NULL DEFAULT FALSE
 );
 
 -- Tabella file del trasferimento
