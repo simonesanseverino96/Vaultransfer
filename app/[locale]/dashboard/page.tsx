@@ -36,6 +36,9 @@ export default function DashboardPage() {
   const [transfers, setTransfers] = useState<Transfer[]>([])
   const [loading, setLoading] = useState(true)
   const [checkoutLoading, setCheckoutLoading] = useState<string | null>(null)
+  const [transferPage, setTransferPage] = useState(0)
+  const [hasMoreTransfers, setHasMoreTransfers] = useState(false)
+  const [loadingMore, setLoadingMore] = useState(false)
 
   useEffect(() => {
     loadData()
@@ -51,12 +54,28 @@ export default function DashboardPage() {
       .eq('id', user.id)
       .single()
 
-    const transfersRes = await fetch('/api/auth/transfers', { cache: 'no-store' })
+    const transfersRes = await fetch('/api/auth/transfers?page=0', { cache: 'no-store' })
     const transfersJson = await transfersRes.json()
 
     setProfile(profileData)
     setTransfers(transfersJson.transfers || [])
+    setHasMoreTransfers(transfersJson.hasMore ?? false)
+    setTransferPage(0)
     setLoading(false)
+  }
+
+  const loadMoreTransfers = async () => {
+    setLoadingMore(true)
+    try {
+      const nextPage = transferPage + 1
+      const res = await fetch(`/api/auth/transfers?page=${nextPage}`, { cache: 'no-store' })
+      const json = await res.json()
+      setTransfers(prev => [...prev, ...(json.transfers || [])])
+      setHasMoreTransfers(json.hasMore ?? false)
+      setTransferPage(nextPage)
+    } finally {
+      setLoadingMore(false)
+    }
   }
 
   const handleCheckout = async (plan: string) => {
@@ -229,6 +248,17 @@ export default function DashboardPage() {
                   </button>
                 </div>
               ))}
+              {hasMoreTransfers && (
+                <div className="pt-2 text-center">
+                  <button
+                    onClick={loadMoreTransfers}
+                    disabled={loadingMore}
+                    className="px-5 py-2 bg-surface border border-white/5 hover:border-accent/20 text-muted hover:text-paper rounded-lg text-sm font-body transition-all disabled:opacity-50"
+                  >
+                    {loadingMore ? t('loading') : t('loadMore', { defaultValue: 'Load more' })}
+                  </button>
+                </div>
+              )}
             </div>
           )}
         </div>
