@@ -1,14 +1,9 @@
 import { useTranslations } from 'next-intl'
 import { getTranslations, getLocale } from 'next-intl/server'
 import { Metadata } from 'next'
-import dynamic from 'next/dynamic'
+import UploadSectionLazy from '@/components/UploadSectionLazy'
 import Features from '@/components/Features'
 import ErrorBoundary from '@/components/ErrorBoundary'
-
-const UploadSection = dynamic(() => import('@/components/UploadSection'), {
-  loading: () => <div className="max-w-2xl mx-auto h-64 animate-pulse bg-surface rounded-2xl" />,
-  ssr: false,
-})
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('metadata')
@@ -56,7 +51,7 @@ export default function Home() {
         </p>
 
         <ErrorBoundary>
-          <UploadSection />
+          <UploadSectionLazy />
         </ErrorBoundary>
       </section>
 
