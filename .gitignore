@@ -9,10 +9,12 @@ out/
 
 # Environment variables — MAI committare questo!
 .env
+.env*.local
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
+.env.production
 
 # Build
 dist/
@@ -27,3 +29,8 @@ yarn-error.log*
 
 # Vercel
 .vercel
+
+# Local tooling
+.claude/
+.hive-mind/
+.mcp.json
