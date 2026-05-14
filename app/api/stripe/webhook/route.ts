@@ -40,8 +40,8 @@ export async function POST(req: NextRequest) {
         await supabase.from('profiles').update({
           plan: sub.status === 'active' ? plan : 'free',
           subscription_status: sub.status,
-          subscription_ends_at: sub.current_period_end
-            ? new Date(sub.current_period_end * 1000).toISOString()
+          subscription_ends_at: sub.items.data[0]?.current_period_end
+            ? new Date(sub.items.data[0].current_period_end * 1000).toISOString()
             : null,
         }).eq('id', userId)
       }
