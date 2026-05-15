@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 const PREFS_KEY = 'vt:notification_prefs'
 
@@ -40,15 +40,14 @@ function Toggle({ checked, onChange, id }: { checked: boolean; onChange: (v: boo
 }
 
 export default function NotificationPreferences() {
-  const [prefs, setPrefs] = useState<Prefs>(DEFAULT_PREFS)
-  const [saved, setSaved] = useState(false)
-
-  useEffect(() => {
+  const [prefs, setPrefs] = useState<Prefs>(() => {
     try {
-      const stored = localStorage.getItem(PREFS_KEY)
-      if (stored) setPrefs({ ...DEFAULT_PREFS, ...JSON.parse(stored) })
+      const stored = typeof window !== 'undefined' ? localStorage.getItem(PREFS_KEY) : null
+      if (stored) return { ...DEFAULT_PREFS, ...JSON.parse(stored) }
     } catch {}
-  }, [])
+    return DEFAULT_PREFS
+  })
+  const [saved, setSaved] = useState(false)
 
   const update = (key: keyof Prefs, value: boolean) => {
     const next = { ...prefs, [key]: value }
