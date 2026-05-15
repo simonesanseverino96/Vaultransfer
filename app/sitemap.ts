@@ -4,13 +4,16 @@ const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://vaultransfer.com'
 
 const locales = ['en', 'it', 'de', 'fr', 'es', 'pt', 'ja', 'zh', 'ar']
 
+const LAUNCH_DATE = new Date('2026-04-15')
+const TODAY = new Date()
+
 const pages = [
-  { path: '',        changeFrequency: 'weekly',  priority: 1.0 },
-  { path: '/pricing', changeFrequency: 'monthly', priority: 0.8 },
-  { path: '/faq',    changeFrequency: 'monthly',  priority: 0.7 },
-  { path: '/login',  changeFrequency: 'yearly',   priority: 0.5 },
-  { path: '/privacy', changeFrequency: 'yearly',  priority: 0.3 },
-  { path: '/terms',  changeFrequency: 'yearly',   priority: 0.3 },
+  { path: '',         changeFrequency: 'weekly',  priority: 1.0, lastMod: TODAY },
+  { path: '/pricing', changeFrequency: 'monthly', priority: 0.8, lastMod: TODAY },
+  { path: '/faq',     changeFrequency: 'monthly', priority: 0.7, lastMod: TODAY },
+  { path: '/login',   changeFrequency: 'yearly',  priority: 0.5, lastMod: LAUNCH_DATE },
+  { path: '/privacy', changeFrequency: 'yearly',  priority: 0.3, lastMod: LAUNCH_DATE },
+  { path: '/terms',   changeFrequency: 'yearly',  priority: 0.3, lastMod: LAUNCH_DATE },
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -20,7 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // URL canonico in inglese
     entries.push({
       url: `${baseUrl}/en${page.path}`,
-      lastModified: new Date(),
+      lastModified: page.lastMod,
       changeFrequency: page.changeFrequency as any,
       priority: page.priority,
       alternates: {

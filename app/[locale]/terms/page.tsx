@@ -6,14 +6,17 @@ export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations()
   const locale = await getLocale()
   const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://vaultransfer.com'
-  const route = '/terms'
-  
+  const url = `${baseUrl}/${locale}/terms`
+  const title = `${t('footer.links.terms')} — VaultTransfer`
+  const description = 'VaultTransfer terms of service: acceptable use, file storage limits, account responsibilities, and service availability.'
+
   return {
-    title: t('footer.links.terms'),
-    description: t('metadata.description'),
-    alternates: {
-      canonical: `${baseUrl}/${locale}${route}`,
-    }
+    title,
+    description,
+    robots: { index: false, follow: true },
+    alternates: { canonical: url },
+    openGraph: { title, description, url, siteName: 'VaultTransfer', type: 'website' },
+    twitter: { card: 'summary', title, description },
   }
 }
 

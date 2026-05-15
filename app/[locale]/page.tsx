@@ -7,17 +7,34 @@ import ErrorBoundary from '@/components/ErrorBoundary'
 import StatsBar from '@/components/StatsBar'
 import CtaSection from '@/components/CtaSection'
 
+const BASE_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://vaultransfer.com'
+const OG_IMAGE = `${BASE_URL}/icon-512x512.png`
+
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('metadata')
   const locale = await getLocale()
-  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://vaultransfer.com'
-  
+  const canonical = locale === 'en' ? BASE_URL : `${BASE_URL}/${locale}`
+  const title = t('titleDefault')
+  const description = t('description')
+
   return {
-    title: t('titleDefault'),
-    description: t('description'),
-    alternates: {
-      canonical: locale === 'en' ? baseUrl : `${baseUrl}?lang=${locale}`,
-    }
+    title,
+    description,
+    alternates: { canonical },
+    openGraph: {
+      title,
+      description,
+      url: canonical,
+      siteName: 'VaultTransfer',
+      images: [{ url: OG_IMAGE, width: 512, height: 512, alt: 'VaultTransfer' }],
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary',
+      title,
+      description,
+      images: [OG_IMAGE],
+    },
   }
 }
 

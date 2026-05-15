@@ -27,6 +27,67 @@ function formatTime(seconds: number): string {
   return `${(seconds / 3600).toFixed(1)}h`
 }
 
+function getFileTypeInfo(file: File): { color: string; label: string } {
+  const t = file.type
+  if (t.startsWith('image/')) return { color: '#a78bfa', label: 'IMG' }
+  if (t === 'application/pdf') return { color: '#f87171', label: 'PDF' }
+  if (t.startsWith('video/')) return { color: '#60a5fa', label: 'VID' }
+  if (t.startsWith('audio/')) return { color: '#34d399', label: 'AUD' }
+  if (t.includes('zip') || t.includes('rar') || t.includes('7z') || t.includes('tar')) return { color: '#fbbf24', label: 'ZIP' }
+  if (t.includes('word') || t.includes('document')) return { color: '#60a5fa', label: 'DOC' }
+  if (t.includes('sheet') || t.includes('excel')) return { color: '#34d399', label: 'XLS' }
+  if (t.includes('presentation') || t.includes('powerpoint')) return { color: '#fb923c', label: 'PPT' }
+  if (t.startsWith('text/') || t.includes('javascript') || t.includes('json') || t.includes('xml')) return { color: '#94a3b8', label: 'TXT' }
+  return { color: '#00e5a0', label: 'FILE' }
+}
+
+function FileTypeIcon({ file }: { file: File }) {
+  if (file.type.startsWith('image/')) {
+    const url = URL.createObjectURL(file)
+    return (
+      <img
+        src={url}
+        alt={file.name}
+        onLoad={e => URL.revokeObjectURL((e.target as HTMLImageElement).src)}
+        className="w-8 h-8 rounded-lg object-cover flex-shrink-0"
+      />
+    )
+  }
+  const { color, label } = getFileTypeInfo(file)
+  return (
+    <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `${color}20` }}>
+      <span className="text-[9px] font-display font-700" style={{ color }}>{label}</span>
+    </div>
+  )
+}
+
+function getPasswordStrength(pw: string): { level: 0 | 1 | 2; label: string; color: string } {
+  if (!pw) return { level: 0, label: '', color: '' }
+  const hasLower = /[a-z]/.test(pw)
+  const hasUpper = /[A-Z]/.test(pw)
+  const hasDigit = /\d/.test(pw)
+  const hasSpecial = /[^a-zA-Z0-9]/.test(pw)
+  const variety = [hasLower, hasUpper, hasDigit, hasSpecial].filter(Boolean).length
+  if (pw.length >= 12 && variety >= 3) return { level: 2, label: 'Strong', color: '#00e5a0' }
+  if (pw.length >= 8 && variety >= 2) return { level: 1, label: 'Medium', color: '#fbbf24' }
+  return { level: 0, label: 'Weak', color: '#f87171' }
+}
+
+function PasswordStrength({ password }: { password: string }) {
+  const { level, label, color } = getPasswordStrength(password)
+  return (
+    <div className="mt-2">
+      <div className="flex gap-1 mb-1">
+        {[0, 1, 2].map(i => (
+          <div key={i} className="h-1 flex-1 rounded-full transition-all duration-300"
+            style={{ backgroundColor: i <= level ? color : 'rgba(255,255,255,0.08)' }} />
+        ))}
+      </div>
+      <p className="text-xs font-body transition-colors" style={{ color }}>{label}</p>
+    </div>
+  )
+}
+
 export default function UploadSection() {
   const t = useTranslations('upload')
   const [files, setFiles] = useState<FileWithProgress[]>([])
@@ -241,12 +302,7 @@ export default function UploadSection() {
           {files.map(({ file, id, progress, speed, timeLeft, status }) => (
             <div key={id} className="stagger-item bg-white dark:bg-surface border border-gray-100 dark:border-white/5 rounded-xl px-4 py-3">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-gray-100 dark:bg-surface-2 flex items-center justify-center flex-shrink-0">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                    <polyline points="14 2 14 8 20 8"/>
-                  </svg>
-                </div>
+                <FileTypeIcon file={file} />
                 <div className="flex-1 min-w-0">
                   <p className="text-sm text-gray-900 dark:text-paper truncate font-body">{file.name}</p>
                   <p className="text-xs text-gray-500 dark:text-muted font-body">{formatBytes(file.size)}</p>
@@ -346,6 +402,7 @@ export default function UploadSection() {
                 <input type="password" placeholder="••••••••" value={config.password}
                   onChange={e => setConfig(c => ({ ...c, password: e.target.value }))}
                   className="w-full bg-gray-50 dark:bg-surface-2 border border-gray-200 dark:border-white/5 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-paper placeholder-gray-400 dark:placeholder-muted font-body focus:outline-none focus:border-accent/50 transition-colors" />
+                {config.password && <PasswordStrength password={config.password} />}
               </div>
               <div>
                 <label className="text-xs text-muted mb-2 block font-body">{t('options.message')}</label>
