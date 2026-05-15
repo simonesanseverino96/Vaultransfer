@@ -21,3 +21,27 @@ export const downloadRatelimit = new Ratelimit({
   analytics: true,
   prefix: 'vt:download',
 })
+
+// General API: max 60 requests per minute per IP
+export const apiRatelimit = new Ratelimit({
+  redis,
+  limiter: Ratelimit.slidingWindow(60, '1 m'),
+  analytics: true,
+  prefix: 'vt:api',
+})
+
+// Checkout / sensitive actions: max 5 per 10 minutes per IP
+export const checkoutRatelimit = new Ratelimit({
+  redis,
+  limiter: Ratelimit.slidingWindow(5, '10 m'),
+  analytics: true,
+  prefix: 'vt:checkout',
+})
+
+// Abuse reports: max 10 per hour per IP
+export const reportRatelimit = new Ratelimit({
+  redis,
+  limiter: Ratelimit.slidingWindow(10, '1 h'),
+  analytics: true,
+  prefix: 'vt:report',
+})

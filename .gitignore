@@ -43,3 +43,10 @@ tsconfig.tsbuildinfo
 
 # Nested workspace
 Vaultransfer/
+
+# Local databases
+*.db
+
+# Playwright
+/test-results/
+/playwright-report/

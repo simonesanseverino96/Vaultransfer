@@ -2,8 +2,13 @@ import { NextRequest, NextResponse } from 'next/server'
 import { stripe } from '@/lib/stripe'
 import { supabaseAdmin } from '@/lib/supabase'
 import { PLANS, PlanType } from '@/lib/plans'
+import { checkoutRatelimit } from '@/lib/ratelimit'
 
 export async function POST(req: NextRequest) {
+  const ip = req.headers.get('x-forwarded-for')?.split(',')[0] ?? 'anonymous'
+  const { success } = await checkoutRatelimit.limit(ip)
+  if (!success) return NextResponse.json({ error: 'ERR_RATE_LIMITED' }, { status: 429 })
+
   try {
     const { plan, accessToken } = await req.json() as { plan: PlanType; accessToken: string }
 

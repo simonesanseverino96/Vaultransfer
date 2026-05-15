@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
+import { reportRatelimit } from '@/lib/ratelimit'
 
 const resend = new Resend(process.env.RESEND_API_KEY || 're_dummy_key')
 
@@ -13,6 +14,10 @@ const REASON_LABELS: Record<string, string> = {
 }
 
 export async function POST(req: NextRequest) {
+  const ip = req.headers.get('x-forwarded-for')?.split(',')[0] ?? 'anonymous'
+  const { success } = await reportRatelimit.limit(ip)
+  if (!success) return NextResponse.json({ error: 'ERR_RATE_LIMITED' }, { status: 429 })
+
   try {
     const { token, reason, email } = await req.json()
 
@@ -22,7 +27,6 @@ export async function POST(req: NextRequest) {
 
     const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://vaultransfer.com'
     const reasonLabel = REASON_LABELS[reason] || reason
-    const ip = req.headers.get('x-forwarded-for')?.split(',')[0] ?? 'unknown'
 
     // Invia email all'abuse team
     await resend.emails.send({

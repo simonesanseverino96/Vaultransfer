@@ -1,11 +1,20 @@
 /** @type {import('next').NextConfig} */
 const withNextIntl = require('next-intl/plugin')('./i18n/request.ts')
-
+const withBundleAnalyzer = require('@next/bundle-analyzer')({ enabled: process.env.ANALYZE === 'true' })
 
 const nextConfig = {
   serverExternalPackages: ['bcryptjs'],
   turbopack: {
     root: __dirname,
+  },
+
+  images: {
+    formats: ['image/avif', 'image/webp'],
+    deviceSizes: [640, 750, 828, 1080, 1200],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256],
+    remotePatterns: [
+      { protocol: 'https', hostname: '*.supabase.co' },
+    ],
   },
 
   async redirects() {
@@ -39,7 +48,7 @@ const nextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://pagead2.googlesyndication.com https://www.googletagservices.com https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google https://fundingchoicesmessages.google.com https://translate.google.com https://translate.googleapis.com",
+              `script-src 'self' 'unsafe-inline'${process.env.NODE_ENV === 'development' ? " 'unsafe-eval'" : ''} https://pagead2.googlesyndication.com https://www.googletagservices.com https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google https://fundingchoicesmessages.google.com https://translate.google.com https://translate.googleapis.com`,
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "font-src 'self' https://fonts.gstatic.com",
               "img-src 'self' data: blob: https://*.supabase.co https://pagead2.googlesyndication.com",
@@ -56,4 +65,4 @@ const nextConfig = {
   },
 }
 
-module.exports = withNextIntl(nextConfig)
+module.exports = withBundleAnalyzer(withNextIntl(nextConfig))

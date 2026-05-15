@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { supabaseAdmin } from '@/lib/supabase'
+import { logger } from '@/lib/logger'
 
 // Questo endpoint viene chiamato ogni ora da Vercel Cron
 // Elimina i trasferimenti scaduti e i relativi file dallo Storage
@@ -40,7 +41,7 @@ export async function GET(req: NextRequest) {
 
           if (storageError) {
             storageErrors.push(`transfer ${transfer.id}: ${storageError.message}`)
-            console.error(`[cleanup] storage error for transfer ${transfer.id}:`, storageError.message)
+            logger.error('cleanup storage error', { transferId: transfer.id, error: storageError.message })
           } else {
             deletedFiles += paths.length
           }
@@ -58,7 +59,7 @@ export async function GET(req: NextRequest) {
 
     deletedTransfers = count || 0
 
-    console.log(`[cleanup] done: ${deletedTransfers} transfers, ${deletedFiles} files deleted, ${storageErrors.length} storage errors`)
+    logger.info('cleanup done', { deletedTransfers, deletedFiles, storageErrors: storageErrors.length })
 
     const response: Record<string, unknown> = {
       cleaned: deletedTransfers,
@@ -72,7 +73,7 @@ export async function GET(req: NextRequest) {
 
     return NextResponse.json(response)
   } catch (err: any) {
-    console.error('[cleanup] fatal error:', err)
+    logger.error('cleanup fatal error', { error: err.message })
     return NextResponse.json({ error: err.message }, { status: 500 })
   }
 }
