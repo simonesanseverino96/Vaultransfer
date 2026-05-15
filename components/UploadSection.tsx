@@ -3,6 +3,7 @@
 import { useState, useCallback, useRef, useEffect } from 'react'
 import { useDropzone } from 'react-dropzone'
 import { useTranslations } from 'next-intl'
+import Image from 'next/image'
 import { formatBytes } from '@/lib/utils'
 import { UploadConfig } from '@/types'
 import UploadSuccess from './UploadSuccess'
@@ -45,9 +46,12 @@ function FileTypeIcon({ file }: { file: File }) {
   if (file.type.startsWith('image/')) {
     const url = URL.createObjectURL(file)
     return (
-      <img
+      <Image
         src={url}
         alt={file.name}
+        width={32}
+        height={32}
+        unoptimized
         onLoad={e => URL.revokeObjectURL((e.target as HTMLImageElement).src)}
         className="w-8 h-8 rounded-lg object-cover flex-shrink-0"
       />
