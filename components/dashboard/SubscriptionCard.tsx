@@ -54,7 +54,7 @@ export default function SubscriptionCard({
             <h2 className="font-display text-2xl font-700 text-paper">{planConfig.name}</h2>
             {isPaid ? (
               <>
-                <span className={`px-2 py-0.5 rounded-full text-xs font-body ${plan === 'free' ? 'bg-white/10 text-muted' : 'bg-accent/15 text-accent'}`}>
+                <span className="px-2 py-0.5 rounded-full text-xs font-body bg-accent/15 text-accent">
                   {planConfig.price}{t('perMonth')}
                 </span>
                 <span className={`px-2 py-0.5 rounded-full text-xs font-body ${statusStyle}`}>
