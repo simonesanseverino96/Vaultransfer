@@ -20,7 +20,7 @@ interface Props {
 
 export default function TransferStatsModal({ transfer, onClose }: Props) {
   const isExpired = new Date(transfer.expires_at) < new Date()
-  const daysOld = Math.floor((Date.now() - new Date(transfer.created_at).getTime()) / 86_400_000)
+  const daysOld = Math.floor((new Date().getTime() - new Date(transfer.created_at).getTime()) / 86_400_000)
   const limitUsedPct = transfer.max_downloads
     ? Math.min(Math.round((transfer.download_count / transfer.max_downloads) * 100), 100)
     : null

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import type { User } from '@supabase/supabase-js'
 import { getBrowserClient } from '@/lib/supabase'
 import { useToast } from '@/components/Toast'
 
@@ -13,7 +14,7 @@ export default function ReferralSection() {
 
   useEffect(() => {
     const supabase = getBrowserClient()
-    supabase.auth.getUser().then(({ data: { user } }) => {
+    supabase.auth.getUser().then(({ data: { user } }: { data: { user: User | null } }) => {
       if (user) {
         setRefCode(user.id.slice(0, 8))
         fetch('/api/referral')
