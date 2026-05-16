@@ -23,10 +23,20 @@ function Cross() {
   )
 }
 
-type CellVal = string | boolean
+type CellVal = string | boolean | 'coming-soon' | 'contact-us'
 function TableCell({ val }: { val: CellVal }) {
   if (val === true)  return <Check className="text-accent mx-auto" />
   if (val === false) return <Cross />
+  if (val === 'coming-soon') return (
+    <span className="inline-block text-[10px] font-body font-600 uppercase tracking-wide bg-white/5 border border-white/10 text-white/35 rounded-full px-2 py-0.5">
+      Soon
+    </span>
+  )
+  if (val === 'contact-us') return (
+    <a href="mailto:enterprise@vaultransfer.com" className="text-[11px] font-body text-amber-400/60 hover:text-amber-400 transition-colors underline underline-offset-2">
+      Contact
+    </a>
+  )
   return <span className="text-sm text-white/70 font-body">{val}</span>
 }
 
@@ -167,9 +177,9 @@ export default function PricingClient() {
         { label: r('community'),    free: true,  pro: true,  business: true,  enterprise: true },
         { label: r('emailSupport'), free: false, pro: true,  business: true,  enterprise: true },
         { label: r('priority'),     free: false, pro: false, business: true,  enterprise: true },
-        { label: r('dedicated'),    free: false, pro: false, business: false, enterprise: true },
-        { label: r('sla'),          free: false, pro: false, business: false, enterprise: true },
-        { label: r('sso'),          free: false, pro: false, business: false, enterprise: true },
+        { label: r('dedicated'),    free: false, pro: false, business: false, enterprise: 'contact-us' as const },
+        { label: r('sla'),          free: false, pro: false, business: false, enterprise: 'contact-us' as const },
+        { label: r('sso'),          free: false, pro: false, business: false, enterprise: 'coming-soon' as const },
       ],
     },
   ]

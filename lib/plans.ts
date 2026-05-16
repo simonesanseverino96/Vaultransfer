@@ -1,4 +1,4 @@
-export type PlanType = 'free' | 'pro' | 'business'
+export type PlanType = 'free' | 'pro' | 'business' | 'enterprise'
 
 export interface PlanConfig {
   name: string
@@ -13,6 +13,9 @@ export interface PlanConfig {
   hasApiAccess: boolean
   stripePriceId: string | null
 }
+
+export const ENTERPRISE_PLANS: PlanType[] = ['enterprise']
+export const BUSINESS_AND_ABOVE: PlanType[] = ['business', 'enterprise']
 
 export const PLANS: Record<PlanType, PlanConfig> = {
   free: {
@@ -53,6 +56,19 @@ export const PLANS: Record<PlanType, PlanConfig> = {
     hasHistory: true,
     hasApiAccess: true,
     stripePriceId: process.env.STRIPE_PRICE_BUSINESS ?? null,
+  },
+  enterprise: {
+    name: 'Enterprise',
+    price: -1,
+    maxFileSizeMB: -1,
+    maxTotalSizeMB: -1,
+    maxDaysExpiry: -1,
+    maxDownloads: null,
+    hasAds: false,
+    hasPasswordProtection: true,
+    hasHistory: true,
+    hasApiAccess: true,
+    stripePriceId: null,
   },
 }
 

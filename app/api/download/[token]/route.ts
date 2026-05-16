@@ -3,6 +3,7 @@ import bcrypt from 'bcryptjs'
 import { supabaseAdmin } from '@/lib/supabase'
 import { sendDownloadNotification, sendExpiryNotification } from '@/lib/email'
 import { downloadRatelimit } from '@/lib/ratelimit'
+import { dispatchWebhooks } from '@/lib/webhooks'
 
 export async function POST(req: NextRequest, { params }: { params: Promise<{ token: string }> }) {
   const ip = req.headers.get('x-forwarded-for')?.split(',')[0] ?? 'anonymous'
@@ -123,11 +124,25 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ tok
             downloadCount: newCount,
             maxDownloads: transfer.max_downloads,
             token: transfer.token,
-            locale, // ← passa la lingua
+            locale,
           })
         } catch (emailErr) {
           console.error('Email notification error:', emailErr)
         }
+      }
+
+      if (transfer.user_id) {
+        dispatchWebhooks(transfer.user_id, {
+          event: 'transfer.downloaded',
+          transfer_token: transfer.token,
+          timestamp: new Date().toISOString(),
+          data: {
+            download_count: newCount,
+            filename: transfer.transfer_files.length === 1
+              ? transfer.transfer_files[0].filename
+              : `${transfer.transfer_files.length} files`,
+          },
+        }).catch(() => {})
       }
     }
 
