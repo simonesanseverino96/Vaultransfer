@@ -268,7 +268,7 @@
       "enterprise": {
         "name": "Enterprise",
         "desc": "Limiti personalizzati, SSO, supporto dedicato e SLA.",
-        "cta": "Contatta le vendite",
+        "cta": "Contattaci",
         "feature0": "Limiti di archiviazione personalizzati",
         "feature1": "Webhook e dominio personalizzato",
         "feature2": "SSO / SAML",
@@ -290,7 +290,7 @@
         "2gb": "2 GB",
         "50gb": "50 GB",
         "200gb": "200 GB",
-        "custom": "Su misura",
+        "custom": "Personalizzato",
         "7days": "7 giorni",
         "30days": "30 giorni",
         "noLimit": "Nessun limite",
