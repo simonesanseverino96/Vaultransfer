@@ -211,53 +211,167 @@
     }
   },
   "pricing": {
-    "badge": "简单透明",
-    "title": "选择您的计划",
-    "subtitle": "免费开始，随时升级。",
-    "monthly": "每月",
-    "annual": "年度",
-    "saveBadge": "每年最多可节省_{amount}_欧元",
-    "perMonth": "/每月",
-    "billedAnnually": "_{amount}_欧元，每年结算",
-    "saveWithAnnual": "年度计划每年可节省_{amount}_欧元",
-    "free": "Free",
+    "badge": "简单透明的定价",
+    "title": "选择适合您的方案",
+    "subtitle": "免费开始。当您需要更多空间、更长链接或API访问时，随时升级。",
+    "monthly": "按月",
+    "annual": "按年",
+    "savePercent": "最高节省33%",
+    "annualSavings": "Pro节省€{proSave}/年 · Business节省€{bizSave}/年",
+    "perMonth": "/月",
+    "perMonthLabel": "每月",
+    "billedAnnually": "€{amount} 按年计费",
+    "volumePricing": "批量定价",
+    "custom": "定制",
+    "forever": "永久",
+    "loading": "加载中…",
+    "error": "网络错误，请重试。",
     "plans": {
       "free": {
         "name": "Free",
-        "cta": "免费开始"
+        "desc": "快速发送文件，无需注册。",
+        "cta": "免费开始",
+        "feature0": "每次传输 2 GB",
+        "feature1": "链接7天后过期",
+        "feature2": "无限下载",
+        "feature3": "传输备注",
+        "feature4": "首次下载时发送邮件"
       },
       "pro": {
         "name": "Pro",
+        "desc": "更多空间、更长链接、零广告。",
         "badge": "最受欢迎",
-        "cta": "升级到 Pro"
+        "cta": "开始使用 Pro",
+        "feature0": "每次传输 50 GB",
+        "feature1": "链接30天后过期",
+        "feature2": "无广告",
+        "feature3": "下载统计",
+        "feature4": "自定义过期日期",
+        "feature5": "邮件支持"
       },
       "business": {
         "name": "Business",
-        "cta": "升级到 Business"
+        "desc": "无限期限、API访问和高级安全。",
+        "cta": "开始使用 Business",
+        "feature0": "每次传输 200 GB",
+        "feature1": "无过期限制",
+        "feature2": "密码保护链接",
+        "feature3": "公共REST API及密钥",
+        "feature4": "优先支持",
+        "feature5": "包含Pro的所有功能"
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "desc": "自定义限制、SSO、专属支持和SLA。",
+        "cta": "联系销售团队",
+        "feature0": "自定义存储限制",
+        "feature1": "Webhook和自定义域名",
+        "feature2": "SSO / SAML",
+        "feature3": "专属客户经理",
+        "feature4": "自定义SLA",
+        "feature5": "包含Business的所有功能"
       }
     },
-    "features": {
-      "upload2gb": "每个文件最多可上传 2 GB",
-      "upload50gb": "每个文件最多可上传 50 GB",
-      "upload200gb": "每个文件最多可上传 200 GB",
-      "link7days": "链接有效期为 7 天",
-      "link30days": "链接有效期为 30 天",
-      "linkNoExpiry": "无过期链接",
-      "ads": "广告横幅",
-      "noAds": "无广告横幅",
-      "unlimitedDownloads": "无限制下载",
-      "customLinks": "自定义链接",
-      "downloadStats": "下载统计数据",
-      "passwordLinks": "链接密码",
-      "prioritySupport": "优先支持"
+    "comparison": {
+      "title": "比较所有功能",
+      "subtitle": "每个方案的全部内容，一目了然。",
+      "col": {
+        "free": "Free",
+        "pro": "Pro",
+        "business": "Business",
+        "enterprise": "Enterprise"
+      },
+      "val": {
+        "2gb": "2 GB",
+        "50gb": "50 GB",
+        "200gb": "200 GB",
+        "custom": "定制",
+        "7days": "7天",
+        "30days": "30天",
+        "noLimit": "无限制",
+        "unlimited": "不限"
+      },
+      "sec": {
+        "storage": "存储与传输",
+        "features": "功能",
+        "developer": "开发者与API",
+        "support": "支持"
+      },
+      "row": {
+        "maxUpload": "最大上传大小",
+        "linkExpiry": "链接有效期",
+        "maxDownloads": "每链接最大下载次数",
+        "simultaneous": "同时传输数",
+        "adsFree": "无广告体验",
+        "passwordLinks": "密码保护链接",
+        "downloadStats": "下载统计",
+        "customExpiry": "自定义过期日期",
+        "transferNotes": "传输备注与消息",
+        "emailDownload": "首次下载时发送邮件",
+        "restApi": "公共REST API",
+        "apiKeys": "API密钥管理",
+        "webhooks": "Webhook事件",
+        "customDomain": "自定义域名",
+        "community": "社区支持",
+        "emailSupport": "邮件支持",
+        "priority": "优先支持",
+        "dedicated": "专属客户经理",
+        "sla": "自定义SLA",
+        "sso": "SSO / SAML"
+      }
     },
-    "loading": "正在加载...",
-    "error": "网络错误。请重试。",
+    "faq": {
+      "title": "常见问题",
+      "notFound": "找不到答案？",
+      "emailSupport": "发邮件给我们的支持团队。",
+      "items": {
+        "cancel": {
+          "q": "我可以随时取消订阅吗？",
+          "a": "是的——随时在控制台一键取消。您保留完整访问权限直到当前计费周期结束。无违约金，无需说明原因。"
+        },
+        "filesExpire": {
+          "q": "链接过期后我的文件会怎样？",
+          "a": "传输链接过期后，文件将从我们的服务器永久删除。我们会提前24小时发送过期提醒，让您的收件人有时间下载。"
+        },
+        "trial": {
+          "q": "付费方案有免费试用吗？",
+          "a": "所有付费方案均提供30天退款保证。如果VaultTransfer在第一个月内不符合您的需求，请联系支持获得全额退款——无任何条件。"
+        },
+        "freeLimit": {
+          "q": "Free方案的2 GB限制如何运作？",
+          "a": "2 GB限制适用于每次单独传输，而非账户总用量。您可以创建任意数量的传输；每次最多可达2 GB。"
+        },
+        "changePlan": {
+          "q": "我可以之后更换方案吗？",
+          "a": "当然可以。您可以随时在控制台的计费部分切换方案。升级立即生效；降级在下次续费日期生效。"
+        },
+        "payment": {
+          "q": "你们接受哪些付款方式？",
+          "a": "我们接受所有主要信用卡和借记卡（Visa、Mastercard、Amex），以及Apple Pay和Google Pay，全部通过Stripe安全处理。"
+        },
+        "security": {
+          "q": "我的文件是加密且安全的吗？",
+          "a": "所有数据通过HTTPS（TLS 1.3）传输。文件在Supabase管理的基础设施上使用AES-256加密存储。密码保护链接在下载时增加额外的访问控制层。"
+        },
+        "enterprisePlan": {
+          "q": "Enterprise方案是什么？",
+          "a": "Enterprise是专为大型组织设计的定制方案，提供更大存储、专属支持、自定义SLA、SSO/SAML、webhook集成和自定义域名托管。请联系我们的销售团队讨论您的需求。"
+        },
+        "commercial": {
+          "q": "我可以将VaultTransfer用于商业目的吗？",
+          "a": "可以。所有方案（包括Free）均允许商业使用。Business和Enterprise方案专为具有API访问、团队功能和高级安全的专业工作流程设计。"
+        },
+        "annualDiscount": {
+          "q": "年付有折扣吗？",
+          "a": "是的——切换到年付可节省最多33%（与月付相比）。选择按年之后，结账前折扣会自动应用。"
+        }
+      }
+    },
     "trust": {
-      "refund": "14 天退款",
-      "stripe": "通过 Stripe 安全付款",
+      "stripe": "通过Stripe保障支付安全",
+      "guarantee": "30天退款保证",
       "cancel": "随时取消",
-      "faq": "有问题？阅读常见问题 →"
+      "fullFaq": "完整FAQ"
     }
   },
   "faq": {

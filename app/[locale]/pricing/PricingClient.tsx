@@ -5,94 +5,6 @@ import { useRouter, Link } from '@/i18n/routing'
 import { getBrowserClient } from '@/lib/supabase'
 import { useTranslations } from 'next-intl'
 
-// ─── Static data ────────────────────────────────────────────────────────────
-
-const COMPARISON_SECTIONS = [
-  {
-    title: 'Storage & transfers',
-    rows: [
-      { label: 'Max upload size',           free: '2 GB',        pro: '50 GB',       business: '200 GB',    enterprise: 'Custom' },
-      { label: 'Link expiry',               free: '7 days',      pro: '30 days',     business: 'No limit',  enterprise: 'No limit' },
-      { label: 'Max downloads per link',    free: 'Unlimited',   pro: 'Unlimited',   business: 'Unlimited', enterprise: 'Unlimited' },
-      { label: 'Simultaneous transfers',    free: 'Unlimited',   pro: 'Unlimited',   business: 'Unlimited', enterprise: 'Unlimited' },
-    ],
-  },
-  {
-    title: 'Features',
-    rows: [
-      { label: 'Ads-free experience',       free: false, pro: true,  business: true,  enterprise: true },
-      { label: 'Password-protected links',  free: false, pro: false, business: true,  enterprise: true },
-      { label: 'Download statistics',       free: false, pro: true,  business: true,  enterprise: true },
-      { label: 'Custom expiry dates',       free: false, pro: true,  business: true,  enterprise: true },
-      { label: 'Transfer notes & messages', free: true,  pro: true,  business: true,  enterprise: true },
-      { label: 'Email on first download',   free: true,  pro: true,  business: true,  enterprise: true },
-    ],
-  },
-  {
-    title: 'Developer & API',
-    rows: [
-      { label: 'Public REST API',           free: false, pro: false, business: true,  enterprise: true },
-      { label: 'API key management',        free: false, pro: false, business: true,  enterprise: true },
-      { label: 'Webhook events',            free: false, pro: false, business: false, enterprise: true },
-      { label: 'Custom domain',             free: false, pro: false, business: false, enterprise: true },
-    ],
-  },
-  {
-    title: 'Support',
-    rows: [
-      { label: 'Community support',         free: true,  pro: true,  business: true,  enterprise: true },
-      { label: 'Email support',             free: false, pro: true,  business: true,  enterprise: true },
-      { label: 'Priority support',          free: false, pro: false, business: true,  enterprise: true },
-      { label: 'Dedicated account manager', free: false, pro: false, business: false, enterprise: true },
-      { label: 'Custom SLA',                free: false, pro: false, business: false, enterprise: true },
-      { label: 'SSO / SAML',               free: false, pro: false, business: false, enterprise: true },
-    ],
-  },
-]
-
-const FAQS = [
-  {
-    q: 'Can I cancel my subscription at any time?',
-    a: 'Yes — cancel any time from your dashboard with one click. You keep full access until the end of your current billing period. No penalties, no questions asked.',
-  },
-  {
-    q: 'What happens to my files when a link expires?',
-    a: 'Once a transfer link expires, the files are permanently deleted from our servers. We send an expiry reminder 24 hours in advance so your recipients have time to download.',
-  },
-  {
-    q: 'Is there a free trial for paid plans?',
-    a: 'All paid plans come with a 30-day money-back guarantee. If VaultTransfer doesn\'t meet your needs in the first month, contact support for a full refund — no conditions.',
-  },
-  {
-    q: 'How does the 2 GB limit on the Free plan work?',
-    a: 'The 2 GB limit applies per individual transfer, not to your total account usage. You can create as many transfers as you like; each one can be up to 2 GB.',
-  },
-  {
-    q: 'Can I upgrade or downgrade my plan later?',
-    a: 'Absolutely. You can switch plans at any time from the Billing section of your dashboard. Upgrades take effect immediately; downgrades apply at the next renewal date.',
-  },
-  {
-    q: 'What payment methods do you accept?',
-    a: 'We accept all major credit and debit cards (Visa, Mastercard, Amex), as well as Apple Pay and Google Pay, all processed securely via Stripe.',
-  },
-  {
-    q: 'Are my files encrypted and secure?',
-    a: 'All data is transmitted over HTTPS (TLS 1.3). Files are stored encrypted at rest using AES-256 on Supabase-managed infrastructure. Password-protected links add an additional layer of access control at download time.',
-  },
-  {
-    q: 'What is the Enterprise plan?',
-    a: 'Enterprise is a custom plan for large organizations that need higher storage, dedicated support, custom SLAs, SSO/SAML, webhook integrations, and custom domain hosting. Contact our sales team to discuss your requirements.',
-  },
-  {
-    q: 'Can I use VaultTransfer for commercial purposes?',
-    a: 'Yes. All plans, including Free, allow commercial use. The Business and Enterprise plans are specifically designed for professional workflows with API access, team features, and advanced security.',
-  },
-  {
-    q: 'Do you offer discounts for annual billing?',
-    a: 'Yes — switching to annual billing saves you up to 33% compared to monthly pricing. The discount is applied automatically when you toggle to Annual before checkout.',
-  },
-]
-
 // ─── Sub-components ──────────────────────────────────────────────────────────
 
 function Check({ className = '' }: { className?: string }) {
@@ -118,14 +30,22 @@ function TableCell({ val }: { val: CellVal }) {
   return <span className="text-sm text-white/70 font-body">{val}</span>
 }
 
-function ComparisonTable() {
+type ComparisonSection = {
+  title: string
+  rows: Array<{ label: string; free: CellVal; pro: CellVal; business: CellVal; enterprise: CellVal }>
+}
+
+function ComparisonTable({ sections, colHeaders }: {
+  sections: ComparisonSection[]
+  colHeaders: [string, string, string, string]
+}) {
   return (
     <div className="overflow-x-auto">
       <table className="w-full border-collapse min-w-[600px]">
         <thead className="sticky top-0 z-10 bg-[#0a0a0f]">
           <tr>
             <th className="text-left py-4 pr-6 text-xs text-white/30 font-body uppercase tracking-widest w-[40%]" />
-            {(['Free', 'Pro', 'Business', 'Enterprise'] as const).map((col, i) => (
+            {colHeaders.map((col, i) => (
               <th key={col} className={`py-4 px-3 text-center text-sm font-display font-600 w-[15%] ${
                 i === 1 ? 'text-violet-400' : i === 2 ? 'text-accent' : i === 3 ? 'text-amber-400' : 'text-white/40'
               }`}>
@@ -135,7 +55,7 @@ function ComparisonTable() {
           </tr>
         </thead>
         <tbody>
-          {COMPARISON_SECTIONS.map((section) => (
+          {sections.map((section) => (
             <>
               <tr key={section.title}>
                 <td colSpan={5} className="pt-6 pb-2">
@@ -159,11 +79,11 @@ function ComparisonTable() {
   )
 }
 
-function FaqAccordion() {
+function FaqAccordion({ faqs }: { faqs: Array<{ q: string; a: string }> }) {
   const [open, setOpen] = useState<number | null>(null)
   return (
     <div className="space-y-2">
-      {FAQS.map((faq, i) => (
+      {faqs.map((faq, i) => (
         <div key={i} className="border border-white/8 rounded-2xl overflow-hidden bg-white/[0.02]">
           <button
             onClick={() => setOpen(open === i ? null : i)}
@@ -231,7 +151,7 @@ export default function PricingClient() {
       })
       const data = await response.json()
       if (data.url) window.location.href = data.url
-      else setError(data.error ? t(`errors.${data.error}`) : t('error'))
+      else setError(data.error ? t(`errors.${data.error}` as never) : t('error'))
     } catch {
       setError(t('error'))
     } finally {
@@ -239,93 +159,126 @@ export default function PricingClient() {
     }
   }
 
+  // Build translated comparison data
+  const v = (key: string) => t(`comparison.val.${key}` as never)
+  const r = (key: string) => t(`comparison.row.${key}` as never)
+
+  const comparisonSections: ComparisonSection[] = [
+    {
+      title: t('comparison.sec.storage'),
+      rows: [
+        { label: r('maxUpload'),    free: v('2gb'),       pro: v('50gb'),      business: v('200gb'),     enterprise: v('custom') },
+        { label: r('linkExpiry'),   free: v('7days'),     pro: v('30days'),    business: v('noLimit'),   enterprise: v('noLimit') },
+        { label: r('maxDownloads'), free: v('unlimited'), pro: v('unlimited'), business: v('unlimited'), enterprise: v('unlimited') },
+        { label: r('simultaneous'), free: v('unlimited'), pro: v('unlimited'), business: v('unlimited'), enterprise: v('unlimited') },
+      ],
+    },
+    {
+      title: t('comparison.sec.features'),
+      rows: [
+        { label: r('adsFree'),       free: false, pro: true,  business: true,  enterprise: true },
+        { label: r('passwordLinks'), free: false, pro: false, business: true,  enterprise: true },
+        { label: r('downloadStats'), free: false, pro: true,  business: true,  enterprise: true },
+        { label: r('customExpiry'),  free: false, pro: true,  business: true,  enterprise: true },
+        { label: r('transferNotes'), free: true,  pro: true,  business: true,  enterprise: true },
+        { label: r('emailDownload'), free: true,  pro: true,  business: true,  enterprise: true },
+      ],
+    },
+    {
+      title: t('comparison.sec.developer'),
+      rows: [
+        { label: r('restApi'),      free: false, pro: false, business: true,  enterprise: true },
+        { label: r('apiKeys'),      free: false, pro: false, business: true,  enterprise: true },
+        { label: r('webhooks'),     free: false, pro: false, business: false, enterprise: true },
+        { label: r('customDomain'), free: false, pro: false, business: false, enterprise: true },
+      ],
+    },
+    {
+      title: t('comparison.sec.support'),
+      rows: [
+        { label: r('community'),    free: true,  pro: true,  business: true,  enterprise: true },
+        { label: r('emailSupport'), free: false, pro: true,  business: true,  enterprise: true },
+        { label: r('priority'),     free: false, pro: false, business: true,  enterprise: true },
+        { label: r('dedicated'),    free: false, pro: false, business: false, enterprise: true },
+        { label: r('sla'),          free: false, pro: false, business: false, enterprise: true },
+        { label: r('sso'),          free: false, pro: false, business: false, enterprise: true },
+      ],
+    },
+  ]
+
+  const colHeaders: [string, string, string, string] = [
+    t('comparison.col.free'),
+    t('comparison.col.pro'),
+    t('comparison.col.business'),
+    t('comparison.col.enterprise'),
+  ]
+
+  const faqKeys = ['cancel', 'filesExpire', 'trial', 'freeLimit', 'changePlan', 'payment', 'security', 'enterprisePlan', 'commercial', 'annualDiscount'] as const
+  const faqs = faqKeys.map(key => ({
+    q: t(`faq.items.${key}.q` as never),
+    a: t(`faq.items.${key}.a` as never),
+  }))
+
   const plans = [
     {
       key: 'free',
-      name: 'Free',
-      desc: 'Send files quickly, no sign-up required.',
+      name: t('plans.free.name'),
+      desc: t('plans.free.desc'),
       monthlyPrice: 0,
       priceLabel: '€0',
-      priceSub: 'forever',
+      priceSub: t('forever'),
       highlight: false,
-      badge: null,
-      cta: 'Get started free',
+      badge: null as string | null,
+      cta: t('plans.free.cta'),
       ctaStyle: 'bg-white/5 hover:bg-white/10 text-white/70 border border-white/10',
-      features: [
-        '2 GB per transfer',
-        'Links expire after 7 days',
-        'Unlimited downloads',
-        'Transfer notes',
-        'Email on first download',
-      ],
-      priceId: null,
-      annualPriceId: null,
+      features: Array.from({ length: 5 }, (_, i) => t(`plans.free.feature${i}` as never)),
+      priceId: null as string | null | undefined,
+      annualPriceId: null as string | null | undefined,
     },
     {
       key: 'pro',
-      name: 'Pro',
-      desc: 'More space, longer links, and zero ads.',
+      name: t('plans.pro.name'),
+      desc: t('plans.pro.desc'),
       monthlyPrice: 4.99,
       priceLabel: `€${getDisplayPrice(4.99)}`,
-      priceSub: isAnnual ? `€${annualTotals[4.99]} billed annually` : 'per month',
+      priceSub: isAnnual ? t('billedAnnually', { amount: annualTotals[4.99] }) : t('perMonthLabel'),
       highlight: true,
-      badge: 'Most popular',
-      cta: 'Start Pro',
+      badge: t('plans.pro.badge') as string | null,
+      cta: t('plans.pro.cta'),
       ctaStyle: 'bg-violet-600 hover:bg-violet-500 text-white',
-      features: [
-        '50 GB per transfer',
-        'Links expire after 30 days',
-        'No ads',
-        'Download statistics',
-        'Custom expiry dates',
-        'Email support',
-      ],
+      features: Array.from({ length: 6 }, (_, i) => t(`plans.pro.feature${i}` as never)),
       priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_PRO,
       annualPriceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_PRO_ANNUAL,
     },
     {
       key: 'business',
-      name: 'Business',
-      desc: 'Unlimited expiry, API access, and advanced security.',
+      name: t('plans.business.name'),
+      desc: t('plans.business.desc'),
       monthlyPrice: 14.99,
       priceLabel: `€${getDisplayPrice(14.99)}`,
-      priceSub: isAnnual ? `€${annualTotals[14.99]} billed annually` : 'per month',
+      priceSub: isAnnual ? t('billedAnnually', { amount: annualTotals[14.99] }) : t('perMonthLabel'),
       highlight: false,
-      badge: null,
-      cta: 'Start Business',
+      badge: null as string | null,
+      cta: t('plans.business.cta'),
       ctaStyle: 'bg-accent hover:bg-accent-dim text-ink',
-      features: [
-        '200 GB per transfer',
-        'No expiry limit',
-        'Password-protected links',
-        'Public REST API & keys',
-        'Priority support',
-        'Everything in Pro',
-      ],
+      features: Array.from({ length: 6 }, (_, i) => t(`plans.business.feature${i}` as never)),
       priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_BUSINESS,
       annualPriceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_BUSINESS_ANNUAL,
     },
     {
       key: 'enterprise',
-      name: 'Enterprise',
-      desc: 'Custom limits, SSO, dedicated support, and SLAs.',
+      name: t('plans.enterprise.name'),
+      desc: t('plans.enterprise.desc'),
       monthlyPrice: -1,
-      priceLabel: 'Custom',
-      priceSub: 'volume pricing',
+      priceLabel: t('custom'),
+      priceSub: t('volumePricing'),
       highlight: false,
-      badge: null,
-      cta: 'Contact sales',
+      badge: null as string | null,
+      cta: t('plans.enterprise.cta'),
       ctaStyle: 'bg-amber-500/15 hover:bg-amber-500/25 text-amber-300 border border-amber-500/20',
-      features: [
-        'Custom storage limits',
-        'Webhooks & custom domain',
-        'SSO / SAML',
-        'Dedicated account manager',
-        'Custom SLA',
-        'Everything in Business',
-      ],
-      priceId: null,
-      annualPriceId: null,
+      features: Array.from({ length: 6 }, (_, i) => t(`plans.enterprise.feature${i}` as never)),
+      priceId: null as string | null | undefined,
+      annualPriceId: null as string | null | undefined,
     },
   ]
 
@@ -337,13 +290,13 @@ export default function PricingClient() {
         <div className="text-center mb-14">
           <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 text-xs text-white/40 mb-6 font-body">
             <span className="w-1.5 h-1.5 rounded-full bg-accent inline-block" />
-            Simple, transparent pricing
+            {t('badge')}
           </div>
           <h1 className="text-5xl font-display font-700 tracking-tight mb-4">
-            Pick the plan that fits
+            {t('title')}
           </h1>
           <p className="text-white/40 text-lg max-w-md mx-auto font-body">
-            Start for free. Upgrade when you need more space, longer links, or API access.
+            {t('subtitle')}
           </p>
         </div>
 
@@ -354,7 +307,7 @@ export default function PricingClient() {
               onClick={() => setIsAnnual(false)}
               className={`text-sm font-body transition-colors px-2 py-0.5 rounded-full ${!isAnnual ? 'text-white' : 'text-white/40 hover:text-white/60'}`}
             >
-              Monthly
+              {t('monthly')}
             </button>
             <button
               onClick={() => setIsAnnual(!isAnnual)}
@@ -369,15 +322,15 @@ export default function PricingClient() {
               onClick={() => setIsAnnual(true)}
               className={`text-sm font-body transition-colors px-2 py-0.5 rounded-full flex items-center gap-2 ${isAnnual ? 'text-white' : 'text-white/40 hover:text-white/60'}`}
             >
-              Annual
+              {t('annual')}
               <span className="text-xs font-body px-2 py-0.5 rounded-full bg-accent/20 text-accent border border-accent/20">
-                Save up to 33%
+                {t('savePercent')}
               </span>
             </button>
           </div>
           {isAnnual && (
             <p className="text-xs text-white/30 font-body animate-fade-up">
-              Pro saves €{(4.99 * 12 - 45).toFixed(2)}/yr · Business saves €{(14.99 * 12 - 120).toFixed(2)}/yr
+              {t('annualSavings', { proSave: (4.99 * 12 - 45).toFixed(2), bizSave: (14.99 * 12 - 120).toFixed(2) })}
             </p>
           )}
         </div>
@@ -421,10 +374,10 @@ export default function PricingClient() {
               <div className="mb-6">
                 <div className="flex items-end gap-1.5">
                   <span className="text-4xl font-display font-700 tracking-tight text-white leading-none">
-                    {plan.monthlyPrice === -1 ? 'Custom' : plan.priceLabel}
+                    {plan.monthlyPrice === -1 ? t('custom') : plan.priceLabel}
                   </span>
                   {plan.monthlyPrice > 0 && (
-                    <span className="text-white/30 text-xs font-body mb-1">/mo</span>
+                    <span className="text-white/30 text-xs font-body mb-1">{t('perMonth')}</span>
                   )}
                 </div>
                 <p className="text-xs text-white/25 font-body mt-1">{plan.priceSub}</p>
@@ -442,7 +395,7 @@ export default function PricingClient() {
                       <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3" strokeOpacity="0.25"/>
                       <path d="M12 2a10 10 0 0 1 10 10" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
                     </svg>
-                    Loading…
+                    {t('loading')}
                   </span>
                 ) : plan.cta}
               </button>
@@ -467,21 +420,26 @@ export default function PricingClient() {
         {/* ── Comparison table ── */}
         <div className="mb-24">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-display font-700 tracking-tight mb-3">Compare all features</h2>
-            <p className="text-white/40 text-sm font-body">Everything included in each plan, side by side.</p>
+            <h2 className="text-3xl font-display font-700 tracking-tight mb-3">{t('comparison.title')}</h2>
+            <p className="text-white/40 text-sm font-body">{t('comparison.subtitle')}</p>
           </div>
           <div className="bg-white/[0.02] border border-white/8 rounded-2xl px-6 py-4">
-            <ComparisonTable />
+            <ComparisonTable sections={comparisonSections} colHeaders={colHeaders} />
           </div>
         </div>
 
         {/* ── FAQ ── */}
         <div className="max-w-2xl mx-auto mb-20">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-display font-700 tracking-tight mb-3">Frequently asked questions</h2>
-            <p className="text-white/40 text-sm font-body">{"Can't find the answer?"} <a href="mailto:support@vaultransfer.com" className="text-accent hover:underline">Email our support team.</a></p>
+            <h2 className="text-3xl font-display font-700 tracking-tight mb-3">{t('faq.title')}</h2>
+            <p className="text-white/40 text-sm font-body">
+              {t('faq.notFound')}{' '}
+              <a href="mailto:support@vaultransfer.com" className="text-accent hover:underline">
+                {t('faq.emailSupport')}
+              </a>
+            </p>
           </div>
-          <FaqAccordion />
+          <FaqAccordion faqs={faqs} />
         </div>
 
         {/* ── Trust bar ── */}
@@ -491,23 +449,23 @@ export default function PricingClient() {
               <rect x="2" y="5" width="12" height="9" rx="1.5" strokeLinejoin="round"/>
               <path d="M5 5V3.5a3 3 0 0 1 6 0V5" strokeLinecap="round"/>
             </svg>
-            Payments secured by Stripe
+            {t('trust.stripe')}
           </span>
           <span className="flex items-center gap-2">
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-4 h-4 text-white/20" aria-hidden="true">
               <path d="M8 2l1.5 3 3.5.5-2.5 2.5.5 3.5L8 10l-3 1.5.5-3.5L3 5.5l3.5-.5z" strokeLinejoin="round"/>
             </svg>
-            30-day money-back guarantee
+            {t('trust.guarantee')}
           </span>
           <span className="flex items-center gap-2">
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-4 h-4 text-white/20" aria-hidden="true">
               <circle cx="8" cy="8" r="6"/>
               <path d="M8 5v3.5l2 1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
-            Cancel any time
+            {t('trust.cancel')}
           </span>
           <Link href="/faq" className="hover:text-white/50 transition-colors underline underline-offset-2">
-            Full FAQ
+            {t('trust.fullFaq')}
           </Link>
         </div>
 

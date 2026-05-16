@@ -211,53 +211,167 @@
     }
   },
   "pricing": {
-    "badge": "シンプルで透明",
-    "title": "プランの選択",
-    "subtitle": "無料で始められ、お好きな時にアップグレードできます。",
-    "monthly": "毎月",
-    "annual": "年間",
-    "saveBadge": "年間最大{amount}ユーロの割引",
+    "badge": "シンプルで透明な料金",
+    "title": "最適なプランを選ぼう",
+    "subtitle": "無料で始めて、より多くの容量・長いリンク・APIアクセスが必要な時にアップグレード。",
+    "monthly": "月払い",
+    "annual": "年払い",
+    "savePercent": "最大33%節約",
+    "annualSavings": "Proは€{proSave}/年節約 · Businessは€{bizSave}/年節約",
     "perMonth": "/月",
-    "billedAnnually": "年間請求額",
-    "saveWithAnnual": "年間プランで年間{amount}ユーロを節約",
-    "free": "Free",
+    "perMonthLabel": "月あたり",
+    "billedAnnually": "€{amount} 年間一括請求",
+    "volumePricing": "ボリューム価格",
+    "custom": "カスタム",
+    "forever": "永久",
+    "loading": "読み込み中…",
+    "error": "ネットワークエラーです。もう一度お試しください。",
     "plans": {
       "free": {
         "name": "Free",
-        "cta": "無料で始める"
+        "desc": "登録不要で素早くファイルを送信。",
+        "cta": "無料で始める",
+        "feature0": "転送あたり2 GB",
+        "feature1": "リンクは7日後に期限切れ",
+        "feature2": "無制限ダウンロード",
+        "feature3": "転送メモ",
+        "feature4": "初回ダウンロード時にメール通知"
       },
       "pro": {
         "name": "Pro",
-        "badge": "一番人気",
-        "cta": "V0__へのアップグレード"
+        "desc": "より大きな容量・長いリンク・広告なし。",
+        "badge": "最も人気",
+        "cta": "Proを始める",
+        "feature0": "転送あたり50 GB",
+        "feature1": "リンクは30日後に期限切れ",
+        "feature2": "広告なし",
+        "feature3": "ダウンロード統計",
+        "feature4": "カスタム有効期限",
+        "feature5": "メールサポート"
       },
       "business": {
         "name": "Business",
-        "cta": "V0__へのアップグレード"
+        "desc": "無制限の有効期限・APIアクセス・高度なセキュリティ。",
+        "cta": "Businessを始める",
+        "feature0": "転送あたり200 GB",
+        "feature1": "有効期限なし",
+        "feature2": "パスワード保護リンク",
+        "feature3": "パブリックREST API＆キー",
+        "feature4": "優先サポート",
+        "feature5": "Proのすべてを含む"
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "desc": "カスタム制限・SSO・専任サポート・SLA。",
+        "cta": "営業に問い合わせ",
+        "feature0": "カスタムストレージ制限",
+        "feature1": "Webhook＆カスタムドメイン",
+        "feature2": "SSO / SAML",
+        "feature3": "専任アカウントマネージャー",
+        "feature4": "カスタムSLA",
+        "feature5": "Businessのすべてを含む"
       }
     },
-    "features": {
-      "upload2gb": "1ファイルにつき2GBまでアップロード可能",
-      "upload50gb": "1ファイルにつき50GBまでアップロード可能",
-      "upload200gb": "1ファイルあたり200GBまでアップロード可能",
-      "link7days": "リンクは7日間有効",
-      "link30days": "リンク有効期間30日",
-      "linkNoExpiry": "有効期限のないリンク",
-      "ads": "広告バナー",
-      "noAds": "広告バナーなし",
-      "unlimitedDownloads": "無制限ダウンロード",
-      "customLinks": "カスタムリンク",
-      "downloadStats": "ダウンロード統計",
-      "passwordLinks": "リンクのパスワード",
-      "prioritySupport": "優先サポート"
+    "comparison": {
+      "title": "全機能を比較",
+      "subtitle": "各プランに含まれるすべての機能を並べて比較。",
+      "col": {
+        "free": "Free",
+        "pro": "Pro",
+        "business": "Business",
+        "enterprise": "Enterprise"
+      },
+      "val": {
+        "2gb": "2 GB",
+        "50gb": "50 GB",
+        "200gb": "200 GB",
+        "custom": "カスタム",
+        "7days": "7日",
+        "30days": "30日",
+        "noLimit": "制限なし",
+        "unlimited": "無制限"
+      },
+      "sec": {
+        "storage": "ストレージ＆転送",
+        "features": "機能",
+        "developer": "開発者＆API",
+        "support": "サポート"
+      },
+      "row": {
+        "maxUpload": "最大アップロードサイズ",
+        "linkExpiry": "リンク有効期限",
+        "maxDownloads": "リンクあたり最大DL数",
+        "simultaneous": "同時転送数",
+        "adsFree": "広告なし体験",
+        "passwordLinks": "パスワード保護リンク",
+        "downloadStats": "ダウンロード統計",
+        "customExpiry": "カスタム有効期限",
+        "transferNotes": "転送メモ＆メッセージ",
+        "emailDownload": "初回DL時メール通知",
+        "restApi": "パブリックREST API",
+        "apiKeys": "APIキー管理",
+        "webhooks": "Webhookイベント",
+        "customDomain": "カスタムドメイン",
+        "community": "コミュニティサポート",
+        "emailSupport": "メールサポート",
+        "priority": "優先サポート",
+        "dedicated": "専任アカウントマネージャー",
+        "sla": "カスタムSLA",
+        "sso": "SSO / SAML"
+      }
     },
-    "loading": "読み込み中...",
-    "error": "ネットワークエラーです。もう一度お試しください。",
+    "faq": {
+      "title": "よくある質問",
+      "notFound": "答えが見つかりませんか？",
+      "emailSupport": "サポートチームにメールでお問い合わせください。",
+      "items": {
+        "cancel": {
+          "q": "いつでもサブスクリプションをキャンセルできますか？",
+          "a": "はい——ダッシュボードからワンクリックでいつでもキャンセルできます。現在の請求期間の終了まで完全なアクセスを維持できます。ペナルティなし、理由も不要です。"
+        },
+        "filesExpire": {
+          "q": "リンクが期限切れになるとファイルはどうなりますか？",
+          "a": "転送リンクが期限切れになると、ファイルはサーバーから完全に削除されます。受信者がダウンロードできるよう、24時間前に期限切れリマインダーをお送りします。"
+        },
+        "trial": {
+          "q": "有料プランに無料トライアルはありますか？",
+          "a": "すべての有料プランには30日間の返金保証が付いています。最初の1ヶ月でVaultTransferがご要望に合わない場合、サポートに連絡すれば全額返金します——条件なし。"
+        },
+        "freeLimit": {
+          "q": "FreeプランのGB制限はどのように機能しますか？",
+          "a": "2 GBの制限は個々の転送ごとに適用され、アカウントの総使用量ではありません。作成できる転送の数に制限はなく、それぞれ最大2 GBまで利用できます。"
+        },
+        "changePlan": {
+          "q": "後でプランを変更できますか？",
+          "a": "もちろんです。ダッシュボードの請求セクションからいつでもプランを切り替えられます。アップグレードは即時に反映され、ダウングレードは次回更新日から適用されます。"
+        },
+        "payment": {
+          "q": "どの支払い方法に対応していますか？",
+          "a": "主要なクレジットカード・デビットカード（Visa、Mastercard、Amex）のほか、Apple Pay、Google Payにも対応しており、すべてStripeを通じて安全に処理されます。"
+        },
+        "security": {
+          "q": "ファイルは暗号化されていて安全ですか？",
+          "a": "すべてのデータはHTTPS（TLS 1.3）で転送されます。ファイルはSupabase管理のインフラ上でAES-256を使用して暗号化保存されます。パスワード保護リンクはダウンロード時に追加のアクセス制御を提供します。"
+        },
+        "enterprisePlan": {
+          "q": "Enterpriseプランとは何ですか？",
+          "a": "Enterpriseは、大容量ストレージ・専任サポート・カスタムSLA・SSO/SAML・Webhook連携・カスタムドメインホスティングを必要とする大規模組織向けのカスタムプランです。営業チームにご要望をお問い合わせください。"
+        },
+        "commercial": {
+          "q": "VaultTransferを商業目的で使用できますか？",
+          "a": "はい。Freeを含むすべてのプランで商業利用が可能です。BusinessおよびEnterpriseプランは、APIアクセス・チーム機能・高度なセキュリティを備えたプロフェッショナルなワークフロー向けに設計されています。"
+        },
+        "annualDiscount": {
+          "q": "年払いに割引はありますか？",
+          "a": "はい——年払いに切り替えると、月払いと比べて最大33%節約できます。チェックアウト前に「年払い」に切り替えると割引が自動的に適用されます。"
+        }
+      }
+    },
     "trust": {
-      "refund": "14日間の返金",
-      "stripe": "V0__による安全な支払い",
+      "stripe": "Stripeによる安全な決済",
+      "guarantee": "30日間返金保証",
       "cancel": "いつでもキャンセル",
-      "faq": "ご質問は？よくある質問を読む"
+      "fullFaq": "FAQ全文"
     }
   },
   "faq": {

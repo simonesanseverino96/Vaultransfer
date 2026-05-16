@@ -216,53 +216,167 @@
     }
   },
   "pricing": {
-    "badge": "Simple and transparent",
-    "title": "Choose your plan",
-    "subtitle": "Start for free, upgrade whenever you want.",
+    "badge": "Simple, transparent pricing",
+    "title": "Pick the plan that fits",
+    "subtitle": "Start for free. Upgrade when you need more space, longer links, or API access.",
     "monthly": "Monthly",
     "annual": "Annual",
-    "saveBadge": "Save up to €{amount}/year",
-    "perMonth": "/month",
+    "savePercent": "Save up to 33%",
+    "annualSavings": "Pro saves €{proSave}/yr · Business saves €{bizSave}/yr",
+    "perMonth": "/mo",
+    "perMonthLabel": "per month",
     "billedAnnually": "€{amount} billed annually",
-    "saveWithAnnual": "Save €{amount}/year with the annual plan",
-    "free": "Free",
+    "volumePricing": "volume pricing",
+    "custom": "Custom",
+    "forever": "forever",
+    "loading": "Loading…",
+    "error": "Network error. Please try again.",
     "plans": {
       "free": {
         "name": "Free",
-        "cta": "Get started free"
+        "desc": "Send files quickly, no sign-up required.",
+        "cta": "Get started free",
+        "feature0": "2 GB per transfer",
+        "feature1": "Links expire after 7 days",
+        "feature2": "Unlimited downloads",
+        "feature3": "Transfer notes",
+        "feature4": "Email on first download"
       },
       "pro": {
         "name": "Pro",
+        "desc": "More space, longer links, and zero ads.",
         "badge": "Most popular",
-        "cta": "Upgrade to Pro"
+        "cta": "Start Pro",
+        "feature0": "50 GB per transfer",
+        "feature1": "Links expire after 30 days",
+        "feature2": "No ads",
+        "feature3": "Download statistics",
+        "feature4": "Custom expiry dates",
+        "feature5": "Email support"
       },
       "business": {
         "name": "Business",
-        "cta": "Upgrade to Business"
+        "desc": "Unlimited expiry, API access, and advanced security.",
+        "cta": "Start Business",
+        "feature0": "200 GB per transfer",
+        "feature1": "No expiry limit",
+        "feature2": "Password-protected links",
+        "feature3": "Public REST API & keys",
+        "feature4": "Priority support",
+        "feature5": "Everything in Pro"
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "desc": "Custom limits, SSO, dedicated support, and SLAs.",
+        "cta": "Contact sales",
+        "feature0": "Custom storage limits",
+        "feature1": "Webhooks & custom domain",
+        "feature2": "SSO / SAML",
+        "feature3": "Dedicated account manager",
+        "feature4": "Custom SLA",
+        "feature5": "Everything in Business"
       }
     },
-    "features": {
-      "upload2gb": "Upload up to 2 GB per file",
-      "upload50gb": "Upload up to 50 GB per file",
-      "upload200gb": "Upload up to 200 GB per file",
-      "link7days": "Links valid 7 days",
-      "link30days": "Links valid 30 days",
-      "linkNoExpiry": "Links without expiry",
-      "ads": "Advertising banners",
-      "noAds": "No advertising banners",
-      "unlimitedDownloads": "Unlimited downloads",
-      "customLinks": "Custom links",
-      "downloadStats": "Download statistics",
-      "passwordLinks": "Password on links",
-      "prioritySupport": "Priority support"
+    "comparison": {
+      "title": "Compare all features",
+      "subtitle": "Everything included in each plan, side by side.",
+      "col": {
+        "free": "Free",
+        "pro": "Pro",
+        "business": "Business",
+        "enterprise": "Enterprise"
+      },
+      "val": {
+        "2gb": "2 GB",
+        "50gb": "50 GB",
+        "200gb": "200 GB",
+        "custom": "Custom",
+        "7days": "7 days",
+        "30days": "30 days",
+        "noLimit": "No limit",
+        "unlimited": "Unlimited"
+      },
+      "sec": {
+        "storage": "Storage & transfers",
+        "features": "Features",
+        "developer": "Developer & API",
+        "support": "Support"
+      },
+      "row": {
+        "maxUpload": "Max upload size",
+        "linkExpiry": "Link expiry",
+        "maxDownloads": "Max downloads per link",
+        "simultaneous": "Simultaneous transfers",
+        "adsFree": "Ads-free experience",
+        "passwordLinks": "Password-protected links",
+        "downloadStats": "Download statistics",
+        "customExpiry": "Custom expiry dates",
+        "transferNotes": "Transfer notes & messages",
+        "emailDownload": "Email on first download",
+        "restApi": "Public REST API",
+        "apiKeys": "API key management",
+        "webhooks": "Webhook events",
+        "customDomain": "Custom domain",
+        "community": "Community support",
+        "emailSupport": "Email support",
+        "priority": "Priority support",
+        "dedicated": "Dedicated account manager",
+        "sla": "Custom SLA",
+        "sso": "SSO / SAML"
+      }
     },
-    "loading": "Loading…",
-    "error": "Network error. Please try again.",
+    "faq": {
+      "title": "Frequently asked questions",
+      "notFound": "Can't find the answer?",
+      "emailSupport": "Email our support team.",
+      "items": {
+        "cancel": {
+          "q": "Can I cancel my subscription at any time?",
+          "a": "Yes — cancel any time from your dashboard with one click. You keep full access until the end of your current billing period. No penalties, no questions asked."
+        },
+        "filesExpire": {
+          "q": "What happens to my files when a link expires?",
+          "a": "Once a transfer link expires, the files are permanently deleted from our servers. We send an expiry reminder 24 hours in advance so your recipients have time to download."
+        },
+        "trial": {
+          "q": "Is there a free trial for paid plans?",
+          "a": "All paid plans come with a 30-day money-back guarantee. If VaultTransfer doesn't meet your needs in the first month, contact support for a full refund — no conditions."
+        },
+        "freeLimit": {
+          "q": "How does the 2 GB limit on the Free plan work?",
+          "a": "The 2 GB limit applies per individual transfer, not to your total account usage. You can create as many transfers as you like; each one can be up to 2 GB."
+        },
+        "changePlan": {
+          "q": "Can I upgrade or downgrade my plan later?",
+          "a": "Absolutely. You can switch plans at any time from the Billing section of your dashboard. Upgrades take effect immediately; downgrades apply at the next renewal date."
+        },
+        "payment": {
+          "q": "What payment methods do you accept?",
+          "a": "We accept all major credit and debit cards (Visa, Mastercard, Amex), as well as Apple Pay and Google Pay, all processed securely via Stripe."
+        },
+        "security": {
+          "q": "Are my files encrypted and secure?",
+          "a": "All data is transmitted over HTTPS (TLS 1.3). Files are stored encrypted at rest using AES-256 on Supabase-managed infrastructure. Password-protected links add an additional layer of access control at download time."
+        },
+        "enterprisePlan": {
+          "q": "What is the Enterprise plan?",
+          "a": "Enterprise is a custom plan for large organizations that need higher storage, dedicated support, custom SLAs, SSO/SAML, webhook integrations, and custom domain hosting. Contact our sales team to discuss your requirements."
+        },
+        "commercial": {
+          "q": "Can I use VaultTransfer for commercial purposes?",
+          "a": "Yes. All plans, including Free, allow commercial use. The Business and Enterprise plans are specifically designed for professional workflows with API access, team features, and advanced security."
+        },
+        "annualDiscount": {
+          "q": "Do you offer discounts for annual billing?",
+          "a": "Yes — switching to annual billing saves you up to 33% compared to monthly pricing. The discount is applied automatically when you toggle to Annual before checkout."
+        }
+      }
+    },
     "trust": {
-      "refund": "14-day money back",
-      "stripe": "Secure payments via Stripe",
-      "cancel": "Cancel anytime",
-      "faq": "Questions? Read the FAQ →"
+      "stripe": "Payments secured by Stripe",
+      "guarantee": "30-day money-back guarantee",
+      "cancel": "Cancel any time",
+      "fullFaq": "Full FAQ"
     }
   },
   "faq": {

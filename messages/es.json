@@ -211,53 +211,167 @@
     }
   },
   "pricing": {
-    "badge": "Sencillo y transparente",
-    "title": "Elija su plan",
-    "subtitle": "Empieza gratis y actualiza cuando quieras.",
-    "monthly": "Mensualmente",
+    "badge": "Precios simples y transparentes",
+    "title": "Elige el plan que se adapta a ti",
+    "subtitle": "Empieza gratis. Actualiza cuando necesites más espacio, enlaces más largos o acceso a la API.",
+    "monthly": "Mensual",
     "annual": "Anual",
-    "saveBadge": "Ahorre hasta €{amount}/año",
+    "savePercent": "Ahorra hasta un 33%",
+    "annualSavings": "Pro ahorra €{proSave}/año · Business ahorra €{bizSave}/año",
     "perMonth": "/mes",
+    "perMonthLabel": "por mes",
     "billedAnnually": "€{amount} facturado anualmente",
-    "saveWithAnnual": "Ahorre _{amount}/año con el plan anual",
-    "free": "Free",
+    "volumePricing": "precios por volumen",
+    "custom": "Personalizado",
+    "forever": "para siempre",
+    "loading": "Cargando…",
+    "error": "Error de red. Por favor, inténtalo de nuevo.",
     "plans": {
       "free": {
         "name": "Free",
-        "cta": "Empezar gratis"
+        "desc": "Envía archivos rápidamente, sin registro.",
+        "cta": "Empezar gratis",
+        "feature0": "2 GB por transferencia",
+        "feature1": "Los enlaces caducan después de 7 días",
+        "feature2": "Descargas ilimitadas",
+        "feature3": "Notas de transferencia",
+        "feature4": "Email en la primera descarga"
       },
       "pro": {
         "name": "Pro",
-        "badge": "Más populares",
-        "cta": "Actualizar a Pro"
+        "desc": "Más espacio, enlaces más largos y cero publicidad.",
+        "badge": "Más popular",
+        "cta": "Empezar con Pro",
+        "feature0": "50 GB por transferencia",
+        "feature1": "Los enlaces caducan después de 30 días",
+        "feature2": "Sin publicidad",
+        "feature3": "Estadísticas de descarga",
+        "feature4": "Fechas de caducidad personalizadas",
+        "feature5": "Soporte por email"
       },
       "business": {
         "name": "Business",
-        "cta": "Actualizar a Business"
+        "desc": "Caducidad ilimitada, acceso a API y seguridad avanzada.",
+        "cta": "Empezar con Business",
+        "feature0": "200 GB por transferencia",
+        "feature1": "Sin límite de caducidad",
+        "feature2": "Enlaces protegidos con contraseña",
+        "feature3": "REST API pública y claves",
+        "feature4": "Soporte prioritario",
+        "feature5": "Todo lo incluido en Pro"
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "desc": "Límites personalizados, SSO, soporte dedicado y SLAs.",
+        "cta": "Contactar ventas",
+        "feature0": "Límites de almacenamiento personalizados",
+        "feature1": "Webhooks y dominio personalizado",
+        "feature2": "SSO / SAML",
+        "feature3": "Gestor de cuenta dedicado",
+        "feature4": "SLA personalizado",
+        "feature5": "Todo lo incluido en Business"
       }
     },
-    "features": {
-      "upload2gb": "Carga de hasta 2 GB por archivo",
-      "upload50gb": "Carga de hasta 50 GB por archivo",
-      "upload200gb": "Carga de hasta 200 GB por archivo",
-      "link7days": "Enlaces válidos 7 días",
-      "link30days": "Enlaces válidos 30 días",
-      "linkNoExpiry": "Enlaces sin caducidad",
-      "ads": "Banners publicitarios",
-      "noAds": "Sin banners publicitarios",
-      "unlimitedDownloads": "Descargas ilimitadas",
-      "customLinks": "Enlaces personalizados",
-      "downloadStats": "Descargar estadísticas",
-      "passwordLinks": "Contraseña en los enlaces",
-      "prioritySupport": "Asistencia prioritaria"
+    "comparison": {
+      "title": "Comparar todas las características",
+      "subtitle": "Todo lo incluido en cada plan, lado a lado.",
+      "col": {
+        "free": "Free",
+        "pro": "Pro",
+        "business": "Business",
+        "enterprise": "Enterprise"
+      },
+      "val": {
+        "2gb": "2 GB",
+        "50gb": "50 GB",
+        "200gb": "200 GB",
+        "custom": "Personalizado",
+        "7days": "7 días",
+        "30days": "30 días",
+        "noLimit": "Sin límite",
+        "unlimited": "Ilimitado"
+      },
+      "sec": {
+        "storage": "Almacenamiento y transferencias",
+        "features": "Características",
+        "developer": "Desarrollador y API",
+        "support": "Soporte"
+      },
+      "row": {
+        "maxUpload": "Tamaño máximo de subida",
+        "linkExpiry": "Caducidad del enlace",
+        "maxDownloads": "Descargas máx. por enlace",
+        "simultaneous": "Transferencias simultáneas",
+        "adsFree": "Experiencia sin publicidad",
+        "passwordLinks": "Enlaces protegidos con contraseña",
+        "downloadStats": "Estadísticas de descarga",
+        "customExpiry": "Fechas de caducidad personalizadas",
+        "transferNotes": "Notas y mensajes de transferencia",
+        "emailDownload": "Email en la primera descarga",
+        "restApi": "REST API pública",
+        "apiKeys": "Gestión de claves API",
+        "webhooks": "Eventos webhook",
+        "customDomain": "Dominio personalizado",
+        "community": "Soporte comunitario",
+        "emailSupport": "Soporte por email",
+        "priority": "Soporte prioritario",
+        "dedicated": "Gestor de cuenta dedicado",
+        "sla": "SLA personalizado",
+        "sso": "SSO / SAML"
+      }
     },
-    "loading": "Cargando..",
-    "error": "Error de red. Por favor, inténtelo de nuevo.",
+    "faq": {
+      "title": "Preguntas frecuentes",
+      "notFound": "¿No encuentras la respuesta?",
+      "emailSupport": "Escribe a nuestro equipo de soporte.",
+      "items": {
+        "cancel": {
+          "q": "¿Puedo cancelar mi suscripción en cualquier momento?",
+          "a": "Sí — cancela cuando quieras desde tu panel con un clic. Conservas el acceso completo hasta el final de tu período de facturación. Sin penalizaciones, sin preguntas."
+        },
+        "filesExpire": {
+          "q": "¿Qué pasa con mis archivos cuando caduca un enlace?",
+          "a": "Cuando caduca un enlace de transferencia, los archivos se eliminan permanentemente de nuestros servidores. Enviamos un recordatorio de caducidad 24 horas antes para que tus destinatarios tengan tiempo de descargar."
+        },
+        "trial": {
+          "q": "¿Hay una prueba gratuita para los planes de pago?",
+          "a": "Todos los planes de pago incluyen una garantía de devolución de dinero de 30 días. Si VaultTransfer no cumple tus necesidades en el primer mes, contacta al soporte para un reembolso completo — sin condiciones."
+        },
+        "freeLimit": {
+          "q": "¿Cómo funciona el límite de 2 GB del plan Free?",
+          "a": "El límite de 2 GB se aplica por transferencia individual, no al uso total de tu cuenta. Puedes crear tantas transferencias como quieras; cada una puede ser de hasta 2 GB."
+        },
+        "changePlan": {
+          "q": "¿Puedo cambiar de plan más adelante?",
+          "a": "Por supuesto. Puedes cambiar de plan en cualquier momento desde la sección de Facturación de tu panel. Los upgrades tienen efecto inmediato; los downgrades se aplican en la próxima fecha de renovación."
+        },
+        "payment": {
+          "q": "¿Qué métodos de pago aceptan?",
+          "a": "Aceptamos todas las principales tarjetas de crédito y débito (Visa, Mastercard, Amex), así como Apple Pay y Google Pay, todo procesado de forma segura a través de Stripe."
+        },
+        "security": {
+          "q": "¿Mis archivos están cifrados y seguros?",
+          "a": "Todos los datos se transmiten a través de HTTPS (TLS 1.3). Los archivos se almacenan cifrados en reposo con AES-256 en la infraestructura gestionada por Supabase. Los enlaces protegidos con contraseña añaden una capa adicional de control de acceso."
+        },
+        "enterprisePlan": {
+          "q": "¿Qué es el plan Enterprise?",
+          "a": "Enterprise es un plan personalizado para grandes organizaciones que necesitan más almacenamiento, soporte dedicado, SLAs personalizados, SSO/SAML, integraciones de webhooks y alojamiento en dominio personalizado. Contacta a nuestro equipo de ventas para hablar de tus necesidades."
+        },
+        "commercial": {
+          "q": "¿Puedo usar VaultTransfer para fines comerciales?",
+          "a": "Sí. Todos los planes, incluido el Free, permiten el uso comercial. Los planes Business y Enterprise están diseñados específicamente para flujos de trabajo profesionales con acceso a API, funciones de equipo y seguridad avanzada."
+        },
+        "annualDiscount": {
+          "q": "¿Ofrecen descuentos para la facturación anual?",
+          "a": "Sí — cambiar a facturación anual te ahorra hasta un 33% comparado con los precios mensuales. El descuento se aplica automáticamente cuando cambias a Anual antes del pago."
+        }
+      }
+    },
     "trust": {
-      "refund": "14 días de devolución",
-      "stripe": "Pagos seguros a través de Stripe",
-      "cancel": "Cancelar",
-      "faq": "Dudas? Lea las preguntas frecuentes → FAQ"
+      "stripe": "Pagos seguros mediante Stripe",
+      "guarantee": "Garantía de devolución de 30 días",
+      "cancel": "Cancela en cualquier momento",
+      "fullFaq": "FAQ completa"
     }
   },
   "faq": {
