@@ -375,11 +375,11 @@
     }
   },
   "faq": {
-    "badge": "Perguntas mais frequentes",
+    "badge": "Perguntas frequentes",
     "title": "Tudo o que",
-    "titleAccent": "querer saber",
-    "contact": "Não consegue encontrar uma resposta?",
-    "contactLink": "Contactar-nos",
+    "titleAccent": "quer saber",
+    "contact": "Não encontra uma resposta?",
+    "contactLink": "Contacte-nos",
     "cta": {
       "ready": "Pronto para começar?",
       "seePlans": "Ver planos"
@@ -388,60 +388,85 @@
       "general": "Geral",
       "security": "Segurança",
       "plans": "Planos e pagamentos",
-      "technical": "Técnica"
+      "technical": "Técnico",
+      "developer": "API e Desenvolvedor"
     },
     "items": {
       "whatIs": {
-        "q": "O que é VaultTransfer?",
-        "a": "o VaultTransfer é um serviço seguro de transferência de ficheiros. Pode enviar ficheiros de grandes dimensões a qualquer pessoa através de uma ligação protegida, sem que o destinatário necessite de uma conta."
+        "q": "O que é o VaultTransfer?",
+        "a": "O VaultTransfer é um serviço seguro de transferência de ficheiros. Pode enviar ficheiros de grandes dimensões a qualquer pessoa através de uma ligação protegida, sem que o destinatário precise de uma conta."
       },
       "register": {
         "q": "Preciso de me registar para o utilizar?",
-        "a": "Não. Pode enviar ficheiros gratuitamente sem registo. A criação de uma conta dá-lhe acesso a funcionalidades avançadas, como carregamentos até 50 GB, ligações personalizadas e estatísticas de descarregamento."
+        "a": "Não. Pode enviar ficheiros gratuitamente sem registo. Criar uma conta dá-lhe acesso a funcionalidades avançadas como uploads até 50 GB, estatísticas de download, ligações protegidas por password, análises de transferências e o programa de referência."
       },
       "expiry": {
         "q": "Durante quanto tempo estão os meus ficheiros disponíveis?",
-        "a": "Com o plano Free, os links expiram ao fim de 7 dias. Com Pro após 30 dias. Com Business pode definir datas de expiração personalizadas ou manter os ficheiros indefinidamente."
+        "a": "Com o plano Free, os links expiram ao fim de 7 dias. Com Pro após 30 dias. Com Business pode definir datas de expiração personalizadas ou manter os ficheiros indefinidamente. Os planos Enterprise também suportam links sem expiração."
+      },
+      "referral": {
+        "q": "Como funciona o programa de referência?",
+        "a": "Pode convidar amigos e colegas para o VaultTransfer usando o seu link de referência único. Quando alguém se regista e faz upgrade através do seu link, ambos recebem benefícios. Encontre o seu link de referência no Dashboard em 'Convidar e Ganhar'."
       },
       "safe": {
         "q": "Os meus ficheiros estão seguros?",
-        "a": "Sim. Todas as transferências são efectuadas em HTTPS com TLS 1.3. Os ficheiros são automaticamente eliminados quando a ligação expira. Os servidores estão situados na Europa e somos totalmente compatíveis com GDPR."
+        "a": "Sim. Todas as transferências são efetuadas em HTTPS com TLS 1.3. Os ficheiros são automaticamente eliminados quando a ligação expira. Os servidores estão na Europa e somos totalmente conformes com o RGPD."
       },
       "whoCanSee": {
         "q": "Quem pode ver os meus ficheiros?",
-        "a": "Apenas aqueles que possuem a ligação podem aceder aos ficheiros. Pode adicionar uma palavra-passe para proteção extra (disponível nos planos pagos). O nosso pessoal nunca acede aos conteúdos."
+        "a": "Apenas quem tem a ligação pode aceder aos ficheiros. Com o plano Business pode adicionar uma password para proteção extra — o hash é armazenado com bcrypt e a password nunca é guardada em texto simples. O nosso pessoal nunca acede aos conteúdos."
       },
       "scanned": {
-        "q": "Os ficheiros são analisados ou digitalizados?",
-        "a": "Efectuamos uma verificação automática do antivírus para proteger os destinatários, mas não analisamos o conteúdo dos ficheiros para fins comerciais ou publicitários."
+        "q": "Os ficheiros são analisados ou verificados?",
+        "a": "Efetuamos uma verificação antivírus automática para proteger os destinatários, mas não analisamos o conteúdo dos ficheiros para fins comerciais ou publicitários."
+      },
+      "passwordTransfer": {
+        "q": "Como funcionam as transferências protegidas por password?",
+        "a": "Ao criar uma transferência pode definir uma password que os destinatários devem introduzir antes de aceder ou descarregar os ficheiros. A password é encriptada com bcrypt e nunca é armazenada em texto simples. A proteção por password está disponível nos planos Business e Enterprise."
       },
       "payment": {
-        "q": "Quais são os métodos de pagamento aceites?",
-        "a": "Aceitamos todos os principais cartões de crédito e débito (Visa, Mastercard, American Express) através de Stripe. Os pagamentos são seguros e não guardamos os dados do cartão."
+        "q": "Que métodos de pagamento são aceites?",
+        "a": "Aceitamos todos os principais cartões de crédito e débito (Visa, Mastercard, American Express) via Stripe. Os pagamentos são seguros e não guardamos os dados do cartão. Apple Pay e Google Pay também são suportados."
       },
       "changePlan": {
-        "q": "Posso mudar de plano em qualquer altura?",
-        "a": "Sim, pode fazer um upgrade ou um downgrade em qualquer altura. No caso das actualizações, a diferença de preço é calculada proporcionalmente para o período restante. Para os downgrades, o plano atual permanece ativo até ao final do período pago."
+        "q": "Posso mudar de plano a qualquer momento?",
+        "a": "Sim, pode fazer upgrade ou downgrade a qualquer momento. Para upgrades, a diferença de preço é calculada proporcionalmente para o período restante. Para downgrades, o plano atual permanece ativo até ao final do período pago."
       },
       "annualDiscount": {
         "q": "Como funciona o desconto anual?",
-        "a": "Ao optar pela faturação anual, obtém um preço fixo de 45 euros/ano para o plano Pro e de 120 euros/ano para o plano Business, com poupanças significativas em relação ao plano mensal. O pagamento é efectuado de uma só vez e o plano fica ativo durante 12 meses."
+        "a": "A faturação anual poupa-lhe consideravelmente em relação ao mensal: o plano Pro custa 45 €/ano (vs 59,88 €/ano mensalmente — poupança de 14,88 €), e o plano Business custa 120 €/ano (vs 179,88 €/ano mensalmente — poupança de 59,88 €). O pagamento é efetuado de uma só vez e o plano fica ativo durante 12 meses."
+      },
+      "annualBilling": {
+        "q": "Qual é a diferença entre faturação mensal e anual?",
+        "a": "A faturação mensal cobra-lhe todos os meses e pode cancelar a qualquer momento sem encargos adicionais. A faturação anual realiza um único pagamento antecipado por 12 meses a uma taxa reduzida (até 33% de desconto). Ambas as opções incluem as mesmas funcionalidades — a única diferença é o ciclo de faturação e o desconto."
       },
       "refund": {
         "q": "Posso pedir um reembolso?",
-        "a": "Oferecemos um reembolso total no prazo de 14 dias após a compra se não ficar satisfeito. Após 14 dias, não é possível efetuar reembolsos parciais."
+        "a": "Oferecemos um reembolso total nos 30 dias seguintes à compra se não ficar satisfeito. Após 30 dias não são possíveis reembolsos parciais. Contacte support@vaultransfer.com para iniciar um reembolso."
       },
       "maxSize": {
-        "q": "Qual é o tamanho máximo do ficheiro?",
-        "a": "plano Free: 2 GB por ficheiro. plano Pro: 50 GB por ficheiro. plano Business: 200 GB por ficheiro. Não há limites para o número de ficheiros que pode enviar."
+        "q": "Qual é o tamanho máximo de transferência?",
+        "a": "Plano Free: 2 GB por transferência. Plano Pro: 50 GB por transferência. Plano Business: 200 GB por transferência. Enterprise: limites personalizados. Não há limites para o número de transferências que pode criar."
       },
       "formats": {
         "q": "Que formatos de ficheiro são suportados?",
-        "a": "Suportamos a maioria dos formatos: documentos, imagens, vídeos, arquivos ZIP, ficheiros de projectos, etc. Por motivos de segurança, os ficheiros executáveis (.exe, .msi, .bat, .sh), os scripts (.ps1, .vbs, .js), as macros do Office (.docm, .xlsm, .pptm), os pacotes de aplicações (.apk, .ipa, .deb) e outros formatos potencialmente nocivos estão bloqueados."
+        "a": "Suportamos a maioria dos formatos: documentos, imagens, vídeos, arquivos ZIP, ficheiros de projeto, etc. Por motivos de segurança, os executáveis (.exe, .msi, .bat, .sh), scripts (.ps1, .vbs, .js), macros do Office (.docm, .xlsm, .pptm), pacotes de aplicações (.apk, .ipa, .deb) e outros formatos potencialmente nocivos estão bloqueados."
       },
       "devices": {
         "q": "O serviço funciona em todos os dispositivos?",
-        "a": "Sim. o VaultTransfer funciona em qualquer dispositivo com um navegador moderno: PC, Mac, smartphones e tablets Android e iOS. Não é necessária uma aplicação."
+        "a": "Sim. O VaultTransfer funciona em qualquer dispositivo com um navegador moderno: PC, Mac, smartphones e tablets Android e iOS. Não é necessária nenhuma aplicação."
+      },
+      "analyticsStats": {
+        "q": "Que análises e estatísticas estão disponíveis?",
+        "a": "Os subscritores Pro e Business podem aceder a análises detalhadas no Dashboard: total de transferências criadas, dados totais transferidos (GB), total de downloads, transferências ativas vs. expiradas e um gráfico diário de transferências dos últimos 30 dias. As análises são atualizadas em tempo real."
+      },
+      "apiAccess": {
+        "q": "Como acedo à API do VaultTransfer?",
+        "a": "O VaultTransfer disponibiliza uma REST API pública para subscritores dos planos Business e Enterprise. Pode criar, listar e gerir transferências de forma programática. A documentação completa da API e a referência de endpoints estão disponíveis no seu Dashboard em Chaves API."
+      },
+      "apiKeys": {
+        "q": "Como crio e giro as chaves API?",
+        "a": "As chaves API são criadas na secção Chaves API do seu Dashboard. Dê a cada chave um nome descritivo (ex. 'Produção'). As chaves são apresentadas apenas uma vez na criação — copie e guarde-as de forma segura. Pode ver a data de último uso de cada chave e revogar qualquer chave a qualquer momento."
       }
     }
   },

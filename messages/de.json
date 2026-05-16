@@ -378,17 +378,18 @@
     "badge": "Häufig gestellte Fragen",
     "title": "Alles, was Sie",
     "titleAccent": "wissen wollen",
-    "contact": "Sie können keine Antwort finden?",
-    "contactLink": "Kontakt",
+    "contact": "Keine Antwort gefunden?",
+    "contactLink": "Kontakt aufnehmen",
     "cta": {
-      "ready": "Sind Sie bereit, loszulegen?",
-      "seePlans": "Siehe Pläne"
+      "ready": "Bereit loszulegen?",
+      "seePlans": "Pläne ansehen"
     },
     "categories": {
       "general": "Allgemein",
       "security": "Sicherheit",
       "plans": "Pläne und Zahlungen",
-      "technical": "Technisch"
+      "technical": "Technisch",
+      "developer": "API & Entwickler"
     },
     "items": {
       "whatIs": {
@@ -396,52 +397,76 @@
         "a": "VaultTransfer ist ein sicherer Dateiübertragungsdienst. Sie können große Dateien über einen geschützten Link an jeden senden, ohne dass der Empfänger ein Konto benötigt."
       },
       "register": {
-        "q": "Muss ich mich anmelden, um sie zu nutzen?",
-        "a": "Nein. Sie können Dateien kostenlos und ohne Registrierung versenden. Wenn Sie ein Konto erstellen, erhalten Sie Zugriff auf erweiterte Funktionen wie Uploads bis zu 50 GB, benutzerdefinierte Links und Download-Statistiken."
+        "q": "Muss ich mich anmelden, um es zu nutzen?",
+        "a": "Nein. Sie können Dateien kostenlos und ohne Registrierung versenden. Mit einem Konto erhalten Sie Zugriff auf erweiterte Funktionen wie Uploads bis zu 50 GB, Download-Statistiken, passwortgeschützte Links, Transfer-Analysen und das Empfehlungsprogramm."
       },
       "expiry": {
         "q": "Wie lange sind meine Dateien verfügbar?",
-        "a": "Mit dem Free-Tarif verfallen die Links nach 7 Tagen. Mit Pro nach 30 Tagen. Mit Business können Sie benutzerdefinierte Verfallsdaten festlegen oder Dateien auf unbestimmte Zeit behalten."
+        "a": "Mit dem Free-Plan verfallen Links nach 7 Tagen. Mit Pro nach 30 Tagen. Mit Business können Sie benutzerdefinierte Ablaufdaten festlegen oder Dateien unbegrenzt aufbewahren. Enterprise-Pläne unterstützen ebenfalls Links ohne Ablaufdatum."
+      },
+      "referral": {
+        "q": "Wie funktioniert das Empfehlungsprogramm?",
+        "a": "Sie können Freunde und Kollegen zu VaultTransfer über Ihren einzigartigen Empfehlungslink einladen. Wenn sich jemand über Ihren Link anmeldet und ein Upgrade durchführt, erhalten Sie beide Vorteile. Ihren Empfehlungslink finden Sie im Dashboard unter 'Einladen & Verdienen'."
       },
       "safe": {
         "q": "Sind meine Dateien sicher?",
-        "a": "Ja. Alle Übertragungen laufen über HTTPS mit TLS 1.3. Die Dateien werden automatisch gelöscht, wenn der Link abläuft. Die Server stehen in Europa und wir sind vollständig GDPR-konform."
+        "a": "Ja. Alle Übertragungen laufen über HTTPS mit TLS 1.3. Die Dateien werden automatisch gelöscht, wenn der Link abläuft. Die Server stehen in Europa und wir sind vollständig DSGVO-konform."
       },
       "whoCanSee": {
         "q": "Wer kann meine Dateien sehen?",
-        "a": "Nur diejenigen, die den Link haben, können auf die Dateien zugreifen. Sie können ein Passwort für zusätzlichen Schutz hinzufügen (verfügbar bei kostenpflichtigen Tarifen). Unser Personal hat keinen Zugriff auf die Inhalte."
+        "a": "Nur diejenigen mit dem Link können auf die Dateien zugreifen. Mit dem Business-Plan können Sie ein Passwort für zusätzlichen Schutz hinzufügen — der Hash wird mit bcrypt gespeichert und das Passwort wird nie im Klartext abgelegt. Unser Personal greift niemals auf die Inhalte zu."
       },
       "scanned": {
         "q": "Werden die Dateien analysiert oder gescannt?",
-        "a": "Zum Schutz der Empfänger führen wir automatische Antiviren-Scans durch, analysieren jedoch nicht den Inhalt der Dateien zu kommerziellen oder Werbezwecken."
+        "a": "Zum Schutz der Empfänger führen wir automatische Antiviren-Scans durch, analysieren jedoch nicht den Dateiinhalt zu kommerziellen oder Werbezwecken."
+      },
+      "passwordTransfer": {
+        "q": "Wie funktionieren passwortgeschützte Transfers?",
+        "a": "Beim Erstellen eines Transfers können Sie ein Passwort festlegen, das Empfänger eingeben müssen, bevor sie auf die Dateien zugreifen oder sie herunterladen können. Das Passwort wird mit bcrypt gehasht und niemals im Klartext gespeichert. Passwortschutz ist in den Business- und Enterprise-Plänen verfügbar."
       },
       "payment": {
         "q": "Welche Zahlungsarten akzeptieren Sie?",
-        "a": "Wir akzeptieren alle gängigen Kredit- und Debitkarten (Visa, Mastercard, American Express) über Stripe. Zahlungen sind sicher und wir speichern keine Kartendaten."
+        "a": "Wir akzeptieren alle gängigen Kredit- und Debitkarten (Visa, Mastercard, American Express) über Stripe. Zahlungen sind sicher und wir speichern keine Kartendaten. Apple Pay und Google Pay werden ebenfalls unterstützt."
       },
       "changePlan": {
-        "q": "Kann ich den Plan jederzeit ändern?",
-        "a": "Ja, Sie können jederzeit ein Upgrade oder Downgrade durchführen. Bei Upgrades wird die Preisdifferenz anteilig für den verbleibenden Zeitraum berechnet. Bei Downgrades bleibt der aktuelle Tarif bis zum Ende des bezahlten Zeitraums aktiv."
+        "q": "Kann ich den Plan jederzeit wechseln?",
+        "a": "Ja, Sie können jederzeit ein Upgrade oder Downgrade durchführen. Bei Upgrades wird die Preisdifferenz anteilig für den verbleibenden Zeitraum berechnet. Bei Downgrades bleibt der aktuelle Plan bis zum Ende des bezahlten Zeitraums aktiv."
       },
       "annualDiscount": {
         "q": "Wie funktioniert der Jahresrabatt?",
-        "a": "Wenn Sie sich für die jährliche Abrechnung entscheiden, erhalten Sie einen Festpreis von 45 €/Jahr für den Pro-Plan und 120 €/Jahr für den Business-Plan, mit erheblichen Einsparungen im Vergleich zur monatlichen Abrechnung. Die Zahlung erfolgt in einer einzigen Vorauszahlung und der Plan ist für 12 Monate aktiv."
+        "a": "Die jährliche Abrechnung spart Ihnen deutlich mehr als die monatliche: Der Pro-Plan kostet 45 €/Jahr (vs. 59,88 €/Jahr monatlich — Ersparnis 14,88 €), der Business-Plan kostet 120 €/Jahr (vs. 179,88 €/Jahr monatlich — Ersparnis 59,88 €). Die Zahlung erfolgt einmalig im Voraus und der Plan ist 12 Monate aktiv."
+      },
+      "annualBilling": {
+        "q": "Was ist der Unterschied zwischen monatlicher und jährlicher Abrechnung?",
+        "a": "Bei der monatlichen Abrechnung werden Sie jeden Monat belastet und können jederzeit ohne weitere Kosten kündigen. Die jährliche Abrechnung zieht eine einmalige Vorauszahlung für 12 Monate zu einem Rabattpreis (bis zu 33 % Rabatt) ein. Beide Optionen beinhalten dieselben Funktionen — der einzige Unterschied ist der Abrechnungszyklus und der Rabatt."
       },
       "refund": {
         "q": "Kann ich eine Rückerstattung beantragen?",
-        "a": "Wir bieten eine volle Rückerstattung innerhalb von 14 Tagen nach dem Kauf, wenn Sie nicht zufrieden sind. Nach 14 Tagen ist eine teilweise Rückerstattung nicht mehr möglich."
+        "a": "Wir bieten eine vollständige Rückerstattung innerhalb von 30 Tagen nach dem Kauf an, wenn Sie nicht zufrieden sind. Nach 30 Tagen sind Teilrückerstattungen nicht möglich. Kontaktieren Sie support@vaultransfer.com, um eine Rückerstattung einzuleiten."
       },
       "maxSize": {
-        "q": "Wie groß ist die maximale Dateigröße?",
-        "a": "tarif Free: 2 GB pro Datei. plan Pro: 50 GB pro Datei. tarif Business: 200 GB pro Datei. Es gibt keine Beschränkungen für die Anzahl der Dateien, die Sie senden können."
+        "q": "Was ist die maximale Transfergröße?",
+        "a": "Free-Plan: 2 GB pro Transfer. Pro-Plan: 50 GB pro Transfer. Business-Plan: 200 GB pro Transfer. Enterprise: individuelle Limits. Es gibt keine Beschränkungen für die Anzahl der Transfers, die Sie erstellen können."
       },
       "formats": {
         "q": "Welche Dateiformate werden unterstützt?",
-        "a": "Wir unterstützen die meisten Formate: dokumente, Bilder, Videos, ZIP-Archive, Projektdateien, usw. Aus Sicherheitsgründen werden ausführbare Dateien (.exe, .msi, .bat, .sh), Skripte (.ps1, .vbs, .js), Office-Makros (.docm, .xlsm, .pptm), App-Pakete (.apk, .ipa, .deb) und andere potenziell schädliche Formate blockiert."
+        "a": "Wir unterstützen die meisten Formate: Dokumente, Bilder, Videos, ZIP-Archive, Projektdateien usw. Aus Sicherheitsgründen werden ausführbare Dateien (.exe, .msi, .bat, .sh), Skripte (.ps1, .vbs, .js), Office-Makros (.docm, .xlsm, .pptm), App-Pakete (.apk, .ipa, .deb) und andere potenziell schädliche Formate blockiert."
       },
       "devices": {
         "q": "Funktioniert der Dienst auf allen Geräten?",
         "a": "Ja. VaultTransfer funktioniert auf jedem Gerät mit einem modernen Browser: PC, Mac, Android- und iOS-Smartphones, Tablets. Keine App erforderlich."
+      },
+      "analyticsStats": {
+        "q": "Welche Analysen und Statistiken sind verfügbar?",
+        "a": "Pro- und Business-Abonnenten können im Dashboard detaillierte Analysen einsehen: Gesamtzahl der erstellten Transfers, übertragene Datenmenge (GB), Gesamtdownloads, aktive vs. abgelaufene Transfers und ein tägliches Diagramm der Transfers der letzten 30 Tage. Die Analysen werden in Echtzeit aktualisiert."
+      },
+      "apiAccess": {
+        "q": "Wie greife ich auf die VaultTransfer-API zu?",
+        "a": "VaultTransfer stellt eine öffentliche REST-API für Business- und Enterprise-Abonnenten bereit. Sie können Transfers programmgesteuert erstellen, auflisten und verwalten. Die vollständige API-Dokumentation und Endpoint-Referenz sind in Ihrem Dashboard unter API-Schlüssel verfügbar."
+      },
+      "apiKeys": {
+        "q": "Wie erstelle und verwalte ich API-Schlüssel?",
+        "a": "API-Schlüssel werden im Abschnitt API-Schlüssel Ihres Dashboards erstellt. Geben Sie jedem Schlüssel einen beschreibenden Namen (z. B. 'Produktion'). Schlüssel werden nur einmal bei der Erstellung angezeigt — kopieren und sichern Sie sie sorgfältig. Sie können das Datum der letzten Nutzung jedes Schlüssels einsehen und ihn jederzeit widerrufen."
       }
     }
   },

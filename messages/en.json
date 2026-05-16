@@ -393,7 +393,8 @@
       "general": "General",
       "security": "Security",
       "plans": "Plans & Payments",
-      "technical": "Technical"
+      "technical": "Technical",
+      "developer": "API & Developer"
     },
     "items": {
       "whatIs": {
@@ -402,11 +403,15 @@
       },
       "register": {
         "q": "Do I need to sign up to use it?",
-        "a": "No. You can send files for free without registration. Creating an account gives you access to advanced features like uploads up to 50 GB, custom links and download statistics."
+        "a": "No. You can send files for free without registration. Creating an account gives you access to advanced features like uploads up to 50 GB, download statistics, password-protected links, transfer analytics, and the referral program."
       },
       "expiry": {
         "q": "How long are my files available?",
-        "a": "With the Free plan, links expire after 7 days. With Pro after 30 days. With Business you can set custom expiry dates or keep files indefinitely."
+        "a": "With the Free plan, links expire after 7 days. With Pro after 30 days. With Business you can set custom expiry dates or keep files indefinitely. Enterprise plans also support no-expiry links."
+      },
+      "referral": {
+        "q": "How does the referral program work?",
+        "a": "You can invite friends and colleagues to VaultTransfer using your unique referral link. When someone signs up and upgrades through your link, both you and the new user receive benefits. Find your referral link in the Dashboard under 'Invite & Earn'."
       },
       "safe": {
         "q": "Are my files safe?",
@@ -414,15 +419,19 @@
       },
       "whoCanSee": {
         "q": "Who can see my files?",
-        "a": "Only those who have the link can access the files. You can add a password for extra protection (available with paid plans). Our staff never accesses the contents."
+        "a": "Only those who have the link can access the files. With the Business plan you can add a password for extra protection — the hash is stored with bcrypt and the password is never saved in plain text. Our staff never accesses the contents."
       },
       "scanned": {
         "q": "Are files analyzed or scanned?",
         "a": "We perform automatic antivirus scanning to protect recipients, but we do not analyze file contents for commercial or advertising purposes."
       },
+      "passwordTransfer": {
+        "q": "How do password-protected transfers work?",
+        "a": "When creating a transfer, you can set a password that recipients must enter before accessing or downloading the files. The password is hashed with bcrypt and never stored in plain text. Password protection is available on the Business and Enterprise plans."
+      },
       "payment": {
         "q": "What payment methods do you accept?",
-        "a": "We accept all major credit and debit cards (Visa, Mastercard, American Express) via Stripe. Payments are secure and we do not store card data."
+        "a": "We accept all major credit and debit cards (Visa, Mastercard, American Express) via Stripe. Payments are secure and we do not store card data. Apple Pay and Google Pay are also supported."
       },
       "changePlan": {
         "q": "Can I change plan at any time?",
@@ -430,15 +439,19 @@
       },
       "annualDiscount": {
         "q": "How does the annual discount work?",
-        "a": "By choosing annual billing you get a fixed price of €45/year for the Pro plan and €120/year for the Business plan, with significant savings compared to monthly. Payment is made in a single upfront payment and the plan is active for 12 months."
+        "a": "Annual billing saves you significantly compared to monthly: the Pro plan costs €45/year (vs €59.88/year monthly — saving €14.88), and the Business plan costs €120/year (vs €179.88/year monthly — saving €59.88). Payment is a single upfront charge and the plan stays active for 12 months."
+      },
+      "annualBilling": {
+        "q": "What is the difference between monthly and annual billing?",
+        "a": "Monthly billing charges you each month and you can cancel any time with no further charges. Annual billing charges a single upfront payment for 12 months at a discounted rate (up to 33% off). Both options include the same features — the only difference is the billing cycle and the discount."
       },
       "refund": {
         "q": "Can I request a refund?",
-        "a": "We offer a full refund within 14 days of purchase if you are not satisfied. After 14 days partial refunds are not possible."
+        "a": "We offer a full refund within 30 days of purchase if you are not satisfied. After 30 days partial refunds are not possible. Contact support@vaultransfer.com to initiate a refund."
       },
       "maxSize": {
         "q": "What is the maximum file size?",
-        "a": "Free plan: 2 GB per file. Pro plan: 50 GB per file. Business plan: 200 GB per file. There are no limits on the number of files you can send."
+        "a": "Free plan: 2 GB per transfer. Pro plan: 50 GB per transfer. Business plan: 200 GB per transfer. Enterprise: custom limits. There are no limits on the number of transfers you can create."
       },
       "formats": {
         "q": "What file formats are supported?",
@@ -447,6 +460,18 @@
       "devices": {
         "q": "Does the service work on all devices?",
         "a": "Yes. VaultTransfer works on any device with a modern browser: PC, Mac, Android and iOS smartphones, tablets. No app required."
+      },
+      "analyticsStats": {
+        "q": "What analytics and statistics are available?",
+        "a": "Pro and Business subscribers can access detailed analytics in the Dashboard: total transfers created, total data transferred (GB), total downloads, active vs. expired transfers, and a per-day chart of transfers over the last 30 days. Analytics update in real time."
+      },
+      "apiAccess": {
+        "q": "How do I access the VaultTransfer API?",
+        "a": "VaultTransfer provides a public REST API available to Business and Enterprise plan subscribers. You can create, list, and manage transfers programmatically. Full API documentation and endpoint reference are available in your Dashboard under API Keys."
+      },
+      "apiKeys": {
+        "q": "How do I create and manage API keys?",
+        "a": "API keys are created from the API Keys section of your Dashboard. Give each key a descriptive name (e.g. 'Production'). Keys are shown only once at creation — copy and store them securely. You can see the last-used date for each key and revoke any key at any time."
       }
     }
   },

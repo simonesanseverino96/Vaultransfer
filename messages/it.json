@@ -384,29 +384,34 @@
     "title": "Tutto ciò che",
     "titleAccent": "vuoi sapere",
     "contact": "Non hai trovato risposta?",
-    "contactLink": "Contattateci",
+    "contactLink": "Contattaci",
     "cta": {
       "ready": "Pronto a iniziare?",
-      "seePlans": "Vedere i piani"
+      "seePlans": "Vedi i piani"
     },
     "categories": {
       "general": "Generale",
       "security": "Sicurezza",
       "plans": "Piani e pagamenti",
-      "technical": "Tecnica"
+      "technical": "Tecnica",
+      "developer": "API e Sviluppatore"
     },
     "items": {
       "whatIs": {
-        "q": "Che cos'è il VaultTransfer?",
-        "a": "VaultTransfer è un servizio di trasferimento sicuro di file. È possibile inviare file di grandi dimensioni a chiunque tramite un link protetto, senza che il destinatario abbia bisogno di un account."
+        "q": "Che cos'è VaultTransfer?",
+        "a": "VaultTransfer è un servizio di trasferimento sicuro di file. Puoi inviare file di grandi dimensioni a chiunque tramite un link protetto, senza che il destinatario abbia bisogno di un account."
       },
       "register": {
         "q": "Devo iscrivermi per utilizzarlo?",
-        "a": "No. È possibile inviare file gratuitamente senza registrazione. La creazione di un account consente di accedere a funzioni avanzate come il caricamento di file fino a 50 GB, link personalizzati e statistiche sui download."
+        "a": "No. Puoi inviare file gratuitamente senza registrazione. Creare un account ti dà accesso a funzioni avanzate come upload fino a 50 GB, statistiche di download, link protetti da password, analisi dei trasferimenti e il programma di referral."
       },
       "expiry": {
         "q": "Per quanto tempo sono disponibili i miei file?",
-        "a": "Con il piano Free, i link scadono dopo 7 giorni. Con Pro dopo 30 giorni. Con Business è possibile impostare date di scadenza personalizzate o conservare i file a tempo indeterminato."
+        "a": "Con il piano Free i link scadono dopo 7 giorni. Con Pro dopo 30 giorni. Con Business puoi impostare date di scadenza personalizzate o conservare i file a tempo indeterminato. I piani Enterprise supportano anch'essi link senza scadenza."
+      },
+      "referral": {
+        "q": "Come funziona il programma di referral?",
+        "a": "Puoi invitare amici e colleghi a VaultTransfer usando il tuo link referral unico. Quando qualcuno si iscrive e fa un upgrade tramite il tuo link, entrambi ricevete dei vantaggi. Trova il tuo link referral nella Dashboard sotto 'Invita e guadagna'."
       },
       "safe": {
         "q": "I miei file sono al sicuro?",
@@ -414,39 +419,59 @@
       },
       "whoCanSee": {
         "q": "Chi può vedere i miei file?",
-        "a": "Solo chi ha il link può accedere ai file. È possibile aggiungere una password per una maggiore protezione (disponibile con i piani a pagamento). Il nostro personale non accede mai ai contenuti."
+        "a": "Solo chi ha il link può accedere ai file. Con il piano Business puoi aggiungere una password per una protezione extra — l'hash è memorizzato con bcrypt e la password non viene mai salvata in chiaro. Il nostro staff non accede mai ai contenuti."
       },
       "scanned": {
         "q": "I file vengono analizzati o scansionati?",
         "a": "Eseguiamo una scansione antivirus automatica per proteggere i destinatari, ma non analizziamo il contenuto dei file per scopi commerciali o pubblicitari."
       },
+      "passwordTransfer": {
+        "q": "Come funzionano i trasferimenti protetti da password?",
+        "a": "Quando crei un trasferimento puoi impostare una password che i destinatari devono inserire prima di accedere o scaricare i file. La password è hashata con bcrypt e non viene mai memorizzata in chiaro. La protezione con password è disponibile nei piani Business ed Enterprise."
+      },
       "payment": {
         "q": "Quali metodi di pagamento accettate?",
-        "a": "Accettiamo tutte le principali carte di credito e di debito (Visa, Mastercard, American Express) tramite Stripe. I pagamenti sono sicuri e non memorizziamo i dati della carta."
+        "a": "Accettiamo tutte le principali carte di credito e di debito (Visa, Mastercard, American Express) tramite Stripe. I pagamenti sono sicuri e non memorizziamo i dati della carta. Sono supportati anche Apple Pay e Google Pay."
       },
       "changePlan": {
         "q": "Posso cambiare piano in qualsiasi momento?",
-        "a": "Sì, è possibile effettuare l'upgrade o il downgrade in qualsiasi momento. Per gli upgrade, la differenza di prezzo viene calcolata proporzionalmente per il periodo rimanente. Per i downgrade, il piano attuale rimane attivo fino alla fine del periodo pagato."
+        "a": "Sì, puoi fare upgrade o downgrade in qualsiasi momento. Per gli upgrade la differenza di prezzo viene calcolata proporzionalmente per il periodo rimanente. Per i downgrade il piano attuale rimane attivo fino alla fine del periodo pagato."
       },
       "annualDiscount": {
         "q": "Come funziona lo sconto annuale?",
-        "a": "Scegliendo la fatturazione annuale si ottiene un prezzo fisso di 45 €/anno per il piano Pro e di 120 €/anno per il piano Business, con un notevole risparmio rispetto alla fatturazione mensile. Il pagamento avviene in un'unica soluzione anticipata e il piano è attivo per 12 mesi."
+        "a": "La fatturazione annuale ti fa risparmiare notevolmente rispetto al mensile: il piano Pro costa €45/anno (vs €59,88/anno mensile — risparmio di €14,88), e il piano Business costa €120/anno (vs €179,88/anno mensile — risparmio di €59,88). Il pagamento avviene in un'unica soluzione anticipata e il piano è attivo per 12 mesi."
+      },
+      "annualBilling": {
+        "q": "Qual è la differenza tra fatturazione mensile e annuale?",
+        "a": "La fatturazione mensile ti addebita ogni mese e puoi cancellare in qualsiasi momento senza ulteriori addebiti. La fatturazione annuale prevede un unico pagamento anticipato per 12 mesi a un prezzo scontato (fino al 33% di sconto). Entrambe le opzioni includono le stesse funzionalità — l'unica differenza è il ciclo di fatturazione e lo sconto."
       },
       "refund": {
         "q": "Posso richiedere un rimborso?",
-        "a": "Offriamo un rimborso completo entro 14 giorni dall'acquisto se non siete soddisfatti. Dopo 14 giorni non è possibile effettuare rimborsi parziali."
+        "a": "Offriamo un rimborso completo entro 30 giorni dall'acquisto se non sei soddisfatto. Dopo 30 giorni i rimborsi parziali non sono possibili. Contatta support@vaultransfer.com per avviare un rimborso."
       },
       "maxSize": {
-        "q": "Qual è la dimensione massima del file?",
-        "a": "piano Free: 2 GB per file. piano Pro: 50 GB per file. piano Business: 200 GB per file. Non ci sono limiti al numero di file che si possono inviare."
+        "q": "Qual è la dimensione massima del trasferimento?",
+        "a": "Piano Free: 2 GB per trasferimento. Piano Pro: 50 GB per trasferimento. Piano Business: 200 GB per trasferimento. Enterprise: limiti personalizzati. Non ci sono limiti al numero di trasferimenti che puoi creare."
       },
       "formats": {
-        "q": "Quali sono i formati di file supportati?",
-        "a": "Supportiamo la maggior parte dei formati: documenti, immagini, video, archivi ZIP, file di progetto, ecc. Per motivi di sicurezza, i file eseguibili (.exe, .msi, .bat, .sh), gli script (.ps1, .vbs, .js), le macro di Office (.docm, .xlsm, .pptm), i pacchetti di applicazioni (.apk, .ipa, .deb) e altri formati potenzialmente dannosi sono bloccati."
+        "q": "Quali formati di file sono supportati?",
+        "a": "Supportiamo la maggior parte dei formati: documenti, immagini, video, archivi ZIP, file di progetto, ecc. Per motivi di sicurezza, i file eseguibili (.exe, .msi, .bat, .sh), gli script (.ps1, .vbs, .js), le macro di Office (.docm, .xlsm, .pptm), i pacchetti di app (.apk, .ipa, .deb) e altri formati potenzialmente dannosi sono bloccati."
       },
       "devices": {
         "q": "Il servizio funziona su tutti i dispositivi?",
-        "a": "Sì. VaultTransfer funziona su qualsiasi dispositivo con un browser moderno: PC, Mac, smartphone e tablet Android e iOS. Non è richiesta alcuna applicazione."
+        "a": "Sì. VaultTransfer funziona su qualsiasi dispositivo con un browser moderno: PC, Mac, smartphone e tablet Android e iOS. Non è richiesta alcuna app."
+      },
+      "analyticsStats": {
+        "q": "Quali analisi e statistiche sono disponibili?",
+        "a": "Gli abbonati Pro e Business possono accedere ad analisi dettagliate nella Dashboard: trasferimenti totali creati, dati totali trasferiti (GB), download totali, trasferimenti attivi vs. scaduti e un grafico giornaliero dei trasferimenti degli ultimi 30 giorni. Le analisi si aggiornano in tempo reale."
+      },
+      "apiAccess": {
+        "q": "Come accedo all'API di VaultTransfer?",
+        "a": "VaultTransfer fornisce una REST API pubblica disponibile per gli abbonati ai piani Business ed Enterprise. Puoi creare, elencare e gestire i trasferimenti in modo programmatico. La documentazione completa delle API e i riferimenti agli endpoint sono disponibili nella Dashboard sotto Chiavi API."
+      },
+      "apiKeys": {
+        "q": "Come creo e gestisco le chiavi API?",
+        "a": "Le chiavi API si creano dalla sezione Chiavi API della Dashboard. Dai a ogni chiave un nome descrittivo (es. 'Produzione'). Le chiavi vengono mostrate solo una volta alla creazione — copiala e conservala in modo sicuro. Puoi visualizzare la data dell'ultimo utilizzo di ogni chiave e revocarla in qualsiasi momento."
       }
     }
   },

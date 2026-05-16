@@ -17,6 +17,7 @@ export default function FaqClient() {
         { q: t('items.whatIs.q'), a: t('items.whatIs.a') },
         { q: t('items.register.q'), a: t('items.register.a') },
         { q: t('items.expiry.q'), a: t('items.expiry.a') },
+        { q: t('items.referral.q'), a: t('items.referral.a') },
       ],
     },
     {
@@ -25,6 +26,7 @@ export default function FaqClient() {
         { q: t('items.safe.q'), a: t('items.safe.a') },
         { q: t('items.whoCanSee.q'), a: t('items.whoCanSee.a') },
         { q: t('items.scanned.q'), a: t('items.scanned.a') },
+        { q: t('items.passwordTransfer.q'), a: t('items.passwordTransfer.a') },
       ],
     },
     {
@@ -33,6 +35,7 @@ export default function FaqClient() {
         { q: t('items.payment.q'), a: t('items.payment.a') },
         { q: t('items.changePlan.q'), a: t('items.changePlan.a') },
         { q: t('items.annualDiscount.q'), a: t('items.annualDiscount.a') },
+        { q: t('items.annualBilling.q'), a: t('items.annualBilling.a') },
         { q: t('items.refund.q'), a: t('items.refund.a') },
       ],
     },
@@ -42,6 +45,14 @@ export default function FaqClient() {
         { q: t('items.maxSize.q'), a: t('items.maxSize.a') },
         { q: t('items.formats.q'), a: t('items.formats.a') },
         { q: t('items.devices.q'), a: t('items.devices.a') },
+        { q: t('items.analyticsStats.q'), a: t('items.analyticsStats.a') },
+      ],
+    },
+    {
+      category: t('categories.developer'),
+      items: [
+        { q: t('items.apiAccess.q'), a: t('items.apiAccess.a') },
+        { q: t('items.apiKeys.q'), a: t('items.apiKeys.a') },
       ],
     },
   ]

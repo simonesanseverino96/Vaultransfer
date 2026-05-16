@@ -375,73 +375,98 @@
     }
   },
   "faq": {
-    "badge": "Preguntas más frecuentes",
+    "badge": "Preguntas frecuentes",
     "title": "Todo lo que",
-    "titleAccent": "quiere saber",
-    "contact": "¿No encuentra respuesta?",
-    "contactLink": "Póngase en contacto con nosotros",
+    "titleAccent": "quieres saber",
+    "contact": "¿No encuentras respuesta?",
+    "contactLink": "Contáctanos",
     "cta": {
       "ready": "¿Listo para empezar?",
-      "seePlans": "Ver planos"
+      "seePlans": "Ver planes"
     },
     "categories": {
       "general": "General",
       "security": "Seguridad",
       "plans": "Planes y pagos",
-      "technical": "Técnico"
+      "technical": "Técnico",
+      "developer": "API y Desarrollador"
     },
     "items": {
       "whatIs": {
         "q": "¿Qué es VaultTransfer?",
-        "a": "VaultTransfer es un servicio seguro de transferencia de archivos. Puede enviar archivos de gran tamaño a cualquier persona a través de un enlace protegido, sin que el destinatario necesite una cuenta."
+        "a": "VaultTransfer es un servicio seguro de transferencia de archivos. Puedes enviar archivos de gran tamaño a cualquier persona a través de un enlace protegido, sin que el destinatario necesite una cuenta."
       },
       "register": {
-        "q": "¿Tengo que registrarme para utilizarlo?",
-        "a": "No. Puedes enviar archivos gratis sin registrarte. Crear una cuenta te da acceso a funciones avanzadas como cargas de hasta 50 GB, enlaces personalizados y estadísticas de descarga."
+        "q": "¿Tengo que registrarme para usarlo?",
+        "a": "No. Puedes enviar archivos gratis sin registrarte. Crear una cuenta te da acceso a funciones avanzadas como cargas de hasta 50 GB, estadísticas de descarga, enlaces protegidos con contraseña, análisis de transferencias y el programa de referidos."
       },
       "expiry": {
-        "q": "¿Durante cuánto tiempo están disponibles mis archivos?",
-        "a": "Con el plan Free, los enlaces caducan a los 7 días. Con Pro después de 30 días. Con Business puede establecer fechas de caducidad personalizadas o conservar los archivos indefinidamente."
+        "q": "¿Cuánto tiempo están disponibles mis archivos?",
+        "a": "Con el plan Free los enlaces caducan a los 7 días. Con Pro después de 30 días. Con Business puedes establecer fechas de caducidad personalizadas o conservar los archivos indefinidamente. Los planes Enterprise también admiten enlaces sin caducidad."
+      },
+      "referral": {
+        "q": "¿Cómo funciona el programa de referidos?",
+        "a": "Puedes invitar a amigos y colegas a VaultTransfer usando tu enlace de referido único. Cuando alguien se registra y mejora de plan mediante tu enlace, ambos recibís beneficios. Encuentra tu enlace de referido en el Dashboard bajo 'Invitar y Ganar'."
       },
       "safe": {
         "q": "¿Están seguros mis archivos?",
-        "a": "Sí. Todas las transferencias viajan por HTTPS con TLS 1.3. Los archivos se eliminan automáticamente cuando caduca el enlace. Los servidores están en Europa y cumplimos con la normativa GDPR."
+        "a": "Sí. Todas las transferencias viajan por HTTPS con TLS 1.3. Los archivos se eliminan automáticamente cuando caduca el enlace. Los servidores están en Europa y cumplimos plenamente con la normativa GDPR."
       },
       "whoCanSee": {
         "q": "¿Quién puede ver mis archivos?",
-        "a": "Sólo quienes tengan el enlace podrán acceder a los archivos. Puedes añadir una contraseña para mayor protección (disponible con los planes de pago). Nuestro personal nunca accede a los contenidos."
+        "a": "Solo quienes tengan el enlace pueden acceder a los archivos. Con el plan Business puedes añadir una contraseña para mayor protección — el hash se almacena con bcrypt y la contraseña nunca se guarda en texto plano. Nuestro personal nunca accede a los contenidos."
       },
       "scanned": {
         "q": "¿Se analizan o escanean los archivos?",
         "a": "Realizamos análisis antivirus automáticos para proteger a los destinatarios, pero no analizamos el contenido de los archivos con fines comerciales o publicitarios."
       },
+      "passwordTransfer": {
+        "q": "¿Cómo funcionan las transferencias protegidas con contraseña?",
+        "a": "Al crear una transferencia puedes establecer una contraseña que los destinatarios deben introducir antes de acceder o descargar los archivos. La contraseña se hashea con bcrypt y nunca se almacena en texto plano. La protección con contraseña está disponible en los planes Business y Enterprise."
+      },
       "payment": {
         "q": "¿Qué métodos de pago aceptan?",
-        "a": "Aceptamos las principales tarjetas de crédito y débito (Visa, Mastercard, American Express) a través de Stripe. Los pagos son seguros y no almacenamos los datos de las tarjetas."
+        "a": "Aceptamos todas las principales tarjetas de crédito y débito (Visa, Mastercard, American Express) a través de Stripe. Los pagos son seguros y no almacenamos los datos de las tarjetas. También se admiten Apple Pay y Google Pay."
       },
       "changePlan": {
         "q": "¿Puedo cambiar de plan en cualquier momento?",
-        "a": "Sí, puede cambiar de categoría en cualquier momento. En el caso de las ampliaciones, la diferencia de precio se calcula proporcionalmente para el periodo restante. Para las reducciones, el plan actual permanece activo hasta el final del periodo pagado."
+        "a": "Sí, puedes mejorar o reducir el plan en cualquier momento. Para las mejoras, la diferencia de precio se calcula proporcionalmente para el período restante. Para las reducciones, el plan actual permanece activo hasta el final del período pagado."
       },
       "annualDiscount": {
         "q": "¿Cómo funciona el descuento anual?",
-        "a": "Al elegir la facturación anual obtendrá un precio fijo de 45 euros/año para el plan Pro y de 120 euros/año para el plan Business, con un importante ahorro en comparación con la mensualidad. El pago se realiza de una sola vez y el plan está activo durante 12 meses."
+        "a": "La facturación anual te ahorra considerablemente respecto al pago mensual: el plan Pro cuesta 45 €/año (vs 59,88 €/año mensual — ahorro de 14,88 €), y el plan Business cuesta 120 €/año (vs 179,88 €/año mensual — ahorro de 59,88 €). El pago se realiza de una sola vez y el plan está activo durante 12 meses."
+      },
+      "annualBilling": {
+        "q": "¿Cuál es la diferencia entre la facturación mensual y la anual?",
+        "a": "La facturación mensual te cobra cada mes y puedes cancelar en cualquier momento sin cargos adicionales. La facturación anual realiza un único pago anticipado por 12 meses a una tarifa reducida (hasta un 33% de descuento). Ambas opciones incluyen las mismas funciones — la única diferencia es el ciclo de facturación y el descuento."
       },
       "refund": {
-        "q": "¿Puedo solicitar el reembolso?",
-        "a": "Si no queda satisfecho, le devolveremos el importe íntegro en un plazo de 14 días a partir de la fecha de compra. Transcurridos 14 días, no es posible realizar devoluciones parciales."
+        "q": "¿Puedo solicitar un reembolso?",
+        "a": "Ofrecemos un reembolso completo en los 30 días siguientes a la compra si no estás satisfecho. Después de 30 días no son posibles los reembolsos parciales. Contacta con support@vaultransfer.com para iniciar un reembolso."
       },
       "maxSize": {
-        "q": "¿Cuál es el tamaño máximo de archivo?",
-        "a": "plan Free: 2 GB por archivo. plan Pro: 50 GB por fichero. plan Business: 200 GB por archivo. No hay límites en el número de archivos que puedes enviar."
+        "q": "¿Cuál es el tamaño máximo de transferencia?",
+        "a": "Plan Free: 2 GB por transferencia. Plan Pro: 50 GB por transferencia. Plan Business: 200 GB por transferencia. Enterprise: límites personalizados. No hay límites en el número de transferencias que puedes crear."
       },
       "formats": {
         "q": "¿Qué formatos de archivo son compatibles?",
-        "a": "Admitimos la mayoría de formatos: documentos, imágenes, vídeos, archivos ZIP, archivos de proyecto, etc. Por motivos de seguridad, se bloquean los archivos ejecutables (.exe, .msi, .bat, .sh), scripts (.ps1, .vbs, .js), macros de Office (.docm, .xlsm, .pptm), paquetes de apps (.apk, .ipa, .deb) y otros formatos potencialmente dañinos."
+        "a": "Admitimos la mayoría de formatos: documentos, imágenes, vídeos, archivos ZIP, archivos de proyecto, etc. Por motivos de seguridad, se bloquean los ejecutables (.exe, .msi, .bat, .sh), scripts (.ps1, .vbs, .js), macros de Office (.docm, .xlsm, .pptm), paquetes de apps (.apk, .ipa, .deb) y otros formatos potencialmente dañinos."
       },
       "devices": {
         "q": "¿Funciona el servicio en todos los dispositivos?",
         "a": "Sí. VaultTransfer funciona en cualquier dispositivo con un navegador moderno: PC, Mac, smartphones Android e iOS, tabletas. No requiere aplicación."
+      },
+      "analyticsStats": {
+        "q": "¿Qué análisis y estadísticas están disponibles?",
+        "a": "Los suscriptores de Pro y Business pueden acceder a análisis detallados en el Dashboard: transferencias totales creadas, datos totales transferidos (GB), descargas totales, transferencias activas vs. caducadas y un gráfico diario de transferencias de los últimos 30 días. Los análisis se actualizan en tiempo real."
+      },
+      "apiAccess": {
+        "q": "¿Cómo accedo a la API de VaultTransfer?",
+        "a": "VaultTransfer proporciona una API REST pública disponible para los suscriptores de los planes Business y Enterprise. Puedes crear, listar y gestionar transferencias de forma programática. La documentación completa de la API y la referencia de endpoints están disponibles en tu Dashboard bajo Claves API."
+      },
+      "apiKeys": {
+        "q": "¿Cómo creo y gestiono las claves API?",
+        "a": "Las claves API se crean desde la sección Claves API de tu Dashboard. Dale a cada clave un nombre descriptivo (p. ej. 'Producción'). Las claves se muestran solo una vez al crearlas — cópiala y guárdala de forma segura. Puedes ver la fecha del último uso de cada clave y revocar cualquier clave en cualquier momento."
       }
     }
   },

@@ -377,9 +377,9 @@
   "faq": {
     "badge": "Questions fréquemment posées",
     "title": "Tout ce que vous",
-    "titleAccent": "veulent savoir",
+    "titleAccent": "voulez savoir",
     "contact": "Vous ne trouvez pas de réponse ?",
-    "contactLink": "Contactez nous",
+    "contactLink": "Contactez-nous",
     "cta": {
       "ready": "Prêt à commencer ?",
       "seePlans": "Voir les plans"
@@ -388,7 +388,8 @@
       "general": "Général",
       "security": "Sécurité",
       "plans": "Plans et paiements",
-      "technical": "Technique"
+      "technical": "Technique",
+      "developer": "API & Développeur"
     },
     "items": {
       "whatIs": {
@@ -397,27 +398,35 @@
       },
       "register": {
         "q": "Dois-je m'inscrire pour l'utiliser ?",
-        "a": "Non. Vous pouvez envoyer des fichiers gratuitement sans vous inscrire. La création d'un compte vous permet d'accéder à des fonctionnalités avancées telles que l'envoi de fichiers jusqu'à 50 Go, des liens personnalisés et des statistiques de téléchargement."
+        "a": "Non. Vous pouvez envoyer des fichiers gratuitement sans vous inscrire. La création d'un compte vous donne accès à des fonctionnalités avancées comme les envois jusqu'à 50 Go, les statistiques de téléchargement, les liens protégés par mot de passe, les analyses de transferts et le programme de parrainage."
       },
       "expiry": {
         "q": "Pendant combien de temps mes fichiers sont-ils disponibles ?",
-        "a": "Avec le plan Free, les liens expirent après 7 jours. Avec Pro, ils expirent après 30 jours. Avec Business, vous pouvez définir des dates d'expiration personnalisées ou conserver les fichiers indéfiniment."
+        "a": "Avec le plan Free, les liens expirent après 7 jours. Avec Pro, ils expirent après 30 jours. Avec Business, vous pouvez définir des dates d'expiration personnalisées ou conserver les fichiers indéfiniment. Les plans Enterprise supportent aussi les liens sans expiration."
+      },
+      "referral": {
+        "q": "Comment fonctionne le programme de parrainage ?",
+        "a": "Vous pouvez inviter des amis et collègues sur VaultTransfer en utilisant votre lien de parrainage unique. Lorsqu'une personne s'inscrit et souscrit un abonnement via votre lien, vous bénéficiez tous les deux d'avantages. Retrouvez votre lien de parrainage dans le Dashboard sous 'Inviter & Gagner'."
       },
       "safe": {
         "q": "Mes fichiers sont-ils en sécurité ?",
-        "a": "Oui. Tous les transferts passent par HTTPS avec TLS 1.3. Les fichiers sont automatiquement supprimés à l'expiration du lien. Les serveurs sont situés en Europe et nous sommes entièrement compatibles avec GDPR."
+        "a": "Oui. Tous les transferts passent par HTTPS avec TLS 1.3. Les fichiers sont automatiquement supprimés à l'expiration du lien. Les serveurs sont situés en Europe et nous sommes entièrement conformes au RGPD."
       },
       "whoCanSee": {
         "q": "Qui peut consulter mes fichiers ?",
-        "a": "Seules les personnes disposant du lien peuvent accéder aux fichiers. Vous pouvez ajouter un mot de passe pour une protection supplémentaire (disponible avec les plans payants). Notre personnel n'accède jamais au contenu."
+        "a": "Seules les personnes disposant du lien peuvent accéder aux fichiers. Avec le plan Business, vous pouvez ajouter un mot de passe pour une protection supplémentaire — le hash est stocké avec bcrypt et le mot de passe n'est jamais enregistré en clair. Notre personnel n'accède jamais au contenu."
       },
       "scanned": {
         "q": "Les fichiers sont-ils analysés ou scannés ?",
         "a": "Nous procédons à une analyse antivirus automatique pour protéger les destinataires, mais nous n'analysons pas le contenu des fichiers à des fins commerciales ou publicitaires."
       },
+      "passwordTransfer": {
+        "q": "Comment fonctionnent les transferts protégés par mot de passe ?",
+        "a": "Lors de la création d'un transfert, vous pouvez définir un mot de passe que les destinataires doivent saisir avant d'accéder aux fichiers ou de les télécharger. Le mot de passe est haché avec bcrypt et n'est jamais stocké en clair. La protection par mot de passe est disponible sur les plans Business et Enterprise."
+      },
       "payment": {
         "q": "Quels sont les modes de paiement acceptés ?",
-        "a": "Nous acceptons les principales cartes de crédit et de débit (Visa, Mastercard, American Express) via Stripe. Les paiements sont sécurisés et nous ne conservons pas les données des cartes."
+        "a": "Nous acceptons toutes les principales cartes de crédit et de débit (Visa, Mastercard, American Express) via Stripe. Les paiements sont sécurisés et nous ne conservons pas les données des cartes. Apple Pay et Google Pay sont également pris en charge."
       },
       "changePlan": {
         "q": "Puis-je changer de plan à tout moment ?",
@@ -425,15 +434,19 @@
       },
       "annualDiscount": {
         "q": "Comment fonctionne la réduction annuelle ?",
-        "a": "En choisissant la facturation annuelle, vous bénéficiez d'un prix fixe de 45 €/an pour le plan Pro et de 120 €/an pour le plan Business, ce qui représente des économies significatives par rapport à la facturation mensuelle. Le paiement est effectué en une seule fois et le plan est actif pendant 12 mois."
+        "a": "La facturation annuelle vous permet d'économiser davantage par rapport au mensuel : le plan Pro coûte 45 €/an (vs 59,88 €/an en mensuel — économie de 14,88 €), et le plan Business coûte 120 €/an (vs 179,88 €/an en mensuel — économie de 59,88 €). Le paiement est effectué en une seule fois et le plan est actif pendant 12 mois."
+      },
+      "annualBilling": {
+        "q": "Quelle est la différence entre la facturation mensuelle et annuelle ?",
+        "a": "La facturation mensuelle vous débite chaque mois et vous pouvez annuler à tout moment sans frais supplémentaires. La facturation annuelle prélève un paiement unique en avance pour 12 mois à un tarif réduit (jusqu'à 33 % de réduction). Les deux options incluent les mêmes fonctionnalités — seuls le cycle de facturation et la remise diffèrent."
       },
       "refund": {
         "q": "Puis-je demander un remboursement ?",
-        "a": "Nous offrons un remboursement intégral dans les 14 jours suivant l'achat si vous n'êtes pas satisfait. Après 14 jours, les remboursements partiels ne sont pas possibles."
+        "a": "Nous offrons un remboursement intégral dans les 30 jours suivant l'achat si vous n'êtes pas satisfait. Après 30 jours, les remboursements partiels ne sont pas possibles. Contactez support@vaultransfer.com pour initier un remboursement."
       },
       "maxSize": {
-        "q": "Quelle est la taille maximale des fichiers ?",
-        "a": "plan Free : 2 GB par fichier. plan Pro : 50 Go par fichier. plan Business : 200 Go par fichier. Il n'y a pas de limite au nombre de fichiers que vous pouvez envoyer."
+        "q": "Quelle est la taille maximale de transfert ?",
+        "a": "Plan Free : 2 Go par transfert. Plan Pro : 50 Go par transfert. Plan Business : 200 Go par transfert. Enterprise : limites personnalisées. Il n'y a pas de limite au nombre de transferts que vous pouvez créer."
       },
       "formats": {
         "q": "Quels sont les formats de fichiers pris en charge ?",
@@ -442,6 +455,18 @@
       "devices": {
         "q": "Le service fonctionne-t-il sur tous les appareils ?",
         "a": "Oui. VaultTransfer fonctionne sur tout appareil doté d'un navigateur moderne : PC, Mac, smartphones Android et iOS, tablettes. Aucune application n'est nécessaire."
+      },
+      "analyticsStats": {
+        "q": "Quelles analyses et statistiques sont disponibles ?",
+        "a": "Les abonnés Pro et Business peuvent accéder à des analyses détaillées dans le Dashboard : total des transferts créés, données totales transférées (Go), total des téléchargements, transferts actifs vs. expirés, et un graphique quotidien des transferts sur les 30 derniers jours. Les analyses se mettent à jour en temps réel."
+      },
+      "apiAccess": {
+        "q": "Comment accéder à l'API VaultTransfer ?",
+        "a": "VaultTransfer fournit une API REST publique disponible pour les abonnés aux plans Business et Enterprise. Vous pouvez créer, lister et gérer des transferts par programmation. La documentation complète de l'API et la référence des endpoints sont disponibles dans votre Dashboard sous Clés API."
+      },
+      "apiKeys": {
+        "q": "Comment créer et gérer les clés API ?",
+        "a": "Les clés API se créent depuis la section Clés API de votre Dashboard. Donnez à chaque clé un nom descriptif (ex. 'Production'). Les clés ne sont affichées qu'une seule fois à la création — copiez-la et conservez-la en lieu sûr. Vous pouvez voir la date de dernière utilisation de chaque clé et révoquer n'importe quelle clé à tout moment."
       }
     }
   },
