@@ -43,14 +43,22 @@
     "ctaHeadlineAccent": "complete privacy",
     "ctaDesc": "Upload, share, and control access. Files encrypted end-to-end. No sign-up required.",
     "ctaButton": "Send a file now",
-    "ctaSecondary": "View plans"
+    "ctaSecondary": "View plans",
+    "stats": {
+      "maxFileSize": "Max file size",
+      "encryption": "AES encryption",
+      "filesPerTransfer": "Files per transfer",
+      "maxExpiry": "Max expiry",
+      "days90": "90 days"
+    }
   },
   "upload": {
     "dropzone": {
       "active": "Drop files here",
       "idle": "Drag files here",
       "browse": "browse",
-      "hint": "or {browse} from your device · max 2GB · 20 files"
+      "hint": "or <browse>browse</browse> from your device · max 2GB · 20 files",
+      "aria": "Upload files — click or drag and drop"
     },
     "file": {
       "uploaded": "✓ Uploaded",
@@ -70,7 +78,10 @@
       "message": "Message for recipient",
       "messagePlaceholder": "Add a message...",
       "senderEmail": "Your email (optional)",
-      "emailPlaceholder": "you@example.com"
+      "emailPlaceholder": "you@example.com",
+      "expiryDays": "{count} days",
+      "expiryCustomPlaceholder": "Custom (max 90 days)",
+      "expiryWarningFree": "Free users are limited to max 7 days. Upgrade to Pro/Business for up to 90 days."
     },
     "button": {
       "uploading": "Uploading...",
@@ -535,7 +546,34 @@
     "expired": "Expired",
     "copyLink": "Copy link",
     "transferDate": "Transfer of {date}",
-    "transferMeta": "{size} · {downloads} downloads · expires in {expiry}"
+    "transferMeta": "{size} · {downloads} downloads · expires in {expiry}",
+    "transferStats": {
+      "title": "Transfer Analytics",
+      "close": "Close",
+      "totalDownloads": "Total downloads",
+      "size": "Transfer size",
+      "age": "Age",
+      "ageDays": "{count}d",
+      "status": "Status",
+      "expired": "Expired",
+      "downloadLimit": "Download limit",
+      "created": "Created {date}",
+      "comingSoon": "Unique visitors & geographic data — Business plan (coming soon)"
+    },
+    "notifications": {
+      "title": "Email notifications",
+      "subtitle": "Choose which emails VaultTransfer sends you",
+      "saved": "Saved",
+      "localNote": "Notification preferences are saved locally. Server-side sync coming soon.",
+      "uploadConfirmation": "Upload confirmation",
+      "uploadConfirmationDesc": "Email when your transfer is ready to share",
+      "downloadNotification": "Download notification",
+      "downloadNotificationDesc": "Email when someone downloads your files (first download only)",
+      "storageWarning": "Storage warning",
+      "storageWarningDesc": "Email when you reach 80% of your storage limit",
+      "expiryReminder": "Expiry reminder",
+      "expiryReminderDesc": "Email 24 hours before a transfer expires"
+    }
   },
   "analytics": {
     "title": "Analytics",

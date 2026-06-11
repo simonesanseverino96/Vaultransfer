@@ -43,14 +43,22 @@
     "ctaHeadlineAccent": "pełną prywatnością",
     "ctaDesc": "Przesyłaj, udostępniaj i kontroluj dostęp. Pliki szyfrowane end-to-end. Bez rejestracji.",
     "ctaButton": "Wyślij plik teraz",
-    "ctaSecondary": "Zobacz plany"
+    "ctaSecondary": "Zobacz plany",
+    "stats": {
+      "maxFileSize": "Maks. rozmiar pliku",
+      "encryption": "Szyfrowanie AES",
+      "filesPerTransfer": "Plików na transfer",
+      "maxExpiry": "Maks. ważność",
+      "days90": "90 dni"
+    }
   },
   "upload": {
     "dropzone": {
       "active": "Przeciągnij pliki tutaj",
       "idle": "Przeciągnij pliki tutaj",
       "browse": "przeglądaj",
-      "hint": "lub {browse} z twojego urządzenia · maks. 2 GB · 20 plików"
+      "hint": "lub <browse>przeglądaj</browse> z twojego urządzenia · maks. 2 GB · 20 plików",
+      "aria": "Prześlij pliki — kliknij lub przeciągnij i upuść"
     },
     "file": {
       "uploaded": "✓ Przesłano",
@@ -70,7 +78,10 @@
       "message": "Wiadomość dla odbiorcy",
       "messagePlaceholder": "Dodaj wiadomość...",
       "senderEmail": "Twój adres e-mail (opcjonalnie)",
-      "emailPlaceholder": "you@example.com"
+      "emailPlaceholder": "you@example.com",
+      "expiryDays": "{count} dni",
+      "expiryCustomPlaceholder": "Niestandardowy (maks. 90 dni)",
+      "expiryWarningFree": "Plan darmowy jest ograniczony do 7 dni. Przejdź na Pro/Business, aby uzyskać do 90 dni."
     },
     "button": {
       "uploading": "Przesyłanie...",
@@ -535,7 +546,34 @@
     "expired": "Wygasło",
     "copyLink": "Skopiuj link",
     "transferDate": "Przeniesienie {date}",
-    "transferMeta": "{size} · {downloads} pobrań · wygasa za {expiry}"
+    "transferMeta": "{size} · {downloads} pobrań · wygasa za {expiry}",
+    "transferStats": {
+      "title": "Statystyki transferu",
+      "close": "Zamknij",
+      "totalDownloads": "Łączna liczba pobrań",
+      "size": "Rozmiar transferu",
+      "age": "Wiek",
+      "ageDays": "{count} dni",
+      "status": "Status",
+      "expired": "Wygasły",
+      "downloadLimit": "Limit pobrań",
+      "created": "Utworzono {date}",
+      "comingSoon": "Unikalni odwiedzający i dane geograficzne — plan Business (wkrótce)"
+    },
+    "notifications": {
+      "title": "Powiadomienia e-mail",
+      "subtitle": "Wybierz, jakie e-maile wysyła Ci VaultTransfer",
+      "saved": "Zapisano",
+      "localNote": "Preferencje powiadomień są zapisywane lokalnie. Synchronizacja z serwerem wkrótce.",
+      "uploadConfirmation": "Potwierdzenie przesłania",
+      "uploadConfirmationDesc": "E-mail, gdy Twój transfer będzie gotowy do udostępnienia",
+      "downloadNotification": "Powiadomienie o pobraniu",
+      "downloadNotificationDesc": "E-mail, gdy ktoś pobierze Twoje pliki (tylko pierwsze pobranie)",
+      "storageWarning": "Ostrzeżenie o miejscu",
+      "storageWarningDesc": "E-mail, gdy osiągniesz 80% limitu miejsca",
+      "expiryReminder": "Przypomnienie o wygaśnięciu",
+      "expiryReminderDesc": "E-mail 24 godziny przed wygaśnięciem transferu"
+    }
   },
   "analytics": {
     "title": "Analizy",

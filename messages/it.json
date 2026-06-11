@@ -43,14 +43,22 @@
     "ctaHeadlineAccent": "privacy totale",
     "ctaDesc": "Carica, condividi e controlla gli accessi. File crittografati end-to-end. Nessuna registrazione richiesta.",
     "ctaButton": "Invia un file ora",
-    "ctaSecondary": "Vedi i piani"
+    "ctaSecondary": "Vedi i piani",
+    "stats": {
+      "maxFileSize": "Dimensione max file",
+      "encryption": "Crittografia AES",
+      "filesPerTransfer": "File per trasferimento",
+      "maxExpiry": "Scadenza max",
+      "days90": "90 giorni"
+    }
   },
   "upload": {
     "dropzone": {
       "active": "Rilascia qui i file",
       "idle": "Trascina qui i tuoi file",
       "browse": "sfoglia",
-      "hint": "o {browse} dal tuo dispositivo - max 2GB - 20 file"
+      "hint": "o <browse>sfoglia</browse> dal tuo dispositivo · max 2GB · 20 file",
+      "aria": "Carica file — clicca o trascina qui"
     },
     "file": {
       "uploaded": "✓ Completato",
@@ -70,7 +78,10 @@
       "message": "Messaggio (opzionale)",
       "messagePlaceholder": "Aggiungi un messaggio...",
       "senderEmail": "La tua email (opzionale)",
-      "emailPlaceholder": "you@example.com"
+      "emailPlaceholder": "you@example.com",
+      "expiryDays": "{count} giorni",
+      "expiryCustomPlaceholder": "Personalizzata (max 90 giorni)",
+      "expiryWarningFree": "Il piano Free è limitato a 7 giorni. Passa a Pro o Business per arrivare fino a 90 giorni."
     },
     "button": {
       "uploading": "Caricamento...",
@@ -535,7 +546,34 @@
     "expired": "Scaduto",
     "copyLink": "Copiare il link",
     "transferDate": "Trasferimento del {date}",
-    "transferMeta": "{size} - {downloads} download - scadenza in {expiry}"
+    "transferMeta": "{size} - {downloads} download - scadenza in {expiry}",
+    "transferStats": {
+      "title": "Statistiche trasferimento",
+      "close": "Chiudi",
+      "totalDownloads": "Download totali",
+      "size": "Dimensione trasferimento",
+      "age": "Età",
+      "ageDays": "{count}g",
+      "status": "Stato",
+      "expired": "Scaduto",
+      "downloadLimit": "Limite download",
+      "created": "Creato il {date}",
+      "comingSoon": "Visitatori unici e dati geografici — piano Business (in arrivo)"
+    },
+    "notifications": {
+      "title": "Notifiche email",
+      "subtitle": "Scegli quali email VaultTransfer ti invia",
+      "saved": "Salvato",
+      "localNote": "Le preferenze di notifica sono salvate in locale. Sincronizzazione lato server in arrivo.",
+      "uploadConfirmation": "Conferma di caricamento",
+      "uploadConfirmationDesc": "Email quando il tuo trasferimento è pronto da condividere",
+      "downloadNotification": "Notifica di download",
+      "downloadNotificationDesc": "Email quando qualcuno scarica i tuoi file (solo al primo download)",
+      "storageWarning": "Avviso spazio",
+      "storageWarningDesc": "Email quando raggiungi l'80% del tuo limite di spazio",
+      "expiryReminder": "Promemoria scadenza",
+      "expiryReminderDesc": "Email 24 ore prima della scadenza di un trasferimento"
+    }
   },
   "analytics": {
     "title": "Analisi",

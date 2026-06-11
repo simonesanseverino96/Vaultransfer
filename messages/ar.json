@@ -43,14 +43,22 @@
     "ctaHeadlineAccent": "خصوصية كاملة",
     "ctaDesc": "ارفع وشارك وتحكم في الوصول. ملفات مشفرة من طرف إلى طرف. لا حاجة للتسجيل.",
     "ctaButton": "أرسل ملفاً الآن",
-    "ctaSecondary": "عرض الخطط"
+    "ctaSecondary": "عرض الخطط",
+    "stats": {
+      "maxFileSize": "الحد الأقصى لحجم الملف",
+      "encryption": "تشفير AES",
+      "filesPerTransfer": "ملفات لكل نقل",
+      "maxExpiry": "أقصى مدة صلاحية",
+      "days90": "90 يوماً"
+    }
   },
   "upload": {
     "dropzone": {
       "active": "إسقاط الملفات هنا",
       "idle": "اسحب الملفات هنا",
       "browse": "تصفح",
-      "hint": "أو {browse}__ من جهازك - بحد أقصى 2 جيجابايت - 20 ملفًا"
+      "hint": "أو <browse>تصفح</browse> من جهازك · بحد أقصى 2 جيجابايت · 20 ملفاً",
+      "aria": "رفع الملفات — انقر أو اسحب وأفلت"
     },
     "file": {
       "uploaded": "✓ تم التحميل",
@@ -70,7 +78,10 @@
       "message": "رسالة للمستلم",
       "messagePlaceholder": "أضف رسالة...",
       "senderEmail": "بريدك الإلكتروني (اختياري)",
-      "emailPlaceholder": "you@example.com"
+      "emailPlaceholder": "you@example.com",
+      "expiryDays": "{count} أيام",
+      "expiryCustomPlaceholder": "مخصص (بحد أقصى 90 يوماً)",
+      "expiryWarningFree": "الخطة المجانية محدودة بـ 7 أيام. قم بالترقية إلى Pro/Business للوصول إلى 90 يوماً."
     },
     "button": {
       "uploading": "تحميل...",
@@ -535,7 +546,34 @@
     "expired": "منتهية الصلاحية",
     "copyLink": "نسخ الرابط",
     "transferDate": "نقل بتاريخ {date}",
-    "transferMeta": "{size} · {downloads} تنزيلات · تنتهي الصلاحية خلال {expiry}"
+    "transferMeta": "{size} · {downloads} تنزيلات · تنتهي الصلاحية خلال {expiry}",
+    "transferStats": {
+      "title": "إحصائيات النقل",
+      "close": "إغلاق",
+      "totalDownloads": "إجمالي التنزيلات",
+      "size": "حجم النقل",
+      "age": "العمر",
+      "ageDays": "{count} يوم",
+      "status": "الحالة",
+      "expired": "منتهي",
+      "downloadLimit": "حد التنزيلات",
+      "created": "أُنشئ في {date}",
+      "comingSoon": "الزوار الفريدون والبيانات الجغرافية — خطة Business (قريباً)"
+    },
+    "notifications": {
+      "title": "إشعارات البريد الإلكتروني",
+      "subtitle": "اختر الرسائل التي يرسلها لك VaultTransfer",
+      "saved": "تم الحفظ",
+      "localNote": "تُحفظ تفضيلات الإشعارات محلياً. المزامنة مع الخادم قريباً.",
+      "uploadConfirmation": "تأكيد الرفع",
+      "uploadConfirmationDesc": "بريد إلكتروني عندما يصبح النقل جاهزاً للمشاركة",
+      "downloadNotification": "إشعار التنزيل",
+      "downloadNotificationDesc": "بريد إلكتروني عندما يقوم شخص بتنزيل ملفاتك (أول تنزيل فقط)",
+      "storageWarning": "تحذير التخزين",
+      "storageWarningDesc": "بريد إلكتروني عند وصولك إلى 80% من حد التخزين",
+      "expiryReminder": "تذكير بانتهاء الصلاحية",
+      "expiryReminderDesc": "بريد إلكتروني قبل 24 ساعة من انتهاء صلاحية النقل"
+    }
   },
   "analytics": {
     "title": "التحليلات",

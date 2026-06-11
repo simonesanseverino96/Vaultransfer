@@ -1,5 +1,6 @@
 'use client'
 
+import { useTranslations } from 'next-intl'
 import { formatBytes, formatExpiry } from '@/lib/utils'
 
 interface Transfer {
@@ -19,6 +20,7 @@ interface Props {
 }
 
 export default function TransferStatsModal({ transfer, onClose }: Props) {
+  const t = useTranslations('dashboard.transferStats')
   const isExpired = new Date(transfer.expires_at) < new Date()
   const daysOld = Math.floor((new Date().getTime() - new Date(transfer.created_at).getTime()) / 86_400_000)
   const limitUsedPct = transfer.max_downloads
@@ -35,10 +37,10 @@ export default function TransferStatsModal({ transfer, onClose }: Props) {
         onClick={e => e.stopPropagation()}
       >
         <div className="flex items-center justify-between mb-5">
-          <h3 className="font-display text-lg font-700 text-paper">Transfer Analytics</h3>
+          <h3 className="font-display text-lg font-700 text-paper">{t('title')}</h3>
           <button
             onClick={onClose}
-            aria-label="Close"
+            aria-label={t('close')}
             className="text-muted hover:text-paper transition-colors p-1 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
@@ -54,28 +56,28 @@ export default function TransferStatsModal({ transfer, onClose }: Props) {
         <div className="grid grid-cols-2 gap-3 mb-5">
           <div className="bg-surface-2 rounded-xl p-4">
             <p className="text-2xl font-display font-700 text-paper">{transfer.download_count}</p>
-            <p className="text-xs text-muted font-body mt-1">Total downloads</p>
+            <p className="text-xs text-muted font-body mt-1">{t('totalDownloads')}</p>
           </div>
           <div className="bg-surface-2 rounded-xl p-4">
             <p className="text-2xl font-display font-700 text-paper">{formatBytes(transfer.total_size)}</p>
-            <p className="text-xs text-muted font-body mt-1">Transfer size</p>
+            <p className="text-xs text-muted font-body mt-1">{t('size')}</p>
           </div>
           <div className="bg-surface-2 rounded-xl p-4">
-            <p className="text-2xl font-display font-700 text-paper">{daysOld}d</p>
-            <p className="text-xs text-muted font-body mt-1">Age</p>
+            <p className="text-2xl font-display font-700 text-paper">{t('ageDays', { count: daysOld })}</p>
+            <p className="text-xs text-muted font-body mt-1">{t('age')}</p>
           </div>
           <div className="bg-surface-2 rounded-xl p-4">
             <p className={`text-2xl font-display font-700 ${isExpired ? 'text-red-400' : 'text-accent'}`}>
-              {isExpired ? 'Expired' : formatExpiry(transfer.expires_at)}
+              {isExpired ? t('expired') : formatExpiry(transfer.expires_at)}
             </p>
-            <p className="text-xs text-muted font-body mt-1">Status</p>
+            <p className="text-xs text-muted font-body mt-1">{t('status')}</p>
           </div>
         </div>
 
         {transfer.max_downloads !== null && limitUsedPct !== null && (
           <div className="mb-5">
             <div className="flex justify-between text-xs text-muted font-body mb-1.5">
-              <span>Download limit</span>
+              <span>{t('downloadLimit')}</span>
               <span>{transfer.download_count} / {transfer.max_downloads}</span>
             </div>
             <div className="h-1.5 bg-surface-2 rounded-full overflow-hidden">
@@ -88,8 +90,8 @@ export default function TransferStatsModal({ transfer, onClose }: Props) {
         )}
 
         <div className="text-xs text-muted font-body pt-4 border-t border-white/5 space-y-1">
-          <p>Created {new Date(transfer.created_at).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })}</p>
-          <p className="text-white/20">Unique visitors &amp; geographic data — Business plan (coming soon)</p>
+          <p>{t('created', { date: new Date(transfer.created_at).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' }) })}</p>
+          <p className="text-white/20">{t('comingSoon')}</p>
         </div>
       </div>
     </div>

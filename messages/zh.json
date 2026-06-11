@@ -43,14 +43,22 @@
     "ctaHeadlineAccent": "完全保护隐私",
     "ctaDesc": "上传、分享并控制访问权限。端到端加密文件。无需注册。",
     "ctaButton": "立即发送文件",
-    "ctaSecondary": "查看套餐"
+    "ctaSecondary": "查看套餐",
+    "stats": {
+      "maxFileSize": "最大文件大小",
+      "encryption": "AES 加密",
+      "filesPerTransfer": "每次传输文件数",
+      "maxExpiry": "最长有效期",
+      "days90": "90 天"
+    }
   },
   "upload": {
     "dropzone": {
       "active": "将文件放在此处",
       "idle": "将文件拖到此处",
-      "browse": "浏览",
-      "hint": "或设备中的 {browse} - 最大 2GB - 20 个文件"
+      "browse": "选择",
+      "hint": "或从设备中<browse>选择</browse> · 最大 2GB · 20 个文件",
+      "aria": "上传文件 — 点击或拖放"
     },
     "file": {
       "uploaded": "✓ 已上传",
@@ -70,7 +78,10 @@
       "message": "给收件人的信息",
       "messagePlaceholder": "添加信息...",
       "senderEmail": "您的电子邮件（可选）",
-      "emailPlaceholder": "you@example.com"
+      "emailPlaceholder": "you@example.com",
+      "expiryDays": "{count} 天",
+      "expiryCustomPlaceholder": "自定义（最长 90 天）",
+      "expiryWarningFree": "免费套餐最长 7 天。升级到 Pro/Business 可达 90 天。"
     },
     "button": {
       "uploading": "上传...",
@@ -535,7 +546,34 @@
     "expired": "已过期",
     "copyLink": "复制链接",
     "transferDate": "转让{date}_",
-    "transferMeta": "{size} - {downloads} 下载 - {expiry} 过期"
+    "transferMeta": "{size} - {downloads} 下载 - {expiry} 过期",
+    "transferStats": {
+      "title": "传输统计",
+      "close": "关闭",
+      "totalDownloads": "总下载次数",
+      "size": "传输大小",
+      "age": "创建天数",
+      "ageDays": "{count} 天",
+      "status": "状态",
+      "expired": "已过期",
+      "downloadLimit": "下载限制",
+      "created": "创建于 {date}",
+      "comingSoon": "独立访客与地理数据 — Business 套餐（即将推出）"
+    },
+    "notifications": {
+      "title": "邮件通知",
+      "subtitle": "选择 VaultTransfer 向您发送哪些邮件",
+      "saved": "已保存",
+      "localNote": "通知偏好保存在本地。服务器同步即将推出。",
+      "uploadConfirmation": "上传确认",
+      "uploadConfirmationDesc": "传输可分享时发送邮件",
+      "downloadNotification": "下载通知",
+      "downloadNotificationDesc": "有人下载您的文件时发送邮件（仅首次下载）",
+      "storageWarning": "存储警告",
+      "storageWarningDesc": "达到存储上限的 80% 时发送邮件",
+      "expiryReminder": "过期提醒",
+      "expiryReminderDesc": "传输过期前 24 小时发送邮件"
+    }
   },
   "analytics": {
     "title": "数据分析",

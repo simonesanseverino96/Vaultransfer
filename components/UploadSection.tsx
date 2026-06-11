@@ -120,7 +120,7 @@ export default function UploadSection() {
   const handleExpiryChange = (val: string | number) => {
     const numVal = typeof val === 'string' ? parseInt(val) : val;
     if (userPlan === 'free' && numVal > 7) {
-      setCustomExpiryWarning('Free users are limited to max 7 days. Upgrade to Pro/Business for up to 90 days.');
+      setCustomExpiryWarning(t('options.expiryWarningFree'));
       setConfig(c => ({ ...c, expiry: '7' }));
     } else {
       setCustomExpiryWarning(null);
@@ -274,7 +274,7 @@ export default function UploadSection() {
         {...getRootProps()}
         role="button"
         tabIndex={0}
-        aria-label="Upload files — click or drag and drop"
+        aria-label={t('dropzone.aria')}
         onKeyDown={e => (e.key === 'Enter' || e.key === ' ') && e.currentTarget.click()}
         className={`relative border-2 border-dashed rounded-2xl p-6 md:p-12 cursor-pointer transition-all duration-300 ${
           isDragActive
@@ -295,7 +295,9 @@ export default function UploadSection() {
               {isDragActive ? t('dropzone.active') : t('dropzone.idle')}
             </p>
             <p className="text-muted text-sm font-body">
-              or <span className="text-accent underline underline-offset-2">{t('dropzone.browse')}</span> from your device · max 2GB · 20 files
+              {t.rich('dropzone.hint', {
+                browse: chunks => <span className="text-accent underline underline-offset-2">{chunks}</span>,
+              })}
             </p>
           </div>
         </div>
@@ -378,13 +380,13 @@ export default function UploadSection() {
                   {(['1', '3', '7', '14', '30'] as const).map(d => (
                     <button key={d} onClick={() => handleExpiryChange(d)}
                       className={`flex-1 py-2 rounded-lg text-sm font-body transition-all ${config.expiry === d ? 'bg-accent text-ink font-500' : 'bg-surface-2 text-muted hover:text-paper border border-white/5'}`}>
-                      {d === '1' ? t('options.expiry1') : d === '7' ? t('options.expiry7') : d === '30' ? t('options.expiry30') : `${d} days`}
+                      {d === '1' ? t('options.expiry1') : d === '7' ? t('options.expiry7') : d === '30' ? t('options.expiry30') : t('options.expiryDays', { count: d })}
                     </button>
                   ))}
                 </div>
                 {(userPlan === 'pro' || userPlan === 'business') && (
                   <div className="flex items-center gap-2">
-                    <input type="number" min="1" max="90" placeholder="Custom (max 90 days)"
+                    <input type="number" min="1" max="90" placeholder={t('options.expiryCustomPlaceholder')}
                       value={config.expiry}
                       onChange={e => handleExpiryChange(e.target.value)}
                       className="w-full bg-gray-50 dark:bg-surface-2 border border-gray-200 dark:border-white/5 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-paper placeholder-gray-400 dark:placeholder-muted font-body focus:outline-none focus:border-accent/50 transition-colors" />

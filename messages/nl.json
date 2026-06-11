@@ -43,14 +43,22 @@
     "ctaHeadlineAccent": "volledige privacy",
     "ctaDesc": "Upload, deel en beheer toegang. End-to-end versleutelde bestanden. Geen registratie vereist.",
     "ctaButton": "Verstuur nu een bestand",
-    "ctaSecondary": "Bekijk abonnementen"
+    "ctaSecondary": "Bekijk abonnementen",
+    "stats": {
+      "maxFileSize": "Max. bestandsgrootte",
+      "encryption": "AES-versleuteling",
+      "filesPerTransfer": "Bestanden per overdracht",
+      "maxExpiry": "Max. geldigheid",
+      "days90": "90 dagen"
+    }
   },
   "upload": {
     "dropzone": {
       "active": "Sleep je bestanden hierheen",
       "idle": "Sleep bestanden hierheen",
-      "browse": "rondkijken",
-      "hint": "of {browse} vanaf je apparaat · max. 2 GB · 20 bestanden"
+      "browse": "bladeren",
+      "hint": "of <browse>bladeren</browse> vanaf je apparaat · max. 2 GB · 20 bestanden",
+      "aria": "Bestanden uploaden — klik of sleep hierheen"
     },
     "file": {
       "uploaded": "✓ Geüpload",
@@ -70,7 +78,10 @@
       "message": "Bericht voor de ontvanger",
       "messagePlaceholder": "Voeg een bericht toe...",
       "senderEmail": "Je e-mailadres (optioneel)",
-      "emailPlaceholder": "you@example.com"
+      "emailPlaceholder": "you@example.com",
+      "expiryDays": "{count} dagen",
+      "expiryCustomPlaceholder": "Aangepast (max. 90 dagen)",
+      "expiryWarningFree": "Het gratis abonnement is beperkt tot 7 dagen. Upgrade naar Pro/Business voor maximaal 90 dagen."
     },
     "button": {
       "uploading": "Bezig met uploaden...",
@@ -535,7 +546,34 @@
     "expired": "Verlopen",
     "copyLink": "Link kopiëren",
     "transferDate": "Overdracht van {date}",
-    "transferMeta": "{size} · {downloads} downloads · verloopt over {expiry}"
+    "transferMeta": "{size} · {downloads} downloads · verloopt over {expiry}",
+    "transferStats": {
+      "title": "Overdrachtsstatistieken",
+      "close": "Sluiten",
+      "totalDownloads": "Totaal aantal downloads",
+      "size": "Overdrachtsgrootte",
+      "age": "Leeftijd",
+      "ageDays": "{count} d",
+      "status": "Status",
+      "expired": "Verlopen",
+      "downloadLimit": "Downloadlimiet",
+      "created": "Aangemaakt op {date}",
+      "comingSoon": "Unieke bezoekers & geografische gegevens — Business-abonnement (binnenkort)"
+    },
+    "notifications": {
+      "title": "E-mailmeldingen",
+      "subtitle": "Kies welke e-mails VaultTransfer je stuurt",
+      "saved": "Opgeslagen",
+      "localNote": "Meldingsvoorkeuren worden lokaal opgeslagen. Serversynchronisatie volgt binnenkort.",
+      "uploadConfirmation": "Uploadbevestiging",
+      "uploadConfirmationDesc": "E-mail wanneer je overdracht klaar is om te delen",
+      "downloadNotification": "Downloadmelding",
+      "downloadNotificationDesc": "E-mail wanneer iemand je bestanden downloadt (alleen eerste download)",
+      "storageWarning": "Opslagwaarschuwing",
+      "storageWarningDesc": "E-mail wanneer je 80% van je opslaglimiet bereikt",
+      "expiryReminder": "Vervalherinnering",
+      "expiryReminderDesc": "E-mail 24 uur voordat een overdracht verloopt"
+    }
   },
   "analytics": {
     "title": "Analytics",

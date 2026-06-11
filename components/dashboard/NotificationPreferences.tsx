@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { useTranslations } from 'next-intl'
 
 const PREFS_KEY = 'vt:notification_prefs'
 
@@ -18,12 +19,7 @@ const DEFAULT_PREFS: Prefs = {
   expiryReminder: false,
 }
 
-const PREF_ITEMS: { key: keyof Prefs; label: string; desc: string }[] = [
-  { key: 'uploadConfirmation', label: 'Upload confirmation', desc: 'Email when your transfer is ready to share' },
-  { key: 'downloadNotification', label: 'Download notification', desc: 'Email when someone downloads your files (first download only)' },
-  { key: 'storageWarning', label: 'Storage warning', desc: 'Email when you reach 80% of your storage limit' },
-  { key: 'expiryReminder', label: 'Expiry reminder', desc: 'Email 24 hours before a transfer expires' },
-]
+const PREF_KEYS: (keyof Prefs)[] = ['uploadConfirmation', 'downloadNotification', 'storageWarning', 'expiryReminder']
 
 function Toggle({ checked, onChange, id }: { checked: boolean; onChange: (v: boolean) => void; id: string }) {
   return (
@@ -40,6 +36,7 @@ function Toggle({ checked, onChange, id }: { checked: boolean; onChange: (v: boo
 }
 
 export default function NotificationPreferences() {
+  const t = useTranslations('dashboard.notifications')
   const [prefs, setPrefs] = useState<Prefs>(() => {
     try {
       const stored = typeof window !== 'undefined' ? localStorage.getItem(PREFS_KEY) : null
@@ -61,18 +58,18 @@ export default function NotificationPreferences() {
     <div className="bg-surface border border-white/5 rounded-2xl p-6">
       <div className="flex items-center justify-between mb-5">
         <div>
-          <h3 className="font-display text-lg font-700 text-paper">Email notifications</h3>
-          <p className="text-xs text-muted font-body mt-1">Choose which emails VaultTransfer sends you</p>
+          <h3 className="font-display text-lg font-700 text-paper">{t('title')}</h3>
+          <p className="text-xs text-muted font-body mt-1">{t('subtitle')}</p>
         </div>
-        {saved && <span className="text-xs text-accent font-body animate-fade-up">Saved</span>}
+        {saved && <span className="text-xs text-accent font-body animate-fade-up">{t('saved')}</span>}
       </div>
 
       <div className="space-y-4">
-        {PREF_ITEMS.map(({ key, label, desc }) => (
+        {PREF_KEYS.map(key => (
           <div key={key} className="flex items-center justify-between gap-4">
             <div>
-              <label htmlFor={`pref-${key}`} className="text-sm text-paper font-body cursor-pointer">{label}</label>
-              <p className="text-xs text-muted font-body mt-0.5">{desc}</p>
+              <label htmlFor={`pref-${key}`} className="text-sm text-paper font-body cursor-pointer">{t(key)}</label>
+              <p className="text-xs text-muted font-body mt-0.5">{t(`${key}Desc`)}</p>
             </div>
             <Toggle id={`pref-${key}`} checked={prefs[key]} onChange={v => update(key, v)} />
           </div>
@@ -80,7 +77,7 @@ export default function NotificationPreferences() {
       </div>
 
       <p className="text-xs text-muted font-body mt-6 pt-4 border-t border-white/5">
-        Notification preferences are saved locally. Server-side sync coming soon.
+        {t('localNote')}
       </p>
     </div>
   )

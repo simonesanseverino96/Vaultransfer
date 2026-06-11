@@ -43,14 +43,22 @@
     "ctaHeadlineAccent": "privacidad total",
     "ctaDesc": "Sube, comparte y controla el acceso. Archivos cifrados de extremo a extremo. Sin registro.",
     "ctaButton": "Enviar un archivo ahora",
-    "ctaSecondary": "Ver planes"
+    "ctaSecondary": "Ver planes",
+    "stats": {
+      "maxFileSize": "Tamaño máx. de archivo",
+      "encryption": "Cifrado AES",
+      "filesPerTransfer": "Archivos por transferencia",
+      "maxExpiry": "Caducidad máx.",
+      "days90": "90 días"
+    }
   },
   "upload": {
     "dropzone": {
       "active": "Suelta los archivos aquí",
       "idle": "Arrastra los archivos aquí",
-      "browse": "echar un vistazo",
-      "hint": "o {browse} desde tu dispositivo · máximo 2 GB · 20 archivos"
+      "browse": "explorar",
+      "hint": "o <browse>explorar</browse> desde tu dispositivo · máx. 2 GB · 20 archivos",
+      "aria": "Subir archivos — haz clic o arrastra y suelta"
     },
     "file": {
       "uploaded": "✓ Subido",
@@ -70,7 +78,10 @@
       "message": "Mensaje para el destinatario",
       "messagePlaceholder": "Escribe un mensaje...",
       "senderEmail": "Tu correo electrónico (opcional)",
-      "emailPlaceholder": "you@example.com"
+      "emailPlaceholder": "you@example.com",
+      "expiryDays": "{count} días",
+      "expiryCustomPlaceholder": "Personalizado (máx. 90 días)",
+      "expiryWarningFree": "El plan gratuito está limitado a 7 días. Pasa a Pro/Business para llegar hasta 90 días."
     },
     "button": {
       "uploading": "Cargando...",
@@ -535,7 +546,34 @@
     "expired": "Caducado",
     "copyLink": "Copiar enlace",
     "transferDate": "Transferencia de {date}",
-    "transferMeta": "{size} · {downloads} descargas · caduca en {expiry}"
+    "transferMeta": "{size} · {downloads} descargas · caduca en {expiry}",
+    "transferStats": {
+      "title": "Estadísticas de la transferencia",
+      "close": "Cerrar",
+      "totalDownloads": "Descargas totales",
+      "size": "Tamaño de la transferencia",
+      "age": "Antigüedad",
+      "ageDays": "{count} d",
+      "status": "Estado",
+      "expired": "Caducado",
+      "downloadLimit": "Límite de descargas",
+      "created": "Creado el {date}",
+      "comingSoon": "Visitantes únicos y datos geográficos — plan Business (próximamente)"
+    },
+    "notifications": {
+      "title": "Notificaciones por correo",
+      "subtitle": "Elige qué correos te envía VaultTransfer",
+      "saved": "Guardado",
+      "localNote": "Las preferencias de notificación se guardan localmente. Sincronización con el servidor próximamente.",
+      "uploadConfirmation": "Confirmación de subida",
+      "uploadConfirmationDesc": "Correo cuando tu transferencia esté lista para compartir",
+      "downloadNotification": "Notificación de descarga",
+      "downloadNotificationDesc": "Correo cuando alguien descarga tus archivos (solo la primera descarga)",
+      "storageWarning": "Aviso de almacenamiento",
+      "storageWarningDesc": "Correo cuando alcances el 80 % de tu límite de almacenamiento",
+      "expiryReminder": "Recordatorio de caducidad",
+      "expiryReminderDesc": "Correo 24 horas antes de que caduque una transferencia"
+    }
   },
   "analytics": {
     "title": "Análisis",

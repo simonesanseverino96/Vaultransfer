@@ -43,14 +43,22 @@
     "ctaHeadlineAccent": "完全なプライバシーで",
     "ctaDesc": "アップロード、共有、アクセス管理。エンドツーエンドで暗号化。登録不要。",
     "ctaButton": "今すぐファイルを送信",
-    "ctaSecondary": "プランを見る"
+    "ctaSecondary": "プランを見る",
+    "stats": {
+      "maxFileSize": "最大ファイルサイズ",
+      "encryption": "AES暗号化",
+      "filesPerTransfer": "転送あたりのファイル数",
+      "maxExpiry": "最大有効期限",
+      "days90": "90日"
+    }
   },
   "upload": {
     "dropzone": {
       "active": "ここにファイルをドラッグ＆ドロップしてください",
       "idle": "ファイルをここにドラッグしてください",
-      "browse": "閲覧する",
-      "hint": "またはお使いのデバイスから {browse} · 最大2GB · 20ファイル"
+      "browse": "選択",
+      "hint": "またはデバイスから<browse>選択</browse> · 最大2GB · 20ファイル",
+      "aria": "ファイルをアップロード — クリックまたはドラッグ＆ドロップ"
     },
     "file": {
       "uploaded": "✓ アップロード済み",
@@ -70,7 +78,10 @@
       "message": "受信者へのメッセージ",
       "messagePlaceholder": "メッセージを入力してください...",
       "senderEmail": "メールアドレス（任意）",
-      "emailPlaceholder": "you@example.com"
+      "emailPlaceholder": "you@example.com",
+      "expiryDays": "{count}日",
+      "expiryCustomPlaceholder": "カスタム（最大90日）",
+      "expiryWarningFree": "無料プランは最大7日までです。Pro/Businessにアップグレードすると最大90日まで利用できます。"
     },
     "button": {
       "uploading": "アップロード中...",
@@ -535,7 +546,34 @@
     "expired": "有効期限切れ",
     "copyLink": "リンクをコピー",
     "transferDate": "{date}の転送",
-    "transferMeta": "{size} · {downloads} 回ダウンロード · 有効期限：{expiry}"
+    "transferMeta": "{size} · {downloads} 回ダウンロード · 有効期限：{expiry}",
+    "transferStats": {
+      "title": "転送の統計",
+      "close": "閉じる",
+      "totalDownloads": "合計ダウンロード数",
+      "size": "転送サイズ",
+      "age": "経過日数",
+      "ageDays": "{count}日",
+      "status": "ステータス",
+      "expired": "期限切れ",
+      "downloadLimit": "ダウンロード上限",
+      "created": "作成日：{date}",
+      "comingSoon": "ユニーク訪問者数と地域データ — Businessプラン（近日公開）"
+    },
+    "notifications": {
+      "title": "メール通知",
+      "subtitle": "VaultTransferから受け取るメールを選択",
+      "saved": "保存しました",
+      "localNote": "通知設定はローカルに保存されます。サーバー同期は近日対応予定です。",
+      "uploadConfirmation": "アップロード確認",
+      "uploadConfirmationDesc": "転送が共有可能になったときにメールを受信",
+      "downloadNotification": "ダウンロード通知",
+      "downloadNotificationDesc": "誰かがファイルをダウンロードしたときにメールを受信（初回のみ）",
+      "storageWarning": "ストレージ警告",
+      "storageWarningDesc": "ストレージ上限の80%に達したときにメールを受信",
+      "expiryReminder": "期限リマインダー",
+      "expiryReminderDesc": "転送の期限が切れる24時間前にメールを受信"
+    }
   },
   "analytics": {
     "title": "分析",

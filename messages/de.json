@@ -43,14 +43,22 @@
     "ctaHeadlineAccent": "voller Privatsphäre",
     "ctaDesc": "Hochladen, teilen und Zugriff kontrollieren. Ende-zu-Ende-verschlüsselte Dateien. Keine Registrierung nötig.",
     "ctaButton": "Jetzt Datei senden",
-    "ctaSecondary": "Tarife ansehen"
+    "ctaSecondary": "Tarife ansehen",
+    "stats": {
+      "maxFileSize": "Max. Dateigröße",
+      "encryption": "AES-Verschlüsselung",
+      "filesPerTransfer": "Dateien pro Transfer",
+      "maxExpiry": "Max. Gültigkeit",
+      "days90": "90 Tage"
+    }
   },
   "upload": {
     "dropzone": {
       "active": "Zieh die Dateien hierhin",
       "idle": "Zieh die Dateien hierher",
-      "browse": "durchstöbern",
-      "hint": "oder {browse} von deinem Gerät · max. 2 GB · 20 Dateien"
+      "browse": "durchsuchen",
+      "hint": "oder <browse>durchsuchen</browse> von deinem Gerät · max. 2 GB · 20 Dateien",
+      "aria": "Dateien hochladen — klicken oder hierher ziehen"
     },
     "file": {
       "uploaded": "✓ Hochgeladen",
@@ -70,7 +78,10 @@
       "message": "Nachricht für den Empfänger",
       "messagePlaceholder": "Eine Nachricht hinzufügen...",
       "senderEmail": "Deine E-Mail-Adresse (optional)",
-      "emailPlaceholder": "you@example.com"
+      "emailPlaceholder": "you@example.com",
+      "expiryDays": "{count} Tage",
+      "expiryCustomPlaceholder": "Benutzerdefiniert (max. 90 Tage)",
+      "expiryWarningFree": "Der Free-Tarif ist auf 7 Tage begrenzt. Mit Pro/Business sind bis zu 90 Tage möglich."
     },
     "button": {
       "uploading": "Wird hochgeladen...",
@@ -535,7 +546,34 @@
     "expired": "Abgelaufen",
     "copyLink": "Link kopieren",
     "transferDate": "Übertragung von {date}",
-    "transferMeta": "{size} · {downloads} Downloads · läuft in {expiry} ab"
+    "transferMeta": "{size} · {downloads} Downloads · läuft in {expiry} ab",
+    "transferStats": {
+      "title": "Transfer-Statistiken",
+      "close": "Schließen",
+      "totalDownloads": "Downloads gesamt",
+      "size": "Transfergröße",
+      "age": "Alter",
+      "ageDays": "{count} T.",
+      "status": "Status",
+      "expired": "Abgelaufen",
+      "downloadLimit": "Download-Limit",
+      "created": "Erstellt am {date}",
+      "comingSoon": "Eindeutige Besucher & Geodaten — Business-Tarif (bald verfügbar)"
+    },
+    "notifications": {
+      "title": "E-Mail-Benachrichtigungen",
+      "subtitle": "Wähle, welche E-Mails VaultTransfer dir sendet",
+      "saved": "Gespeichert",
+      "localNote": "Benachrichtigungseinstellungen werden lokal gespeichert. Server-Sync folgt in Kürze.",
+      "uploadConfirmation": "Upload-Bestätigung",
+      "uploadConfirmationDesc": "E-Mail, wenn dein Transfer bereit zum Teilen ist",
+      "downloadNotification": "Download-Benachrichtigung",
+      "downloadNotificationDesc": "E-Mail, wenn jemand deine Dateien herunterlädt (nur beim ersten Download)",
+      "storageWarning": "Speicherwarnung",
+      "storageWarningDesc": "E-Mail, wenn du 80 % deines Speicherlimits erreichst",
+      "expiryReminder": "Ablauf-Erinnerung",
+      "expiryReminderDesc": "E-Mail 24 Stunden bevor ein Transfer abläuft"
+    }
   },
   "analytics": {
     "title": "Analytik",
