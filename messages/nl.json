@@ -37,7 +37,13 @@
     "headlineAccent": "zonder concessies.",
     "description": "Versleutelde links met automatische vervaltermijn, wachtwoordbeveiliging en downloadlimieten. Je bestanden worden veilig verzonden — en verdwijnen wanneer jij dat wilt.",
     "securityTagline": "Beveiliging vanaf het ontwerp",
-    "featuresHeadline": "Gemaakt voor wie geen concessies wil doen"
+    "featuresHeadline": "Gemaakt voor wie geen concessies wil doen",
+    "ctaTagline": "Begin gratis — geen account nodig",
+    "ctaHeadline": "Deel bestanden met",
+    "ctaHeadlineAccent": "volledige privacy",
+    "ctaDesc": "Upload, deel en beheer toegang. End-to-end versleutelde bestanden. Geen registratie vereist.",
+    "ctaButton": "Verstuur nu een bestand",
+    "ctaSecondary": "Bekijk abonnementen"
   },
   "upload": {
     "dropzone": {

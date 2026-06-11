@@ -37,7 +37,13 @@
     "headlineAccent": "sem concessões.",
     "description": "Links criptografados com validade automática, proteção por senha e limites de download. Seus arquivos viajam em segurança — e desaparecem quando você decidir.",
     "securityTagline": "Segurança desde a concepção",
-    "featuresHeadline": "Feito para quem não quer abrir mão de nada"
+    "featuresHeadline": "Feito para quem não quer abrir mão de nada",
+    "ctaTagline": "Comece grátis — sem conta",
+    "ctaHeadline": "Partilhe ficheiros com",
+    "ctaHeadlineAccent": "privacidade total",
+    "ctaDesc": "Carregue, partilhe e controle o acesso. Ficheiros encriptados de ponta a ponta. Sem registo.",
+    "ctaButton": "Enviar um ficheiro agora",
+    "ctaSecondary": "Ver planos"
   },
   "upload": {
     "dropzone": {

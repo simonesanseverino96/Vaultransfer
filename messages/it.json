@@ -37,7 +37,13 @@
     "headlineAccent": "senza compromessi.",
     "description": "Link criptati con scadenza automatica, protezione con password, limiti di download. I tuoi file viaggiano al sicuro e spariscono quando lo decidi tu.",
     "securityTagline": "Sicurezza by design",
-    "featuresHeadline": "Pensato per chi non accetta compromessi"
+    "featuresHeadline": "Pensato per chi non accetta compromessi",
+    "ctaTagline": "Inizia gratis — senza account",
+    "ctaHeadline": "Condividi file con",
+    "ctaHeadlineAccent": "privacy totale",
+    "ctaDesc": "Carica, condividi e controlla gli accessi. File crittografati end-to-end. Nessuna registrazione richiesta.",
+    "ctaButton": "Invia un file ora",
+    "ctaSecondary": "Vedi i piani"
   },
   "upload": {
     "dropzone": {
@@ -58,7 +64,7 @@
       "expiry1": "24 ore",
       "expiry7": "7 giorni",
       "expiry30": "30 giorni",
-      "maxDownloads": "Download massimo (opzionale)",
+      "maxDownloads": "Numero massimo di download (opzionale)",
       "maxDownloadsPlaceholder": "Illimitato",
       "password": "Proteggi con password (opzionale)",
       "message": "Messaggio (opzionale)",
@@ -471,7 +477,7 @@
       },
       "apiKeys": {
         "q": "Come creo e gestisco le chiavi API?",
-        "a": "Le chiavi API si creano dalla sezione Chiavi API della Dashboard. Dai a ogni chiave un nome descrittivo (es. 'Produzione'). Le chiavi vengono mostrate solo una volta alla creazione — copiala e conservala in modo sicuro. Puoi visualizzare la data dell'ultimo utilizzo di ogni chiave e revocarla in qualsiasi momento."
+        "a": "Le chiavi API si creano dalla sezione Chiavi API della Dashboard. Dai a ogni chiave un nome descrittivo (es. 'Produzione'). Ogni chiave viene mostrata solo una volta alla creazione — copiala e conservala in modo sicuro. Puoi visualizzare la data dell'ultimo utilizzo di ogni chiave e revocarla in qualsiasi momento."
       }
     }
   },

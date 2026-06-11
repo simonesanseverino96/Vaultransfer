@@ -37,7 +37,13 @@
     "headlineAccent": "ohne Kompromisse.",
     "description": "Verschlüsselte Links mit automatischem Ablauf, Passwortschutz und Download-Limits. Deine Dateien werden sicher übertragen – und verschwinden, wann immer du es willst.",
     "securityTagline": "Sicherheit durch Design",
-    "featuresHeadline": "Entwickelt für alle, die keine Kompromisse eingehen wollen"
+    "featuresHeadline": "Entwickelt für alle, die keine Kompromisse eingehen wollen",
+    "ctaTagline": "Kostenlos starten — kein Konto erforderlich",
+    "ctaHeadline": "Dateien teilen mit",
+    "ctaHeadlineAccent": "voller Privatsphäre",
+    "ctaDesc": "Hochladen, teilen und Zugriff kontrollieren. Ende-zu-Ende-verschlüsselte Dateien. Keine Registrierung nötig.",
+    "ctaButton": "Jetzt Datei senden",
+    "ctaSecondary": "Tarife ansehen"
   },
   "upload": {
     "dropzone": {

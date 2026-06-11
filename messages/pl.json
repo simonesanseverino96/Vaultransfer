@@ -37,7 +37,13 @@
     "headlineAccent": "bez żadnych kompromisów.",
     "description": "Szyfrowane linki z automatycznym wygasaniem, ochroną hasłem i limitami pobrań. Twoje pliki są bezpieczne — i znikają, kiedy tylko zechcesz.",
     "securityTagline": "Bezpieczeństwo od samego początku",
-    "featuresHeadline": "Stworzone dla tych, którzy nie chcą iść na kompromisy"
+    "featuresHeadline": "Stworzone dla tych, którzy nie chcą iść na kompromisy",
+    "ctaTagline": "Zacznij za darmo — bez konta",
+    "ctaHeadline": "Udostępniaj pliki z",
+    "ctaHeadlineAccent": "pełną prywatnością",
+    "ctaDesc": "Przesyłaj, udostępniaj i kontroluj dostęp. Pliki szyfrowane end-to-end. Bez rejestracji.",
+    "ctaButton": "Wyślij plik teraz",
+    "ctaSecondary": "Zobacz plany"
   },
   "upload": {
     "dropzone": {

@@ -37,7 +37,13 @@
     "headlineAccent": "sans faire de compromis.",
     "description": "Liens cryptés à expiration automatique, protégés par mot de passe, avec des limites de téléchargement. Tes fichiers sont transférés en toute sécurité — et disparaissent quand tu le décides.",
     "securityTagline": "La sécurité dès la conception",
-    "featuresHeadline": "Conçu pour ceux qui ne veulent pas faire de compromis"
+    "featuresHeadline": "Conçu pour ceux qui ne veulent pas faire de compromis",
+    "ctaTagline": "Commencez gratuitement — sans compte",
+    "ctaHeadline": "Partagez vos fichiers en",
+    "ctaHeadlineAccent": "toute confidentialité",
+    "ctaDesc": "Téléversez, partagez et contrôlez les accès. Fichiers chiffrés de bout en bout. Aucune inscription requise.",
+    "ctaButton": "Envoyer un fichier",
+    "ctaSecondary": "Voir les offres"
   },
   "upload": {
     "dropzone": {

@@ -37,7 +37,13 @@
     "headlineAccent": "毫不妥协。",
     "description": "加密链接自动失效、密码保护、下载限制。您的文件安全传输，并在您决定时消失。",
     "securityTagline": "设计安全",
-    "featuresHeadline": "专为不想妥协的人设计"
+    "featuresHeadline": "专为不想妥协的人设计",
+    "ctaTagline": "免费开始 — 无需账户",
+    "ctaHeadline": "分享文件，",
+    "ctaHeadlineAccent": "完全保护隐私",
+    "ctaDesc": "上传、分享并控制访问权限。端到端加密文件。无需注册。",
+    "ctaButton": "立即发送文件",
+    "ctaSecondary": "查看套餐"
   },
   "upload": {
     "dropzone": {

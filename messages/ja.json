@@ -37,7 +37,13 @@
     "headlineAccent": "妥協なし。",
     "description": "有効期限が自動で設定される暗号化リンク、パスワード保護、ダウンロード制限。ファイルは安全に送信され、あなたが決めたタイミングで消去されます。",
     "securityTagline": "設計段階からのセキュリティ",
-    "featuresHeadline": "妥協を許さない方々のために作られました"
+    "featuresHeadline": "妥協を許さない方々のために作られました",
+    "ctaTagline": "無料で開始 — アカウント不要",
+    "ctaHeadline": "ファイル共有を",
+    "ctaHeadlineAccent": "完全なプライバシーで",
+    "ctaDesc": "アップロード、共有、アクセス管理。エンドツーエンドで暗号化。登録不要。",
+    "ctaButton": "今すぐファイルを送信",
+    "ctaSecondary": "プランを見る"
   },
   "upload": {
     "dropzone": {

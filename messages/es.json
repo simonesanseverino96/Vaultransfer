@@ -37,7 +37,13 @@
     "headlineAccent": "sin concesiones.",
     "description": "Enlaces cifrados con caducidad automática, protección con contraseña y límites de descarga. Tus archivos viajan de forma segura y desaparecen cuando tú lo decidas.",
     "securityTagline": "Seguridad desde el diseño",
-    "featuresHeadline": "Diseñado para quienes no quieren renunciar a nada"
+    "featuresHeadline": "Diseñado para quienes no quieren renunciar a nada",
+    "ctaTagline": "Empieza gratis — sin cuenta",
+    "ctaHeadline": "Comparte archivos con",
+    "ctaHeadlineAccent": "privacidad total",
+    "ctaDesc": "Sube, comparte y controla el acceso. Archivos cifrados de extremo a extremo. Sin registro.",
+    "ctaButton": "Enviar un archivo ahora",
+    "ctaSecondary": "Ver planes"
   },
   "upload": {
     "dropzone": {

@@ -37,7 +37,13 @@
     "headlineAccent": "without compromise.",
     "description": "Encrypted links with automatic expiry, password protection, download limits. Your files travel safely — and disappear when you decide.",
     "securityTagline": "Security by design",
-    "featuresHeadline": "Built for those who don't want compromises"
+    "featuresHeadline": "Built for those who don't want compromises",
+    "ctaTagline": "Start for free — no account needed",
+    "ctaHeadline": "Share files with",
+    "ctaHeadlineAccent": "complete privacy",
+    "ctaDesc": "Upload, share, and control access. Files encrypted end-to-end. No sign-up required.",
+    "ctaButton": "Send a file now",
+    "ctaSecondary": "View plans"
   },
   "upload": {
     "dropzone": {
