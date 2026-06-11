@@ -1,0 +1,248 @@
+diff --git a/messages/ar.json b/messages/ar.json
+index bcb40f9..0bcb21d 100644
+--- a/messages/ar.json
++++ b/messages/ar.json
+@@ -37,7 +37,13 @@
+     "headlineAccent": "دون مساومة.",
+     "description": "روابط مشفرة مع انتهاء الصلاحية التلقائي، وحماية بكلمة مرور، وحدود للتنزيل. تنتقل ملفاتك بأمان - وتختفي عندما تقرر ذلك.",
+     "securityTagline": "الأمان حسب التصميم",
+-    "featuresHeadline": "مصممة لأولئك الذين لا يريدون التنازلات"
++    "featuresHeadline": "مصممة لأولئك الذين لا يريدون التنازلات",
++    "ctaTagline": "ابدأ مجاناً — بدون حساب",
++    "ctaHeadline": "شارك الملفات مع",
++    "ctaHeadlineAccent": "خصوصية كاملة",
++    "ctaDesc": "ارفع وشارك وتحكم في الوصول. ملفات مشفرة من طرف إلى طرف. لا حاجة للتسجيل.",
++    "ctaButton": "أرسل ملفاً الآن",
++    "ctaSecondary": "عرض الخطط"
+   },
+   "upload": {
+     "dropzone": {
+@@ -548,4 +554,4 @@
+     "loading": "جارٍ تحميل التحليلات...",
+     "error": "فشل تحميل التحليلات"
+   }
+-}
+\ No newline at end of file
++}
+diff --git a/messages/de.json b/messages/de.json
+index 37081df..5e5dc9b 100644
+--- a/messages/de.json
++++ b/messages/de.json
+@@ -37,7 +37,13 @@
+     "headlineAccent": "ohne Kompromisse.",
+     "description": "Verschlüsselte Links mit automatischem Ablauf, Passwortschutz und Download-Limits. Deine Dateien werden sicher übertragen – und verschwinden, wann immer du es willst.",
+     "securityTagline": "Sicherheit durch Design",
+-    "featuresHeadline": "Entwickelt für alle, die keine Kompromisse eingehen wollen"
++    "featuresHeadline": "Entwickelt für alle, die keine Kompromisse eingehen wollen",
++    "ctaTagline": "Kostenlos starten — kein Konto erforderlich",
++    "ctaHeadline": "Dateien teilen mit",
++    "ctaHeadlineAccent": "voller Privatsphäre",
++    "ctaDesc": "Hochladen, teilen und Zugriff kontrollieren. Ende-zu-Ende-verschlüsselte Dateien. Keine Registrierung nötig.",
++    "ctaButton": "Jetzt Datei senden",
++    "ctaSecondary": "Tarife ansehen"
+   },
+   "upload": {
+     "dropzone": {
+diff --git a/messages/en.json b/messages/en.json
+index 1a75b6d..2da42d5 100644
+--- a/messages/en.json
++++ b/messages/en.json
+@@ -37,7 +37,13 @@
+     "headlineAccent": "without compromise.",
+     "description": "Encrypted links with automatic expiry, password protection, download limits. Your files travel safely — and disappear when you decide.",
+     "securityTagline": "Security by design",
+-    "featuresHeadline": "Built for those who don't want compromises"
++    "featuresHeadline": "Built for those who don't want compromises",
++    "ctaTagline": "Start for free — no account needed",
++    "ctaHeadline": "Share files with",
++    "ctaHeadlineAccent": "complete privacy",
++    "ctaDesc": "Upload, share, and control access. Files encrypted end-to-end. No sign-up required.",
++    "ctaButton": "Send a file now",
++    "ctaSecondary": "View plans"
+   },
+   "upload": {
+     "dropzone": {
+diff --git a/messages/es.json b/messages/es.json
+index ded6879..156f0cf 100644
+--- a/messages/es.json
++++ b/messages/es.json
+@@ -37,7 +37,13 @@
+     "headlineAccent": "sin concesiones.",
+     "description": "Enlaces cifrados con caducidad automática, protección con contraseña y límites de descarga. Tus archivos viajan de forma segura y desaparecen cuando tú lo decidas.",
+     "securityTagline": "Seguridad desde el diseño",
+-    "featuresHeadline": "Diseñado para quienes no quieren renunciar a nada"
++    "featuresHeadline": "Diseñado para quienes no quieren renunciar a nada",
++    "ctaTagline": "Empieza gratis — sin cuenta",
++    "ctaHeadline": "Comparte archivos con",
++    "ctaHeadlineAccent": "privacidad total",
++    "ctaDesc": "Sube, comparte y controla el acceso. Archivos cifrados de extremo a extremo. Sin registro.",
++    "ctaButton": "Enviar un archivo ahora",
++    "ctaSecondary": "Ver planes"
+   },
+   "upload": {
+     "dropzone": {
+diff --git a/messages/fr.json b/messages/fr.json
+index faf37b5..9e2487b 100644
+--- a/messages/fr.json
++++ b/messages/fr.json
+@@ -37,7 +37,13 @@
+     "headlineAccent": "sans faire de compromis.",
+     "description": "Liens cryptés à expiration automatique, protégés par mot de passe, avec des limites de téléchargement. Tes fichiers sont transférés en toute sécurité — et disparaissent quand tu le décides.",
+     "securityTagline": "La sécurité dès la conception",
+-    "featuresHeadline": "Conçu pour ceux qui ne veulent pas faire de compromis"
++    "featuresHeadline": "Conçu pour ceux qui ne veulent pas faire de compromis",
++    "ctaTagline": "Commencez gratuitement — sans compte",
++    "ctaHeadline": "Partagez vos fichiers en",
++    "ctaHeadlineAccent": "toute confidentialité",
++    "ctaDesc": "Téléversez, partagez et contrôlez les accès. Fichiers chiffrés de bout en bout. Aucune inscription requise.",
++    "ctaButton": "Envoyer un fichier",
++    "ctaSecondary": "Voir les offres"
+   },
+   "upload": {
+     "dropzone": {
+diff --git a/messages/it.json b/messages/it.json
+index dcd3bc5..3d453de 100644
+--- a/messages/it.json
++++ b/messages/it.json
+@@ -37,7 +37,13 @@
+     "headlineAccent": "senza compromessi.",
+     "description": "Link criptati con scadenza automatica, protezione con password, limiti di download. I tuoi file viaggiano al sicuro e spariscono quando lo decidi tu.",
+     "securityTagline": "Sicurezza by design",
+-    "featuresHeadline": "Pensato per chi non accetta compromessi"
++    "featuresHeadline": "Pensato per chi non accetta compromessi",
++    "ctaTagline": "Inizia gratis — senza account",
++    "ctaHeadline": "Condividi file con",
++    "ctaHeadlineAccent": "privacy totale",
++    "ctaDesc": "Carica, condividi e controlla gli accessi. File crittografati end-to-end. Nessuna registrazione richiesta.",
++    "ctaButton": "Invia un file ora",
++    "ctaSecondary": "Vedi i piani"
+   },
+   "upload": {
+     "dropzone": {
+@@ -58,7 +64,7 @@
+       "expiry1": "24 ore",
+       "expiry7": "7 giorni",
+       "expiry30": "30 giorni",
+-      "maxDownloads": "Download massimo (opzionale)",
++      "maxDownloads": "Numero massimo di download (opzionale)",
+       "maxDownloadsPlaceholder": "Illimitato",
+       "password": "Proteggi con password (opzionale)",
+       "message": "Messaggio (opzionale)",
+@@ -471,7 +477,7 @@
+       },
+       "apiKeys": {
+         "q": "Come creo e gestisco le chiavi API?",
+-        "a": "Le chiavi API si creano dalla sezione Chiavi API della Dashboard. Dai a ogni chiave un nome descrittivo (es. 'Produzione'). Le chiavi vengono mostrate solo una volta alla creazione — copiala e conservala in modo sicuro. Puoi visualizzare la data dell'ultimo utilizzo di ogni chiave e revocarla in qualsiasi momento."
++        "a": "Le chiavi API si creano dalla sezione Chiavi API della Dashboard. Dai a ogni chiave un nome descrittivo (es. 'Produzione'). Ogni chiave viene mostrata solo una volta alla creazione — copiala e conservala in modo sicuro. Puoi visualizzare la data dell'ultimo utilizzo di ogni chiave e revocarla in qualsiasi momento."
+       }
+     }
+   },
+diff --git a/messages/ja.json b/messages/ja.json
+index 6bcbe00..40d7c40 100644
+--- a/messages/ja.json
++++ b/messages/ja.json
+@@ -37,7 +37,13 @@
+     "headlineAccent": "妥協なし。",
+     "description": "有効期限が自動で設定される暗号化リンク、パスワード保護、ダウンロード制限。ファイルは安全に送信され、あなたが決めたタイミングで消去されます。",
+     "securityTagline": "設計段階からのセキュリティ",
+-    "featuresHeadline": "妥協を許さない方々のために作られました"
++    "featuresHeadline": "妥協を許さない方々のために作られました",
++    "ctaTagline": "無料で開始 — アカウント不要",
++    "ctaHeadline": "ファイル共有を",
++    "ctaHeadlineAccent": "完全なプライバシーで",
++    "ctaDesc": "アップロード、共有、アクセス管理。エンドツーエンドで暗号化。登録不要。",
++    "ctaButton": "今すぐファイルを送信",
++    "ctaSecondary": "プランを見る"
+   },
+   "upload": {
+     "dropzone": {
+diff --git a/messages/nl.json b/messages/nl.json
+index 3e7b505..0fa101c 100644
+--- a/messages/nl.json
++++ b/messages/nl.json
+@@ -37,7 +37,13 @@
+     "headlineAccent": "zonder concessies.",
+     "description": "Versleutelde links met automatische vervaltermijn, wachtwoordbeveiliging en downloadlimieten. Je bestanden worden veilig verzonden — en verdwijnen wanneer jij dat wilt.",
+     "securityTagline": "Beveiliging vanaf het ontwerp",
+-    "featuresHeadline": "Gemaakt voor wie geen concessies wil doen"
++    "featuresHeadline": "Gemaakt voor wie geen concessies wil doen",
++    "ctaTagline": "Begin gratis — geen account nodig",
++    "ctaHeadline": "Deel bestanden met",
++    "ctaHeadlineAccent": "volledige privacy",
++    "ctaDesc": "Upload, deel en beheer toegang. End-to-end versleutelde bestanden. Geen registratie vereist.",
++    "ctaButton": "Verstuur nu een bestand",
++    "ctaSecondary": "Bekijk abonnementen"
+   },
+   "upload": {
+     "dropzone": {
+diff --git a/messages/pl.json b/messages/pl.json
+index 285c68e..7ccc07d 100644
+--- a/messages/pl.json
++++ b/messages/pl.json
+@@ -37,7 +37,13 @@
+     "headlineAccent": "bez żadnych kompromisów.",
+     "description": "Szyfrowane linki z automatycznym wygasaniem, ochroną hasłem i limitami pobrań. Twoje pliki są bezpieczne — i znikają, kiedy tylko zechcesz.",
+     "securityTagline": "Bezpieczeństwo od samego początku",
+-    "featuresHeadline": "Stworzone dla tych, którzy nie chcą iść na kompromisy"
++    "featuresHeadline": "Stworzone dla tych, którzy nie chcą iść na kompromisy",
++    "ctaTagline": "Zacznij za darmo — bez konta",
++    "ctaHeadline": "Udostępniaj pliki z",
++    "ctaHeadlineAccent": "pełną prywatnością",
++    "ctaDesc": "Przesyłaj, udostępniaj i kontroluj dostęp. Pliki szyfrowane end-to-end. Bez rejestracji.",
++    "ctaButton": "Wyślij plik teraz",
++    "ctaSecondary": "Zobacz plany"
+   },
+   "upload": {
+     "dropzone": {
+diff --git a/messages/pt.json b/messages/pt.json
+index ced2bd0..6d52a69 100644
+--- a/messages/pt.json
++++ b/messages/pt.json
+@@ -37,7 +37,13 @@
+     "headlineAccent": "sem concessões.",
+     "description": "Links criptografados com validade automática, proteção por senha e limites de download. Seus arquivos viajam em segurança — e desaparecem quando você decidir.",
+     "securityTagline": "Segurança desde a concepção",
+-    "featuresHeadline": "Feito para quem não quer abrir mão de nada"
++    "featuresHeadline": "Feito para quem não quer abrir mão de nada",
++    "ctaTagline": "Comece grátis — sem conta",
++    "ctaHeadline": "Partilhe ficheiros com",
++    "ctaHeadlineAccent": "privacidade total",
++    "ctaDesc": "Carregue, partilhe e controle o acesso. Ficheiros encriptados de ponta a ponta. Sem registo.",
++    "ctaButton": "Enviar um ficheiro agora",
++    "ctaSecondary": "Ver planos"
+   },
+   "upload": {
+     "dropzone": {
+@@ -548,4 +554,4 @@
+     "loading": "Carregando as estatísticas...",
+     "error": "Não foi possível carregar os dados analíticos"
+   }
+-}
+\ No newline at end of file
++}
+diff --git a/messages/zh.json b/messages/zh.json
+index 5dfda86..8dfd1a2 100644
+--- a/messages/zh.json
++++ b/messages/zh.json
+@@ -37,7 +37,13 @@
+     "headlineAccent": "毫不妥协。",
+     "description": "加密链接自动失效、密码保护、下载限制。您的文件安全传输，并在您决定时消失。",
+     "securityTagline": "设计安全",
+-    "featuresHeadline": "专为不想妥协的人设计"
++    "featuresHeadline": "专为不想妥协的人设计",
++    "ctaTagline": "免费开始 — 无需账户",
++    "ctaHeadline": "分享文件，",
++    "ctaHeadlineAccent": "完全保护隐私",
++    "ctaDesc": "上传、分享并控制访问权限。端到端加密文件。无需注册。",
++    "ctaButton": "立即发送文件",
++    "ctaSecondary": "查看套餐"
+   },
+   "upload": {
+     "dropzone": {
+@@ -548,4 +554,4 @@
+     "loading": "正在加载分析数据...",
+     "error": "加载分析数据失败"
+   }
+-}
+\ No newline at end of file
++}
