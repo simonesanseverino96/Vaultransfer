@@ -518,7 +518,11 @@
       "bestanden versturen zonder je te registreren",
       "alternatieven voor WeTransfer",
       "bestanden met wachtwoordbeveiliging versturen"
-    ]
+    ],
+    "pricingTitle": "Prijzen",
+    "pricingDescription": "Eenvoudige, transparante prijzen. Begin gratis met overdrachten van 2 GB, of upgrade naar Pro en Business voor meer opslag, langere geldigheid en geen advertenties.",
+    "faqTitle": "Veelgestelde vragen",
+    "faqDescription": "Veelgestelde vragen over VaultTransfer: hoe bestandsoverdracht werkt, versleuteling, AVG-naleving, geldigheid, wachtwoordbeveiliging en meer."
   },
   "dashboard": {
     "currentPlan": "Huidig plan",

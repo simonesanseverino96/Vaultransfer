@@ -518,7 +518,11 @@
       "send files without registration",
       "wetransfer alternative",
       "send password protected files"
-    ]
+    ],
+    "pricingTitle": "الأسعار",
+    "pricingDescription": "أسعار بسيطة وشفافة. ابدأ مجاناً مع نقل ملفات حتى 2 جيجابايت، أو قم بالترقية إلى Pro وBusiness لمساحة أكبر وصلاحية أطول وبدون إعلانات.",
+    "faqTitle": "الأسئلة الشائعة",
+    "faqDescription": "الأسئلة الشائعة حول VaultTransfer: كيفية عمل نقل الملفات، التشفير، الامتثال للائحة GDPR، الصلاحية، الحماية بكلمة مرور والمزيد."
   },
   "dashboard": {
     "currentPlan": "الخطة الحالية",

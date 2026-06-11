@@ -518,7 +518,11 @@
       "Dateien ohne Registrierung senden",
       "Alternativen zu WeTransfer",
       "Passwortgeschützte Dateien senden"
-    ]
+    ],
+    "pricingTitle": "Preise",
+    "pricingDescription": "Einfache, transparente Preise. Starte kostenlos mit 2-GB-Transfers oder wechsle zu Pro und Business für mehr Speicher, längere Gültigkeit und keine Werbung.",
+    "faqTitle": "FAQ",
+    "faqDescription": "Häufig gestellte Fragen zu VaultTransfer: Dateiübertragung, Verschlüsselung, DSGVO-Konformität, Gültigkeit, Passwortschutz und mehr."
   },
   "dashboard": {
     "currentPlan": "Aktueller Plan",

@@ -518,7 +518,11 @@
       "send files without registration",
       "wetransfer alternative",
       "send password protected files"
-    ]
+    ],
+    "pricingTitle": "价格",
+    "pricingDescription": "简单透明的价格。免费开始 2 GB 传输，或升级到 Pro 和 Business 获得更多存储、更长有效期且无广告。",
+    "faqTitle": "常见问题",
+    "faqDescription": "关于 VaultTransfer 的常见问题：文件传输原理、加密、GDPR 合规、有效期、密码保护等。"
   },
   "dashboard": {
     "currentPlan": "当前计划",

@@ -1,3 +1,4 @@
+import { buildAlternates } from '@/lib/metadata'
 import { useTranslations } from 'next-intl'
 import { getTranslations, getLocale } from 'next-intl/server'
 import { Metadata } from 'next'
@@ -13,14 +14,14 @@ const OG_IMAGE = `${BASE_URL}/icon-512x512.png`
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('metadata')
   const locale = await getLocale()
-  const canonical = locale === 'en' ? BASE_URL : `${BASE_URL}/${locale}`
+  const canonical = `${BASE_URL}/${locale}`
   const title = t('titleDefault')
   const description = t('description')
 
   return {
     title,
     description,
-    alternates: { canonical },
+    alternates: buildAlternates(locale),
     openGraph: {
       title,
       description,

@@ -518,7 +518,11 @@
       "wysyłaj pliki bez rejestracji",
       "alternatywy dla WeTransfer",
       "wysyłaj pliki chronione hasłem"
-    ]
+    ],
+    "pricingTitle": "Cennik",
+    "pricingDescription": "Proste, przejrzyste ceny. Zacznij za darmo z transferami 2 GB lub przejdź na Pro i Business, aby uzyskać więcej miejsca, dłuższą ważność i brak reklam.",
+    "faqTitle": "Najczęstsze pytania",
+    "faqDescription": "Najczęstsze pytania o VaultTransfer: jak działa transfer plików, szyfrowanie, zgodność z RODO, ważność, ochrona hasłem i więcej."
   },
   "dashboard": {
     "currentPlan": "Obecny plan",

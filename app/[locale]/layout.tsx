@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { buildAlternates } from '@/lib/metadata'
 import { NextIntlClientProvider } from 'next-intl'
 import { getLocale, getMessages, getTranslations } from 'next-intl/server'
 import HeaderWrapper from '@/components/HeaderWrapper'
@@ -52,21 +53,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: t('titleDefault'),
       description: t('description'),
     },
-    alternates: {
-      canonical: `${baseUrl}/${locale}`,
-      languages: {
-        'en': `${baseUrl}/en`,
-        'it': `${baseUrl}/it`,
-        'de': `${baseUrl}/de`,
-        'fr': `${baseUrl}/fr`,
-        'es': `${baseUrl}/es`,
-        'pt': `${baseUrl}/pt`,
-        'ja': `${baseUrl}/ja`,
-        'zh': `${baseUrl}/zh`,
-        'ar': `${baseUrl}/ar`,
-        'x-default': `${baseUrl}/en`,
-      },
-    },
+    alternates: buildAlternates(locale),
   }
 }
 

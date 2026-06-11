@@ -518,7 +518,11 @@
       "send files without registration",
       "wetransfer alternative",
       "send password protected files"
-    ]
+    ],
+    "pricingTitle": "Pricing",
+    "pricingDescription": "Simple, transparent pricing. Start for free with 2 GB transfers, or upgrade to Pro and Business for more storage, longer expiry, and no ads.",
+    "faqTitle": "FAQ",
+    "faqDescription": "Frequently asked questions about VaultTransfer: how file transfer works, encryption, GDPR compliance, expiry, password protection, and more."
   },
   "dashboard": {
     "currentPlan": "Current plan",

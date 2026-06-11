@@ -518,7 +518,11 @@
       "enviar arquivos sem precisar se cadastrar",
       "alternativas ao WeTransfer",
       "enviar arquivos protegidos por senha"
-    ]
+    ],
+    "pricingTitle": "Preços",
+    "pricingDescription": "Preços simples e transparentes. Comece grátis com transferências de 2 GB, ou mude para Pro e Business para mais armazenamento, validade mais longa e sem anúncios.",
+    "faqTitle": "Perguntas frequentes",
+    "faqDescription": "Perguntas frequentes sobre o VaultTransfer: como funciona a transferência de ficheiros, encriptação, conformidade com o RGPD, validade, proteção por palavra-passe e mais."
   },
   "dashboard": {
     "currentPlan": "Plano atual",

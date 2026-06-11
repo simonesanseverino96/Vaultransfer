@@ -12,26 +12,26 @@ const pages = [
   { path: '/pricing', changeFrequency: 'monthly', priority: 0.8, lastMod: TODAY },
   { path: '/faq',     changeFrequency: 'monthly', priority: 0.7, lastMod: TODAY },
   { path: '/login',   changeFrequency: 'yearly',  priority: 0.5, lastMod: LAUNCH_DATE },
-  { path: '/privacy', changeFrequency: 'yearly',  priority: 0.3, lastMod: LAUNCH_DATE },
-  { path: '/terms',   changeFrequency: 'yearly',  priority: 0.3, lastMod: LAUNCH_DATE },
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = []
 
   for (const page of pages) {
-    // URL canonico in inglese
-    entries.push({
-      url: `${baseUrl}/en${page.path}`,
-      lastModified: page.lastMod,
-      changeFrequency: page.changeFrequency as any,
-      priority: page.priority,
-      alternates: {
-        languages: Object.fromEntries(
-          locales.map(locale => [locale, `${baseUrl}/${locale}${page.path}`])
-        ),
-      },
-    })
+    const languages = Object.fromEntries(
+      locales.map(locale => [locale, `${baseUrl}/${locale}${page.path}`])
+    )
+
+    // Una entry per OGNI lingua, ciascuna con i propri hreflang
+    for (const locale of locales) {
+      entries.push({
+        url: `${baseUrl}/${locale}${page.path}`,
+        lastModified: page.lastMod,
+        changeFrequency: page.changeFrequency as MetadataRoute.Sitemap[number]['changeFrequency'],
+        priority: locale === 'en' ? page.priority : page.priority - 0.05,
+        alternates: { languages },
+      })
+    }
   }
 
   return entries

@@ -2,19 +2,37 @@ import { Metadata } from 'next'
 
 const BASE_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://vaultransfer.com'
 const OG_IMAGE = `${BASE_URL}/icon-512x512.png`
+const LOCALES = ['en', 'it', 'de', 'fr', 'es', 'pt', 'ja', 'zh', 'ar'] as const
+
+/**
+ * Costruisce canonical + hreflang per una pagina localizzata.
+ * canonical: sempre l'URL della lingua corrente (mai la root o URL senza locale).
+ * languages: tutte le versioni linguistiche + x-default sull'inglese.
+ */
+export function buildAlternates(locale: string, path = ''): NonNullable<Metadata['alternates']> {
+  return {
+    canonical: `${BASE_URL}/${locale}${path}`,
+    languages: {
+      ...Object.fromEntries(LOCALES.map(l => [l, `${BASE_URL}/${l}${path}`])),
+      'x-default': `${BASE_URL}/en${path}`,
+    },
+  }
+}
 
 export function buildMetadata({
   title,
   description,
   path = '',
+  locale = 'en',
   noIndex = false,
 }: {
   title: string
   description: string
   path?: string
+  locale?: string
   noIndex?: boolean
 }): Metadata {
-  const url = `${BASE_URL}${path}`
+  const url = `${BASE_URL}/${locale}${path}`
   const fullTitle = title.includes('VaultTransfer') ? title : `${title} — VaultTransfer`
 
   return {
@@ -35,6 +53,6 @@ export function buildMetadata({
       description,
       images: [OG_IMAGE],
     },
-    alternates: { canonical: url },
+    alternates: buildAlternates(locale, path),
   }
 }

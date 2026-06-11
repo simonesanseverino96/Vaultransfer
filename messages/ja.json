@@ -518,7 +518,11 @@
       "登録なしでファイルを送信する",
       "WeTransferの代替サービス",
       "パスワードで保護されたファイルを送信する"
-    ]
+    ],
+    "pricingTitle": "料金",
+    "pricingDescription": "シンプルで透明な料金。2GBの転送を無料で開始、またはProやBusinessにアップグレードして、より多くのストレージ、長い有効期限、広告なしを利用できます。",
+    "faqTitle": "よくある質問",
+    "faqDescription": "VaultTransferに関するよくある質問：ファイル転送の仕組み、暗号化、GDPR準拠、有効期限、パスワード保護など。"
   },
   "dashboard": {
     "currentPlan": "現在の計画",

@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import { getTranslations, getLocale } from 'next-intl/server'
+import { buildAlternates } from '@/lib/metadata'
 import { getTermsContent } from '@/lib/legal/terms'
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -14,7 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title,
     description,
     robots: { index: false, follow: true },
-    alternates: { canonical: url },
+    alternates: buildAlternates(locale, '/terms'),
     openGraph: { title, description, url, siteName: 'VaultTransfer', type: 'website' },
     twitter: { card: 'summary', title, description },
   }

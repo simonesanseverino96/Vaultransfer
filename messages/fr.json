@@ -518,7 +518,11 @@
       "envoyer des fichiers sans inscription",
       "Alternatives à WeTransfer",
       "envoyer des fichiers protégés par mot de passe"
-    ]
+    ],
+    "pricingTitle": "Tarifs",
+    "pricingDescription": "Des tarifs simples et transparents. Commencez gratuitement avec des transferts de 2 Go, ou passez à Pro et Business pour plus de stockage, une validité prolongée et zéro publicité.",
+    "faqTitle": "FAQ",
+    "faqDescription": "Questions fréquentes sur VaultTransfer : fonctionnement du transfert de fichiers, chiffrement, conformité RGPD, expiration, protection par mot de passe et plus."
   },
   "dashboard": {
     "currentPlan": "Plan actuel",
