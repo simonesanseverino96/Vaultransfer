@@ -127,7 +127,7 @@
     "removePro": "Aggiornamento a Pro per rimuovere gli annunci"
   },
   "apiKeys": {
-    "title": "chiavi",
+    "title": "API Keys",
     "subtitle": "Usa le chiavi API per integrare VaultTransfer nella tua app",
     "warning": "⚠️ Copia subito la chiave: non potrai più visualizzarla!",
     "copied": "✓ Copiato",
@@ -222,7 +222,7 @@
     "monthly": "Mensile",
     "annual": "Annuale",
     "savePercent": "Risparmia fino al 33%",
-    "annualSavings": "Pro risparmia €{proSave}/anno · Business risparmia €{bizSave}/anno",
+    "annualSavings": "Con Pro risparmi €{proSave}/anno · Con Business risparmi €{bizSave}/anno",
     "perMonth": "/mese",
     "perMonthLabel": "al mese",
     "billedAnnually": "€{amount} fatturati annualmente",
@@ -246,7 +246,7 @@
         "name": "Pro",
         "desc": "Più spazio, link più lunghi e zero pubblicità.",
         "badge": "Più popolare",
-        "cta": "Inizia con Pro",
+        "cta": "Passa a Pro",
         "feature0": "50 GB per trasferimento",
         "feature1": "Link in scadenza dopo 30 giorni",
         "feature2": "Nessuna pubblicità",
@@ -257,13 +257,13 @@
       "business": {
         "name": "Business",
         "desc": "Scadenza illimitata, accesso API e sicurezza avanzata.",
-        "cta": "Inizia con Business",
+        "cta": "Passa a Business",
         "feature0": "200 GB per trasferimento",
         "feature1": "Nessun limite di scadenza",
         "feature2": "Link protetti da password",
         "feature3": "REST API pubblica e chiavi",
         "feature4": "Supporto prioritario",
-        "feature5": "Tutto incluso in Pro"
+        "feature5": "Tutto quello incluso in Pro"
       },
       "enterprise": {
         "name": "Enterprise",
@@ -274,7 +274,7 @@
         "feature2": "SSO / SAML",
         "feature3": "Account manager dedicato",
         "feature4": "SLA personalizzato",
-        "feature5": "Tutto incluso in Business"
+        "feature5": "Tutto quello incluso in Business"
       }
     },
     "comparison": {
@@ -386,14 +386,14 @@
     "contact": "Non hai trovato risposta?",
     "contactLink": "Contattaci",
     "cta": {
-      "ready": "Pronto a iniziare?",
+      "ready": "Pronto ad iniziare?",
       "seePlans": "Vedi i piani"
     },
     "categories": {
       "general": "Generale",
       "security": "Sicurezza",
       "plans": "Piani e pagamenti",
-      "technical": "Tecnica",
+      "technical": "Tecnico",
       "developer": "API e Sviluppatore"
     },
     "items": {
@@ -521,14 +521,14 @@
     "no": "No",
     "days": "{count} giorni",
     "wantMore": "Vuoi più spazio e accesso alle API?",
-    "transfers": "I vostri trasferimenti",
+    "transfers": "Trasferimenti",
     "newTransfer": "+ Nuovo",
     "transfersProOnly": "Lo storico dei trasferimenti è disponibile nel piano Pro.",
     "noTransfers": "Non ci sono ancora trasferimenti. Inizia a condividere!",
     "uploadFirst": "Caricare il primo file →",
     "expired": "Scaduto",
     "copyLink": "Copiare il link",
-    "transferDate": "Trasferimento di {date}",
+    "transferDate": "Trasferimento del {date}",
     "transferMeta": "{size} - {downloads} download - scadenza in {expiry}"
   },
   "analytics": {
@@ -536,7 +536,7 @@
     "totalTransfers": "Trasferimenti Totali",
     "totalGb": "Dati Trasferiti",
     "totalDownloads": "Download Totali",
-    "activeVsExpired": "Attivi vs Scaduti",
+    "activeVsExpired": "Attivi & Scaduti",
     "last30Days": "Ultimi 30 Giorni",
     "upgradeTitle": "Sblocca le Analisi",
     "upgradeDesc": "Passa a un piano Pro o Business per visualizzare statistiche dettagliate sull'uso e sui trasferimenti.",

@@ -1,7 +1,7 @@
 'use client'
 import ReportButton from './ReportButton'
 
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { formatBytes, formatExpiry } from '@/lib/utils'
 import { Link } from '@/i18n/routing'
@@ -29,11 +29,7 @@ export default function DownloadClient({ token }: { token: string }) {
   const [passwordError, setPasswordError] = useState<string | null>(null)
   const [downloading, setDownloading] = useState<string | null>(null)
 
-  useEffect(() => {
-    fetchTransferInfo()
-  }, [token])
-
-  const fetchTransferInfo = async () => {
+  const fetchTransferInfo = useCallback(async () => {
     setStatus('loading')
     try {
       const res = await fetch(`/api/transfer/${token}`)
@@ -52,7 +48,11 @@ export default function DownloadClient({ token }: { token: string }) {
       setError(t('errorDesc'))
       setStatus('error')
     }
-  }
+  }, [token, t])
+
+  useEffect(() => {
+    fetchTransferInfo()
+  }, [fetchTransferInfo])
 
   const verifyPassword = async () => {
     if (!transfer) return

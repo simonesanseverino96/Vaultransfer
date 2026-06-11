@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/react'
 import { getBrowserClient } from '@/lib/supabase'
 import { Link } from '@/i18n/routing'
@@ -22,7 +22,7 @@ export default function Header() {
   const supabase = getBrowserClient()
   
 
-  const fetchUser = async (retries = 3) => {
+  const fetchUser = useCallback(async (retries = 3) => {
     try {
       const res = await fetch('/api/auth/me', { cache: 'no-store' })
       const data = await res.json()
@@ -36,13 +36,13 @@ export default function Header() {
     } finally {
       setReady(true)
     }
-  }
+  }, [])
 
   useEffect(() => {
     fetchUser()
     const { data: { subscription } } = supabase.auth.onAuthStateChange(() => fetchUser())
     return () => subscription.unsubscribe()
-  }, [])
+  }, [fetchUser, supabase.auth])
 
   const handleLogout = async () => {
     await supabase.auth.signOut()

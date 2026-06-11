@@ -28,7 +28,7 @@
       "privacy": "سياسة الخصوصية",
       "terms": "شروط الخدمة"
     },
-    "copyright": "© __v1___ __v0___. جميع الحقوق محفوظة.",
+    "copyright": "© {year} VaultTransfer. جميع الحقوق محفوظة.",
     "badge": "🇪🇺 الخوادم الأوروبية - __V0 __V0 __1 _V1 _V1 _ 1.3"
   },
   "home": {
@@ -72,7 +72,7 @@
     },
     "summary": "{count} الملفات - {size}__ المجموع",
     "error": {
-      "tooLarge": "تتجاوز بعض الملفات حد __0_V0___.",
+      "tooLarge": "بعض الملفات تتجاوز الحد الأقصى {limit}.",
       "blocked": "الملف غير مسموح به.",
       "maxFiles": "ملفات {max}__ كحد أقصى.",
       "upload": "خطأ أثناء التحميل",
@@ -90,7 +90,7 @@
       "https": "HTTPS_ مشفر",
       "expiry": "تنتهي صلاحيته في {expiry}__",
       "password": "كلمة المرور مطلوبة",
-      "maxDownloads": "ماكس __0_V0__ تنزيلات"
+      "maxDownloads": "حد أقصى {count} تنزيلات"
     },
     "newTransfer": "نقل جديد →",
     "expiry1": "24 ساعة",
@@ -208,6 +208,11 @@
     "checkEmail": {
       "title": "تحقق من بريدك الإلكتروني!",
       "message": "لقد أرسلنا رابط سحري إلى {email}_. انقر فوق الرابط لتسجيل الدخول - ستتم إعادة توجيهك تلقائيًا."
+    },
+    "errors": {
+      "default": "حدث خطأ أثناء تسجيل الدخول. يرجى المحاولة مرة أخرى.",
+      "invalid_credentials": "عنوان البريد الإلكتروني غير صالح.",
+      "rate_limit": "طلبات كثيرة جداً. يرجى المحاولة لاحقاً."
     }
   },
   "pricing": {
@@ -514,7 +519,7 @@
     "ads": "الإعلانات",
     "yes": "نعم",
     "no": "لا يوجد",
-    "days": "____0_يوم",
+    "days": "{count} أيام",
     "wantMore": "هل تريد المزيد من التخزين والوصول إلى __0_API؟",
     "transfers": "التحويلات الخاصة بك",
     "newTransfer": "+ جديد",
@@ -523,24 +528,24 @@
     "uploadFirst": "قم بتحميل ملفك الأول →",
     "expired": "منتهية الصلاحية",
     "copyLink": "نسخ الرابط",
-    "transferDate": "نقل __0_V0___",
-    "transferMeta": "{size}_ - {downloads}_ تنزيلات {downloads}_ - تنتهي صلاحيتها في {expiry}_"
+    "transferDate": "نقل بتاريخ {date}",
+    "transferMeta": "{size} · {downloads} تنزيلات · تنتهي الصلاحية خلال {expiry}"
   },
   "analytics": {
-    "title": "Analytics",
-    "totalTransfers": "Total Transfers",
-    "totalGb": "Data Transferred",
-    "totalDownloads": "Total Downloads",
-    "activeVsExpired": "Active vs Expired",
-    "last30Days": "Last 30 Days",
-    "upgradeTitle": "Unlock Analytics",
-    "upgradeDesc": "Upgrade to a Pro or Business plan to view your detailed transfer analytics and usage statistics.",
-    "upgradeButton": "Upgrade to Pro",
-    "transfersPerDay": "Transfers per day",
-    "allTime": "All time",
-    "active": "Active",
-    "expired": "Expired",
-    "loading": "Loading analytics...",
-    "error": "Failed to load analytics"
+    "title": "التحليلات",
+    "totalTransfers": "إجمالي عمليات النقل",
+    "totalGb": "البيانات المنقولة",
+    "totalDownloads": "إجمالي التنزيلات",
+    "activeVsExpired": "نشطة مقابل منتهية",
+    "last30Days": "آخر 30 يوماً",
+    "upgradeTitle": "افتح التحليلات",
+    "upgradeDesc": "قم بالترقية إلى خطة Pro أو Business لعرض تحليلات النقل التفصيلية الخاصة بك.",
+    "upgradeButton": "الترقية إلى Pro",
+    "transfersPerDay": "عمليات النقل في اليوم",
+    "allTime": "كل الفترات",
+    "active": "نشطة",
+    "expired": "منتهية",
+    "loading": "جارٍ تحميل التحليلات...",
+    "error": "فشل تحميل التحليلات"
   }
 }

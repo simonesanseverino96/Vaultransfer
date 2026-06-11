@@ -28,7 +28,7 @@
       "privacy": "隐私政策",
       "terms": "服务条款"
     },
-    "copyright": "© __v1__ __v0__。保留所有权利。",
+    "copyright": "© {year} VaultTransfer。保留所有权利。",
     "badge": "🇪🇺 欧洲服务器 - GDPR 符合标准 - TLS 1.3"
   },
   "home": {
@@ -208,6 +208,11 @@
     "checkEmail": {
       "title": "查看您的电子邮件！",
       "message": "我们向 {email} 发送了一个神奇的链接。点击链接登录 - 您将被自动重定向。"
+    },
+    "errors": {
+      "default": "登录时发生错误，请重试。",
+      "invalid_credentials": "电子邮件地址无效。",
+      "rate_limit": "请求过于频繁，请稍后再试。"
     }
   },
   "pricing": {
@@ -527,20 +532,20 @@
     "transferMeta": "{size} - {downloads} 下载 - {expiry} 过期"
   },
   "analytics": {
-    "title": "Analytics",
-    "totalTransfers": "Total Transfers",
-    "totalGb": "Data Transferred",
-    "totalDownloads": "Total Downloads",
-    "activeVsExpired": "Active vs Expired",
-    "last30Days": "Last 30 Days",
-    "upgradeTitle": "Unlock Analytics",
-    "upgradeDesc": "Upgrade to a Pro or Business plan to view your detailed transfer analytics and usage statistics.",
-    "upgradeButton": "Upgrade to Pro",
-    "transfersPerDay": "Transfers per day",
-    "allTime": "All time",
-    "active": "Active",
-    "expired": "Expired",
-    "loading": "Loading analytics...",
-    "error": "Failed to load analytics"
+    "title": "数据分析",
+    "totalTransfers": "总传输次数",
+    "totalGb": "已传输数据",
+    "totalDownloads": "总下载次数",
+    "activeVsExpired": "有效与已过期",
+    "last30Days": "最近 30 天",
+    "upgradeTitle": "解锁数据分析",
+    "upgradeDesc": "升级到 Pro 或 Business 套餐，查看详细的传输分析数据。",
+    "upgradeButton": "升级到 Pro",
+    "transfersPerDay": "每日传输次数",
+    "allTime": "全部时间",
+    "active": "有效",
+    "expired": "已过期",
+    "loading": "正在加载分析数据...",
+    "error": "加载分析数据失败"
   }
 }
