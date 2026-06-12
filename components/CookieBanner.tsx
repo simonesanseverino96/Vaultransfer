@@ -43,8 +43,9 @@ export default function CookieBanner() {
         zIndex: 99999,
       }}
       buttonStyle={{
-        background: '#6b7280',
-        borderTop: '1px solid rgba(255,255,255,0.1)',
+        background: 'transparent',
+        color: '#6b7280',
+        border: '1px solid rgba(255,255,255,0.1)',
         fontSize: '13px',
         fontWeight: '600',
         borderRadius: '10px',
