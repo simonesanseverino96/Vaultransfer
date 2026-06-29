@@ -25,7 +25,7 @@ const it: PrivacyContent = {
   sections: [
     {
       title: '1. Chi siamo',
-      content: 'VaultTransfer è un servizio di trasferimento file sicuro accessibile su vaultransfer.com. Il titolare del trattamento dei dati è il gestore del servizio, contattabile a privacy@vaultransfer.com.',
+      content: 'VaultTransfer è un servizio di trasferimento file sicuro accessibile su vaultransfer.com. Il titolare del trattamento dei dati è Simone Sanseverino, contattabile a privacy@vaultransfer.com.',
     },
     {
       title: '2. Dati che raccogliamo',
@@ -68,11 +68,13 @@ const it: PrivacyContent = {
     {
       title: '6. Condivisione con terze parti',
       content: 'Non vendiamo i tuoi dati. Utilizziamo i seguenti servizi di terze parti:',
-      listBold: ['Supabase', 'Vercel', 'Stripe', 'Google AdSense', 'Cloudflare'],
+      listBold: ['Supabase', 'Vercel', 'Stripe', 'Resend', 'Upstash', 'Google AdSense', 'Cloudflare'],
       list: [
         'Supabase — database e storage (server in Europa)',
         'Vercel — hosting dell\'applicazione (server USA con CDN globale)',
-        'Stripe — gestione pagamenti (server USA/EU)',
+        'Stripe — gestione pagamenti (Stripe Payments Europe Ltd, Irlanda, per i clienti UE)',
+        'Resend — invio email transazionali (conferma upload, notifiche download), tratta gli indirizzi email degli utenti, società USA',
+        'Upstash — rate limiting per la sicurezza del servizio, tratta gli indirizzi IP degli utenti, infrastruttura USA',
         'Google AdSense — pubblicità contestuale (solo utenti Free con consenso)',
         'Cloudflare — DNS e protezione (server globali)',
       ],
@@ -96,7 +98,7 @@ const it: PrivacyContent = {
     },
     {
       title: '9. Trasferimenti internazionali',
-      content: 'Alcuni dei nostri fornitori (Vercel, Stripe) operano negli Stati Uniti. I trasferimenti di dati verso gli USA avvengono nel rispetto delle garanzie previste dal GDPR (Standard Contractual Clauses). I dati del database e dello storage sono ospitati in Europa tramite Supabase.',
+      content: 'I file caricati e i dati del database sono ospitati in Europa tramite Supabase (Irlanda). I pagamenti dei clienti UE sono gestiti da Stripe Payments Europe Ltd (Irlanda). Alcuni fornitori con sede negli Stati Uniti (Vercel, Resend, Upstash) trattano metadati tecnici quali indirizzi IP e log delle richieste. Tutti i trasferimenti di dati verso gli USA avvengono nel rispetto delle garanzie previste dal GDPR tramite Clausole Contrattuali Standard (Standard Contractual Clauses).',
     },
     {
       title: '10. Contatti e reclami',
@@ -112,7 +114,7 @@ const en: PrivacyContent = {
   sections: [
     {
       title: '1. Who we are',
-      content: 'VaultTransfer is a secure file transfer service accessible at vaultransfer.com. The data controller is the service operator, reachable at privacy@vaultransfer.com.',
+      content: 'VaultTransfer is a secure file transfer service accessible at vaultransfer.com. The data controller is Simone Sanseverino, reachable at privacy@vaultransfer.com.',
     },
     {
       title: '2. Data we collect',
@@ -155,11 +157,13 @@ const en: PrivacyContent = {
     {
       title: '6. Third-party sharing',
       content: 'We do not sell your data. We use the following third-party services:',
-      listBold: ['Supabase', 'Vercel', 'Stripe', 'Google AdSense', 'Cloudflare'],
+      listBold: ['Supabase', 'Vercel', 'Stripe', 'Resend', 'Upstash', 'Google AdSense', 'Cloudflare'],
       list: [
         'Supabase — database and storage (European servers)',
         'Vercel — application hosting (US servers with global CDN)',
-        'Stripe — payment processing (US/EU servers)',
+        'Stripe — payment processing (Stripe Payments Europe Ltd, Ireland, for EU customers)',
+        'Resend — transactional email delivery (upload confirmations, download notifications), processes user email addresses, US-based company',
+        'Upstash — rate limiting for service security, processes user IP addresses, US-based infrastructure',
         'Google AdSense — contextual advertising (Free users with consent only)',
         'Cloudflare — DNS and protection (global servers)',
       ],
@@ -183,7 +187,7 @@ const en: PrivacyContent = {
     },
     {
       title: '9. International transfers',
-      content: 'Some of our providers (Vercel, Stripe) operate in the United States. Data transfers to the US are carried out in compliance with GDPR guarantees (Standard Contractual Clauses). Database and storage data is hosted in Europe via Supabase.',
+      content: 'Uploaded files and database data are hosted in Europe via Supabase (Ireland). Payments from EU customers are processed by Stripe Payments Europe Ltd (Ireland). Some US-based providers (Vercel, Resend, Upstash) process technical metadata such as IP addresses and request logs. All data transfers to the US are carried out in compliance with GDPR guarantees (Standard Contractual Clauses).',
     },
     {
       title: '10. Contact and complaints',
@@ -197,15 +201,15 @@ const de: PrivacyContent = {
   lastUpdated: 'Letzte Aktualisierung: April 2026',
   disclaimer: 'Hinweis: Bei Abweichungen zwischen den übersetzten Versionen ist die italienische Version maßgeblich.',
   sections: [
-    { title: '1. Wer wir sind', content: 'VaultTransfer ist ein sicherer Dateiübertragungsdienst, der unter vaultransfer.com zugänglich ist. Der Verantwortliche für die Datenverarbeitung ist der Dienstbetreiber, erreichbar unter privacy@vaultransfer.com.' },
+    { title: '1. Wer wir sind', content: 'VaultTransfer ist ein sicherer Dateiübertragungsdienst, der unter vaultransfer.com zugänglich ist. Der Verantwortliche für die Datenverarbeitung ist Simone Sanseverino, erreichbar unter privacy@vaultransfer.com.' },
     { title: '2. Daten, die wir erheben', content: 'Wir erheben nur die für den Betrieb des Dienstes unbedingt erforderlichen Daten:', list: ['E-Mail-Adresse — nur wenn Sie sich registrieren oder anmelden', 'Hochgeladene Dateien — vorübergehend, bis der Link abläuft', 'Transfer-Metadaten — Dateiname, Größe, Ablaufdatum', 'Zahlungsdaten — von Stripe verwaltet, wir speichern diese nicht', 'Technische Cookies — für den Betrieb der Website erforderlich', 'Werbe-Cookies — Google AdSense, nur mit Ihrer ausdrücklichen Einwilligung'] },
     { title: '3. Verwendung Ihrer Daten', content: '', list: ['Um Ihnen das Hochladen und Teilen von Dateien zu ermöglichen', 'Um Ihr Konto und Abonnement zu verwalten', 'Um Ihnen den Magic-Login-Link zu senden', 'Um Dateien automatisch bei Ablauf zu löschen', 'Um kontextbezogene Werbung anzuzeigen (nur Free-Nutzer, nur mit Einwilligung)'] },
     { title: '4. Cookies und Tracking', content: 'Wir verwenden folgende Cookie-Typen:', list: ['Technische Cookies — unbedingt erforderlich für Login und Sitzung. Kein Einverständnis erforderlich.', 'Werbe-Cookies (Google AdSense) — zur Anzeige relevanter Anzeigen für Free-Nutzer. Erfordern Ihre ausdrückliche Einwilligung.'], extra: 'Sie können Ihre Cookie-Einstellungen jederzeit ändern.' },
     { title: '5. Datenspeicherung', content: 'Dateien werden beim Ablauf des Links (1, 7 oder 30 Tage) automatisch gelöscht. Kontodaten werden gespeichert, solange das Konto aktiv ist. Sie können die Löschung Ihres Kontos jederzeit unter privacy@vaultransfer.com beantragen.' },
-    { title: '6. Weitergabe an Dritte', content: 'Wir verkaufen Ihre Daten nicht. Wir nutzen folgende Drittanbieter:', list: ['Supabase — Datenbank und Speicher (europäische Server)', 'Vercel — Anwendungshosting (US-Server mit globalem CDN)', 'Stripe — Zahlungsabwicklung (US/EU-Server)', 'Google AdSense — kontextbezogene Werbung (nur Free-Nutzer mit Einwilligung)', 'Cloudflare — DNS und Schutz (globale Server)'] },
+    { title: '6. Weitergabe an Dritte', content: 'Wir verkaufen Ihre Daten nicht. Wir nutzen folgende Drittanbieter:', list: ['Supabase — Datenbank und Speicher (europäische Server)', 'Vercel — Anwendungshosting (US-Server mit globalem CDN)', 'Stripe — Zahlungsabwicklung (Stripe Payments Europe Ltd, Irland, für EU-Kunden)', 'Resend — Versand transaktionaler E-Mails (Upload-Bestätigungen, Download-Benachrichtigungen), verarbeitet E-Mail-Adressen der Nutzer, US-amerikanisches Unternehmen', 'Upstash — Rate-Limiting für die Sicherheit des Dienstes, verarbeitet IP-Adressen der Nutzer, US-amerikanische Infrastruktur', 'Google AdSense — kontextbezogene Werbung (nur Free-Nutzer mit Einwilligung)', 'Cloudflare — DNS und Schutz (globale Server)'] },
     { title: '7. Ihre Rechte (DSGVO)', content: 'Als EU-Bürger haben Sie das Recht auf:', list: ['Zugang zu Ihren personenbezogenen Daten', 'Berichtigung unrichtiger Daten', 'Löschung Ihrer Daten ("Recht auf Vergessenwerden")', 'Widerspruch gegen die Verarbeitung zu Werbezwecken', 'Datenübertragbarkeit', 'Widerruf der Einwilligung jederzeit'], extra: 'Schreiben Sie uns unter privacy@vaultransfer.com. Wir antworten innerhalb von 30 Tagen.' },
     { title: '8. Sicherheit', content: 'Alle Übertragungen erfolgen über HTTPS-verschlüsselte Verbindungen mit TLS 1.3. Dateien werden in privaten Buckets gespeichert, die nur über temporäre signierte Links zugänglich sind.' },
-    { title: '9. Internationale Übermittlungen', content: 'Einige unserer Anbieter (Vercel, Stripe) sind in den USA tätig. Datenübermittlungen in die USA erfolgen im Einklang mit den DSGVO-Garantien (Standardvertragsklauseln).' },
+    { title: '9. Internationale Übermittlungen', content: 'Hochgeladene Dateien und Datenbankdaten werden in Europa über Supabase (Irland) gehostet. Zahlungen von EU-Kunden werden von Stripe Payments Europe Ltd (Irland) verarbeitet. Einige US-amerikanische Anbieter (Vercel, Resend, Upstash) verarbeiten technische Metadaten wie IP-Adressen und Anfrage-Logs. Alle Datenübermittlungen in die USA erfolgen im Einklang mit den DSGVO-Garantien (Standardvertragsklauseln).' },
     { title: '10. Kontakt und Beschwerden', content: 'Für Datenschutzfragen schreiben Sie an privacy@vaultransfer.com. Sie haben auch das Recht, eine Beschwerde bei der italienischen Datenschutzbehörde einzureichen (garanteprivacy.it).' },
   ],
 }
@@ -215,15 +219,15 @@ const fr: PrivacyContent = {
   lastUpdated: 'Dernière mise à jour : Avril 2026',
   disclaimer: 'Note : En cas de divergences entre les versions traduites, la version italienne prévaut.',
   sections: [
-    { title: '1. Qui nous sommes', content: 'VaultTransfer est un service de transfert de fichiers sécurisé accessible sur vaultransfer.com. Le responsable du traitement des données est l\'opérateur du service, joignable à privacy@vaultransfer.com.' },
+    { title: '1. Qui nous sommes', content: 'VaultTransfer est un service de transfert de fichiers sécurisé accessible sur vaultransfer.com. Le responsable du traitement des données est Simone Sanseverino, joignable à privacy@vaultransfer.com.' },
     { title: '2. Données que nous collectons', content: 'Nous collectons uniquement les données strictement nécessaires au fonctionnement du service :', list: ['Adresse e-mail — uniquement si vous choisissez de vous inscrire ou de vous connecter', 'Fichiers téléchargés — temporairement, jusqu\'à l\'expiration du lien', 'Métadonnées des transferts — nom du fichier, taille, date d\'expiration', 'Données de paiement — gérées par Stripe, nous ne les stockons pas', 'Cookies techniques — nécessaires au fonctionnement du site', 'Cookies publicitaires — Google AdSense, uniquement avec votre consentement explicite'] },
     { title: '3. Comment nous utilisons vos données', content: '', list: ['Pour vous permettre de télécharger et partager des fichiers', 'Pour gérer votre compte et votre abonnement', 'Pour vous envoyer le lien de connexion magique', 'Pour supprimer automatiquement les fichiers à l\'expiration', 'Pour afficher de la publicité contextuelle (utilisateurs Free uniquement, avec consentement)'] },
     { title: '4. Cookies et suivi', content: 'Nous utilisons les types de cookies suivants :', list: ['Cookies techniques — strictement nécessaires pour la connexion et la session.', 'Cookies publicitaires (Google AdSense) — pour afficher des annonces pertinentes aux utilisateurs Free.'], extra: 'Vous pouvez modifier vos préférences de cookies à tout moment.' },
     { title: '5. Conservation des données', content: 'Les fichiers sont automatiquement supprimés à l\'expiration du lien (1, 7 ou 30 jours). Les données du compte sont conservées tant que le compte est actif. Vous pouvez demander la suppression de votre compte à tout moment en écrivant à privacy@vaultransfer.com.' },
-    { title: '6. Partage avec des tiers', content: 'Nous ne vendons pas vos données. Nous utilisons les services tiers suivants :', list: ['Supabase — base de données et stockage (serveurs européens)', 'Vercel — hébergement de l\'application (serveurs US avec CDN mondial)', 'Stripe — traitement des paiements (serveurs US/EU)', 'Google AdSense — publicité contextuelle (utilisateurs Free avec consentement)', 'Cloudflare — DNS et protection (serveurs mondiaux)'] },
+    { title: '6. Partage avec des tiers', content: 'Nous ne vendons pas vos données. Nous utilisons les services tiers suivants :', list: ['Supabase — base de données et stockage (serveurs européens)', 'Vercel — hébergement de l\'application (serveurs US avec CDN mondial)', 'Stripe — traitement des paiements (Stripe Payments Europe Ltd, Irlande, pour les clients UE)', 'Resend — envoi d\'e-mails transactionnels (confirmations d\'envoi, notifications de téléchargement), traite les adresses e-mail des utilisateurs, société américaine', 'Upstash — limitation de débit pour la sécurité du service, traite les adresses IP des utilisateurs, infrastructure américaine', 'Google AdSense — publicité contextuelle (utilisateurs Free avec consentement)', 'Cloudflare — DNS et protection (serveurs mondiaux)'] },
     { title: '7. Vos droits (RGPD)', content: 'Si vous résidez dans l\'Union européenne, vous avez le droit de :', list: ['Accéder à vos données personnelles', 'Rectifier des données inexactes', 'Demander la suppression de vos données ("droit à l\'oubli")', 'Vous opposer au traitement à des fins publicitaires', 'Portabilité des données', 'Retirer votre consentement à tout moment'], extra: 'Écrivez-nous à privacy@vaultransfer.com. Nous répondrons dans les 30 jours.' },
     { title: '8. Sécurité', content: 'Tous les transferts s\'effectuent via des connexions HTTPS chiffrées avec TLS 1.3. Les fichiers sont stockés dans des buckets privés accessibles uniquement via des liens signés temporaires.' },
-    { title: '9. Transferts internationaux', content: 'Certains de nos fournisseurs (Vercel, Stripe) opèrent aux États-Unis. Les transferts de données vers les USA sont effectués dans le respect des garanties RGPD (Clauses Contractuelles Types).' },
+    { title: '9. Transferts internationaux', content: 'Les fichiers téléchargés et les données de la base de données sont hébergés en Europe via Supabase (Irlande). Les paiements des clients UE sont traités par Stripe Payments Europe Ltd (Irlande). Certains fournisseurs américains (Vercel, Resend, Upstash) traitent des métadonnées techniques telles que les adresses IP et les journaux de requêtes. Tous les transferts de données vers les États-Unis sont effectués dans le respect des garanties RGPD (Clauses Contractuelles Types).' },
     { title: '10. Contact et réclamations', content: 'Pour toute question sur la confidentialité, écrivez à privacy@vaultransfer.com. Vous avez également le droit de déposer une plainte auprès de l\'autorité italienne de protection des données (garanteprivacy.it).' },
   ],
 }
@@ -233,15 +237,15 @@ const es: PrivacyContent = {
   lastUpdated: 'Última actualización: Abril 2026',
   disclaimer: 'Nota: En caso de discrepancias entre las versiones traducidas, prevalecerá la versión italiana.',
   sections: [
-    { title: '1. Quiénes somos', content: 'VaultTransfer es un servicio seguro de transferencia de archivos accesible en vaultransfer.com. El responsable del tratamiento de datos es el operador del servicio, contactable en privacy@vaultransfer.com.' },
+    { title: '1. Quiénes somos', content: 'VaultTransfer es un servicio seguro de transferencia de archivos accesible en vaultransfer.com. El responsable del tratamiento de datos es Simone Sanseverino, contactable en privacy@vaultransfer.com.' },
     { title: '2. Datos que recopilamos', content: 'Recopilamos solo los datos estrictamente necesarios para el funcionamiento del servicio:', list: ['Dirección de correo electrónico — solo si decides registrarte o iniciar sesión', 'Archivos subidos — temporalmente, hasta que expire el enlace', 'Metadatos de transferencias — nombre del archivo, tamaño, fecha de vencimiento', 'Datos de pago — gestionados por Stripe, no los almacenamos', 'Cookies técnicas — necesarias para el funcionamiento del sitio', 'Cookies publicitarias — Google AdSense, solo con tu consentimiento explícito'] },
     { title: '3. Cómo usamos tus datos', content: '', list: ['Para permitirte subir y compartir archivos', 'Para gestionar tu cuenta y suscripción', 'Para enviarte el enlace mágico de acceso', 'Para eliminar automáticamente los archivos al vencer', 'Para mostrar publicidad contextual (solo usuarios Free, solo con consentimiento)'] },
     { title: '4. Cookies y seguimiento', content: 'Utilizamos los siguientes tipos de cookies:', list: ['Cookies técnicas — estrictamente necesarias para el inicio de sesión.', 'Cookies publicitarias (Google AdSense) — para mostrar anuncios relevantes a usuarios Free.'], extra: 'Puedes cambiar tus preferencias de cookies en cualquier momento.' },
     { title: '5. Conservación de datos', content: 'Los archivos se eliminan automáticamente al vencer el enlace (1, 7 o 30 días). Los datos de la cuenta se conservan mientras la cuenta esté activa. Puedes solicitar la eliminación de tu cuenta en cualquier momento escribiendo a privacy@vaultransfer.com.' },
-    { title: '6. Compartir con terceros', content: 'No vendemos tus datos. Utilizamos los siguientes servicios de terceros:', list: ['Supabase — base de datos y almacenamiento (servidores europeos)', 'Vercel — alojamiento de la aplicación (servidores US con CDN global)', 'Stripe — procesamiento de pagos (servidores US/EU)', 'Google AdSense — publicidad contextual (usuarios Free con consentimiento)', 'Cloudflare — DNS y protección (servidores globales)'] },
+    { title: '6. Compartir con terceros', content: 'No vendemos tus datos. Utilizamos los siguientes servicios de terceros:', list: ['Supabase — base de datos y almacenamiento (servidores europeos)', 'Vercel — alojamiento de la aplicación (servidores US con CDN global)', 'Stripe — procesamiento de pagos (Stripe Payments Europe Ltd, Irlanda, para clientes de la UE)', 'Resend — envío de correos electrónicos transaccionales (confirmaciones de carga, notificaciones de descarga), trata las direcciones de correo electrónico de los usuarios, empresa con sede en EE.UU.', 'Upstash — limitación de velocidad para la seguridad del servicio, trata las direcciones IP de los usuarios, infraestructura con sede en EE.UU.', 'Google AdSense — publicidad contextual (usuarios Free con consentimiento)', 'Cloudflare — DNS y protección (servidores globales)'] },
     { title: '7. Tus derechos (RGPD)', content: 'Si resides en la Unión Europea, tienes derecho a:', list: ['Acceder a tus datos personales', 'Rectificar datos inexactos', 'Solicitar la eliminación de tus datos ("derecho al olvido")', 'Oponerte al tratamiento con fines publicitarios', 'Portabilidad de datos', 'Retirar el consentimiento en cualquier momento'], extra: 'Escríbenos a privacy@vaultransfer.com. Responderemos en 30 días.' },
     { title: '8. Seguridad', content: 'Todas las transferencias se realizan mediante conexiones HTTPS cifradas con TLS 1.3. Los archivos se almacenan en buckets privados accesibles solo mediante enlaces firmados temporales.' },
-    { title: '9. Transferencias internacionales', content: 'Algunos de nuestros proveedores (Vercel, Stripe) operan en Estados Unidos. Las transferencias de datos a EE.UU. se realizan de conformidad con las garantías del RGPD (Cláusulas Contractuales Tipo).' },
+    { title: '9. Transferencias internacionales', content: 'Los archivos subidos y los datos de la base de datos están alojados en Europa a través de Supabase (Irlanda). Los pagos de clientes de la UE son procesados por Stripe Payments Europe Ltd (Irlanda). Algunos proveedores con sede en EE.UU. (Vercel, Resend, Upstash) tratan metadatos técnicos como direcciones IP y registros de solicitudes. Todas las transferencias de datos a EE.UU. se realizan de conformidad con las garantías del RGPD (Cláusulas Contractuales Tipo).' },
     { title: '10. Contacto y reclamaciones', content: 'Para cualquier pregunta sobre privacidad, escribe a privacy@vaultransfer.com. También tienes derecho a presentar una reclamación ante la autoridad italiana de protección de datos (garanteprivacy.it).' },
   ],
 }
