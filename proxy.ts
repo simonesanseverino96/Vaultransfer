@@ -9,96 +9,62 @@ const intlMiddleware = createIntlMiddleware(routing)
 export default async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
-  const isDashboard = pathname === '/dashboard' || /^\/[a-z]{2}\/dashboard$/.test(pathname)
-  const isUploadInit = pathname === '/api/upload/init'
-  const isUpload = pathname === '/api/upload'
+  // API routes: skip next-intl entirely, only run Supabase auth logic
+  if (pathname.startsWith('/api')) {
+    const isUploadInit = pathname === '/api/upload/init'
+    const isUpload     = pathname === '/api/upload'
 
-  let supabaseResponse = intlMiddleware(request)
+    if (!isUploadInit && !isUpload) {
+      return NextResponse.next()
+    }
 
-  if (!isDashboard && !isUploadInit && !isUpload) {
-    return supabaseResponse
-  }
+    let accessToken = request.headers.get('Authorization')?.replace('Bearer ', '')
+    let body: any = null
+    if (request.method === 'POST') {
+      const contentType = request.headers.get('content-type') || ''
+      if (!contentType.includes('multipart/form-data')) {
+        try {
+          body = await request.clone().json()
+          if (body?.accessToken) accessToken = body.accessToken
+        } catch (e) {}
+      }
+    }
 
-  let accessToken = request.headers.get('Authorization')?.replace('Bearer ', '')
+    const supabaseUrl     = process.env.NEXT_PUBLIC_SUPABASE_URL     || 'http://localhost:54321'
+    const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'anon_key'
+    const apiResponse     = NextResponse.next()
 
-  let body: any = null
-  let isMultipart = false
-  if (request.method === 'POST') {
-    const contentType = request.headers.get('content-type') || ''
-    if (contentType.includes('multipart/form-data')) {
-      isMultipart = true
+    const clientOptions: any = {
+      cookies: {
+        getAll() { return request.cookies.getAll() },
+        setAll(cookiesToSet: any[]) {
+          cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value))
+          cookiesToSet.forEach(({ name, value, options }) =>
+            apiResponse.cookies.set(name, value, options)
+          )
+        },
+      },
+    }
+    if (accessToken) {
+      clientOptions.global = { headers: { Authorization: `Bearer ${accessToken}` } }
+    }
+
+    const supabase = createServerClient(supabaseUrl, supabaseAnonKey, clientOptions)
+    let user = null
+    if (accessToken) {
+      const { data } = await supabase.auth.getUser(accessToken)
+      user = data?.user
     } else {
-      try {
-        const clonedReq = request.clone()
-        body = await clonedReq.json()
-        if (body?.accessToken) {
-          accessToken = body.accessToken
-        }
-      } catch (e) {
-        // ignore
-      }
+      const { data } = await supabase.auth.getUser()
+      user = data?.user
     }
-  }
 
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'http://localhost:54321'
-  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'anon_key'
-
-  const clientOptions: any = {
-    cookies: {
-      getAll() {
-        return request.cookies.getAll()
-      },
-      setAll(cookiesToSet: any[]) {
-        cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value))
-        // Do not re-assign supabaseResponse. Instead, set the cookies on the existing response
-        // so we preserve next-intl's behavior (e.g. locale cookies).
-        cookiesToSet.forEach(({ name, value, options }) =>
-          supabaseResponse.cookies.set(name, value, options)
-        )
-      },
-    },
-  }
-
-  if (accessToken) {
-    clientOptions.global = {
-      headers: {
-        Authorization: `Bearer ${accessToken}`
-      }
-    }
-  }
-
-  const supabase = createServerClient(
-    supabaseUrl,
-    supabaseAnonKey,
-    clientOptions
-  )
-
-  let user = null
-
-  if (accessToken) {
-    const { data } = await supabase.auth.getUser(accessToken)
-    user = data?.user
-  } else {
-    const { data } = await supabase.auth.getUser()
-    user = data?.user
-  }
-
-  if (isDashboard) {
-    if (!user) {
-      return NextResponse.json({ error: 'ERR_UNAUTHORIZED' }, { status: 401 })
-    }
-    return supabaseResponse
-  }
-
-  if (isUpload || isUploadInit) {
     let isPremiumFeatureRequested = false
-
     if (body?.config) {
       const { expiry, password, maxDownloads } = body.config
       if (password && password.trim() !== '') isPremiumFeatureRequested = true
-      if (expiry && parseInt(expiry, 10) > 7) isPremiumFeatureRequested = true
-      if (maxDownloads !== undefined && maxDownloads !== 5 && maxDownloads !== null) isPremiumFeatureRequested = true
-      if (maxDownloads === null) isPremiumFeatureRequested = true // null means unlimited
+      if (expiry && parseInt(expiry, 10) > 7)  isPremiumFeatureRequested = true
+      if (maxDownloads === null || maxDownloads > 5) isPremiumFeatureRequested = true
     }
 
     if (isPremiumFeatureRequested) {
@@ -107,13 +73,11 @@ export default async function middleware(request: NextRequest) {
       }
 
       let profile = null
-
       const { data: userProfile } = await supabase
         .from('user_profiles')
         .select('plan, subscription_status, subscription_ends_at')
         .eq('id', user.id)
         .single()
-
       if (userProfile) {
         profile = userProfile
       } else {
@@ -147,6 +111,58 @@ export default async function middleware(request: NextRequest) {
         return NextResponse.json({ error: 'ERR_PLAN_REQUIRED', requiredPlan: 'pro' }, { status: 403 })
       }
     }
+
+    return apiResponse
+  }
+
+  const isDashboard = pathname === '/dashboard' || /^\/[a-z]{2}\/dashboard$/.test(pathname)
+
+  let supabaseResponse = intlMiddleware(request)
+
+  if (!isDashboard) {
+    return supabaseResponse
+  }
+
+  let accessToken = request.headers.get('Authorization')?.replace('Bearer ', '')
+
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'http://localhost:54321'
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'anon_key'
+
+  const clientOptions: any = {
+    cookies: {
+      getAll() {
+        return request.cookies.getAll()
+      },
+      setAll(cookiesToSet: any[]) {
+        cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value))
+        cookiesToSet.forEach(({ name, value, options }) =>
+          supabaseResponse.cookies.set(name, value, options)
+        )
+      },
+    },
+  }
+
+  if (accessToken) {
+    clientOptions.global = {
+      headers: {
+        Authorization: `Bearer ${accessToken}`
+      }
+    }
+  }
+
+  const supabase = createServerClient(supabaseUrl, supabaseAnonKey, clientOptions)
+
+  let user = null
+  if (accessToken) {
+    const { data } = await supabase.auth.getUser(accessToken)
+    user = data?.user
+  } else {
+    const { data } = await supabase.auth.getUser()
+    user = data?.user
+  }
+
+  if (!user) {
+    return NextResponse.json({ error: 'ERR_UNAUTHORIZED' }, { status: 401 })
   }
 
   return supabaseResponse
