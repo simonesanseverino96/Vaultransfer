@@ -137,7 +137,12 @@
     "totalSize": "Total size",
     "expiresIn": "⏱ Expires in {expiry}",
     "downloadCount": "📥 {count}/{max} downloads",
-    "scarica": "Download"
+    "scarica": "Download",
+    "cta": {
+      "headline": "Need to send files too?",
+      "desc": "VaultTransfer is free — EU hosting, your files are never used to train AI.",
+      "button": "Send files for free →"
+    }
   },
   "adBanner": {
     "label": "Advertisement",

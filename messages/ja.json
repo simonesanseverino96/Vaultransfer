@@ -137,7 +137,12 @@
     "totalSize": "合計サイズ",
     "expiresIn": "⏱ 残り{expiry}",
     "downloadCount": "📥 {count}/{max}のダウンロード",
-    "scarica": "ダウンロード"
+    "scarica": "ダウンロード",
+    "cta": {
+  "headline": "あなたもファイルを送りたいですか？",
+  "desc": "VaultTransferは無料です。EU内でホスティングされ、あなたのファイルがAIの学習に使われることは一切ありません。",
+  "button": "無料でファイルを送る →"
+}
   },
   "adBanner": {
     "label": "広告",

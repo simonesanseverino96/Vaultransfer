@@ -137,7 +137,12 @@
     "totalSize": "Gesamtgröße",
     "expiresIn": "⏱ Läuft in {expiry} ab",
     "downloadCount": "📥 {count}/{max} Downloads",
-    "scarica": "Herunterladen"
+    "scarica": "Herunterladen",
+    "cta": {
+  "headline": "Möchtest du auch Dateien versenden?",
+  "desc": "VaultTransfer ist kostenlos – Hosting in der EU, deine Dateien werden niemals zum Training von KI verwendet.",
+  "button": "Dateien kostenlos versenden →"
+}
   },
   "adBanner": {
     "label": "Anzeige",

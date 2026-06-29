@@ -137,7 +137,12 @@
     "totalSize": "总面积",
     "expiresIn": "⏱ 在{expiry}到期",
     "downloadCount": "📥 {count}/{max} 下载",
-    "scarica": "下载"
+    "scarica": "下载",
+    "cta": {
+  "headline": "您也需要发送文件吗？",
+  "desc": "VaultTransfer 免费使用，服务器位于欧盟，您的文件绝不会用于训练 AI。",
+  "button": "免费发送文件 →"
+}
   },
   "adBanner": {
     "label": "广告",

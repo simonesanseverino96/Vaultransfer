@@ -139,9 +139,13 @@ export default function DownloadClient({ token }: { token: string }) {
         </div>
         <h2 className="font-display text-2xl font-700 text-paper mb-2">{t('expiredTitle')}</h2>
         <p className="text-muted text-sm font-body">{t('expiredDesc')}</p>
-        <Link href="/" className="inline-block mt-8 px-6 py-3 bg-accent text-ink rounded-xl text-sm font-display font-600 hover:bg-accent-dim transition-colors">
-          {t('newTransfer')}
-        </Link>
+        <div className="mt-8 p-5 bg-surface border border-white/5 rounded-2xl">
+          <p className="text-sm font-display font-600 text-paper mb-1">{t('cta.headline')}</p>
+          <p className="text-xs text-muted font-body mb-4">{t('cta.desc')}</p>
+          <Link href="/" className="inline-block px-5 py-2.5 bg-accent text-ink rounded-xl text-sm font-display font-600 hover:bg-accent-dim transition-colors">
+            {t('cta.button')}
+          </Link>
+        </div>
       </div>
     )
   }
@@ -156,9 +160,13 @@ export default function DownloadClient({ token }: { token: string }) {
         </div>
         <h2 className="font-display text-2xl font-700 text-paper mb-2">{t('errorTitle')}</h2>
         <p className="text-muted text-sm font-body">{error || t('errorDesc')}</p>
-        <Link href="/" className="inline-block mt-8 px-6 py-3 bg-accent text-ink rounded-xl text-sm font-display font-600 hover:bg-accent-dim transition-colors">
-          {t('backHome')}
-        </Link>
+        <div className="mt-8 p-5 bg-surface border border-white/5 rounded-2xl">
+          <p className="text-sm font-display font-600 text-paper mb-1">{t('cta.headline')}</p>
+          <p className="text-xs text-muted font-body mb-4">{t('cta.desc')}</p>
+          <Link href="/" className="inline-block px-5 py-2.5 bg-accent text-ink rounded-xl text-sm font-display font-600 hover:bg-accent-dim transition-colors">
+            {t('cta.button')}
+          </Link>
+        </div>
       </div>
     )
   }
@@ -302,6 +310,14 @@ export default function DownloadClient({ token }: { token: string }) {
       <p className="text-center text-xs text-muted font-body mt-4">
         {t('secureDownload')}
       </p>
+
+      <div className="mt-6 p-5 bg-surface border border-white/5 rounded-2xl text-center">
+        <p className="text-sm font-display font-600 text-paper mb-1">{t('cta.headline')}</p>
+        <p className="text-xs text-muted font-body mb-4">{t('cta.desc')}</p>
+        <Link href="/" className="inline-block px-5 py-2.5 bg-accent text-ink rounded-xl text-sm font-display font-600 hover:bg-accent-dim transition-colors">
+          {t('cta.button')}
+        </Link>
+      </div>
 
       {error === 'An unexpected error occurred. Please try again.' && (
         <div className="fixed bottom-4 left-1/2 -translate-x-1/2 bg-surface border border-red-500/20 px-6 py-3 rounded-full text-sm text-red-400 shadow-xl z-50 animate-fade-up flex items-center gap-2">

@@ -137,7 +137,12 @@
     "totalSize": "Dimensione totale",
     "expiresIn": "⏱ Scade nel {expiry}",
     "downloadCount": "📥 {count}/{max} download",
-    "scarica": "Scarica"
+    "scarica": "Scarica",
+    "cta": {
+      "headline": "Devi inviare file anche tu?",
+      "desc": "VaultTransfer è gratuito — hosting in UE, i tuoi file non vengono mai usati per addestrare AI.",
+      "button": "Invia file gratis →"
+    }
   },
   "adBanner": {
     "label": "Pubblicità",

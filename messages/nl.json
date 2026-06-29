@@ -137,7 +137,12 @@
     "totalSize": "Totale grootte",
     "expiresIn": "⏱ Verloopt over {expiry}",
     "downloadCount": "📥 {count}/{max} downloads",
-    "scarica": "Downloaden"
+    "scarica": "Downloaden",
+    "cta": {
+  "headline": "Moet jij ook bestanden versturen?",
+  "desc": "VaultTransfer is gratis — hosting in de EU, je bestanden worden nooit gebruikt om AI te trainen.",
+  "button": "Gratis bestanden versturen →"
+}
   },
   "adBanner": {
     "label": "Advertentie",
