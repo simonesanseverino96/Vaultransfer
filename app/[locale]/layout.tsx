@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/next'
 import type { Metadata } from 'next'
 import { buildAlternates } from '@/lib/metadata'
 import { NextIntlClientProvider } from 'next-intl'
@@ -84,6 +85,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             <Footer />
           </ToastProvider>
         </NextIntlClientProvider>
+        <Analytics />
       </body>
     </html>
   )
