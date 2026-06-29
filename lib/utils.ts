@@ -1,4 +1,4 @@
-import { formatDistanceToNow } from 'date-fns'
+import { formatDistanceToNow, type Locale } from 'date-fns'
 import { it, de, fr, es, pt, ja, zhCN, ar } from 'date-fns/locale'
 
 const dateFnsLocales: Record<string, Locale> = {
