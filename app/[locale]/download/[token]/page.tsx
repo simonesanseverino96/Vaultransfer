@@ -1,6 +1,5 @@
 import { Metadata } from 'next'
 import { getTranslations, getLocale } from 'next-intl/server'
-import { Link } from '@/i18n/routing'
 import DownloadClient from '@/components/DownloadClient'
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -30,15 +29,7 @@ export default async function DownloadPage({ params }: { params: Promise<{ token
       </div>
 
       <header className="relative z-10 border-b border-white/5">
-        <div className="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-            <div className="w-8 h-8 rounded-lg bg-accent flex items-center justify-center">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path d="M8 2v8M5 7l3 3 3-3M3 12h10" stroke="#0a0a0f" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </div>
-            <span className="font-display text-xl font-700 tracking-tight text-paper">VaultTransfer</span>
-          </Link>
+        <div className="max-w-5xl mx-auto px-6 py-5 flex items-center justify-end">
           <div className="flex items-center gap-2 text-xs text-muted font-body">
             <span className="w-2 h-2 rounded-full bg-accent inline-block animate-pulse" />
             {t('secureDownload').replace('🔒 ', '').split('·')[0].trim()}

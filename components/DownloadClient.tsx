@@ -2,7 +2,7 @@
 import ReportButton from './ReportButton'
 
 import { useCallback, useEffect, useState } from 'react'
-import { useTranslations } from 'next-intl'
+import { useTranslations, useLocale } from 'next-intl'
 import { formatBytes, formatExpiry } from '@/lib/utils'
 import { Link } from '@/i18n/routing'
 
@@ -22,6 +22,7 @@ type Status = 'loading' | 'needs-password' | 'ready' | 'error' | 'expired'
 
 export default function DownloadClient({ token }: { token: string }) {
   const t = useTranslations('download')
+  const locale = useLocale()
   const [status, setStatus] = useState<Status>('loading')
   const [transfer, setTransfer] = useState<TransferInfo | null>(null)
   const [error, setError] = useState<string | null>(null)
@@ -230,7 +231,7 @@ export default function DownloadClient({ token }: { token: string }) {
 
         <div className="flex flex-wrap gap-2">
           <span className="px-2 py-1 bg-accent/10 border border-accent/20 rounded-lg text-xs text-accent font-body">
-            {t('expiresIn', { expiry: formatExpiry(transfer!.expiresAt) })}
+            {t('expiresIn', { expiry: formatExpiry(transfer!.expiresAt, locale) })}
           </span>
           {transfer!.maxDownloads && (
             <span className="px-2 py-1 bg-surface-2 border border-white/5 rounded-lg text-xs text-muted font-body">

@@ -74,6 +74,7 @@
       "expiry30": "30 dagen",
       "maxDownloads": "Max. aantal downloads (optioneel)",
       "maxDownloadsPlaceholder": "Onbeperkt",
+      "maxDownloadsPro": "Meer dan 5 downloads vereist een Pro-abonnement of hoger.",
       "password": "Beveiligingswachtwoord (optioneel)",
       "message": "Bericht voor de ontvanger",
       "messagePlaceholder": "Voeg een bericht toe...",
@@ -94,6 +95,16 @@
       "maxFiles": "Max {max}-bestanden.",
       "upload": "Fout tijdens het uploaden",
       "transfer": "Fout bij het aanmaken van de overboeking"
+    },
+    "errors": {
+      "ERR_UNAUTHORIZED": "Log in om deze functie te gebruiken.",
+      "ERR_PLAN_REQUIRED": "Voor deze functie is een Pro-abonnement of hoger vereist.",
+      "ERR_TOO_MANY_REQUESTS": "Te veel verzoeken. Probeer het zo meteen opnieuw.",
+      "ERR_NO_FILES_PROVIDED": "Geen bestanden geselecteerd.",
+      "ERR_FILE_TOO_LARGE": "Een of meer bestanden overschrijden de groottelimiet.",
+      "ERR_FILE_NOT_ALLOWED": "Dit bestandstype is niet toegestaan.",
+      "ERR_ANONYMOUS_LIMIT_EXCEEDED": "Je hebt de limiet voor uploads als gast bereikt. Log in om door te gaan.",
+      "ERR_INTERNAL": "Er is een onverwachte fout opgetreden. Probeer het opnieuw."
     }
   },
   "uploadSuccess": {

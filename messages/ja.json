@@ -74,6 +74,7 @@
       "expiry30": "30日間",
       "maxDownloads": "最大ダウンロード数（任意）",
       "maxDownloadsPlaceholder": "無制限",
+      "maxDownloadsPro": "5回を超えるダウンロードにはProプラン以上が必要です。",
       "password": "保護用パスワード（任意）",
       "message": "受信者へのメッセージ",
       "messagePlaceholder": "メッセージを入力してください...",
@@ -94,6 +95,16 @@
       "maxFiles": "Max {max} ファイル。",
       "upload": "アップロード中にエラーが発生しました",
       "transfer": "転送の作成に失敗しました"
+    },
+    "errors": {
+      "ERR_UNAUTHORIZED": "この機能を使用するにはログインしてください。",
+      "ERR_PLAN_REQUIRED": "この機能にはProプラン以上が必要です。",
+      "ERR_TOO_MANY_REQUESTS": "リクエストが多すぎます。少し時間をおいて再度お試しください。",
+      "ERR_NO_FILES_PROVIDED": "ファイルが選択されていません。",
+      "ERR_FILE_TOO_LARGE": "1つ以上のファイルがサイズ制限を超えています。",
+      "ERR_FILE_NOT_ALLOWED": "このファイル形式は許可されていません。",
+      "ERR_ANONYMOUS_LIMIT_EXCEEDED": "ゲストでのアップロード上限に達しました。続けるにはログインしてください。",
+      "ERR_INTERNAL": "予期しないエラーが発生しました。もう一度お試しください。"
     }
   },
   "uploadSuccess": {

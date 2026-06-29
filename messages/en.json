@@ -74,6 +74,7 @@
       "expiry30": "30 days",
       "maxDownloads": "Max downloads (optional)",
       "maxDownloadsPlaceholder": "Unlimited",
+      "maxDownloadsPro": "More than 5 downloads requires a Pro plan or higher",
       "password": "Protection password (optional)",
       "message": "Message for recipient",
       "messagePlaceholder": "Add a message...",
@@ -94,6 +95,16 @@
       "maxFiles": "Max {max} files.",
       "upload": "Error during upload",
       "transfer": "Error creating transfer"
+    },
+    "errors": {
+      "ERR_UNAUTHORIZED": "Sign in to use this feature.",
+      "ERR_PLAN_REQUIRED": "This feature requires a Pro plan or higher.",
+      "ERR_TOO_MANY_REQUESTS": "Too many requests. Please try again in a moment.",
+      "ERR_NO_FILES_PROVIDED": "No files selected.",
+      "ERR_FILE_TOO_LARGE": "One or more files exceed the size limit.",
+      "ERR_FILE_NOT_ALLOWED": "This file type isn't allowed.",
+      "ERR_ANONYMOUS_LIMIT_EXCEEDED": "You've reached the limit for guest uploads. Sign in to continue.",
+      "ERR_INTERNAL": "An unexpected error occurred. Please try again."
     }
   },
   "uploadSuccess": {

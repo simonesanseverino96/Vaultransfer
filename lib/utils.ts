@@ -1,4 +1,9 @@
 import { formatDistanceToNow } from 'date-fns'
+import { it, de, fr, es, pt, ja, zhCN, ar } from 'date-fns/locale'
+
+const dateFnsLocales: Record<string, Locale> = {
+  it, de, fr, es, pt, ja, zh: zhCN, ar,
+}
 
 export function formatBytes(bytes: number, decimals = 2): string {
   if (bytes === 0) return '0 B'
@@ -9,14 +14,14 @@ export function formatBytes(bytes: number, decimals = 2): string {
   return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i]
 }
 
-export function formatExpiry(expiresAt: string): string {
+export function formatExpiry(expiresAt: string, locale = 'en'): string {
   const diff = new Date(expiresAt).getTime() - Date.now()
   if (diff <= 0) return 'Expired'
   if (diff <= 24 * 3600 * 1000) {
     const hours = Math.floor(diff / 3600000)
-    return `Expires in ${hours} hour${hours === 1 ? '' : 's'}`
+    return `${hours}h`
   }
-  return 'Expires ' + formatDistanceToNow(new Date(expiresAt), { addSuffix: true })
+  return formatDistanceToNow(new Date(expiresAt), { addSuffix: true, locale: dateFnsLocales[locale] })
 }
 
 export function clsx(...classes: (string | boolean | undefined | null)[]): string {

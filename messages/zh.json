@@ -74,6 +74,7 @@
       "expiry30": "30 天",
       "maxDownloads": "最大下载量（可选）",
       "maxDownloadsPlaceholder": "无限制",
+      "maxDownloadsPro": "超过 5 次下载需要 Pro 或更高级别的套餐。",
       "password": "保护密码（可选）",
       "message": "给收件人的信息",
       "messagePlaceholder": "添加信息...",
@@ -94,6 +95,16 @@
       "maxFiles": "最大{max}文件。",
       "upload": "上传过程中出现错误",
       "transfer": "创建传输时出错"
+    },
+    "errors": {
+      "ERR_UNAUTHORIZED": "请登录后使用此功能。",
+      "ERR_PLAN_REQUIRED": "此功能需要 Pro 或更高级别的套餐。",
+      "ERR_TOO_MANY_REQUESTS": "请求过于频繁，请稍后再试。",
+      "ERR_NO_FILES_PROVIDED": "未选择文件。",
+      "ERR_FILE_TOO_LARGE": "一个或多个文件超过大小限制。",
+      "ERR_FILE_NOT_ALLOWED": "不允许此文件类型。",
+      "ERR_ANONYMOUS_LIMIT_EXCEEDED": "您已达到访客上传上限。请登录后继续。",
+      "ERR_INTERNAL": "发生意外错误，请重试。"
     }
   },
   "uploadSuccess": {

@@ -74,6 +74,7 @@
       "expiry30": "30 Tage",
       "maxDownloads": "Max downloads (optional)",
       "maxDownloadsPlaceholder": "Unbegrenzt",
+      "maxDownloadsPro": "Mehr als 5 Downloads erfordern einen Pro-Tarif oder höher.",
       "password": "Sicherheitspasswort (optional)",
       "message": "Nachricht für den Empfänger",
       "messagePlaceholder": "Eine Nachricht hinzufügen...",
@@ -94,6 +95,16 @@
       "maxFiles": "Max {max}-Dateien.",
       "upload": "Fehler beim Hochladen",
       "transfer": "Fehler beim Erstellen der Überweisung"
+    },
+    "errors": {
+      "ERR_UNAUTHORIZED": "Melde dich an, um diese Funktion zu nutzen.",
+      "ERR_PLAN_REQUIRED": "Diese Funktion erfordert einen Pro-Tarif oder höher.",
+      "ERR_TOO_MANY_REQUESTS": "Zu viele Anfragen. Bitte versuche es gleich noch einmal.",
+      "ERR_NO_FILES_PROVIDED": "Keine Dateien ausgewählt.",
+      "ERR_FILE_TOO_LARGE": "Eine oder mehrere Dateien überschreiten die Größenbeschränkung.",
+      "ERR_FILE_NOT_ALLOWED": "Dieser Dateityp ist nicht zulässig.",
+      "ERR_ANONYMOUS_LIMIT_EXCEEDED": "Du hast das Limit für Uploads als Gast erreicht. Melde dich an, um fortzufahren.",
+      "ERR_INTERNAL": "Ein unerwarteter Fehler ist aufgetreten. Bitte versuche es erneut."
     }
   },
   "uploadSuccess": {

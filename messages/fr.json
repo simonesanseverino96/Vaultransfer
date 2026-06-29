@@ -74,6 +74,7 @@
       "expiry30": "30 jours",
       "maxDownloads": "Nombre maximal de téléchargements (facultatif)",
       "maxDownloadsPlaceholder": "Illimité",
+      "maxDownloadsPro": "Plus de 5 téléchargements nécessitent un forfait Pro ou supérieur.",
       "password": "Mot de passe de protection (facultatif)",
       "message": "Message pour le destinataire",
       "messagePlaceholder": "Ajoute un message...",
@@ -94,6 +95,16 @@
       "maxFiles": "Fichiers Max {max}.",
       "upload": "Erreur lors du téléchargement",
       "transfer": "Erreur lors de la création du transfert"
+    },
+    "errors": {
+      "ERR_UNAUTHORIZED": "Connectez-vous pour utiliser cette fonctionnalité.",
+      "ERR_PLAN_REQUIRED": "Cette fonctionnalité nécessite un forfait Pro ou supérieur.",
+      "ERR_TOO_MANY_REQUESTS": "Trop de requêtes. Veuillez réessayer dans un instant.",
+      "ERR_NO_FILES_PROVIDED": "Aucun fichier sélectionné.",
+      "ERR_FILE_TOO_LARGE": "Un ou plusieurs fichiers dépassent la limite de taille.",
+      "ERR_FILE_NOT_ALLOWED": "Ce type de fichier n'est pas autorisé.",
+      "ERR_ANONYMOUS_LIMIT_EXCEEDED": "Vous avez atteint la limite d'envois en tant qu'invité. Connectez-vous pour continuer.",
+      "ERR_INTERNAL": "Une erreur inattendue s'est produite. Veuillez réessayer."
     }
   },
   "uploadSuccess": {

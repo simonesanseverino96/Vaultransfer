@@ -74,6 +74,7 @@
       "expiry30": "30 dni",
       "maxDownloads": "Maksymalna liczba pobrań (opcjonalnie)",
       "maxDownloadsPlaceholder": "Bez ograniczeń",
+      "maxDownloadsPro": "Więcej niż 5 pobrań wymaga planu Pro lub wyższego.",
       "password": "Hasło zabezpieczające (opcjonalnie)",
       "message": "Wiadomość dla odbiorcy",
       "messagePlaceholder": "Dodaj wiadomość...",
@@ -94,6 +95,16 @@
       "maxFiles": "Pliki Max {max}.",
       "upload": "Błąd podczas przesyłania",
       "transfer": "Błąd podczas tworzenia przelewu"
+    },
+    "errors": {
+      "ERR_UNAUTHORIZED": "Zaloguj się, aby korzystać z tej funkcji.",
+      "ERR_PLAN_REQUIRED": "Ta funkcja wymaga planu Pro lub wyższego.",
+      "ERR_TOO_MANY_REQUESTS": "Zbyt wiele żądań. Spróbuj ponownie za chwilę.",
+      "ERR_NO_FILES_PROVIDED": "Nie wybrano plików.",
+      "ERR_FILE_TOO_LARGE": "Jeden lub więcej plików przekracza limit rozmiaru.",
+      "ERR_FILE_NOT_ALLOWED": "Ten typ pliku jest niedozwolony.",
+      "ERR_ANONYMOUS_LIMIT_EXCEEDED": "Osiągnięto limit przesyłania jako gość. Zaloguj się, aby kontynuować.",
+      "ERR_INTERNAL": "Wystąpił nieoczekiwany błąd. Spróbuj ponownie."
     }
   },
   "uploadSuccess": {

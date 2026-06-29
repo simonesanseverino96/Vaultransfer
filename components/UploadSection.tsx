@@ -96,7 +96,7 @@ export default function UploadSection() {
   const t = useTranslations('upload')
   const [files, setFiles] = useState<FileWithProgress[]>([])
   const [config, setConfig] = useState<UploadConfig>({
-    expiry: '7', maxDownloads: null, password: '', message: '', senderEmail: '',
+    expiry: '7', maxDownloads: 5, password: '', message: '', senderEmail: '',
   })
   const [showOptions, setShowOptions] = useState(false)
   const [isUploading, setIsUploading] = useState(false)
@@ -402,6 +402,9 @@ export default function UploadSection() {
                   value={config.maxDownloads ?? ''}
                   onChange={e => setConfig(c => ({ ...c, maxDownloads: e.target.value ? parseInt(e.target.value) : null }))}
                   className="w-full bg-gray-50 dark:bg-surface-2 border border-gray-200 dark:border-white/5 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-paper placeholder-gray-400 dark:placeholder-muted font-body focus:outline-none focus:border-accent/50 transition-colors" />
+                {(config.maxDownloads === null || config.maxDownloads > 5) && (
+                  <p className="text-xs text-amber-400 mt-1 font-body">⭐ {t('options.maxDownloadsPro')}</p>
+                )}
               </div>
               <div>
                 <label className="text-xs text-muted mb-2 block font-body">{t('options.password')}</label>

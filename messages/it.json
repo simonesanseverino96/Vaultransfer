@@ -74,6 +74,7 @@
       "expiry30": "30 giorni",
       "maxDownloads": "Numero massimo di download (opzionale)",
       "maxDownloadsPlaceholder": "Illimitato",
+      "maxDownloadsPro": "Più di 5 download richiede il piano Pro o superiore",
       "password": "Proteggi con password (opzionale)",
       "message": "Messaggio (opzionale)",
       "messagePlaceholder": "Aggiungi un messaggio...",
@@ -94,6 +95,16 @@
       "maxFiles": "File max {max}.",
       "upload": "Errore durante il caricamento",
       "transfer": "Errore nella creazione del trasferimento"
+    },
+    "errors": {
+      "ERR_UNAUTHORIZED": "Accedi per usare questa funzione.",
+      "ERR_PLAN_REQUIRED": "Questa funzione richiede il piano Pro o superiore.",
+      "ERR_TOO_MANY_REQUESTS": "Troppe richieste. Riprova tra un momento.",
+      "ERR_NO_FILES_PROVIDED": "Nessun file selezionato.",
+      "ERR_FILE_TOO_LARGE": "Uno o più file superano il limite di dimensione.",
+      "ERR_FILE_NOT_ALLOWED": "Questo tipo di file non è consentito.",
+      "ERR_ANONYMOUS_LIMIT_EXCEEDED": "Hai raggiunto il limite di upload come ospite. Accedi per continuare.",
+      "ERR_INTERNAL": "Si è verificato un errore imprevisto. Riprova."
     }
   },
   "uploadSuccess": {
