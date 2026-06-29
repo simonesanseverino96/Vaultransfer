@@ -107,12 +107,12 @@ export default function PricingClient() {
     return monthly.toFixed(2)
   }
 
-  const handleUpgrade = async (key: string, priceId?: string | null, annualPriceId?: string | null) => {
+  const handleUpgrade = async (key: string) => {
     if (key === 'enterprise') {
       window.location.href = 'mailto:enterprise@vaultransfer.com?subject=Enterprise plan inquiry'
       return
     }
-    if (!priceId && !annualPriceId) {
+    if (key === 'free') {
       router.push('/login')
       return
     }
@@ -121,11 +121,10 @@ export default function PricingClient() {
     try {
       const { data: { session } } = await supabase.auth.getSession()
       if (!session) { router.push('/login'); return }
-      const selectedPriceId = isAnnual ? annualPriceId : priceId
       const response = await fetch('/api/stripe/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ priceId: selectedPriceId, userId: session.user.id, accessToken: session.access_token }),
+        body: JSON.stringify({ plan: key, billing: isAnnual ? 'annual' : 'monthly', accessToken: session.access_token }),
       })
       const data = await response.json()
       if (data.url) window.location.href = data.url
@@ -204,8 +203,6 @@ export default function PricingClient() {
       cta: t('plans.free.cta'),
       ctaStyle: 'bg-white/5 hover:bg-white/10 text-white/70 border border-white/10',
       features: Array.from({ length: 5 }, (_, i) => t(`plans.free.feature${i}` as never)),
-      priceId: null as string | null | undefined,
-      annualPriceId: null as string | null | undefined,
     },
     {
       key: 'pro',
@@ -219,8 +216,6 @@ export default function PricingClient() {
       cta: t('plans.pro.cta'),
       ctaStyle: 'bg-violet-600 hover:bg-violet-500 text-white',
       features: Array.from({ length: 6 }, (_, i) => t(`plans.pro.feature${i}` as never)),
-      priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_PRO,
-      annualPriceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_PRO_ANNUAL,
     },
     {
       key: 'business',
@@ -234,8 +229,6 @@ export default function PricingClient() {
       cta: t('plans.business.cta'),
       ctaStyle: 'bg-accent hover:bg-accent-dim text-ink',
       features: Array.from({ length: 6 }, (_, i) => t(`plans.business.feature${i}` as never)),
-      priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_BUSINESS,
-      annualPriceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_BUSINESS_ANNUAL,
     },
     {
       key: 'enterprise',
@@ -249,8 +242,6 @@ export default function PricingClient() {
       cta: t('plans.enterprise.cta'),
       ctaStyle: 'bg-amber-500/15 hover:bg-amber-500/25 text-amber-300 border border-amber-500/20',
       features: Array.from({ length: 6 }, (_, i) => t(`plans.enterprise.feature${i}` as never)),
-      priceId: null as string | null | undefined,
-      annualPriceId: null as string | null | undefined,
     },
   ]
 
@@ -357,7 +348,7 @@ export default function PricingClient() {
 
               {/* CTA */}
               <button
-                onClick={() => handleUpgrade(plan.key, plan.priceId, plan.annualPriceId)}
+                onClick={() => handleUpgrade(plan.key)}
                 disabled={loading === plan.key}
                 className={`w-full py-2.5 rounded-xl text-sm font-display font-600 transition-all mb-6 disabled:opacity-50 disabled:cursor-not-allowed ${plan.ctaStyle}`}
               >

@@ -11,7 +11,8 @@ export interface PlanConfig {
   hasPasswordProtection: boolean
   hasHistory: boolean
   hasApiAccess: boolean
-  stripePriceId: string | null
+  stripePriceIdMonthly: string | null
+  stripePriceIdAnnual: string | null
 }
 
 export const ENTERPRISE_PLANS: PlanType[] = ['enterprise']
@@ -29,7 +30,8 @@ export const PLANS: Record<PlanType, PlanConfig> = {
     hasPasswordProtection: true,
     hasHistory: false,
     hasApiAccess: false,
-    stripePriceId: null,
+    stripePriceIdMonthly: null,
+    stripePriceIdAnnual: null,
   },
   pro: {
     name: 'Pro',
@@ -42,7 +44,8 @@ export const PLANS: Record<PlanType, PlanConfig> = {
     hasPasswordProtection: true,
     hasHistory: true,
     hasApiAccess: false,
-    stripePriceId: process.env.STRIPE_PRICE_PRO ?? null,
+    stripePriceIdMonthly: process.env.STRIPE_PRICE_PRO ?? null,
+    stripePriceIdAnnual: process.env.STRIPE_PRICE_PRO_ANNUAL ?? null,
   },
   business: {
     name: 'Business',
@@ -55,7 +58,8 @@ export const PLANS: Record<PlanType, PlanConfig> = {
     hasPasswordProtection: true,
     hasHistory: true,
     hasApiAccess: true,
-    stripePriceId: process.env.STRIPE_PRICE_BUSINESS ?? null,
+    stripePriceIdMonthly: process.env.STRIPE_PRICE_BUSINESS ?? null,
+    stripePriceIdAnnual: process.env.STRIPE_PRICE_BUSINESS_ANNUAL ?? null,
   },
   enterprise: {
     name: 'Enterprise',
@@ -68,7 +72,8 @@ export const PLANS: Record<PlanType, PlanConfig> = {
     hasPasswordProtection: true,
     hasHistory: true,
     hasApiAccess: true,
-    stripePriceId: null,
+    stripePriceIdMonthly: null,
+    stripePriceIdAnnual: null,
   },
 }
 
