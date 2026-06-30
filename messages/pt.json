@@ -72,6 +72,7 @@
       "expiry1": "24 horas",
       "expiry7": "7 dias",
       "expiry30": "30 dias",
+      "expiry1year": "1 ano",
       "maxDownloads": "Número máximo de downloads (opcional)",
       "maxDownloadsPlaceholder": "Ilimitado",
       "maxDownloadsPro": "Mais de 5 downloads exigem um plano Pro ou superior.",
@@ -289,10 +290,10 @@
       },
       "business": {
         "name": "Negócios",
-        "desc": "Validade ilimitada, acesso à API e segurança avançada.",
+        "desc": "Até 1 ano de validade, acesso à API e segurança avançada.",
         "cta": "Começar um negócio",
         "feature0": "100 GB por transferência",
-        "feature1": "Sem prazo de validade",
+        "feature1": "Até 1 ano de validade",
         "feature2": "Links protegidos por senha",
         "feature3": "API REST pública e chaves",
         "feature4": "Suporte prioritário",
@@ -443,7 +444,7 @@
       },
       "expiry": {
         "q": "Por quanto tempo meus arquivos ficam disponíveis?",
-        "a": "No plano Gratuito, os links expiram após 7 dias. No plano Pro, após 90 dias. No plano Business, os links não têm prazo de validade. Os planos Enterprise também oferecem links sem prazo de validade."
+        "a": "No plano Gratuito, os links expiram após 7 dias. No plano Pro, após 90 dias. No plano Business, os links duram até 1 ano. Os planos Enterprise oferecem durações personalizadas."
       },
       "referral": {
         "q": "Como funciona o programa de indicação?",

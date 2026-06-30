@@ -72,6 +72,7 @@
       "expiry1": "24 horas",
       "expiry7": "7 días",
       "expiry30": "30 días",
+      "expiry1year": "1 año",
       "maxDownloads": "Número máximo de descargas (opcional)",
       "maxDownloadsPlaceholder": "Ilimitado",
       "maxDownloadsPro": "Más de 5 descargas requieren un plan Pro o superior.",
@@ -289,10 +290,10 @@
       },
       "business": {
         "name": "Negocios",
-        "desc": "Sin fecha de caducidad, acceso a la API y seguridad avanzada.",
+        "desc": "Hasta 1 año de caducidad, acceso a la API y seguridad avanzada.",
         "cta": "Iniciar un negocio",
         "feature0": "100 GB por transferencia",
-        "feature1": "Sin fecha de caducidad",
+        "feature1": "Hasta 1 año de caducidad",
         "feature2": "Enlaces protegidos con contraseña",
         "feature3": "API REST pública y claves",
         "feature4": "Asistencia prioritaria",
@@ -443,7 +444,7 @@
       },
       "expiry": {
         "q": "¿Durante cuánto tiempo estarán disponibles mis archivos?",
-        "a": "Con el plan Free, los enlaces caducan a los 7 días. Con el plan Pro, a los 90 días. Con el plan Business, los enlaces no tienen fecha de caducidad. Los planes Enterprise también admiten enlaces sin fecha de caducidad."
+        "a": "Con el plan Free, los enlaces caducan a los 7 días. Con el plan Pro, a los 90 días. Con el plan Business, los enlaces duran hasta 1 año. Los planes Enterprise admiten duraciones personalizadas."
       },
       "referral": {
         "q": "¿Cómo funciona el programa de recomendaciones?",

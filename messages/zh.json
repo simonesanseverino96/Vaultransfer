@@ -72,6 +72,7 @@
       "expiry1": "24 小时",
       "expiry7": "7 天",
       "expiry30": "30 天",
+      "expiry1year": "1年",
       "maxDownloads": "最大下载量（可选）",
       "maxDownloadsPlaceholder": "无限制",
       "maxDownloadsPro": "超过 5 次下载需要 Pro 或更高级别的套餐。",
@@ -289,10 +290,10 @@
       },
       "business": {
         "name": "Business",
-        "desc": "无限期限、API访问和高级安全。",
+        "desc": "最长1年有效期、API访问和高级安全。",
         "cta": "开始使用 Business",
         "feature0": "每次传输 100 GB",
-        "feature1": "无过期限制",
+        "feature1": "最长1年有效期",
         "feature2": "密码保护链接",
         "feature3": "公共REST API及密钥",
         "feature4": "优先支持",
@@ -443,7 +444,7 @@
       },
       "expiry": {
         "q": "我的文件可使用多长时间？",
-        "a": "使用 Free 计划，链接 7 天后失效。使用 Pro 计划，链接在 90 天后失效。使用 Business 计划，链接没有到期限制。Enterprise 计划同样支持无过期链接。"
+        "a": "使用 Free 计划，链接 7 天后失效。使用 Pro 计划，链接在 90 天后失效。使用 Business 计划，链接有效期最长1年。Enterprise 计划支持自定义有效期。"
       },
       "referral": {
         "q": "推荐系统是如何工作的？",

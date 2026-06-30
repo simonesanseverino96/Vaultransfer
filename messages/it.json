@@ -72,6 +72,7 @@
       "expiry1": "24 ore",
       "expiry7": "7 giorni",
       "expiry30": "30 giorni",
+      "expiry1year": "1 anno",
       "maxDownloads": "Numero massimo di download (opzionale)",
       "maxDownloadsPlaceholder": "Illimitato",
       "maxDownloadsPro": "Più di 5 download richiede il piano Pro o superiore",
@@ -289,10 +290,10 @@
       },
       "business": {
         "name": "Business",
-        "desc": "Scadenza illimitata, accesso API e sicurezza avanzata.",
+        "desc": "Scadenza fino a 1 anno, accesso API e sicurezza avanzata.",
         "cta": "Passa a Business",
         "feature0": "100 GB per trasferimento",
-        "feature1": "Nessun limite di scadenza",
+        "feature1": "Scadenza fino a 1 anno",
         "feature2": "Link protetti da password",
         "feature3": "REST API pubblica e chiavi",
         "feature4": "Supporto prioritario",
@@ -443,7 +444,7 @@
       },
       "expiry": {
         "q": "Per quanto tempo sono disponibili i miei file?",
-        "a": "Con il piano Free i link scadono dopo 7 giorni. Con Pro dopo 90 giorni. Con Business i link non hanno limite di scadenza. I piani Enterprise supportano anch'essi link senza scadenza."
+        "a": "Con il piano Free i link scadono dopo 7 giorni. Con Pro dopo 90 giorni. Con Business i link durano fino a 1 anno. I piani Enterprise supportano durate estese o personalizzate."
       },
       "referral": {
         "q": "Come funziona il programma di referral?",

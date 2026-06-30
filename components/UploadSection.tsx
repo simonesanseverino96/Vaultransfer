@@ -104,7 +104,7 @@ export default function UploadSection() {
   const [error, setError] = useState<string | null>(null)
   const startTimeRef = useRef<Record<string, number>>({})
   const [userPlan, setUserPlan] = useState<string>('free')
-  const [customExpiryWarning, setCustomExpiryWarning] = useState<string | null>(null)
+  const [showExpiryUpgrade, setShowExpiryUpgrade] = useState<'pro' | 'business' | null>(null)
   const [showDownloadUpgrade, setShowDownloadUpgrade] = useState(false)
 
   useEffect(() => {
@@ -117,19 +117,6 @@ export default function UploadSection() {
       })
       .catch(() => {})
   }, [])
-
-  const handleExpiryChange = (val: string | number) => {
-    const numVal = typeof val === 'string' ? parseInt(val) : val;
-    if (userPlan === 'free' && numVal > 7) {
-      setCustomExpiryWarning(t('options.expiryWarningFree'));
-      setConfig(c => ({ ...c, expiry: '7' }));
-    } else {
-      setCustomExpiryWarning(null);
-      const maxAllowed = (userPlan === 'pro' || userPlan === 'business') ? 90 : 7;
-      const finalVal = Math.min(numVal || 1, maxAllowed);
-      setConfig(c => ({ ...c, expiry: finalVal.toString() }));
-    }
-  }
 
   const onDrop = useCallback((accepted: File[], rejected: any[]) => {
     if (rejected.length > 0) setError(t('error.tooLarge', { limit: formatBytes(MAX_SIZE) }))
@@ -377,24 +364,48 @@ export default function UploadSection() {
             <div className="mt-3 bg-white dark:bg-surface border border-gray-100 dark:border-white/5 rounded-xl p-5 space-y-4 animate-fade-up">
               <div>
                 <label className="text-xs text-muted mb-2 block font-body">{t('options.expiry')}</label>
-                <div className="flex gap-2 mb-2 flex-wrap">
-                  {(['1', '3', '7', '14', '30'] as const).map(d => (
-                    <button key={d} onClick={() => handleExpiryChange(d)}
-                      className={`flex-1 py-2 rounded-lg text-sm font-body transition-all ${config.expiry === d ? 'bg-accent text-ink font-500' : 'bg-surface-2 text-muted hover:text-paper border border-white/5'}`}>
-                      {d === '1' ? t('options.expiry1') : d === '7' ? t('options.expiry7') : d === '30' ? t('options.expiry30') : t('options.expiryDays', { count: d })}
-                    </button>
-                  ))}
+                <div className="flex gap-2 flex-wrap">
+                  {([
+                    { value: '1',   label: t('options.expiry1'),                     gate: null       },
+                    { value: '3',   label: t('options.expiryDays', { count: '3' }),  gate: null       },
+                    { value: '7',   label: t('options.expiry7'),                     gate: null       },
+                    { value: '30',  label: t('options.expiry30'),                    gate: 'pro'      },
+                    { value: '90',  label: t('options.expiryDays', { count: '90' }), gate: 'pro'      },
+                    { value: '365', label: t('options.expiry1year'),                 gate: 'business' },
+                  ] as { value: string; label: string; gate: 'pro' | 'business' | null }[]).map(({ value, label, gate }) => {
+                    const isPro      = ['pro', 'business', 'enterprise'].includes(userPlan)
+                    const isBusiness = ['business', 'enterprise'].includes(userPlan)
+                    const isGated    = (gate === 'pro' && !isPro) || (gate === 'business' && !isBusiness)
+                    const isSelected = config.expiry === value
+                    return (
+                      <button
+                        key={value}
+                        onClick={() => {
+                          if (isGated) {
+                            setShowExpiryUpgrade(gate)
+                          } else {
+                            setShowExpiryUpgrade(null)
+                            setConfig(c => ({ ...c, expiry: value }))
+                          }
+                        }}
+                        className={`flex-1 py-2 rounded-lg text-sm font-body transition-all flex items-center justify-center gap-1 ${
+                          isSelected
+                            ? 'bg-accent text-ink font-500'
+                            : 'bg-surface-2 text-muted hover:text-paper border border-white/5'
+                        }`}
+                      >
+                        {label}
+                        {isGated && (
+                          <span className="inline-flex items-center text-[9px] font-display font-700 bg-amber-400/20 text-amber-400 rounded px-1 ml-0.5">
+                            {gate === 'business' ? 'Business' : 'Pro'}
+                          </span>
+                        )}
+                      </button>
+                    )
+                  })}
                 </div>
-                {(userPlan === 'pro' || userPlan === 'business') && (
-                  <div className="flex items-center gap-2">
-                    <input type="number" min="1" max="90" placeholder={t('options.expiryCustomPlaceholder')}
-                      value={config.expiry}
-                      onChange={e => handleExpiryChange(e.target.value)}
-                      className="w-full bg-gray-50 dark:bg-surface-2 border border-gray-200 dark:border-white/5 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-paper placeholder-gray-400 dark:placeholder-muted font-body focus:outline-none focus:border-accent/50 transition-colors" />
-                  </div>
-                )}
-                {customExpiryWarning && (
-                  <p className="text-xs text-red-400 mt-1 font-body">{customExpiryWarning}</p>
+                {showExpiryUpgrade && (
+                  <p className="text-xs text-amber-400 mt-1 font-body">{t('options.expiryWarningFree')}</p>
                 )}
               </div>
               <div>

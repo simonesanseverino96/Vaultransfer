@@ -54,8 +54,10 @@ export async function finalizeTransfer(options: FinalizeTransferOptions) {
     const { data: profile } = await supabase.from('profiles').select('plan').eq('id', userId).single()
     if (profile?.plan === 'pro') {
       maxDaysExpiry = 90
-    } else if (profile?.plan === 'business' || profile?.plan === 'enterprise') {
-      maxDaysExpiry = null
+    } else if (profile?.plan === 'business') {
+      maxDaysExpiry = 365
+    } else if (profile?.plan === 'enterprise') {
+      maxDaysExpiry = null  // nessun cap server: enterprise accetta qualsiasi valore dal client
     }
   }
 

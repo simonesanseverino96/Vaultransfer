@@ -72,6 +72,7 @@
       "expiry1": "24 uur",
       "expiry7": "7 dagen",
       "expiry30": "30 dagen",
+      "expiry1year": "1 jaar",
       "maxDownloads": "Max. aantal downloads (optioneel)",
       "maxDownloadsPlaceholder": "Onbeperkt",
       "maxDownloadsPro": "Meer dan 5 downloads vereist een Pro-abonnement of hoger.",
@@ -289,10 +290,10 @@
       },
       "business": {
         "name": "Zakelijk",
-        "desc": "Onbeperkte geldigheidsduur, API-toegang en geavanceerde beveiliging.",
+        "desc": "Tot 1 jaar geldigheidsduur, API-toegang en geavanceerde beveiliging.",
         "cta": "Een bedrijf starten",
         "feature0": "100 GB per overdracht",
-        "feature1": "Geen vervaldatum",
+        "feature1": "Tot 1 jaar geldigheid",
         "feature2": "Met een wachtwoord beveiligde links",
         "feature3": "Openbare REST API & sleutels",
         "feature4": "Prioritaire ondersteuning",
@@ -443,7 +444,7 @@
       },
       "expiry": {
         "q": "Hoe lang blijven mijn bestanden beschikbaar?",
-        "a": "Bij het Free-abonnement vervallen links na 7 dagen. Bij Pro na 90 dagen. Bij Business is er geen vervaldatumbeperking. Enterprise-abonnementen bieden ook links zonder vervaldatum."
+        "a": "Bij het Free-abonnement vervallen links na 7 dagen. Bij Pro na 90 dagen. Bij Business blijven links tot 1 jaar actief. Enterprise-abonnementen bieden aangepaste looptijden."
       },
       "referral": {
         "q": "Hoe werkt het aanbevelingsprogramma?",

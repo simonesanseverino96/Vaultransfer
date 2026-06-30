@@ -72,6 +72,7 @@
       "expiry1": "24 godziny",
       "expiry7": "7 dni",
       "expiry30": "30 dni",
+      "expiry1year": "1 rok",
       "maxDownloads": "Maksymalna liczba pobrań (opcjonalnie)",
       "maxDownloadsPlaceholder": "Bez ograniczeń",
       "maxDownloadsPro": "Więcej niż 5 pobrań wymaga planu Pro lub wyższego.",
@@ -289,10 +290,10 @@
       },
       "business": {
         "name": "Biznes",
-        "desc": "Bezterminowa ważność, dostęp do API i zaawansowane zabezpieczenia.",
+        "desc": "Ważność do 1 roku, dostęp do API i zaawansowane zabezpieczenia.",
         "cta": "Rozpocznij działalność",
         "feature0": "100 GB na transfer",
-        "feature1": "Bez terminu ważności",
+        "feature1": "Ważność do 1 roku",
         "feature2": "Linki chronione hasłem",
         "feature3": "Publiczny interfejs API REST i klucze",
         "feature4": "Wsparcie priorytetowe",
@@ -443,7 +444,7 @@
       },
       "expiry": {
         "q": "Jak długo moje pliki będą dostępne?",
-        "a": "W planie Free linki tracą ważność po 7 dniach. W planie Pro – po 90 dniach. W planie Business nie ma limitu ważności. Plany Enterprise obsługują również linki bezterminowe."
+        "a": "W planie Free linki tracą ważność po 7 dniach. W planie Pro – po 90 dniach. W planie Business linki są ważne do 1 roku. Plany Enterprise obsługują niestandardowe okresy ważności."
       },
       "referral": {
         "q": "Jak działa program poleceń?",

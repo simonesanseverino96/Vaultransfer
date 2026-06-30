@@ -72,6 +72,7 @@
       "expiry1": "24 hours",
       "expiry7": "7 days",
       "expiry30": "30 days",
+      "expiry1year": "1 year",
       "maxDownloads": "Max downloads (optional)",
       "maxDownloadsPlaceholder": "Unlimited",
       "maxDownloadsPro": "More than 5 downloads requires a Pro plan or higher",
@@ -289,10 +290,10 @@
       },
       "business": {
         "name": "Business",
-        "desc": "Unlimited expiry, API access, and advanced security.",
+        "desc": "Up to 1 year expiry, API access, and advanced security.",
         "cta": "Start Business",
         "feature0": "100 GB per transfer",
-        "feature1": "No expiry limit",
+        "feature1": "Up to 1 year expiry",
         "feature2": "Password-protected links",
         "feature3": "Public REST API & keys",
         "feature4": "Priority support",
@@ -443,7 +444,7 @@
       },
       "expiry": {
         "q": "How long are my files available?",
-        "a": "With the Free plan, links expire after 7 days. With Pro after 90 days. With Business, links have no expiry limit. Enterprise plans also support no-expiry links."
+        "a": "With the Free plan, links expire after 7 days. With Pro after 90 days. With Business, links last up to 1 year. Enterprise plans support extended or custom durations."
       },
       "referral": {
         "q": "How does the referral program work?",

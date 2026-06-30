@@ -5,7 +5,7 @@ export interface PlanConfig {
   price: number // EUR/mese
   maxFileSizeMB: number
   maxTotalSizeMB: number
-  maxDaysExpiry: number | null  // null = nessun limite di scadenza
+  maxDaysExpiry: number         // enterprise usa -1 come sentinel per "nessun cap UI"
   maxDownloads: number | null // null = illimitati
   hasAds: boolean
   hasPasswordProtection: boolean
@@ -52,7 +52,7 @@ export const PLANS: Record<PlanType, PlanConfig> = {
     price: 14.99,
     maxFileSizeMB: 102400,      // 100GB
     maxTotalSizeMB: 102400,
-    maxDaysExpiry: null,        // illimitato
+    maxDaysExpiry: 365,
     maxDownloads: null,
     hasAds: false,
     hasPasswordProtection: true,

@@ -72,6 +72,7 @@
       "expiry1": "24 heures",
       "expiry7": "7 jours",
       "expiry30": "30 jours",
+      "expiry1year": "1 an",
       "maxDownloads": "Nombre maximal de téléchargements (facultatif)",
       "maxDownloadsPlaceholder": "Illimité",
       "maxDownloadsPro": "Plus de 5 téléchargements nécessitent un forfait Pro ou supérieur.",
@@ -289,10 +290,10 @@
       },
       "business": {
         "name": "Affaires",
-        "desc": "Durée d'utilisation illimitée, accès à l'API et sécurité avancée.",
+        "desc": "Jusqu'à 1 an de validité, accès à l'API et sécurité avancée.",
         "cta": "Créer une entreprise",
         "feature0": "100 Go par transfert",
-        "feature1": "Pas de date d'expiration",
+        "feature1": "Jusqu'à 1 an de validité",
         "feature2": "Liens protégés par mot de passe",
         "feature3": "API REST publique et clés",
         "feature4": "Assistance prioritaire",
@@ -443,7 +444,7 @@
       },
       "expiry": {
         "q": "Pendant combien de temps mes fichiers restent-ils disponibles ?",
-        "a": "Avec la formule Free, les liens expirent au bout de 7 jours. Avec la formule Pro, au bout de 90 jours. Avec la formule Business, les liens n'ont pas de date d'expiration. Les formules Enterprise proposent également des liens sans date d'expiration."
+        "a": "Avec la formule Free, les liens expirent au bout de 7 jours. Avec la formule Pro, au bout de 90 jours. Avec la formule Business, les liens restent actifs jusqu'à 1 an. Les formules Enterprise proposent des durées personnalisées."
       },
       "referral": {
         "q": "Comment fonctionne le programme de parrainage ?",

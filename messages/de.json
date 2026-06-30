@@ -72,6 +72,7 @@
       "expiry1": "24 Stunden",
       "expiry7": "7 Tage",
       "expiry30": "30 Tage",
+      "expiry1year": "1 Jahr",
       "maxDownloads": "Max downloads (optional)",
       "maxDownloadsPlaceholder": "Unbegrenzt",
       "maxDownloadsPro": "Mehr als 5 Downloads erfordern einen Pro-Tarif oder höher.",
