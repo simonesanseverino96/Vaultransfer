@@ -105,6 +105,7 @@ export default function UploadSection() {
   const startTimeRef = useRef<Record<string, number>>({})
   const [userPlan, setUserPlan] = useState<string>('free')
   const [customExpiryWarning, setCustomExpiryWarning] = useState<string | null>(null)
+  const [showDownloadUpgrade, setShowDownloadUpgrade] = useState(false)
 
   useEffect(() => {
     fetch('/api/auth/me')
@@ -398,12 +399,46 @@ export default function UploadSection() {
               </div>
               <div>
                 <label className="text-xs text-muted mb-2 block font-body">{t('options.maxDownloads')}</label>
-                <input type="number" min="1" max="100" placeholder={t('options.maxDownloadsPlaceholder')}
-                  value={config.maxDownloads ?? ''}
-                  onChange={e => setConfig(c => ({ ...c, maxDownloads: e.target.value ? parseInt(e.target.value) : null }))}
-                  className="w-full bg-gray-50 dark:bg-surface-2 border border-gray-200 dark:border-white/5 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-paper placeholder-gray-400 dark:placeholder-muted font-body focus:outline-none focus:border-accent/50 transition-colors" />
-                {!['pro', 'business', 'enterprise'].includes(userPlan) && (config.maxDownloads === null || config.maxDownloads > 5) && (
-                  <p className="text-xs text-amber-400 mt-1 font-body"> {t('options.maxDownloadsPro')}</p>
+                <div className="flex gap-2 flex-wrap">
+                  {([
+                    { value: 1,    label: '1'  },
+                    { value: 5,    label: '5'  },
+                    { value: 10,   label: '10' },
+                    { value: 25,   label: '25' },
+                    { value: null, label: t('options.maxDownloadsPlaceholder') },
+                  ] as { value: number | null; label: string }[]).map(({ value, label }) => {
+                    const isGated = !['pro', 'business', 'enterprise'].includes(userPlan)
+                      && (value === 10 || value === 25 || value === null)
+                    const isSelected = config.maxDownloads === value
+                    return (
+                      <button
+                        key={String(value)}
+                        onClick={() => {
+                          if (isGated) {
+                            setShowDownloadUpgrade(true)
+                          } else {
+                            setShowDownloadUpgrade(false)
+                            setConfig(c => ({ ...c, maxDownloads: value }))
+                          }
+                        }}
+                        className={`flex-1 py-2 rounded-lg text-sm font-body transition-all flex items-center justify-center gap-1 ${
+                          isSelected
+                            ? 'bg-accent text-ink font-500'
+                            : 'bg-surface-2 text-muted hover:text-paper border border-white/5'
+                        }`}
+                      >
+                        {label}
+                        {isGated && (
+                          <span className="inline-flex items-center text-[9px] font-display font-700 bg-amber-400/20 text-amber-400 rounded px-1 ml-0.5">
+                            Pro
+                          </span>
+                        )}
+                      </button>
+                    )
+                  })}
+                </div>
+                {showDownloadUpgrade && (
+                  <p className="text-xs text-amber-400 mt-1 font-body">{t('options.maxDownloadsPro')}</p>
                 )}
               </div>
               {['pro', 'business', 'enterprise'].includes(userPlan) && (
