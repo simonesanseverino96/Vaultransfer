@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { stripe } from '@/lib/stripe'
+import { stripe, getOrCreateStripeCustomer } from '@/lib/stripe'
 import { supabaseAdmin } from '@/lib/supabase'
 import { PLANS, PlanType } from '@/lib/plans'
 import { checkoutRatelimit } from '@/lib/ratelimit'
@@ -48,25 +48,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'ERR_INVALID_TOKEN', requiresLogin: true }, { status: 401 })
     }
 
-    const { data: profile } = await supabase
-      .from('profiles')
-      .select('stripe_customer_id')
-      .eq('id', user.id)
-      .single()
-
-    let customerId = profile?.stripe_customer_id
-
-    if (!customerId) {
-      const customer = await stripe.customers.create({
-        email: user.email!,
-        metadata: { supabase_user_id: user.id },
-      })
-      customerId = customer.id
-      await supabase
-        .from('profiles')
-        .update({ stripe_customer_id: customerId })
-        .eq('id', user.id)
-    }
+    const customerId = await getOrCreateStripeCustomer(user.id)
 
     const session = await stripe.checkout.sessions.create({
       customer: customerId,

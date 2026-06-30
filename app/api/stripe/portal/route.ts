@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getServerSession } from '@/lib/auth'
 import { supabaseAdmin } from '@/lib/supabase'
-import { getStripeCustomerPortalUrl } from '@/lib/stripe'
+import { getStripeCustomerPortalUrl, ensureStripeCustomer } from '@/lib/stripe'
 
 export async function POST(req: NextRequest) {
   try {
@@ -19,7 +19,8 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'ERR_NO_SUBSCRIPTION' }, { status: 400 })
     }
 
-    const url = await getStripeCustomerPortalUrl(profile.stripe_customer_id)
+    const customerId = await ensureStripeCustomer(user.id, profile.stripe_customer_id)
+    const url = await getStripeCustomerPortalUrl(customerId)
     return NextResponse.json({ url })
   } catch (err) {
     console.error('Portal error:', err)
