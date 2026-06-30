@@ -331,6 +331,7 @@
         "30days": "30 days",
         "90days": "90 days",
         "noLimit": "No limit",
+        "1year": "1 year",
         "unlimited": "Unlimited"
       },
       "sec": {

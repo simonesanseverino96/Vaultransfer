@@ -145,7 +145,7 @@ export default function PricingClient() {
       title: t('comparison.sec.storage'),
       rows: [
         { label: r('maxUpload'),    free: v('2gb'),       pro: v('20gb'),      business: v('100gb'),     enterprise: v('custom') },
-        { label: r('linkExpiry'),   free: v('7days'),     pro: v('90days'),    business: v('noLimit'),   enterprise: v('noLimit') },
+        { label: r('linkExpiry'),   free: v('7days'),     pro: v('90days'),    business: v('1year'),     enterprise: v('custom') },
         { label: r('maxDownloads'), free: '5',            pro: v('unlimited'), business: v('unlimited'), enterprise: v('unlimited') },
         { label: r('simultaneous'), free: v('unlimited'), pro: v('unlimited'), business: v('unlimited'), enterprise: v('unlimited') },
       ],
