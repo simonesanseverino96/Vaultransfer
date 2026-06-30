@@ -271,7 +271,7 @@
         "cta": "Inizia gratis",
         "feature0": "2 GB per trasferimento",
         "feature1": "Link in scadenza dopo 7 giorni",
-        "feature2": "Download illimitati",
+        "feature2": "Max 5 download per link",
         "feature3": "Note di trasferimento",
         "feature4": "Email al primo download"
       },
@@ -280,8 +280,8 @@
         "desc": "Più spazio, link più lunghi e zero pubblicità.",
         "badge": "Più popolare",
         "cta": "Passa a Pro",
-        "feature0": "50 GB per trasferimento",
-        "feature1": "Link in scadenza dopo 30 giorni",
+        "feature0": "20 GB per trasferimento",
+        "feature1": "Link in scadenza dopo 90 giorni",
         "feature2": "Nessuna pubblicità",
         "feature3": "Statistiche di download",
         "feature4": "Date di scadenza personalizzate",
@@ -291,7 +291,7 @@
         "name": "Business",
         "desc": "Scadenza illimitata, accesso API e sicurezza avanzata.",
         "cta": "Passa a Business",
-        "feature0": "200 GB per trasferimento",
+        "feature0": "100 GB per trasferimento",
         "feature1": "Nessun limite di scadenza",
         "feature2": "Link protetti da password",
         "feature3": "REST API pubblica e chiavi",
@@ -321,11 +321,14 @@
       },
       "val": {
         "2gb": "2 GB",
+        "20gb": "20 GB",
         "50gb": "50 GB",
+        "100gb": "100 GB",
         "200gb": "200 GB",
         "custom": "Personalizzato",
         "7days": "7 giorni",
         "30days": "30 giorni",
+        "90days": "90 giorni",
         "noLimit": "Nessun limite",
         "unlimited": "Illimitato"
       },
@@ -436,11 +439,11 @@
       },
       "register": {
         "q": "Devo iscrivermi per utilizzarlo?",
-        "a": "No. Puoi inviare file gratuitamente senza registrazione. Creare un account ti dà accesso a funzioni avanzate come upload fino a 50 GB, statistiche di download, link protetti da password, analisi dei trasferimenti e il programma di referral."
+        "a": "No. Puoi inviare file gratuitamente senza registrazione. Creare un account ti dà accesso a funzioni avanzate come upload fino a 20 GB, statistiche di download, link protetti da password (piano Pro e superiori), analisi dei trasferimenti e il programma di referral."
       },
       "expiry": {
         "q": "Per quanto tempo sono disponibili i miei file?",
-        "a": "Con il piano Free i link scadono dopo 7 giorni. Con Pro dopo 30 giorni. Con Business puoi impostare date di scadenza personalizzate o conservare i file a tempo indeterminato. I piani Enterprise supportano anch'essi link senza scadenza."
+        "a": "Con il piano Free i link scadono dopo 7 giorni. Con Pro dopo 90 giorni. Con Business i link non hanno limite di scadenza. I piani Enterprise supportano anch'essi link senza scadenza."
       },
       "referral": {
         "q": "Come funziona il programma di referral?",
@@ -452,7 +455,7 @@
       },
       "whoCanSee": {
         "q": "Chi può vedere i miei file?",
-        "a": "Solo chi ha il link può accedere ai file. Con il piano Business puoi aggiungere una password per una protezione extra — l'hash è memorizzato con bcrypt e la password non viene mai salvata in chiaro. Il nostro staff non accede mai ai contenuti."
+        "a": "Solo chi ha il link può accedere ai file. Dal piano Pro in su puoi aggiungere una password per una protezione extra — l'hash è memorizzato con bcrypt e la password non viene mai salvata in chiaro. Il nostro staff non accede mai ai contenuti."
       },
       "scanned": {
         "q": "I file vengono analizzati o scansionati?",
@@ -460,7 +463,7 @@
       },
       "passwordTransfer": {
         "q": "Come funzionano i trasferimenti protetti da password?",
-        "a": "Quando crei un trasferimento puoi impostare una password che i destinatari devono inserire prima di accedere o scaricare i file. La password è hashata con bcrypt e non viene mai memorizzata in chiaro. La protezione con password è disponibile nei piani Business ed Enterprise."
+        "a": "Quando crei un trasferimento puoi impostare una password che i destinatari devono inserire prima di accedere o scaricare i file. La password è hashata con bcrypt e non viene mai memorizzata in chiaro. La protezione con password è disponibile nei piani Pro, Business ed Enterprise."
       },
       "payment": {
         "q": "Quali metodi di pagamento accettate?",
@@ -484,7 +487,7 @@
       },
       "maxSize": {
         "q": "Qual è la dimensione massima del trasferimento?",
-        "a": "Piano Free: 2 GB per trasferimento. Piano Pro: 50 GB per trasferimento. Piano Business: 200 GB per trasferimento. Enterprise: limiti personalizzati. Non ci sono limiti al numero di trasferimenti che puoi creare."
+        "a": "Piano Free: 2 GB per trasferimento. Piano Pro: 20 GB per trasferimento. Piano Business: 100 GB per trasferimento. Enterprise: limiti personalizzati. Non ci sono limiti al numero di trasferimenti che puoi creare."
       },
       "formats": {
         "q": "Quali formati di file sono supportati?",

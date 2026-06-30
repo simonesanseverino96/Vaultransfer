@@ -271,7 +271,7 @@
         "cta": "Empieza gratis",
         "feature0": "2 GB por transferencia",
         "feature1": "Los enlaces caducan a los 7 días",
-        "feature2": "Descargas ilimitadas",
+        "feature2": "Máximo 5 descargas por enlace",
         "feature3": "Notas de transferencia",
         "feature4": "Correo electrónico al descargar por primera vez"
       },
@@ -280,8 +280,8 @@
         "desc": "Más espacio, enlaces más largos y sin anuncios.",
         "badge": "Los más populares",
         "cta": "Inicio Pro",
-        "feature0": "50 GB por transferencia",
-        "feature1": "Los enlaces caducan a los 30 días",
+        "feature0": "20 GB por transferencia",
+        "feature1": "Los enlaces caducan a los 90 días",
         "feature2": "Sin anuncios",
         "feature3": "Estadísticas de descargas",
         "feature4": "Fechas de caducidad personalizadas",
@@ -291,7 +291,7 @@
         "name": "Negocios",
         "desc": "Sin fecha de caducidad, acceso a la API y seguridad avanzada.",
         "cta": "Iniciar un negocio",
-        "feature0": "200 GB por transferencia",
+        "feature0": "100 GB por transferencia",
         "feature1": "Sin fecha de caducidad",
         "feature2": "Enlaces protegidos con contraseña",
         "feature3": "API REST pública y claves",
@@ -321,11 +321,14 @@
       },
       "val": {
         "2gb": "2 GB",
+        "20gb": "20 GB",
         "50gb": "50 GB",
-        "200gb": "Doscientos gigabytes",
+        "100gb": "100 GB",
+        "200gb": "200 GB",
         "custom": "Personalizado",
         "7days": "7 días",
         "30days": "30 días",
+        "90days": "90 días",
         "noLimit": "Sin límite",
         "unlimited": "Ilimitado"
       },
@@ -436,11 +439,11 @@
       },
       "register": {
         "q": "¿Tengo que registrarme para usarlo?",
-        "a": "No. Puedes enviar archivos gratis sin necesidad de registrarte. Al crear una cuenta, tendrás acceso a funciones avanzadas como subidas de hasta 50 GB, estadísticas de descargas, enlaces protegidos con contraseña, análisis de transferencias y el programa de recomendaciones."
+        "a": "No. Puedes enviar archivos gratis sin necesidad de registrarte. Al crear una cuenta, tendrás acceso a funciones avanzadas como subidas de hasta 20 GB, estadísticas de descargas, enlaces protegidos con contraseña (plan Pro y superior), análisis de transferencias y el programa de recomendaciones."
       },
       "expiry": {
         "q": "¿Durante cuánto tiempo estarán disponibles mis archivos?",
-        "a": "Con el plan Free, los enlaces caducan a los 7 días. Con el plan Pro, a los 30 días. Con el plan Business, puedes establecer fechas de caducidad personalizadas o conservar los archivos indefinidamente. Los planes Enterprise también admiten enlaces sin fecha de caducidad."
+        "a": "Con el plan Free, los enlaces caducan a los 7 días. Con el plan Pro, a los 90 días. Con el plan Business, los enlaces no tienen fecha de caducidad. Los planes Enterprise también admiten enlaces sin fecha de caducidad."
       },
       "referral": {
         "q": "¿Cómo funciona el programa de recomendaciones?",
@@ -452,7 +455,7 @@
       },
       "whoCanSee": {
         "q": "¿Quién puede ver mis archivos?",
-        "a": "Solo quienes tengan el enlace pueden acceder a los archivos. Con el plan Business puedes añadir una contraseña para mayor seguridad: el hash se almacena con bcrypt y la contraseña nunca se guarda en texto sin cifrar. Nuestro personal nunca accede al contenido."
+        "a": "Solo quienes tengan el enlace pueden acceder a los archivos. A partir del plan Pro puedes añadir una contraseña para mayor seguridad: el hash se almacena con bcrypt y la contraseña nunca se guarda en texto sin cifrar. Nuestro personal nunca accede al contenido."
       },
       "scanned": {
         "q": "¿Se analizan o se escanean los archivos?",
@@ -460,7 +463,7 @@
       },
       "passwordTransfer": {
         "q": "¿Cómo funcionan las transferencias protegidas con contraseña?",
-        "a": "Al crear una transferencia, puedes establecer una contraseña que los destinatarios deberán introducir antes de acceder a los archivos o descargarlos. La contraseña se cifra con bcrypt y nunca se almacena en texto sin cifrar. La protección con contraseña está disponible en los planes Business y Enterprise."
+        "a": "Al crear una transferencia, puedes establecer una contraseña que los destinatarios deberán introducir antes de acceder a los archivos o descargarlos. La contraseña se cifra con bcrypt y nunca se almacena en texto sin cifrar. La protección con contraseña está disponible en los planes Pro, Business y Enterprise."
       },
       "payment": {
         "q": "¿Qué formas de pago aceptáis?",
@@ -484,7 +487,7 @@
       },
       "maxSize": {
         "q": "¿Cuál es el tamaño máximo de los archivos?",
-        "a": "Plan gratuito: 2 GB por transferencia. Plan Pro: 50 GB por transferencia. Plan Business: 200 GB por transferencia. Plan Enterprise: límites personalizados. No hay límite en el número de transferencias que puedes crear."
+        "a": "Plan gratuito: 2 GB por transferencia. Plan Pro: 20 GB por transferencia. Plan Business: 100 GB por transferencia. Plan Enterprise: límites personalizados. No hay límite en el número de transferencias que puedes crear."
       },
       "formats": {
         "q": "¿Qué formatos de archivo son compatibles?",

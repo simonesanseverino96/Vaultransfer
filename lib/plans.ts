@@ -5,7 +5,7 @@ export interface PlanConfig {
   price: number // EUR/mese
   maxFileSizeMB: number
   maxTotalSizeMB: number
-  maxDaysExpiry: number
+  maxDaysExpiry: number | null  // null = nessun limite di scadenza
   maxDownloads: number | null // null = illimitati
   hasAds: boolean
   hasPasswordProtection: boolean
@@ -22,12 +22,12 @@ export const PLANS: Record<PlanType, PlanConfig> = {
   free: {
     name: 'Free',
     price: 0,
-    maxFileSizeMB: 5120,        // 5GB
-    maxTotalSizeMB: 5120,       // 5GB totali per trasferimento
+    maxFileSizeMB: 2048,        // 2GB
+    maxTotalSizeMB: 2048,       // 2GB totali per trasferimento
     maxDaysExpiry: 7,
     maxDownloads: 5,
     hasAds: true,
-    hasPasswordProtection: true,
+    hasPasswordProtection: false,
     hasHistory: false,
     hasApiAccess: false,
     stripePriceIdMonthly: null,
@@ -52,7 +52,7 @@ export const PLANS: Record<PlanType, PlanConfig> = {
     price: 14.99,
     maxFileSizeMB: 102400,      // 100GB
     maxTotalSizeMB: 102400,
-    maxDaysExpiry: 90,
+    maxDaysExpiry: null,        // illimitato
     maxDownloads: null,
     hasAds: false,
     hasPasswordProtection: true,

@@ -406,13 +406,15 @@ export default function UploadSection() {
                   <p className="text-xs text-amber-400 mt-1 font-body">⭐ {t('options.maxDownloadsPro')}</p>
                 )}
               </div>
-              <div>
-                <label className="text-xs text-muted mb-2 block font-body">{t('options.password')}</label>
-                <input type="password" placeholder="••••••••" value={config.password}
-                  onChange={e => setConfig(c => ({ ...c, password: e.target.value }))}
-                  className="w-full bg-gray-50 dark:bg-surface-2 border border-gray-200 dark:border-white/5 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-paper placeholder-gray-400 dark:placeholder-muted font-body focus:outline-none focus:border-accent/50 transition-colors" />
-                {config.password && <PasswordStrength password={config.password} />}
-              </div>
+              {['pro', 'business', 'enterprise'].includes(userPlan) && (
+                <div>
+                  <label className="text-xs text-muted mb-2 block font-body">{t('options.password')}</label>
+                  <input type="password" placeholder="••••••••" value={config.password}
+                    onChange={e => setConfig(c => ({ ...c, password: e.target.value }))}
+                    className="w-full bg-gray-50 dark:bg-surface-2 border border-gray-200 dark:border-white/5 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-paper placeholder-gray-400 dark:placeholder-muted font-body focus:outline-none focus:border-accent/50 transition-colors" />
+                  {config.password && <PasswordStrength password={config.password} />}
+                </div>
+              )}
               <div>
                 <label className="text-xs text-muted mb-2 block font-body">{t('options.message')}</label>
                 <textarea placeholder={t('options.messagePlaceholder')} value={config.message} rows={2}

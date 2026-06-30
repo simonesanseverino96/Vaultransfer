@@ -271,7 +271,7 @@
         "cta": "Commence gratuitement",
         "feature0": "2 Go par transfert",
         "feature1": "Les liens expirent au bout de 7 jours",
-        "feature2": "Téléchargements illimités",
+        "feature2": "Max 5 téléchargements par lien",
         "feature3": "Notes de transfert",
         "feature4": "E-mail lors du premier téléchargement"
       },
@@ -280,8 +280,8 @@
         "desc": "Plus d'espace, des liens plus longs et aucune pub.",
         "badge": "Les plus populaires",
         "cta": "Accueil Pro",
-        "feature0": "50 Go par transfert",
-        "feature1": "Les liens expirent au bout de 30 jours",
+        "feature0": "20 Go par transfert",
+        "feature1": "Les liens expirent au bout de 90 jours",
         "feature2": "Pas de pub",
         "feature3": "Statistiques de téléchargement",
         "feature4": "Dates d'expiration personnalisées",
@@ -291,7 +291,7 @@
         "name": "Affaires",
         "desc": "Durée d'utilisation illimitée, accès à l'API et sécurité avancée.",
         "cta": "Créer une entreprise",
-        "feature0": "200 Go par transfert",
+        "feature0": "100 Go par transfert",
         "feature1": "Pas de date d'expiration",
         "feature2": "Liens protégés par mot de passe",
         "feature3": "API REST publique et clés",
@@ -321,11 +321,14 @@
       },
       "val": {
         "2gb": "2 Go",
+        "20gb": "20 Go",
         "50gb": "50 Go",
-        "200gb": "Deux cents gigaoctets",
+        "100gb": "100 Go",
+        "200gb": "200 Go",
         "custom": "Personnalisé",
         "7days": "7 jours",
         "30days": "30 jours",
+        "90days": "90 jours",
         "noLimit": "Sans limite",
         "unlimited": "Illimité"
       },
@@ -436,11 +439,11 @@
       },
       "register": {
         "q": "Faut-il s'inscrire pour l'utiliser ?",
-        "a": "Non. Tu peux envoyer des fichiers gratuitement sans t'inscrire. En créant un compte, tu auras accès à des fonctionnalités avancées telles que des téléchargements pouvant atteindre 50 Go, des statistiques de téléchargement, des liens protégés par mot de passe, des analyses de transfert et le programme de parrainage."
+        "a": "Non. Tu peux envoyer des fichiers gratuitement sans t'inscrire. En créant un compte, tu auras accès à des fonctionnalités avancées telles que des téléchargements pouvant atteindre 20 Go, des statistiques de téléchargement, des liens protégés par mot de passe (formule Pro et supérieure), des analyses de transfert et le programme de parrainage."
       },
       "expiry": {
         "q": "Pendant combien de temps mes fichiers restent-ils disponibles ?",
-        "a": "Avec la formule Free, les liens expirent au bout de 7 jours. Avec la formule Pro, au bout de 30 jours. Avec la formule Business, tu peux définir des dates d'expiration personnalisées ou conserver tes fichiers indéfiniment. Les formules Enterprise proposent également des liens sans date d'expiration."
+        "a": "Avec la formule Free, les liens expirent au bout de 7 jours. Avec la formule Pro, au bout de 90 jours. Avec la formule Business, les liens n'ont pas de date d'expiration. Les formules Enterprise proposent également des liens sans date d'expiration."
       },
       "referral": {
         "q": "Comment fonctionne le programme de parrainage ?",
@@ -452,7 +455,7 @@
       },
       "whoCanSee": {
         "q": "Qui peut voir mes fichiers ?",
-        "a": "Seules les personnes disposant du lien peuvent accéder aux fichiers. Avec la formule Business, tu peux ajouter un mot de passe pour plus de sécurité : le hachage est généré à l'aide de bcrypt et le mot de passe n'est jamais enregistré en clair. Notre équipe n'accède jamais au contenu."
+        "a": "Seules les personnes disposant du lien peuvent accéder aux fichiers. À partir de la formule Pro, tu peux ajouter un mot de passe pour plus de sécurité : le hachage est généré à l'aide de bcrypt et le mot de passe n'est jamais enregistré en clair. Notre équipe n'accède jamais au contenu."
       },
       "scanned": {
         "q": "Est-ce que les fichiers sont analysés ou scannés ?",
@@ -460,7 +463,7 @@
       },
       "passwordTransfer": {
         "q": "Comment fonctionnent les transferts protégés par mot de passe ?",
-        "a": "Lorsque tu crées un transfert, tu peux définir un mot de passe que les destinataires devront saisir avant de pouvoir accéder aux fichiers ou les télécharger. Le mot de passe est haché à l'aide de bcrypt et n'est jamais stocké en clair. La protection par mot de passe est disponible dans les formules Business et Enterprise."
+        "a": "Lorsque tu crées un transfert, tu peux définir un mot de passe que les destinataires devront saisir avant de pouvoir accéder aux fichiers ou les télécharger. Le mot de passe est haché à l'aide de bcrypt et n'est jamais stocké en clair. La protection par mot de passe est disponible dans les formules Pro, Business et Enterprise."
       },
       "payment": {
         "q": "Quels moyens de paiement acceptez-vous ?",
@@ -484,7 +487,7 @@
       },
       "maxSize": {
         "q": "Quelle est la taille maximale des fichiers ?",
-        "a": "Formule gratuite : 2 Go par transfert. Formule Pro : 50 Go par transfert. Formule Business : 200 Go par transfert. Formule Entreprise : limites personnalisées. Il n'y a aucune limite quant au nombre de transferts que tu peux créer."
+        "a": "Formule gratuite : 2 Go par transfert. Formule Pro : 20 Go par transfert. Formule Business : 100 Go par transfert. Formule Entreprise : limites personnalisées. Il n'y a aucune limite quant au nombre de transferts que tu peux créer."
       },
       "formats": {
         "q": "Quels sont les formats de fichiers pris en charge ?",

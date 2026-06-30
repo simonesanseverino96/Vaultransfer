@@ -166,7 +166,7 @@
     "copied": "✓ Kopiert",
     "copy": "Kopieren",
     "saved": "Ich habe den Schlüssel gespeichert, schließen →",
-    "placeholder": "Schlüsselname (z. B. „Produktion“)",
+    "placeholder": "Schlüsselname (z. B. \"Produktion\")",
     "create": "+ Schlüssel erstellen",
     "creating": "...",
     "neverUsed": "Nie benutzt",
@@ -271,7 +271,7 @@
         "cta": "Kostenlos loslegen",
         "feature0": "2 GB pro Übertragung",
         "feature1": "Links verfallen nach 7 Tagen",
-        "feature2": "Unbegrenzte Downloads",
+        "feature2": "Max. 5 Downloads pro Link",
         "feature3": "Überweisungshinweise",
         "feature4": "E-Mail beim ersten Download"
       },
@@ -280,8 +280,8 @@
         "desc": "Mehr Platz, längere Links und keine Werbung.",
         "badge": "Am beliebtesten",
         "cta": "Start Pro",
-        "feature0": "50 GB pro Übertragung",
-        "feature1": "Links verfallen nach 30 Tagen",
+        "feature0": "20 GB pro Übertragung",
+        "feature1": "Links verfallen nach 90 Tagen",
         "feature2": "Keine Werbung",
         "feature3": "Download-Statistiken",
         "feature4": "Benutzerdefinierte Ablaufdaten",
@@ -291,7 +291,7 @@
         "name": "Wirtschaft",
         "desc": "Unbegrenzte Gültigkeitsdauer, API-Zugriff und erweiterte Sicherheitsfunktionen.",
         "cta": "Ein Unternehmen gründen",
-        "feature0": "200 GB pro Übertragung",
+        "feature0": "100 GB pro Übertragung",
         "feature1": "Keine Gültigkeitsdauer",
         "feature2": "Passwortgeschützte Links",
         "feature3": "Öffentliche REST-API & Schlüssel",
@@ -321,11 +321,14 @@
       },
       "val": {
         "2gb": "2 GB",
+        "20gb": "20 GB",
         "50gb": "50 GB",
-        "200gb": "Zweihundert Gigabyte",
+        "100gb": "100 GB",
+        "200gb": "200 GB",
         "custom": "Benutzerdefiniert",
         "7days": "7 Tage",
         "30days": "30 Tage",
+        "90days": "90 Tage",
         "noLimit": "Keine Begrenzung",
         "unlimited": "Unbegrenzt"
       },
@@ -381,7 +384,7 @@
         },
         "changePlan": {
           "q": "Kann ich meinen Tarif später hoch- oder herabstufen?",
-          "a": "Auf jeden Fall. Du kannst deinen Tarif jederzeit im Bereich „Abrechnung“ deines Dashboards ändern. Upgrades werden sofort wirksam; Downgrades gelten ab dem nächsten Verlängerungsdatum."
+          "a": "Auf jeden Fall. Du kannst deinen Tarif jederzeit im Bereich \"Abrechnung\" deines Dashboards ändern. Upgrades werden sofort wirksam; Downgrades gelten ab dem nächsten Verlängerungsdatum."
         },
         "payment": {
           "q": "Welche Zahlungsmethoden akzeptiert ihr?",
@@ -393,7 +396,7 @@
         },
         "enterprisePlan": {
           "q": "Was ist der Enterprise-Tarif?",
-          "a": "„Enterprise“ ist ein maßgeschneiderter Tarif für große Unternehmen, die mehr Speicherplatz, dedizierten Support, individuelle SLAs, SSO/SAML, Webhook-Integrationen und das Hosting eigener Domains benötigen. Wende dich an unser Vertriebsteam, um deine Anforderungen zu besprechen."
+          "a": "\"Enterprise\" ist ein maßgeschneiderter Tarif für große Unternehmen, die mehr Speicherplatz, dedizierten Support, individuelle SLAs, SSO/SAML, Webhook-Integrationen und das Hosting eigener Domains benötigen. Wende dich an unser Vertriebsteam, um deine Anforderungen zu besprechen."
         },
         "commercial": {
           "q": "Darf ich VaultTransfer für kommerzielle Zwecke nutzen?",
@@ -401,7 +404,7 @@
         },
         "annualDiscount": {
           "q": "Bietet ihr Rabatte bei jährlicher Abrechnung an?",
-          "a": "Ja – wenn du zur Jahresabrechnung wechselst, sparst du bis zu 33 % im Vergleich zum Monatstarif. Der Rabatt wird automatisch abgezogen, wenn du vor dem Bezahlen auf „Jährlich“ umstellst."
+          "a": "Ja – wenn du zur Jahresabrechnung wechselst, sparst du bis zu 33 % im Vergleich zum Monatstarif. Der Rabatt wird automatisch abgezogen, wenn du vor dem Bezahlen auf \"Jährlich\" umstellst."
         }
       }
     },
@@ -436,15 +439,15 @@
       },
       "register": {
         "q": "Muss ich mich anmelden, um es zu nutzen?",
-        "a": "Nein. Du kannst Dateien kostenlos und ohne Registrierung versenden. Wenn du ein Konto erstellst, erhältst du Zugriff auf erweiterte Funktionen wie Uploads von bis zu 50 GB, Download-Statistiken, passwortgeschützte Links, Übertragungsanalysen und das Empfehlungsprogramm."
+        "a": "Nein. Du kannst Dateien kostenlos und ohne Registrierung versenden. Wenn du ein Konto erstellst, erhältst du Zugriff auf erweiterte Funktionen wie Uploads von bis zu 20 GB, Download-Statistiken, passwortgeschützte Links (ab Pro-Tarif), Übertragungsanalysen und das Empfehlungsprogramm."
       },
       "expiry": {
         "q": "Wie lange sind meine Dateien verfügbar?",
-        "a": "Beim Free-Tarif verfallen Links nach 7 Tagen. Beim Pro-Tarif nach 30 Tagen. Beim Business-Tarif kannst du individuelle Ablaufdaten festlegen oder Dateien unbegrenzt speichern. Enterprise-Tarife unterstützen zudem Links ohne Ablaufdatum."
+        "a": "Beim Free-Tarif verfallen Links nach 7 Tagen. Beim Pro-Tarif nach 90 Tagen. Beim Business-Tarif gibt es kein Ablaufdatum. Enterprise-Tarife unterstützen zudem Links ohne Ablaufdatum."
       },
       "referral": {
         "q": "Wie funktioniert das Empfehlungsprogramm?",
-        "a": "Du kannst Freunde und Kollegen über deinen persönlichen Empfehlungslink zu VaultTransfer einladen. Wenn sich jemand über deinen Link anmeldet und ein Upgrade durchführt, profitieren sowohl du als auch der neue Nutzer davon. Du findest deinen Empfehlungslink im Dashboard unter „Einladen & Verdienen“."
+        "a": "Du kannst Freunde und Kollegen über deinen persönlichen Empfehlungslink zu VaultTransfer einladen. Wenn sich jemand über deinen Link anmeldet und ein Upgrade durchführt, profitieren sowohl du als auch der neue Nutzer davon. Du findest deinen Empfehlungslink im Dashboard unter \"Einladen & Verdienen\"."
       },
       "safe": {
         "q": "Sind meine Dateien sicher?",
@@ -452,7 +455,7 @@
       },
       "whoCanSee": {
         "q": "Wer kann meine Dateien sehen?",
-        "a": "Nur wer den Link hat, kann auf die Dateien zugreifen. Mit dem Business-Tarif kannst du für zusätzlichen Schutz ein Passwort festlegen – der Hash wird mit bcrypt gespeichert, und das Passwort wird niemals im Klartext gespeichert. Unsere Mitarbeiter greifen niemals auf die Inhalte zu."
+        "a": "Nur wer den Link hat, kann auf die Dateien zugreifen. Ab dem Pro-Tarif kannst du für zusätzlichen Schutz ein Passwort festlegen – der Hash wird mit bcrypt gespeichert, und das Passwort wird niemals im Klartext gespeichert. Unsere Mitarbeiter greifen niemals auf die Inhalte zu."
       },
       "scanned": {
         "q": "Werden Dateien analysiert oder gescannt?",
@@ -460,7 +463,7 @@
       },
       "passwordTransfer": {
         "q": "Wie funktionieren passwortgeschützte Überweisungen?",
-        "a": "Wenn du eine Übertragung erstellst, kannst du ein Passwort festlegen, das die Empfänger eingeben müssen, bevor sie auf die Dateien zugreifen oder diese herunterladen können. Das Passwort wird mit bcrypt gehasht und niemals im Klartext gespeichert. Der Passwortschutz ist in den Tarifen „Business“ und „Enterprise“ verfügbar."
+        "a": "Wenn du eine Übertragung erstellst, kannst du ein Passwort festlegen, das die Empfänger eingeben müssen, bevor sie auf die Dateien zugreifen oder diese herunterladen können. Das Passwort wird mit bcrypt gehasht und niemals im Klartext gespeichert. Der Passwortschutz ist in den Tarifen \"Pro\", \"Business\" und \"Enterprise\" verfügbar."
       },
       "payment": {
         "q": "Welche Zahlungsmethoden akzeptiert ihr?",
@@ -484,7 +487,7 @@
       },
       "maxSize": {
         "q": "Wie groß darf die Datei maximal sein?",
-        "a": "Kostenloses Abonnement: 2 GB pro Übertragung. Pro-Abonnement: 50 GB pro Übertragung. Business-Abonnement: 200 GB pro Übertragung. Enterprise: individuelle Limits. Die Anzahl der Übertragungen, die du erstellen kannst, ist unbegrenzt."
+        "a": "Kostenloses Abonnement: 2 GB pro Übertragung. Pro-Abonnement: 20 GB pro Übertragung. Business-Abonnement: 100 GB pro Übertragung. Enterprise: individuelle Limits. Die Anzahl der Übertragungen, die du erstellen kannst, ist unbegrenzt."
       },
       "formats": {
         "q": "Welche Dateiformate werden unterstützt?",
@@ -500,11 +503,11 @@
       },
       "apiAccess": {
         "q": "Wie greife ich auf die VaultTransfer-API zu?",
-        "a": "VaultTransfer bietet eine öffentliche REST-API, die Abonnenten der Business- und Enterprise-Tarife zur Verfügung steht. Du kannst Überweisungen programmgesteuert erstellen, auflisten und verwalten. Die vollständige API-Dokumentation und die Endpunkt-Referenz findest du in deinem Dashboard unter „API-Schlüssel“."
+        "a": "VaultTransfer bietet eine öffentliche REST-API, die Abonnenten der Business- und Enterprise-Tarife zur Verfügung steht. Du kannst Überweisungen programmgesteuert erstellen, auflisten und verwalten. Die vollständige API-Dokumentation und die Endpunkt-Referenz findest du in deinem Dashboard unter \"API-Schlüssel\"."
       },
       "apiKeys": {
         "q": "Wie erstelle und verwalte ich API-Schlüssel?",
-        "a": "API-Schlüssel werden im Bereich „API-Schlüssel“ deines Dashboards erstellt. Gib jedem Schlüssel einen aussagekräftigen Namen (z. B. „Produktion“). Die Schlüssel werden nur einmal bei der Erstellung angezeigt – kopiere sie und bewahre sie sicher auf. Du kannst das Datum der letzten Verwendung für jeden Schlüssel einsehen und jeden Schlüssel jederzeit widerrufen."
+        "a": "API-Schlüssel werden im Bereich \"API-Schlüssel\" deines Dashboards erstellt. Gib jedem Schlüssel einen aussagekräftigen Namen (z. B. \"Produktion\"). Die Schlüssel werden nur einmal bei der Erstellung angezeigt – kopiere sie und bewahre sie sicher auf. Du kannst das Datum der letzten Verwendung für jeden Schlüssel einsehen und jeden Schlüssel jederzeit widerrufen."
       }
     }
   },

@@ -144,9 +144,9 @@ export default function PricingClient() {
     {
       title: t('comparison.sec.storage'),
       rows: [
-        { label: r('maxUpload'),    free: v('2gb'),       pro: v('50gb'),      business: v('200gb'),     enterprise: v('custom') },
-        { label: r('linkExpiry'),   free: v('7days'),     pro: v('30days'),    business: v('noLimit'),   enterprise: v('noLimit') },
-        { label: r('maxDownloads'), free: v('unlimited'), pro: v('unlimited'), business: v('unlimited'), enterprise: v('unlimited') },
+        { label: r('maxUpload'),    free: v('2gb'),       pro: v('20gb'),      business: v('100gb'),     enterprise: v('custom') },
+        { label: r('linkExpiry'),   free: v('7days'),     pro: v('90days'),    business: v('noLimit'),   enterprise: v('noLimit') },
+        { label: r('maxDownloads'), free: '5',            pro: v('unlimited'), business: v('unlimited'), enterprise: v('unlimited') },
         { label: r('simultaneous'), free: v('unlimited'), pro: v('unlimited'), business: v('unlimited'), enterprise: v('unlimited') },
       ],
     },
@@ -154,7 +154,7 @@ export default function PricingClient() {
       title: t('comparison.sec.features'),
       rows: [
         { label: r('adsFree'),       free: false, pro: true,  business: true,  enterprise: true },
-        { label: r('passwordLinks'), free: false, pro: false, business: true,  enterprise: true },
+        { label: r('passwordLinks'), free: false, pro: true,  business: true,  enterprise: true },
         { label: r('downloadStats'), free: false, pro: true,  business: true,  enterprise: true },
         { label: r('customExpiry'),  free: false, pro: true,  business: true,  enterprise: true },
         { label: r('transferNotes'), free: true,  pro: true,  business: true,  enterprise: true },

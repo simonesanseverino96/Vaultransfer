@@ -105,7 +105,7 @@ export default function SubscriptionCard({
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6 pt-6 border-t border-white/5">
         {[
           { label: t('maxUpload'), value: formatBytes(planConfig.maxTotalSizeMB * 1024 * 1024) },
-          { label: t('maxExpiry'), value: t('days', { count: planConfig.maxDaysExpiry }) },
+          { label: t('maxExpiry'), value: planConfig.maxDaysExpiry === null ? t('unlimited') : t('days', { count: planConfig.maxDaysExpiry }) },
           { label: t('maxDownloads'), value: planConfig.maxDownloads === null ? t('unlimited') : String(planConfig.maxDownloads) },
           { label: t('ads'), value: planConfig.hasAds ? t('yes') : t('no') },
         ].map((item, i) => (

@@ -271,7 +271,7 @@
         "cta": "Ga gratis aan de slag",
         "feature0": "2 GB per overdracht",
         "feature1": "Links vervallen na 7 dagen",
-        "feature2": "Onbeperkt downloaden",
+        "feature2": "Maximaal 5 downloads per link",
         "feature3": "Overdrachtnotities",
         "feature4": "E-mail bij de eerste download"
       },
@@ -280,8 +280,8 @@
         "desc": "Meer ruimte, langere links en geen advertenties.",
         "badge": "Meest populair",
         "cta": "Start Pro",
-        "feature0": "50 GB per overdracht",
-        "feature1": "Links vervallen na 30 dagen",
+        "feature0": "20 GB per overdracht",
+        "feature1": "Links vervallen na 90 dagen",
         "feature2": "Geen advertenties",
         "feature3": "Downloadstatistieken",
         "feature4": "Aangepaste vervaldata",
@@ -291,7 +291,7 @@
         "name": "Zakelijk",
         "desc": "Onbeperkte geldigheidsduur, API-toegang en geavanceerde beveiliging.",
         "cta": "Een bedrijf starten",
-        "feature0": "200 GB per overdracht",
+        "feature0": "100 GB per overdracht",
         "feature1": "Geen vervaldatum",
         "feature2": "Met een wachtwoord beveiligde links",
         "feature3": "Openbare REST API & sleutels",
@@ -321,8 +321,11 @@
       },
       "val": {
         "2gb": "2 GB",
+        "20gb": "20 GB",
         "50gb": "50 GB",
-        "200gb": "Tweehonderd gigabyte",
+        "100gb": "100 GB",
+        "200gb": "200 GB",
+        "90days": "90 dagen",
         "custom": "Op maat",
         "7days": "7 dagen",
         "30days": "30 dagen",
@@ -436,11 +439,11 @@
       },
       "register": {
         "q": "Moet ik me aanmelden om het te kunnen gebruiken?",
-        "a": "Nee. Je kunt gratis bestanden versturen zonder je te registreren. Als je een account aanmaakt, krijg je toegang tot geavanceerde functies zoals uploads tot 50 GB, downloadstatistieken, met een wachtwoord beveiligde links, overdrachtsstatistieken en het aanbevelingsprogramma."
+        "a": "Nee. Je kunt gratis bestanden versturen zonder je te registreren. Als je een account aanmaakt, krijg je toegang tot geavanceerde functies zoals uploads tot 20 GB, downloadstatistieken, met een wachtwoord beveiligde links (Pro en hoger), overdrachtsstatistieken en het aanbevelingsprogramma."
       },
       "expiry": {
         "q": "Hoe lang blijven mijn bestanden beschikbaar?",
-        "a": "Bij het Free-abonnement vervallen links na 7 dagen. Bij Pro na 30 dagen. Bij Business kun je zelf een vervaldatum instellen of bestanden voor onbepaalde tijd bewaren. Enterprise-abonnementen bieden ook links zonder vervaldatum."
+        "a": "Bij het Free-abonnement vervallen links na 7 dagen. Bij Pro na 90 dagen. Bij Business is er geen vervaldatumbeperking. Enterprise-abonnementen bieden ook links zonder vervaldatum."
       },
       "referral": {
         "q": "Hoe werkt het aanbevelingsprogramma?",
@@ -452,7 +455,7 @@
       },
       "whoCanSee": {
         "q": "Wie kan mijn bestanden zien?",
-        "a": "Alleen degenen die de link hebben, hebben toegang tot de bestanden. Met het Business-abonnement kun je een wachtwoord instellen voor extra beveiliging — de hash wordt opgeslagen met bcrypt en het wachtwoord wordt nooit in leesbare tekst bewaard. Onze medewerkers hebben nooit toegang tot de inhoud."
+        "a": "Alleen degenen die de link hebben, hebben toegang tot de bestanden. Met het Pro-abonnement en hoger kun je een wachtwoord instellen voor extra beveiliging — de hash wordt opgeslagen met bcrypt en het wachtwoord wordt nooit in leesbare tekst bewaard. Onze medewerkers hebben nooit toegang tot de inhoud."
       },
       "scanned": {
         "q": "Worden bestanden geanalyseerd of gescand?",
@@ -460,7 +463,7 @@
       },
       "passwordTransfer": {
         "q": "Hoe werken met een wachtwoord beveiligde overboekingen?",
-        "a": "Wanneer je een overdracht aanmaakt, kun je een wachtwoord instellen dat ontvangers moeten invoeren voordat ze de bestanden kunnen openen of downloaden. Het wachtwoord wordt met bcrypt gehasht en nooit in leesbare tekst opgeslagen. Wachtwoordbeveiliging is beschikbaar in de Business- en Enterprise-abonnementen."
+        "a": "Wanneer je een overdracht aanmaakt, kun je een wachtwoord instellen dat ontvangers moeten invoeren voordat ze de bestanden kunnen openen of downloaden. Het wachtwoord wordt met bcrypt gehasht en nooit in leesbare tekst opgeslagen. Wachtwoordbeveiliging is beschikbaar in de Pro-, Business- en Enterprise-abonnementen."
       },
       "payment": {
         "q": "Welke betaalmethoden accepteren jullie?",
@@ -484,7 +487,7 @@
       },
       "maxSize": {
         "q": "Wat is de maximale bestandsgrootte?",
-        "a": "Gratis abonnement: 2 GB per overdracht. Pro-abonnement: 50 GB per overdracht. Business-abonnement: 200 GB per overdracht. Enterprise: limieten op maat. Er gelden geen beperkingen voor het aantal overdrachten dat je kunt aanmaken."
+        "a": "Gratis abonnement: 2 GB per overdracht. Pro-abonnement: 20 GB per overdracht. Business-abonnement: 100 GB per overdracht. Enterprise: limieten op maat. Er gelden geen beperkingen voor het aantal overdrachten dat je kunt aanmaken."
       },
       "formats": {
         "q": "Welke bestandsformaten worden ondersteund?",

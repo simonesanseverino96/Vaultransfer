@@ -271,7 +271,7 @@
         "cta": "Comece de graça",
         "feature0": "2 GB por transferência",
         "feature1": "Os links expiram após 7 dias",
-        "feature2": "Downloads ilimitados",
+        "feature2": "Máximo 5 downloads por link",
         "feature3": "Notas de transferência",
         "feature4": "E-mail no primeiro download"
       },
@@ -280,8 +280,8 @@
         "desc": "Mais espaço, links mais longos e sem anúncios.",
         "badge": "Mais populares",
         "cta": "Início Pro",
-        "feature0": "50 GB por transferência",
-        "feature1": "Os links expiram após 30 dias",
+        "feature0": "20 GB por transferência",
+        "feature1": "Os links expiram após 90 dias",
         "feature2": "Sem anúncios",
         "feature3": "Estatísticas de download",
         "feature4": "Datas de validade personalizadas",
@@ -291,7 +291,7 @@
         "name": "Negócios",
         "desc": "Validade ilimitada, acesso à API e segurança avançada.",
         "cta": "Começar um negócio",
-        "feature0": "200 GB por transferência",
+        "feature0": "100 GB por transferência",
         "feature1": "Sem prazo de validade",
         "feature2": "Links protegidos por senha",
         "feature3": "API REST pública e chaves",
@@ -321,11 +321,14 @@
       },
       "val": {
         "2gb": "2 GB",
+        "20gb": "20 GB",
         "50gb": "50 GB",
-        "200gb": "Duzentos gigabytes",
+        "100gb": "100 GB",
+        "200gb": "200 GB",
         "custom": "Personalizado",
         "7days": "7 dias",
         "30days": "30 dias",
+        "90days": "90 dias",
         "noLimit": "Sem limite",
         "unlimited": "Ilimitado"
       },
@@ -401,7 +404,7 @@
         },
         "annualDiscount": {
           "q": "Vocês oferecem descontos para pagamento anual?",
-          "a": "Sim — mudar para o plano anual te ajuda a economizar até 33% em comparação com o preço mensal. O desconto é aplicado automaticamente quando você seleciona a opção “Anual” antes de finalizar a compra."
+          "a": "Sim — mudar para o plano anual te ajuda a economizar até 33% em comparação com o preço mensal. O desconto é aplicado automaticamente quando você seleciona a opção \"Anual\" antes de finalizar a compra."
         }
       }
     },
@@ -436,15 +439,15 @@
       },
       "register": {
         "q": "Preciso me cadastrar para usar?",
-        "a": "Não. Você pode enviar arquivos gratuitamente sem precisar se cadastrar. Ao criar uma conta, você tem acesso a recursos avançados, como uploads de até 50 GB, estatísticas de download, links protegidos por senha, análises de transferência e o programa de indicação."
+        "a": "Não. Você pode enviar arquivos gratuitamente sem precisar se cadastrar. Ao criar uma conta, você tem acesso a recursos avançados, como uploads de até 20 GB, estatísticas de download, links protegidos por senha (plano Pro e superior), análises de transferência e o programa de indicação."
       },
       "expiry": {
         "q": "Por quanto tempo meus arquivos ficam disponíveis?",
-        "a": "No plano Gratuito, os links expiram após 7 dias. No plano Pro, após 30 dias. No plano Business, você pode definir datas de validade personalizadas ou manter os arquivos por tempo indeterminado. Os planos Enterprise também oferecem links sem prazo de validade."
+        "a": "No plano Gratuito, os links expiram após 7 dias. No plano Pro, após 90 dias. No plano Business, os links não têm prazo de validade. Os planos Enterprise também oferecem links sem prazo de validade."
       },
       "referral": {
         "q": "Como funciona o programa de indicação?",
-        "a": "Você pode convidar amigos e colegas para o VaultTransfer usando seu link de indicação exclusivo. Quando alguém se cadastra e faz o upgrade pelo seu link, tanto você quanto o novo usuário recebem benefícios. Encontre seu link de indicação no Painel, na seção “Convide e Ganhe”."
+        "a": "Você pode convidar amigos e colegas para o VaultTransfer usando seu link de indicação exclusivo. Quando alguém se cadastra e faz o upgrade pelo seu link, tanto você quanto o novo usuário recebem benefícios. Encontre seu link de indicação no Painel, na seção \"Convide e Ganhe\"."
       },
       "safe": {
         "q": "Meus arquivos estão seguros?",
@@ -452,7 +455,7 @@
       },
       "whoCanSee": {
         "q": "Quem pode ver meus arquivos?",
-        "a": "Só quem tiver o link pode acessar os arquivos. Com o plano Business, você pode adicionar uma senha para proteção extra — o hash é armazenado com o bcrypt e a senha nunca é salva em texto simples. Nossa equipe nunca acessa o conteúdo."
+        "a": "Só quem tiver o link pode acessar os arquivos. A partir do plano Pro, você pode adicionar uma senha para proteção extra — o hash é armazenado com o bcrypt e a senha nunca é salva em texto simples. Nossa equipe nunca acessa o conteúdo."
       },
       "scanned": {
         "q": "Os arquivos são analisados ou verificados?",
@@ -460,7 +463,7 @@
       },
       "passwordTransfer": {
         "q": "Como funcionam as transferências protegidas por senha?",
-        "a": "Ao criar uma transferência, você pode definir uma senha que os destinatários devem digitar antes de acessar ou baixar os arquivos. A senha é criptografada com o bcrypt e nunca é armazenada em texto simples. A proteção por senha está disponível nos planos Business e Enterprise."
+        "a": "Ao criar uma transferência, você pode definir uma senha que os destinatários devem digitar antes de acessar ou baixar os arquivos. A senha é criptografada com o bcrypt e nunca é armazenada em texto simples. A proteção por senha está disponível nos planos Pro, Business e Enterprise."
       },
       "payment": {
         "q": "Quais formas de pagamento vocês aceitam?",
@@ -484,7 +487,7 @@
       },
       "maxSize": {
         "q": "Qual é o tamanho máximo do arquivo?",
-        "a": "Plano Gratuito: 2 GB por transferência. Plano Pro: 50 GB por transferência. Plano Business: 200 GB por transferência. Enterprise: limites personalizados. Não há limites para o número de transferências que você pode criar."
+        "a": "Plano Gratuito: 2 GB por transferência. Plano Pro: 20 GB por transferência. Plano Business: 100 GB por transferência. Enterprise: limites personalizados. Não há limites para o número de transferências que você pode criar."
       },
       "formats": {
         "q": "Quais formatos de arquivo são compatíveis?",
